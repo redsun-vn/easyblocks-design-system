@@ -1,4 +1,3 @@
-/* with love from shopstory */
 import { Provider, Root as Root3, Trigger, Portal, Content as Content2, Arrow as Arrow2 } from '../node_modules/@radix-ui/react-tooltip/dist/index.mjs.js';
 import React__default from 'react';
 import { Colors } from '../colors.js';

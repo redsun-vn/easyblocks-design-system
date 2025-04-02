@@ -1,4 +1,3 @@
-/* with love from shopstory */
 import toast from 'react-hot-toast';
 export { Toaster } from 'react-hot-toast';
 import { Fonts } from './fonts.js';

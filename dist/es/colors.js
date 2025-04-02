@@ -1,4 +1,3 @@
-/* with love from shopstory */
 const Colors = {
   blue: "#3F76CD",
   focus: "#8EB2F1",

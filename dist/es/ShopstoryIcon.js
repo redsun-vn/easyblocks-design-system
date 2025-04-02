@@ -1,4 +1,3 @@
-/* with love from shopstory */
 import React__default from 'react';
 
 function ShopstoryIcon(_ref) {

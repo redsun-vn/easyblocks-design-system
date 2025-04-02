@@ -1,4 +1,3 @@
-/* with love from shopstory */
 export { Fonts } from './fonts.js';
 export { Colors } from './colors.js';
 export { Icons } from './icons.js';

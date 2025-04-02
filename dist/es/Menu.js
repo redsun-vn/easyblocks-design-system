@@ -1,4 +1,3 @@
-/* with love from shopstory */
 import { Root as Root2, Trigger, Content as Content2, Item as Item2, Separator as Separator2, Portal as Portal2 } from './node_modules/@radix-ui/react-dropdown-menu/dist/index.mjs.js';
 import React__default from 'react';
 import { Colors } from './colors.js';

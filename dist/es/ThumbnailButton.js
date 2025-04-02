@@ -1,4 +1,3 @@
-/* with love from shopstory */
 import styled from 'styled-components';
 import * as React from 'react';
 import { ButtonGhost } from './buttons.js';

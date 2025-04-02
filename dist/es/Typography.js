@@ -1,5 +1,4 @@
 'use client';
-/* with love from shopstory */
 import _extends from '@babel/runtime/helpers/extends';
 import React__default from 'react';
 import styled, { css } from 'styled-components';

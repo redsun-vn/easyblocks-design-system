@@ -1,4 +1,3 @@
-/* with love from shopstory */
 import { Root as Root2, List, Trigger, TabsContent } from './node_modules/@radix-ui/react-tabs/dist/index.mjs.js';
 import React__default from 'react';
 import { Colors } from './colors.js';

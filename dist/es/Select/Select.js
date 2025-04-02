@@ -1,4 +1,3 @@
-/* with love from shopstory */
 import { ChevronDownIcon, CheckIcon } from '../node_modules/@radix-ui/react-icons/dist/react-icons.esm.js';
 import { Trigger, Root as Root2, Value, Icon, Portal, Content as Content2, Viewport, Item, ItemIndicator, ItemText, Separator } from '../node_modules/@radix-ui/react-select/dist/index.mjs.js';
 import React__default, { forwardRef } from 'react';

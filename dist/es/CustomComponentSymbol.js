@@ -1,4 +1,3 @@
-/* with love from shopstory */
 import styled from 'styled-components';
 import { Colors } from './colors.js';
 

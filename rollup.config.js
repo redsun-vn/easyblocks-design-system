@@ -24,6 +24,7 @@ const getPlugins = (stat, isFullBundle = false) => {
       extensions,
       exclude: [/(node_modules|(editor|compiler)\/dist)/],
       babelHelpers: "runtime",
+      sourceMaps: true,
     }),
     nodeResolve({
       extensions,
@@ -40,6 +41,7 @@ const getPlugins = (stat, isFullBundle = false) => {
 
     {
       ...preserveDirectivesPlugin,
+      // @ts-ignore
       renderChunk: preserveDirectivesPlugin.renderChunk.handler,
     },
   ];
@@ -67,22 +69,16 @@ function createRollupConfigs({
   baseStatOutputDir,
   isFullBundle = false,
 }) {
-  const banner = "/* with love from shopstory */";
   const external = isFullBundle ? [] : allDependenciesKeys;
 
   const onwarn = (warning, warn) => {
-    if (
-      warning.message.includes(
-        "Module level directives cause errors when bundled, 'use client' was ignored."
-      )
-    ) {
+    if (warning.code === "EVAL") {
       return;
     }
 
-    // parser file is automatically generated and we don't have control over it
     if (
       warning.message.includes(
-        `Entry module "../reduce-css-calc/src/parser.js" is implicitly using "default" export mode`
+        "Module level directives cause errors when bundled, 'use client' was ignored."
       )
     ) {
       return;
@@ -97,15 +93,11 @@ function createRollupConfigs({
     output: {
       format: "es",
       dir: `${baseOutputDir}/es`,
-      banner,
       preserveModules: true,
       preserveModulesRoot: "src",
     },
     plugins: [
-      ...getPlugins(
-        path.join(baseStatOutputDir, "es/index.html"),
-        isFullBundle
-      ),
+      ...getPlugins("es"),
       alias({
         entries: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
       }),
@@ -120,16 +112,12 @@ function createRollupConfigs({
     output: {
       format: "cjs",
       dir: `${baseOutputDir}/cjs`,
-      banner,
       preserveModules: true,
       preserveModulesRoot: "src",
-      entryFileNames: "[name].cjs",
+      exports: "auto",
     },
     plugins: [
-      ...getPlugins(
-        path.join(baseStatOutputDir, "cjs/index.html"),
-        isFullBundle
-      ),
+      ...getPlugins("cjs"),
       alias({
         entries: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
       }),

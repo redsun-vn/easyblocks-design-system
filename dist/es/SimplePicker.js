@@ -1,4 +1,3 @@
-/* with love from shopstory */
 import React__default, { useState, useEffect, useRef } from 'react';
 import { ButtonGhost } from './buttons.js';
 import { BasicRow } from './rows/BasicRow.js';

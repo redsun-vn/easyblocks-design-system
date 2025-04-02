@@ -1,4 +1,3 @@
-/* with love from shopstory */
 import React__default from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Colors } from './colors.js';

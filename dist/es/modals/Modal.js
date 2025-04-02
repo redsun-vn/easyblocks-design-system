@@ -1,4 +1,3 @@
-/* with love from shopstory */
 import _extends from '@babel/runtime/helpers/extends';
 import React__default, { useContext } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';

@@ -1,4 +1,3 @@
-/* with love from shopstory */
 const mainFont = "system-ui";
 const fontVariationSettings = `'opsz' 21`;
 const Fonts = {
