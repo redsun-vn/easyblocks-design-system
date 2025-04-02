@@ -16,7 +16,7 @@
   "dependencies": {
     "@babel/runtime": "^7.21.0",
     "lodash": "^4.17.21",
-    "react-hot-toast": "2.0.0",
+    "react-hot-toast": "^2.4.0",
     "react-modal": "^3.16.1",
     "react-select": "^5.7.0",
     "styled-components": "^6.0.7"
