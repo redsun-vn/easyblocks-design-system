@@ -24,7 +24,6 @@ const getPlugins = (stat, isFullBundle = false) => {
       extensions,
       exclude: [/(node_modules|(editor|compiler)\/dist)/],
       babelHelpers: "runtime",
-      sourceMaps: true,
     }),
     nodeResolve({
       extensions,
@@ -41,7 +40,6 @@ const getPlugins = (stat, isFullBundle = false) => {
 
     {
       ...preserveDirectivesPlugin,
-      // @ts-ignore
       renderChunk: preserveDirectivesPlugin.renderChunk.handler,
     },
   ];
@@ -72,13 +70,18 @@ function createRollupConfigs({
   const external = isFullBundle ? [] : allDependenciesKeys;
 
   const onwarn = (warning, warn) => {
-    if (warning.code === "EVAL") {
-      return;
-    }
-
     if (
       warning.message.includes(
         "Module level directives cause errors when bundled, 'use client' was ignored."
+      )
+    ) {
+      return;
+    }
+
+    // parser file is automatically generated and we don't have control over it
+    if (
+      warning.message.includes(
+        `Entry module "../reduce-css-calc/src/parser.js" is implicitly using "default" export mode`
       )
     ) {
       return;
@@ -97,7 +100,10 @@ function createRollupConfigs({
       preserveModulesRoot: "src",
     },
     plugins: [
-      ...getPlugins("es"),
+      ...getPlugins(
+        path.join(baseStatOutputDir, "es/index.html"),
+        isFullBundle
+      ),
       alias({
         entries: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
       }),
@@ -114,10 +120,13 @@ function createRollupConfigs({
       dir: `${baseOutputDir}/cjs`,
       preserveModules: true,
       preserveModulesRoot: "src",
-      exports: "auto",
+      entryFileNames: "[name].cjs",
     },
     plugins: [
-      ...getPlugins("cjs"),
+      ...getPlugins(
+        path.join(baseStatOutputDir, "cjs/index.html"),
+        isFullBundle
+      ),
       alias({
         entries: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
       }),
