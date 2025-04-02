@@ -96,8 +96,6 @@ function createRollupConfigs({
     output: {
       format: "es",
       dir: `${baseOutputDir}/es`,
-      preserveModules: true,
-      preserveModulesRoot: "src",
     },
     plugins: [
       ...getPlugins(
@@ -118,8 +116,6 @@ function createRollupConfigs({
     output: {
       format: "cjs",
       dir: `${baseOutputDir}/cjs`,
-      preserveModules: true,
-      preserveModulesRoot: "src",
       entryFileNames: "[name].cjs",
     },
     plugins: [
