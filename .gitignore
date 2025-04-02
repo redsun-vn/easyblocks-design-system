@@ -1,36 +1,42 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# local env files
-.env*.local
-
-# vercel
 .vercel
+node_modules/
+.next/
 
-# typescript
+.env
+.env.local
+
+# from tina
+*.log
+**/node_modules/
+
+# temporarily removed, build of tina modifications from context of shopstory to be done
+# **/build/
+# **/dist/
+**/dist-types/
+**/stats
+
+**/.rpt2_cache
+**/.rts2_cache
+**/.rts2_cache_cjs
+**/.rts2_cache_esm
+**/.rts2_cache_umd
+**/.rts2_cache_system
+*.swp
+packages/cli/forestry/.env
+*.tgz
+.DS_Store
+.idea/
+**/.cache/
+**/yarn.lock
+
+# playwrite
+**/test-results
+**/tests-out
+
 *.tsbuildinfo
-next-env.d.ts
-package-lock.json
+
+# jest
+**/coverage/
+
+# Nx
+.nx/
