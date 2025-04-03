@@ -2,7 +2,7 @@ import { Root, List, Trigger, TabsContent } from "@radix-ui/react-tabs";
 import React from "react";
 import { Colors } from "./colors";
 import { Typography } from "./Typography";
-import styled from "styled-components";
+import { styled } from "styled-components";
 
 const StyledRoot = styled(Root)`
   width: 100%;

@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var _extends = require('@babel/runtime/helpers/extends');
 var React = require('react');
-var styled = require('styled-components');
+var styledComponents = require('styled-components');
 var ReactModal = require('react-modal');
 var debounce = require('lodash/debounce');
 var toast = require('react-hot-toast');
@@ -36,7 +36,6 @@ function _interopNamespace(e) {
 var _extends__default = /*#__PURE__*/_interopDefaultLegacy(_extends);
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
-var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
 var ReactModal__default = /*#__PURE__*/_interopDefaultLegacy(ReactModal);
 var debounce__default = /*#__PURE__*/_interopDefaultLegacy(debounce);
 var toast__default = /*#__PURE__*/_interopDefaultLegacy(toast);
@@ -113,7 +112,7 @@ const Colors = {
   white: "#FFFFFF"
 };
 
-const IconContainer$1 = styled__default["default"].div.withConfig({
+const IconContainer$1 = styledComponents.styled.div.withConfig({
   shouldForwardProp(prop) {
     return !["size", "isStroke"].includes(prop);
   }
@@ -592,7 +591,7 @@ const Typography = _ref => {
 //    and maybe you would remember about that to change tag of outer `Typography` component
 //    or maybe you would get warning from React about incorrect nesting of HTML elements.
 //    By using the `div` as the default, you don't have to worry about it.
-const TypographyRoot = styled__default["default"].div.withConfig({
+const TypographyRoot = styledComponents.styled.div.withConfig({
   displayName: "Typography__TypographyRoot",
   componentId: "sc-yrvxxm-0"
 })(["color:", ";", " text-align:", ";", ""], _ref2 => {
@@ -614,17 +613,17 @@ const TypographyRoot = styled__default["default"].div.withConfig({
   let {
     $isTruncated
   } = _ref5;
-  return $isTruncated && styled.css(["overflow:hidden;text-overflow:ellipsis;"]);
+  return $isTruncated && styledComponents.css(["overflow:hidden;text-overflow:ellipsis;"]);
 });
 
 const DEFAULT_SIZE = 6;
-const CustomComponentSymbol = styled__default["default"].div.withConfig({
+const CustomComponentSymbol = styledComponents.styled.div.withConfig({
   displayName: "CustomComponentSymbol",
   componentId: "sc-1b4wdw-0"
 })(["width:", "px;height:", "px;background:", ";transform:rotate(45deg);"], p => p.size ?? DEFAULT_SIZE, p => p.size ?? DEFAULT_SIZE, Colors.purple);
 
-const rotationKeyframes = styled.keyframes(["0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}"]);
-const LoaderWrapper = styled__default["default"].div.withConfig({
+const rotationKeyframes = styledComponents.keyframes(["0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}"]);
+const LoaderWrapper = styledComponents.styled.div.withConfig({
   displayName: "Loader__LoaderWrapper",
   componentId: "sc-c4rfd8-0"
 })(["width:10px;height:10px;border:2px solid ", ";border-bottom-color:transparent;border-radius:50%;animation:", " 1s linear infinite;"], Colors.black40, rotationKeyframes);
@@ -637,13 +636,13 @@ function Loader(_ref) {
   });
 }
 
-const sharedCSS = p => styled.css(["", ";border:none;outline:none;height:", ";", " border-radius:6px;line-height:1;transition:all 0.1s;display:flex;flex-direction:row;gap:6px;justify-content:center;align-items:center;"], Fonts.body, p.height !== undefined ? p.height : p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px", p.hideLabel ? `
+const sharedCSS = p => styledComponents.css(["", ";border:none;outline:none;height:", ";", " border-radius:6px;line-height:1;transition:all 0.1s;display:flex;flex-direction:row;gap:6px;justify-content:center;align-items:center;"], Fonts.body, p.height !== undefined ? p.height : p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px", p.hideLabel ? `
     width: ${p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px"};
   ` : `
     padding-left: ${p.isGhost ? p.noPadding ? "0px" : "6px" : "10px"};
     padding-right: ${p.isGhost ? p.noPadding ? "0px" : "6px" : "10px"};
   `);
-const PrimaryButton = styled__default["default"].button.withConfig({
+const PrimaryButton = styledComponents.styled.button.withConfig({
   displayName: "buttons__PrimaryButton",
   componentId: "sc-1b20me-0"
 })(["", " background-color:", ";color:white;min-width:60px;", ""], p => sharedCSS(p), Colors.blue50, p => p.disabled ? `
@@ -662,7 +661,7 @@ const PrimaryButton = styled__default["default"].button.withConfig({
     }
     
   `);
-const DangerButton = styled__default["default"].button.withConfig({
+const DangerButton = styledComponents.styled.button.withConfig({
   displayName: "buttons__DangerButton",
   componentId: "sc-1b20me-1"
 })(["", " background-color:", ";color:white;min-width:60px;", ""], p => sharedCSS(p), Colors.red, p => p.disabled ? `
@@ -681,7 +680,7 @@ const DangerButton = styled__default["default"].button.withConfig({
     }
     
   `);
-const SecondaryButton = styled__default["default"].button.withConfig({
+const SecondaryButton = styledComponents.styled.button.withConfig({
   displayName: "buttons__SecondaryButton",
   componentId: "sc-1b20me-2"
 })(["", " background-color:", ";color:black;min-width:60px;", ""], p => sharedCSS(p), Colors.black5, p => p.disabled ? `
@@ -700,15 +699,15 @@ const SecondaryButton = styled__default["default"].button.withConfig({
       }
     
   `);
-const GhostButton = styled__default["default"].button.withConfig({
+const GhostButton = styledComponents.styled.button.withConfig({
   displayName: "buttons__GhostButton",
   componentId: "sc-1b20me-3"
 })(["", " background-color:transparent;color:black;border:1px solid transparent;border-radius:2px;&:hover{border-color:#e5e5e5;}&:focus-visible{box-shadow:0 0 0 2px ", ";}&:active{background-color:", ";}"], p => sharedCSS(p), Colors.blue50, Colors.black20);
-const GhostColorButton = styled__default["default"].button.withConfig({
+const GhostColorButton = styledComponents.styled.button.withConfig({
   displayName: "buttons__GhostColorButton",
   componentId: "sc-1b20me-4"
 })(["", " background-color:transparent;color:", ";&:hover{background-color:", ";}&:focus-visible{box-shadow:0 0 0 2px ", ";}&:active{background-color:", ";}"], p => sharedCSS(p), Colors.blue50, Colors.blue10, Colors.blue50, Colors.black20);
-const EnhancerContainer = styled__default["default"].div.withConfig({
+const EnhancerContainer = styledComponents.styled.div.withConfig({
   displayName: "buttons__EnhancerContainer",
   componentId: "sc-1b20me-5"
 })(["position:relative;width:", ";height:", ";overflow:hidden;flex-shrink:0;"], p => p.variant === "large" ? "24px" : "16px", p => p.variant === "large" ? "24px" : "16px");
@@ -756,7 +755,7 @@ const ButtonGhostColor = props => /*#__PURE__*/React__default["default"].createE
   isGhost: true,
   noPadding: props.noPadding
 }));
-const IconButtonPrimaryStyled = styled__default["default"](Button).withConfig({
+const IconButtonPrimaryStyled = styledComponents.styled(Button).withConfig({
   displayName: "buttons__IconButtonPrimaryStyled",
   componentId: "sc-1b20me-6"
 })(["min-width:0;border-radius:50%;"]);
@@ -780,7 +779,7 @@ function sizing(p) {
     paddingIcon: paddingIcon + "px"
   };
 }
-const Root$8 = styled__default["default"].div.withConfig({
+const Root$8 = styledComponents.styled.div.withConfig({
   displayName: "ControlContainer__Root",
   componentId: "sc-1i70r11-0"
 })(["position:relative;height:", ";width:", ";color:black;", " &:focus-within{box-shadow:0 0 0 2px ", ";.ss-arrow{color:black;}}transition:box-shadow 0.1s;border-radius:2px;display:inline-block;", ";"], p => sizing(p).height, p => sizing(p).width, p => {
@@ -815,7 +814,7 @@ const Root$8 = styled__default["default"].div.withConfig({
     }
   }
 }, p => p.hasError ? Colors.red : Colors.focus, Fonts.body);
-const IconContainer = styled__default["default"].div.withConfig({
+const IconContainer = styledComponents.styled.div.withConfig({
   displayName: "ControlContainer__IconContainer",
   componentId: "sc-1i70r11-1"
 })(["color:", ";position:absolute;left:", ";top:", ";pointer-events:none;"], p => p.iconBlack ? "black" : Colors.black40, p => sizing(p).paddingHorizontal, p => sizing(p).paddingVertical);
@@ -830,10 +829,10 @@ const ControlContainer = _ref => {
   }, props), Icon && /*#__PURE__*/React__default["default"].createElement(IconContainer, props, /*#__PURE__*/React__default["default"].createElement(Icon, null)), props.children);
 };
 function getControlPadding() {
-  return styled.css(["padding-left:", ";padding-right:", ";"], p => sizing(p).paddingIcon, p => sizing(p).paddingHorizontal);
+  return styledComponents.css(["padding-left:", ";padding-right:", ";"], p => sizing(p).paddingIcon, p => sizing(p).paddingHorizontal);
 }
 
-const StyledInput = styled__default["default"].input.withConfig({
+const StyledInput = styledComponents.styled.input.withConfig({
   displayName: "Input__StyledInput",
   componentId: "sc-1nyhv3t-0"
 })(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration{display:none;}", " ", ";text-align:", ";"], p => !p.isRaw && getControlPadding(), Fonts.body, p => p.align === "right" ? "right" : "left");
@@ -872,7 +871,7 @@ const InputRaw = /*#__PURE__*/React.forwardRef((props, ref) => {
  * TODO: this toggle button doesn't make much sense from semantic perspective
  */
 
-const StyledButton = styled__default["default"].button.withConfig({
+const StyledButton = styledComponents.styled.button.withConfig({
   displayName: "ToggleButton__StyledButton",
   componentId: "sc-1mpua28-0"
 })(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;", " ", " border-radius:2px;background-color:", ";"], getControlPadding(), p => p.hideLabel ? "padding-right: 0;" : "", p => p.selected ? Colors.black10 : "transparent");
@@ -891,7 +890,7 @@ const ToggleButton = props => {
     }
   }), props.hideLabel ? null : props.children));
 };
-const SelectInlineRoot = styled__default["default"].div.withConfig({
+const SelectInlineRoot = styledComponents.styled.div.withConfig({
   displayName: "ToggleButton__SelectInlineRoot",
   componentId: "sc-1mpua28-1"
 })(["display:flex;flex-direction:row;gap:4px;flex-wrap:nowrap;"]);
@@ -932,23 +931,23 @@ const Toggle$1 = props => {
     disabled: !!props.disabled
   }, /*#__PURE__*/React__default["default"].createElement("span", null)))));
 };
-const ToggleWrap = styled__default["default"].div.withConfig({
+const ToggleWrap = styledComponents.styled.div.withConfig({
   displayName: "Toggle__ToggleWrap",
   componentId: "sc-1ecbsxn-0"
 })(["display:flex;align-items:center;> span{color:", ";}"], Colors.black10);
-const ToggleElement = styled__default["default"].div.withConfig({
+const ToggleElement = styledComponents.styled.div.withConfig({
   displayName: "Toggle__ToggleElement",
   componentId: "sc-1ecbsxn-1"
 })(["position:relative;width:32px;height:18px;padding:1px;"]);
-const ToggleLabel = styled__default["default"].label.withConfig({
+const ToggleLabel = styledComponents.styled.label.withConfig({
   displayName: "Toggle__ToggleLabel",
   componentId: "sc-1ecbsxn-2"
 })(["background:none;color:inherit;padding:0;opacity:", ";outline:none;width:30px;height:16px;pointer-events:", ";"], props => props.disabled ? "0.4" : "1", props => props.disabled ? "none" : "inherit");
-const ToggleSwitch = styled__default["default"].div.withConfig({
+const ToggleSwitch = styledComponents.styled.div.withConfig({
   displayName: "Toggle__ToggleSwitch",
   componentId: "sc-1ecbsxn-3"
 })(["position:relative;width:30px;height:16px;border-radius:8px;background-color:white;box-shadow:0 0 0 1px ", ";transition:all 0.1s;pointer-events:none;span{position:absolute;border-radius:8px;left:2px;top:50%;width:10px;height:10px;background:", ";transform:translate3d(", ",-50%,0);transition:transform 150ms ease-out,opacity 0.1s;}"], p => !p.checked || p.disabled ? Colors.black40 : "black", p => !p.checked || p.disabled ? Colors.black40 : "black", p => p.checked ? "16px" : "0");
-const ToggleInput = styled__default["default"].input.withConfig({
+const ToggleInput = styledComponents.styled.input.withConfig({
   displayName: "Toggle__ToggleInput",
   componentId: "sc-1ecbsxn-4"
 })(["position:absolute;left:0;top:0;width:30px;height:16px;opacity:0;margin:0;cursor:", ";pointer-events:auto;", ""], props => props.disabled ? "not-allowed" : "pointer", p => p.disabled ? "" : `
@@ -963,31 +962,31 @@ const ToggleInput = styled__default["default"].input.withConfig({
   }
   `);
 
-const ModalRoot = styled__default["default"].div.withConfig({
+const ModalRoot = styledComponents.styled.div.withConfig({
   displayName: "Modal__ModalRoot",
   componentId: "sc-wv205r-0"
 })([""]);
-const Root$7 = styled__default["default"].div.withConfig({
+const Root$7 = styledComponents.styled.div.withConfig({
   displayName: "Modal__Root",
   componentId: "sc-wv205r-1"
 })(["width:", ";max-width:", ";height:", ";max-height:", ";position:relative;box-shadow:0px 2px 14px rgba(0,0,0,0.15);border-radius:4px;display:grid;grid-template-columns:1fr;grid-template-rows:auto 1fr;background-color:white;overflow:hidden;"], p => p.width || "100%", p => p.maxWidth || "none", p => p.height || "auto", p => p.maxHeight || "none");
-const HeaderBody = styled__default["default"].div.withConfig({
+const HeaderBody = styledComponents.styled.div.withConfig({
   displayName: "Modal__HeaderBody",
   componentId: "sc-wv205r-2"
 })(["position:relative;", " color:black;"], p => p.headerLine && `border-bottom: 1px solid ${Colors.black10};`);
-const ContentBody = styled__default["default"].div.withConfig({
+const ContentBody = styledComponents.styled.div.withConfig({
   displayName: "Modal__ContentBody",
   componentId: "sc-wv205r-3"
 })(["position:relative;overflow-y:", ";overflow-x:hidden;padding:", ";"], p => p.maxHeight == "auto" ? "auto" : "scroll", p => p.noPadding ? "0" : "12px 12px");
-const TitleHeader = styled__default["default"].div.withConfig({
+const TitleHeader = styledComponents.styled.div.withConfig({
   displayName: "Modal__TitleHeader",
   componentId: "sc-wv205r-4"
 })(["&:not(:empty){padding:12px;}display:flex;flex-direction:row;justify-content:space-between;align-items:center;"]);
-const TitleHeaderLabel = styled__default["default"].div.withConfig({
+const TitleHeaderLabel = styledComponents.styled.div.withConfig({
   displayName: "Modal__TitleHeaderLabel",
   componentId: "sc-wv205r-5"
 })(["", ";"], Fonts.label);
-const HeaderLetter = styled__default["default"].div.withConfig({
+const HeaderLetter = styledComponents.styled.div.withConfig({
   displayName: "Modal__HeaderLetter",
   componentId: "sc-wv205r-6"
 })(["width:24px;height:24px;border-radius:4px;background-color:", ";", ";display:flex;justify-content:center;align-items:center;"], Colors.black10, Fonts.label3);
@@ -1088,41 +1087,41 @@ const sharedContentStyles = `
       outline: none;
     }
 `;
-const GlobalModalStyles = styled.createGlobalStyle([".Shopstory__ReactModalPortal{position:absolute;top:0;left:0;width:100%;height:100%;}.Shopstory__ReactModal__Overlay{width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;&:before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.2;z-index:-1;}}.Shopstory__ReactModal__Overlay.background-shade{&:before{background-color:black;}}.Shopstory__ReactModal__Content{", "}.Shopstory__ReactModal__Content__Left{", " height:100vh;width:70vw;transition:all 350ms cubic-bezier(0.16,1,0.3,1);transform:translateX(-100%);}.Shopstory__ReactModal__Content__Left.Shopstory__ReactModal__Content__Left--after-open{transform:none;}.Shopstory__ReactModal__Content__Left.Shopstory__ReactModal__Content__Left--before-close{transform:translateX(-100%);}"], sharedContentStyles, sharedContentStyles);
+const GlobalModalStyles = styledComponents.createGlobalStyle([".Shopstory__ReactModalPortal{position:absolute;top:0;left:0;width:100%;height:100%;}.Shopstory__ReactModal__Overlay{width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;&:before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.2;z-index:-1;}}.Shopstory__ReactModal__Overlay.background-shade{&:before{background-color:black;}}.Shopstory__ReactModal__Content{", "}.Shopstory__ReactModal__Content__Left{", " height:100vh;width:70vw;transition:all 350ms cubic-bezier(0.16,1,0.3,1);transform:translateX(-100%);}.Shopstory__ReactModal__Content__Left.Shopstory__ReactModal__Content__Left--after-open{transform:none;}.Shopstory__ReactModal__Content__Left.Shopstory__ReactModal__Content__Left--before-close{transform:translateX(-100%);}"], sharedContentStyles, sharedContentStyles);
 
-const Root$6 = styled__default["default"].div.withConfig({
+const Root$6 = styledComponents.styled.div.withConfig({
   displayName: "BasicRow__Root",
   componentId: "sc-1ifay80-0"
 })(["position:relative;background-color:white;transition:all 0.1s;padding:12px;&:hover{background-color:", ";}display:flex;flex-direction:row;align-items:center;gap:8px;cursor:pointer;&:hover{.EditContainer{opacity:1;visibility:visible;}}"], Colors.black5);
-const ImageContainer = styled__default["default"].div.withConfig({
+const ImageContainer = styledComponents.styled.div.withConfig({
   displayName: "BasicRow__ImageContainer",
   componentId: "sc-1ifay80-1"
 })(["position:relative;box-sizing:border-box;background:", ";width:52px;height:52px;pointer-events:none;padding:2px;flex:0 0 auto;"], Colors.black10);
-const Image = styled__default["default"].img.withConfig({
+const Image = styledComponents.styled.img.withConfig({
   displayName: "BasicRow__Image",
   componentId: "sc-1ifay80-2"
 })(["width:100%;height:100%;object-fit:contain;"]);
-const TextContainer = styled__default["default"].div.withConfig({
+const TextContainer = styledComponents.styled.div.withConfig({
   displayName: "BasicRow__TextContainer",
   componentId: "sc-1ifay80-3"
 })(["pointer-events:none;min-width:0;flex:1 1 auto;"]);
-const TitleContainer = styled__default["default"].div.withConfig({
+const TitleContainer = styledComponents.styled.div.withConfig({
   displayName: "BasicRow__TitleContainer",
   componentId: "sc-1ifay80-4"
 })(["display:flex;flex-direction:row;align-items:center;gap:8px;margin-bottom:4px;"]);
-const DescriptionContainer = styled__default["default"].div.withConfig({
+const DescriptionContainer = styledComponents.styled.div.withConfig({
   displayName: "BasicRow__DescriptionContainer",
   componentId: "sc-1ifay80-5"
 })(["display:flex;flex-direction:row;align-items:center;gap:5px;"]);
-const Title = styled__default["default"].div.withConfig({
+const Title = styledComponents.styled.div.withConfig({
   displayName: "BasicRow__Title",
   componentId: "sc-1ifay80-6"
 })(["", ";color:", ";"], Fonts.label, p => p.custom ? Colors.purple : "black");
-const Description = styled__default["default"].div.withConfig({
+const Description = styledComponents.styled.div.withConfig({
   displayName: "BasicRow__Description",
   componentId: "sc-1ifay80-7"
 })(["", ";color:", ";line-height:1;"], p => p.tinyDescription ? Fonts.body4 : Fonts.body, p => p.custom ? Colors.purple : Colors.black40);
-const EditContainer = styled__default["default"].div.withConfig({
+const EditContainer = styledComponents.styled.div.withConfig({
   displayName: "BasicRow__EditContainer",
   componentId: "sc-1ifay80-8"
 })(["opacity:0;visibility:hidden;"]);
@@ -1150,15 +1149,15 @@ const BasicRow = props => {
   }, "Edit")));
 };
 
-const Preview = styled__default["default"].div.withConfig({
+const Preview = styledComponents.styled.div.withConfig({
   displayName: "ThumbnailButton__Preview",
   componentId: "sc-1bsunzd-0"
 })(["display:flex;align-items:center;justify-content:center;margin-left:-1px;width:32px;height:32px;border:1px solid #e5e5e5;border-radius:2px;position:relative;min-width:0;"]);
-const PreviewImage = styled__default["default"].img.withConfig({
+const PreviewImage = styledComponents.styled.img.withConfig({
   displayName: "ThumbnailButton__PreviewImage",
   componentId: "sc-1bsunzd-1"
 })(["display:block;max-width:100%;max-height:100%;object-fit:contain;"]);
-const SolidColorPreview = styled__default["default"].div.withConfig({
+const SolidColorPreview = styledComponents.styled.div.withConfig({
   displayName: "ThumbnailButton__SolidColorPreview",
   componentId: "sc-1bsunzd-2"
 })(["width:100%;height:100%;background-color:", ";"], _ref => {
@@ -1167,11 +1166,11 @@ const SolidColorPreview = styled__default["default"].div.withConfig({
   } = _ref;
   return color;
 });
-const ContentRoot = styled__default["default"].div.withConfig({
+const ContentRoot = styledComponents.styled.div.withConfig({
   displayName: "ThumbnailButton__ContentRoot",
   componentId: "sc-1bsunzd-3"
 })(["display:flex;align-items:center;gap:8px;width:100%;"]);
-const Labels = styled__default["default"].div.withConfig({
+const Labels = styledComponents.styled.div.withConfig({
   displayName: "ThumbnailButton__Labels",
   componentId: "sc-1bsunzd-4"
 })(["flex:1 0;overflow:hidden;min-width:0;display:grid;"]);
@@ -1317,11 +1316,11 @@ const ProductPicker = _ref2 => {
     }
   })));
 };
-const Container = styled__default["default"].div.withConfig({
+const Container = styledComponents.styled.div.withConfig({
   displayName: "SimplePicker__Container",
   componentId: "sc-hh69hi-0"
 })(["width:100%;"]);
-const RowContainer = styled__default["default"].div.withConfig({
+const RowContainer = styledComponents.styled.div.withConfig({
   displayName: "SimplePicker__RowContainer",
   componentId: "sc-hh69hi-1"
 })(["display:flex;flex-direction:row;align-items:center;"]);
@@ -1451,37 +1450,37 @@ function ItemPickerModal(_ref3) {
     image: product.thumbnail
   })) : /*#__PURE__*/React__default["default"].createElement(NoResults, null, "No results")), getProductsRequest.status === "error" && /*#__PURE__*/React__default["default"].createElement(NoResults, null, "Couldn't fetch data for query \"", previousQuery.current, "\"")) : null;
 }
-const ErrorMessage = styled__default["default"].div.withConfig({
+const ErrorMessage = styledComponents.styled.div.withConfig({
   displayName: "SimplePicker__ErrorMessage",
   componentId: "sc-hh69hi-2"
 })(["word-break:break-all;white-space:normal;margin-left:4px;", " color:", ";"], Fonts.body, Colors.black40);
-const LoadingContainer = styled__default["default"].div.withConfig({
+const LoadingContainer = styledComponents.styled.div.withConfig({
   displayName: "SimplePicker__LoadingContainer",
   componentId: "sc-hh69hi-3"
 })(["position:relative;display:flex;flex-direction:column;flex-grow:1;width:100%;", " max-height:331px;"], _ref4 => {
   let {
     isEmpty
   } = _ref4;
-  return isEmpty && styled.css(["min-height:72px;"]);
+  return isEmpty && styledComponents.css(["min-height:72px;"]);
 });
-const ProductsContainer = styled__default["default"].div.withConfig({
+const ProductsContainer = styledComponents.styled.div.withConfig({
   displayName: "SimplePicker__ProductsContainer",
   componentId: "sc-hh69hi-4"
 })(["width:100%;overflow:hidden;filter:blur(1px);"]);
-const LoadingIndicatorBackdrop = styled__default["default"].div.withConfig({
+const LoadingIndicatorBackdrop = styledComponents.styled.div.withConfig({
   displayName: "SimplePicker__LoadingIndicatorBackdrop",
   componentId: "sc-hh69hi-5"
 })(["position:absolute;left:0;top:0;width:100%;height:100%;background:#fefefea1;filter:blur(1px);"]);
-const LoadingIndicatorWrapper = styled__default["default"].div.withConfig({
+const LoadingIndicatorWrapper = styledComponents.styled.div.withConfig({
   displayName: "SimplePicker__LoadingIndicatorWrapper",
   componentId: "sc-hh69hi-6"
 })(["position:absolute;display:grid;place-items:center;left:0;top:0;width:100%;height:100%;"]);
-const rotate = styled.keyframes(["from{transform:rotate(0deg);}to{transform:rotate(360deg);}"]);
-const LoadingIndicator = styled__default["default"].div.withConfig({
+const rotate = styledComponents.keyframes(["from{transform:rotate(0deg);}to{transform:rotate(360deg);}"]);
+const LoadingIndicator = styledComponents.styled.div.withConfig({
   displayName: "SimplePicker__LoadingIndicator",
   componentId: "sc-hh69hi-7"
 })(["width:24px;height:24px;font-size:24px;> svg{animation:", " 500ms linear infinite;}"], rotate);
-const NoResults = styled__default["default"].div.withConfig({
+const NoResults = styledComponents.styled.div.withConfig({
   displayName: "SimplePicker__NoResults",
   componentId: "sc-hh69hi-8"
 })(["display:grid;place-items:center;height:48px;padding:12px;", ";"], Fonts.body);
@@ -1503,11 +1502,11 @@ const thumbRadius = "50%";
 const trackColor = Colors.black10;
 const trackColorHover = "black";
 const thumbColor = "black";
-const Root$5 = styled__default["default"].div.withConfig({
+const Root$5 = styledComponents.styled.div.withConfig({
   displayName: "Slider__Root",
   componentId: "sc-1l3g6h4-0"
 })(["input[type=\"range\"]{width:100%;margin:5px 0;height:20px;-webkit-appearance:none;cursor:pointer;}input[type=\"range\"]:focus{outline:none;}input[type=\"range\"]::-webkit-slider-runnable-track{background:", ";border:0;width:100%;height:", ";transition:all 0.1s;}input[type=\"range\"]::-webkit-slider-thumb{margin-top:-5px;width:", ";height:", ";border-radius:", ";background:", ";-webkit-appearance:none;}input[type=\"range\"]:focus::-webkit-slider-runnable-track{background:", ";}input[type=\"range\"]:hover::-webkit-slider-runnable-track{background:", ";}input[type=\"range\"]::-moz-range-track{background:", ";border:0;width:100%;height:", ";transition:all 0.1s;}input[type=\"range\"]::-moz-range-thumb{width:", ";height:", ";border-radius:", ";background:", ";border:none;}input[type=\"range\"]:hover::-moz-range-track{background:", ";}input[type=\"range\"]::-ms-track{background:transparent;border-color:transparent;border-width:0px 0;color:transparent;width:100%;height:", ";}input[type=\"range\"]::-ms-fill-lower{background:#000080;border:0;}input[type=\"range\"]::-ms-fill-upper{background:", ";border:0;}input[type=\"range\"]::-ms-thumb{width:", ";height:", ";border-radius:", ";background:", ";margin-top:0px;}input[type=\"range\"]:focus::-ms-fill-lower{background:", ";}input[type=\"range\"]:focus::-ms-fill-upper{background:", ";}"], trackColor, trackHeight, thumbSize, thumbSize, thumbRadius, thumbColor, trackColor, trackColorHover, trackColor, trackHeight, thumbSize, thumbSize, thumbRadius, thumbColor, trackColorHover, trackHeight, trackColor, thumbSize, thumbSize, thumbRadius, thumbColor, trackColor, trackColor);
-const SliderStyled = styled__default["default"].input.withConfig({
+const SliderStyled = styledComponents.styled.input.withConfig({
   displayName: "Slider__SliderStyled",
   componentId: "sc-1l3g6h4-1"
 })([""]);
@@ -1517,23 +1516,23 @@ const RangeSlider = props => {
   })));
 };
 
-const Root$4 = styled__default["default"].div.withConfig({
+const Root$4 = styledComponents.styled.div.withConfig({
   displayName: "FormElement__Root",
   componentId: "sc-11sxp3-0"
 })(["position:relative;"]);
-const Layout = styled__default["default"].div.withConfig({
+const Layout = styledComponents.styled.div.withConfig({
   displayName: "FormElement__Layout",
   componentId: "sc-11sxp3-1"
 })(["position:relative;display:flex;flex-direction:row;gap:8px;align-items:center;"]);
-const Label$1 = styled__default["default"].label.withConfig({
+const Label$1 = styledComponents.styled.label.withConfig({
   displayName: "FormElement__Label",
   componentId: "sc-11sxp3-2"
 })(["", " color:black;flex:0 0 120px;min-width:0;"], Fonts.body);
-const ControlWrapper = styled__default["default"].div.withConfig({
+const ControlWrapper = styledComponents.styled.div.withConfig({
   displayName: "FormElement__ControlWrapper",
   componentId: "sc-11sxp3-3"
 })(["flex:1 1 auto;min-width:0;display:grid;"]);
-const ErrorWrapper = styled__default["default"].div.withConfig({
+const ErrorWrapper = styledComponents.styled.div.withConfig({
   displayName: "FormElement__ErrorWrapper",
   componentId: "sc-11sxp3-4"
 })(["margin-top:6px;", " color:", ";"], Fonts.body, Colors.red);
@@ -1689,7 +1688,7 @@ function ShopstoryIcon(_ref) {
   }));
 }
 
-const StackWrapper = styled__default["default"].div.withConfig({
+const StackWrapper = styledComponents.styled.div.withConfig({
   displayName: "Stack__StackWrapper",
   componentId: "sc-1wi5rsl-0"
 })(["display:flex;flex-direction:column;gap:", "px;align-items:", ";"], props => props.gap, props => props.align === "start" ? "flex-start" : props.align === "end" ? "flex-end" : props.align === "stretch" ? "stretch" : "center");
@@ -2569,19 +2568,19 @@ var Root2$4 = Tabs$1;
 var List = TabsList;
 var Trigger$3 = TabsTrigger;
 
-const StyledRoot = styled__default["default"](Root2$4).withConfig({
+const StyledRoot = styledComponents.styled(Root2$4).withConfig({
   displayName: "Tabs__StyledRoot",
   componentId: "sc-1nxdand-0"
 })(["width:100%;"]);
-const StyledTabListContainer = styled__default["default"].div.withConfig({
+const StyledTabListContainer = styledComponents.styled.div.withConfig({
   displayName: "Tabs__StyledTabListContainer",
   componentId: "sc-1nxdand-1"
 })(["display:flex;width:100%;justify-content:space-between;"]);
-const StyledList = styled__default["default"](List).withConfig({
+const StyledList = styledComponents.styled(List).withConfig({
   displayName: "Tabs__StyledList",
   componentId: "sc-1nxdand-2"
 })(["display:flex;flex-wrap:nowrap;gap:36px;min-height:36px;"]);
-const StyledTrigger = styled__default["default"](Typography).attrs({
+const StyledTrigger = styledComponents.styled(Typography).attrs({
   component: Trigger$3
 }).withConfig({
   displayName: "Tabs__StyledTrigger",
@@ -6935,15 +6934,15 @@ function MenuTrigger(props) {
     asChild: true
   }, props.children);
 }
-const StyledContent = styled__default["default"](Content2$2).withConfig({
+const StyledContent = styledComponents.styled(Content2$2).withConfig({
   displayName: "Menu__StyledContent",
   componentId: "sc-15igjrv-0"
 })(["min-width:200px;padding:0 4px;background-color:", ";border-radius:4px;"], Colors.black800);
-const StyledItem = styled__default["default"](Item2$1).withConfig({
+const StyledItem = styledComponents.styled(Item2$1).withConfig({
   displayName: "Menu__StyledItem",
   componentId: "sc-15igjrv-1"
 })(["padding:10px 8px;&:focus{background-color:", ";}@media (hover:hover){&:hover:not([aria-disabled=\"true\"]){cursor:pointer;background-color:", ";}}"], Colors.black700, Colors.black700);
-const StyledSeparator$1 = styled__default["default"](Separator2).withConfig({
+const StyledSeparator$1 = styledComponents.styled(Separator2).withConfig({
   displayName: "Menu__StyledSeparator",
   componentId: "sc-15igjrv-2"
 })(["height:1px;background-color:", ";"], Colors.black700);
@@ -8186,7 +8185,7 @@ var ItemText = SelectItemText;
 var ItemIndicator = SelectItemIndicator;
 var Separator = SelectSeparator$1;
 
-const SelectTrigger = styled__default["default"](Trigger$1).withConfig({
+const SelectTrigger = styledComponents.styled(Trigger$1).withConfig({
   displayName: "Select__SelectTrigger",
   componentId: "sc-1ehkd60-0"
 })(["all:unset;display:flex;align-items:center;", ";display:flex;gap:4px;max-width:100%;box-sizing:border-box;height:28px;padding:0 2px 0 6px;border-radius:2px;@media (hover:hover){&:hover{box-shadow:0 0 0 1px ", ";}}"], Fonts.body, Colors.black10);
@@ -8215,7 +8214,7 @@ function Select(props) {
     }
   }, /*#__PURE__*/React__default["default"].createElement(Viewport, null, props.children))));
 }
-const SelectItemWrapper = styled__default["default"](Item).withConfig({
+const SelectItemWrapper = styledComponents.styled(Item).withConfig({
   displayName: "Select__SelectItemWrapper",
   componentId: "sc-1ehkd60-1"
 })(["display:flex;align-items:center;gap:6px;box-sizing:border-box;min-height:28px;padding:0 6px;", ";color:#000;background:#fff;outline:none;&[data-state=\"unchecked\"]{padding-left:calc(6px + 15px + 6px);}&[data-highlighted]{background:#daeafd;}@media (hover:hover){cursor:pointer;}"], Fonts.body);
@@ -8228,7 +8227,7 @@ const SelectItem = /*#__PURE__*/React.forwardRef((props, ref) => {
     color: "#202123"
   })), /*#__PURE__*/React__default["default"].createElement(ItemText, null, props.children));
 });
-const StyledSeparator = styled__default["default"](Separator).withConfig({
+const StyledSeparator = styledComponents.styled(Separator).withConfig({
   displayName: "Select__StyledSeparator",
   componentId: "sc-1ehkd60-2"
 })(["height:1px;margin:4px;background:", ";"], Colors.black100);
@@ -8431,7 +8430,7 @@ function ToggleGroup(props) {
     }
   }, props.children);
 }
-const StyledToggleGroupItem = styled__default["default"](Item2).withConfig({
+const StyledToggleGroupItem = styledComponents.styled(Item2).withConfig({
   displayName: "ToggleGroup__StyledToggleGroupItem",
   componentId: "sc-1ceudxu-0"
 })(["all:unset;box-sizing:border-box;height:28px;width:28px;display:flex;align-items:center;justify-content:center;background-color:transparent;&[aria-checked=\"true\"]{background-color:", ";}border-radius:2px;@media (hover:hover){cursor:pointer;&:hover{box-shadow:0 0 0 1px ", ";}}& svg{flex-shrink:0;}"], Colors.black10, Colors.black10);
@@ -8944,11 +8943,11 @@ function TooltipContent(props) {
   }), props.children));
 }
 
-const Root = styled__default["default"].div.withConfig({
+const Root = styledComponents.styled.div.withConfig({
   displayName: "NavigationController__Root",
   componentId: "sc-19n3ku4-0"
 })(["position:relative;overflow:hidden;display:grid;"]);
-const PanelRoot = styled__default["default"].div.withConfig({
+const PanelRoot = styledComponents.styled.div.withConfig({
   displayName: "NavigationController__PanelRoot",
   componentId: "sc-19n3ku4-1"
 })(["grid-row:1 / span 1;grid-column:1 / span 1;position:relative;display:grid;overflow-y:auto;transform:translateX(", "px);"], p => p.index * 30);
@@ -9022,3 +9021,4 @@ exports.TooltipProvider = TooltipProvider;
 exports.TooltipTrigger = TooltipTrigger;
 exports.Typography = Typography;
 exports.useToaster = useToaster;
+//# sourceMappingURL=index.cjs.map

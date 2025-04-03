@@ -1,5 +1,5 @@
 import React, { ChangeEvent, InputHTMLAttributes, useState } from "react";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { Colors } from "./colors";
 
 export type ToggleProps = InputHTMLAttributes<HTMLInputElement>;

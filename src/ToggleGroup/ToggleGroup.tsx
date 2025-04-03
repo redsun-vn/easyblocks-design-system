@@ -1,5 +1,5 @@
 import React, { forwardRef, ReactNode } from "react";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import * as RadixToggleGroup from "@radix-ui/react-toggle-group";
 import { Colors } from "../colors";
 

@@ -8,7 +8,7 @@ import {
 } from "@radix-ui/react-dropdown-menu";
 import React from "react";
 import { Colors } from "./colors";
-import styled from "styled-components";
+import { styled } from "styled-components";
 
 function Menu(props: { children: React.ReactNode }) {
   return <Root>{props.children}</Root>;

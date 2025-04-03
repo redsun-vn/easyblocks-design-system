@@ -94,6 +94,7 @@ function createRollupConfigs({
   const esBundleConfig = {
     input: inputFile,
     output: {
+      sourcemap: true,
       format: "es",
       dir: `${baseOutputDir}/es`,
     },
@@ -114,6 +115,7 @@ function createRollupConfigs({
   const cjsBundleConfig = {
     input: inputFile,
     output: {
+      sourcemap: true,
       format: "cjs",
       dir: `${baseOutputDir}/cjs`,
       entryFileNames: "[name].cjs",

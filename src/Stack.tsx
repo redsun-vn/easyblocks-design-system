@@ -1,6 +1,6 @@
 import React, { ComponentPropsWithoutRef } from "react";
 import { ReactNode } from "react";
-import styled from "styled-components";
+import { styled } from "styled-components";
 
 const StackWrapper = styled.div<
   Pick<ComponentPropsWithoutRef<typeof Stack>, "gap" | "align">
