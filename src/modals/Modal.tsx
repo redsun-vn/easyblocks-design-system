@@ -62,11 +62,11 @@ const TitleHeader = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  gap: 2rem;
 `;
 
 const TitleHeaderLabel = styled.div`
-  whitespace: nowrap;
+  white-space: nowrap;
   ${Fonts.label};
 `;
 
