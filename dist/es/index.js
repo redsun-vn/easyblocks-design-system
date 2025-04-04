@@ -950,11 +950,11 @@ const ContentBody = styled.div.withConfig({
 const TitleHeader = styled.div.withConfig({
   displayName: "Modal__TitleHeader",
   componentId: "sc-wv205r-4"
-})(["&:not(:empty){padding:12px;}display:flex;flex-direction:row;justify-content:space-between;align-items:center;"]);
+})(["&:not(:empty){padding:12px;}display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:8px;"]);
 const TitleHeaderLabel = styled.div.withConfig({
   displayName: "Modal__TitleHeaderLabel",
   componentId: "sc-wv205r-5"
-})(["", ";"], Fonts.label);
+})(["whitespace:nowrap;", ";"], Fonts.label);
 const HeaderLetter = styled.div.withConfig({
   displayName: "Modal__HeaderLetter",
   componentId: "sc-wv205r-6"
