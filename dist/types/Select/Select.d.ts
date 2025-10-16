@@ -10,6 +10,7 @@ declare const SelectItem: React.ForwardRefExoticComponent<{
     children: ReactNode;
     value: string;
     isDisabled?: boolean;
+    style?: CSSProperties;
 } & React.RefAttributes<HTMLDivElement>>;
 declare function SelectSeparator(): React.JSX.Element;
 export { Select, SelectItem, SelectSeparator };

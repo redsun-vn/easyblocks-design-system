@@ -8195,7 +8195,9 @@ const SelectItem = /*#__PURE__*/forwardRef((props, ref) => {
     ref: ref
   }, /*#__PURE__*/React__default.createElement(ItemIndicator, null, /*#__PURE__*/React__default.createElement(CheckIcon, {
     color: "#202123"
-  })), /*#__PURE__*/React__default.createElement(ItemText, null, props.children));
+  })), /*#__PURE__*/React__default.createElement(ItemText, {
+    style: props.style
+  }, props.children));
 });
 const StyledSeparator = styled(Separator).withConfig({
   displayName: "Select__StyledSeparator",

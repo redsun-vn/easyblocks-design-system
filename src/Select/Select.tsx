@@ -118,7 +118,12 @@ const SelectItemWrapper = styled(RadixSelect.Item)`
 
 const SelectItem = forwardRef<
   HTMLDivElement,
-  { children: ReactNode; value: string; isDisabled?: boolean }
+  {
+    children: ReactNode;
+    value: string;
+    isDisabled?: boolean;
+    style?: CSSProperties;
+  }
 >((props, ref) => {
   return (
     <SelectItemWrapper
@@ -129,7 +134,9 @@ const SelectItem = forwardRef<
       <RadixSelect.ItemIndicator>
         <CheckIcon color="#202123" />
       </RadixSelect.ItemIndicator>
-      <RadixSelect.ItemText>{props.children}</RadixSelect.ItemText>
+      <RadixSelect.ItemText style={props.style}>
+        {props.children}
+      </RadixSelect.ItemText>
     </SelectItemWrapper>
   );
 });
