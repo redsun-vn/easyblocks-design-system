@@ -1,8 +1,9 @@
-import React, { ReactNode } from "react";
+import React, { CSSProperties, ReactNode } from "react";
 declare function Select(props: {
     children: ReactNode;
     value: string;
     onChange: (value: string) => void;
+    style?: CSSProperties;
     placeholder?: string;
 }): React.JSX.Element;
 declare const SelectItem: React.ForwardRefExoticComponent<{

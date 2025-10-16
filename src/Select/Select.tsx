@@ -1,10 +1,6 @@
-import {
-  CheckIcon,
-  ChevronDownIcon,
-  // ChevronUpIcon,
-} from "@radix-ui/react-icons";
+import { CheckIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 import * as RadixSelect from "@radix-ui/react-select";
-import React, { forwardRef, ReactNode } from "react";
+import React, { CSSProperties, forwardRef, ReactNode } from "react";
 import { styled } from "styled-components";
 import { Colors } from "../colors";
 import { Fonts } from "../fonts";
@@ -36,6 +32,7 @@ function Select(props: {
   children: ReactNode;
   value: string;
   onChange: (value: string) => void;
+  style?: CSSProperties;
   placeholder?: string;
 }) {
   return (
@@ -46,6 +43,7 @@ function Select(props: {
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
+            ...props.style,
           }}
           placeholder={props.placeholder ?? "Select a value..."}
         />

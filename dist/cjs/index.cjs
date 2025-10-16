@@ -8197,7 +8197,8 @@ function Select(props) {
     style: {
       overflow: "hidden",
       textOverflow: "ellipsis",
-      whiteSpace: "nowrap"
+      whiteSpace: "nowrap",
+      ...props.style
     },
     placeholder: props.placeholder ?? "Select a value..."
   }), /*#__PURE__*/React__default["default"].createElement(Icon, null, /*#__PURE__*/React__default["default"].createElement(ChevronDownIcon, {
