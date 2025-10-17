@@ -43,7 +43,7 @@ var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select$2);
 var ReactDOM__namespace = /*#__PURE__*/_interopNamespace(ReactDOM);
 var ReactDOM__default = /*#__PURE__*/_interopDefaultLegacy(ReactDOM);
 
-const mainFont = "system-ui";
+const mainFont = "Inter";
 const fontVariationSettings = `'opsz' 21`;
 const Fonts = {
   bodyLarge: {

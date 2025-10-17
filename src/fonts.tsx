@@ -1,4 +1,4 @@
-const mainFont = "system-ui";
+const mainFont = "Inter";
 const fontVariationSettings = `'opsz' 21`;
 
 const Fonts = {

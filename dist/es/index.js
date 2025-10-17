@@ -12,7 +12,7 @@ import * as ReactDOM from 'react-dom';
 import ReactDOM__default from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
 
-const mainFont = "system-ui";
+const mainFont = "Inter";
 const fontVariationSettings = `'opsz' 21`;
 const Fonts = {
   bodyLarge: {
