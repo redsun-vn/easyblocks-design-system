@@ -12,7 +12,7 @@ import * as ReactDOM from 'react-dom';
 import ReactDOM__default from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
 
-const mainFont = "Inter";
+const mainFont = `"Inter,sans-serif",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`;
 const fontVariationSettings = `'opsz' 21`;
 const Fonts = {
   bodyLarge: {

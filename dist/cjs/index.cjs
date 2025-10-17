@@ -43,7 +43,7 @@ var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select$2);
 var ReactDOM__namespace = /*#__PURE__*/_interopNamespace(ReactDOM);
 var ReactDOM__default = /*#__PURE__*/_interopDefaultLegacy(ReactDOM);
 
-const mainFont = "Inter";
+const mainFont = `"Inter,sans-serif",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`;
 const fontVariationSettings = `'opsz' 21`;
 const Fonts = {
   bodyLarge: {
