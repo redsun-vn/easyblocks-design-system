@@ -12,6 +12,17 @@ export declare const Input: React.ForwardRefExoticComponent<React.InputHTMLAttri
     debounce?: boolean;
     align?: "left" | "right";
 } & React.RefAttributes<HTMLInputElement>>;
+export declare const InputFile: React.ForwardRefExoticComponent<React.InputHTMLAttributes<HTMLInputElement> & ControlProps & {
+    placeholder?: string;
+    type?: string;
+    debounce?: boolean;
+    align?: "left" | "right";
+} & {
+    label?: string;
+    isRaw?: boolean;
+    isLoading?: boolean;
+    loadingLabel?: boolean;
+} & React.RefAttributes<HTMLInputElement>>;
 export declare const InputRaw: React.ForwardRefExoticComponent<React.InputHTMLAttributes<HTMLInputElement> & ControlProps & {
     placeholder?: string;
     type?: string;

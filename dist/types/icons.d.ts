@@ -35,6 +35,7 @@ export declare const Icons: {
     CornerRadius: Icon;
     ThreeDotsHorizontal: Icon;
     OpenInNew: Icon;
+    LoadingSpinner: Icon;
 };
 export {};
 //# sourceMappingURL=icons.d.ts.map

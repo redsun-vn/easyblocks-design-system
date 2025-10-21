@@ -68,8 +68,6 @@ export function MultiSelect() {
         },
         // @ts-ignore
         dropdownIndicator: (baseStyles) => {
-          console.log("dropdown", baseStyles);
-
           return {
             ...baseStyles,
             padding: 4,

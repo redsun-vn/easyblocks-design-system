@@ -528,6 +528,34 @@ const OpenInNew = createIcon(/*#__PURE__*/React__default["default"].createElemen
 }, /*#__PURE__*/React__default["default"].createElement("path", {
   d: "M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
 })));
+const LoadingSpinner = createIcon(/*#__PURE__*/React__default["default"].createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 100 100",
+  preserveAspectRatio: "xMidYMid",
+  width: "40",
+  height: "40",
+  style: {
+    shapeRendering: "auto",
+    display: "block",
+    background: "rgb(255, 255, 255)"
+  },
+  xmlnsXlink: "http://www.w3.org/1999/xlink"
+}, /*#__PURE__*/React__default["default"].createElement("g", null, /*#__PURE__*/React__default["default"].createElement("circle", {
+  strokeDasharray: "164.93361431346415 56.97787143782138",
+  r: "35",
+  strokeWidth: "10",
+  stroke: "#0099e5",
+  fill: "none",
+  cy: "50",
+  cx: "50"
+}, /*#__PURE__*/React__default["default"].createElement("animateTransform", {
+  keyTimes: "0;1",
+  values: "0 50 50;360 50 50",
+  dur: "1s",
+  repeatCount: "indefinite",
+  type: "rotate",
+  attributeName: "transform"
+})))));
 const Icons = {
   Dropdown,
   MaxHeight,
@@ -558,7 +586,8 @@ const Icons = {
   MarginTop,
   CornerRadius,
   ThreeDotsHorizontal,
-  OpenInNew
+  OpenInNew,
+  LoadingSpinner
 };
 
 const Typography = _ref => {
@@ -835,7 +864,19 @@ function getControlPadding() {
 const StyledInput = styledComponents.styled.input.withConfig({
   displayName: "Input__StyledInput",
   componentId: "sc-1nyhv3t-0"
-})(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration{display:none;}", " ", ";text-align:", ";"], p => !p.isRaw && getControlPadding(), Fonts.body, p => p.align === "right" ? "right" : "left");
+})(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration{display:none;}", " ", ";"], p => !p.isRaw && getControlPadding(), Fonts.body);
+const StyledInputFileWrapper = styledComponents.styled.div.withConfig({
+  displayName: "Input__StyledInputFileWrapper",
+  componentId: "sc-1nyhv3t-1"
+})(["width:168px;height:168px;"]);
+const StyledInputFile = styledComponents.styled.img.withConfig({
+  displayName: "Input__StyledInputFile",
+  componentId: "sc-1nyhv3t-2"
+})(["width:100%;height:100%;object-fit:cover;box-shadow:0 0 0 1px ", ";"], Colors.black10);
+const StyledInputLabel = styledComponents.styled.label.withConfig({
+  displayName: "Input__StyledInputLabel",
+  componentId: "sc-1nyhv3t-3"
+})(["display:flex;align-items:center;justify-content:center;gap:8px;height:100%;border:1px dashed ", ";cursor:pointer;color:", ";", ";"], Colors.blue50, Colors.blue50, Fonts.body);
 const InputBase = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React__default["default"].createElement(StyledInput, _extends__default["default"]({}, props, {
     ref: ref
@@ -859,6 +900,27 @@ const Input = /*#__PURE__*/React.forwardRef((props, ref) => {
     onBlur: onBlur,
     ref: ref
   })));
+});
+const InputFile = /*#__PURE__*/React.forwardRef((props, ref) => {
+  const id = React.useId();
+  const inputId = props.id ?? id;
+  return /*#__PURE__*/React__default["default"].createElement(StyledInputFileWrapper, null, /*#__PURE__*/React__default["default"].createElement(InputBase, _extends__default["default"]({}, props, {
+    ref: ref,
+    type: "file",
+    id: inputId,
+    style: {
+      display: "none"
+    }
+  })), props?.src ? /*#__PURE__*/React__default["default"].createElement(StyledInputFile, {
+    src: props?.src,
+    alt: props?.alt
+  }) : /*#__PURE__*/React__default["default"].createElement(StyledInputLabel, {
+    htmlFor: inputId
+  }, props?.isLoading ? /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Icons.LoadingSpinner, {
+    size: 24
+  }), props?.loadingLabel ?? "Uploading...") : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Icons.Add, {
+    size: 16
+  }), props?.label ?? "Add or drop image")));
 });
 const InputRaw = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React__default["default"].createElement(InputBase, _extends__default["default"]({}, props, {
@@ -1523,7 +1585,12 @@ const Root$4 = styledComponents.styled.div.withConfig({
 const Layout = styledComponents.styled.div.withConfig({
   displayName: "FormElement__Layout",
   componentId: "sc-11sxp3-1"
-})(["position:relative;display:flex;flex-direction:row;gap:8px;align-items:center;"]);
+})(["position:relative;display:flex;flex-direction:row;gap:8px;", ""], _ref => {
+  let {
+    position = "center"
+  } = _ref;
+  return `align-items: ${position}`;
+});
 const Label$1 = styledComponents.styled.label.withConfig({
   displayName: "FormElement__Label",
   componentId: "sc-11sxp3-2"
@@ -1537,7 +1604,9 @@ const ErrorWrapper = styledComponents.styled.div.withConfig({
   componentId: "sc-11sxp3-4"
 })(["margin-top:6px;", " color:", ";"], Fonts.body, Colors.red);
 const FormElement = props => {
-  return /*#__PURE__*/React__default["default"].createElement(Root$4, null, /*#__PURE__*/React__default["default"].createElement(Layout, null, /*#__PURE__*/React__default["default"].createElement(Label$1, {
+  return /*#__PURE__*/React__default["default"].createElement(Root$4, null, /*#__PURE__*/React__default["default"].createElement(Layout, {
+    position: props?.position
+  }, /*#__PURE__*/React__default["default"].createElement(Label$1, {
     htmlFor: props.name
   }, props.label), /*#__PURE__*/React__default["default"].createElement(ControlWrapper, null, /*#__PURE__*/React__default["default"].cloneElement(props.children, {
     name: props.name,
@@ -1641,7 +1710,6 @@ function MultiSelect() {
       },
       // @ts-ignore
       dropdownIndicator: baseStyles => {
-        console.log("dropdown", baseStyles);
         return {
           ...baseStyles,
           padding: 4
@@ -8988,6 +9056,7 @@ exports.GlobalModalStyles = GlobalModalStyles;
 exports.IconButtonPrimary = IconButtonPrimary;
 exports.Icons = Icons;
 exports.Input = Input;
+exports.InputFile = InputFile;
 exports.InputRaw = InputRaw;
 exports.Loader = Loader;
 exports.Menu = Menu;

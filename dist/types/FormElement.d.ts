@@ -4,6 +4,7 @@ export type FormElementProps = {
     label: string;
     error?: string;
     required?: boolean;
+    position?: "start" | "center" | "end";
     children: React.ReactElement;
 };
 export declare const FormElement: (props: FormElementProps) => React.JSX.Element;

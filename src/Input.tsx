@@ -1,12 +1,14 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useId } from "react";
 import { styled } from "styled-components";
 import { Fonts } from "./fonts";
 
 import {
   ControlContainer,
-  getControlPadding,
   ControlProps,
+  getControlPadding,
 } from "./ControlContainer";
+import { Colors } from "./colors";
+import { Icons } from "./icons";
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> &
   ControlProps & {
@@ -36,8 +38,30 @@ const StyledInput = styled.input<InputProps & { isRaw?: boolean }>`
   ${(p) => !p.isRaw && getControlPadding()}
 
   ${Fonts.body};
+`;
 
-  text-align: ${(p) => (p.align === "right" ? "right" : "left")};
+const StyledInputFileWrapper = styled.div`
+  width: 168px;
+  height: 168px;
+`;
+
+const StyledInputFile = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px ${Colors.black10};
+`;
+
+const StyledInputLabel = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 100%;
+  border: 1px dashed ${Colors.blue50};
+  cursor: pointer;
+  color: ${Colors.blue50};
+  ${Fonts.body};
 `;
 
 const InputBase = forwardRef<
@@ -60,6 +84,49 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     >
       <InputBase {...inputProps} value={value} onBlur={onBlur} ref={ref} />
     </ControlContainer>
+  );
+});
+
+export const InputFile = forwardRef<
+  HTMLInputElement,
+  InputProps & {
+    label?: string;
+    isRaw?: boolean;
+    isLoading?: boolean;
+    loadingLabel?: boolean;
+  }
+>((props, ref) => {
+  const id = useId();
+  const inputId = props.id ?? id;
+
+  return (
+    <StyledInputFileWrapper>
+      <InputBase
+        {...props}
+        ref={ref}
+        type="file"
+        id={inputId}
+        style={{ display: "none" }}
+      />
+
+      {props?.src ? (
+        <StyledInputFile src={props?.src} alt={props?.alt} />
+      ) : (
+        <StyledInputLabel htmlFor={inputId}>
+          {props?.isLoading ? (
+            <>
+              <Icons.LoadingSpinner size={24} />
+              {props?.loadingLabel ?? "Uploading..."}
+            </>
+          ) : (
+            <>
+              <Icons.Add size={16} />
+              {props?.label ?? "Add or drop image"}
+            </>
+          )}
+        </StyledInputLabel>
+      )}
+    </StyledInputFileWrapper>
   );
 });
 

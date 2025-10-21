@@ -1,13 +1,14 @@
 import React from "react";
 import { styled } from "styled-components";
-import { Fonts } from "./fonts";
 import { Colors } from "./colors";
+import { Fonts } from "./fonts";
 
 export type FormElementProps = {
   name: string;
   label: string;
   error?: string;
   required?: boolean;
+  position?: "start" | "center" | "end";
   children: React.ReactElement;
 };
 
@@ -15,12 +16,12 @@ const Root = styled.div`
   position: relative;
 `;
 
-const Layout = styled.div`
+const Layout = styled.div<Pick<FormElementProps, "position">>`
   position: relative;
   display: flex;
   flex-direction: row;
   gap: 8px;
-  align-items: center;
+  ${({ position = "center" }) => `align-items: ${position}`}
 `;
 
 const Label = styled.label`
@@ -44,7 +45,7 @@ const ErrorWrapper = styled.div`
 export const FormElement = (props: FormElementProps) => {
   return (
     <Root>
-      <Layout>
+      <Layout position={props?.position}>
         <Label htmlFor={props.name}>{props.label}</Label>
         <ControlWrapper>
           {React.cloneElement(props.children, {
