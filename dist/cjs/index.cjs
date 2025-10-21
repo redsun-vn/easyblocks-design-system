@@ -868,14 +868,18 @@ const StyledInput = styledComponents.styled.input.withConfig({
 const StyledInputFileWrapper = styledComponents.styled.div.withConfig({
   displayName: "Input__StyledInputFileWrapper",
   componentId: "sc-1nyhv3t-1"
-})(["width:168px;height:168px;"]);
+})(["position:relative;width:168px;height:168px;"]);
 const StyledInputFile = styledComponents.styled.img.withConfig({
   displayName: "Input__StyledInputFile",
   componentId: "sc-1nyhv3t-2"
 })(["width:100%;height:100%;object-fit:cover;box-shadow:0 0 0 1px ", ";"], Colors.black10);
+const StyledInputFileCloseIcon = styledComponents.styled.div.withConfig({
+  displayName: "Input__StyledInputFileCloseIcon",
+  componentId: "sc-1nyhv3t-3"
+})(["position:absolute;right:10px;top:10px;width:20px;height:20px;display:flex;justify-content:center;align-items:center;background:", ";border-radius:100%;cursor:pointer;"], Colors.white);
 const StyledInputLabel = styledComponents.styled.label.withConfig({
   displayName: "Input__StyledInputLabel",
-  componentId: "sc-1nyhv3t-3"
+  componentId: "sc-1nyhv3t-4"
 })(["display:flex;align-items:center;justify-content:center;gap:8px;height:100%;border:1px dashed ", ";cursor:pointer;color:", ";", ";"], Colors.blue50, Colors.blue50, Fonts.body);
 const InputBase = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React__default["default"].createElement(StyledInput, _extends__default["default"]({}, props, {
@@ -911,10 +915,14 @@ const InputFile = /*#__PURE__*/React.forwardRef((props, ref) => {
     style: {
       display: "none"
     }
-  })), props?.src ? /*#__PURE__*/React__default["default"].createElement(StyledInputFile, {
+  })), props?.src ? /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(StyledInputFile, {
     src: props?.src,
     alt: props?.alt
-  }) : /*#__PURE__*/React__default["default"].createElement(StyledInputLabel, {
+  }), /*#__PURE__*/React__default["default"].createElement(StyledInputFileCloseIcon, {
+    onClick: props?.onClearFile
+  }, /*#__PURE__*/React__default["default"].createElement(Icons.Close, {
+    size: 12
+  }))) : /*#__PURE__*/React__default["default"].createElement(StyledInputLabel, {
     htmlFor: inputId
   }, props?.isLoading ? /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Icons.LoadingSpinner, {
     size: 24

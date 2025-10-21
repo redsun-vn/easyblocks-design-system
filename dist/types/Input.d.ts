@@ -22,6 +22,7 @@ export declare const InputFile: React.ForwardRefExoticComponent<React.InputHTMLA
     isRaw?: boolean;
     isLoading?: boolean;
     loadingLabel?: boolean;
+    onClearFile?: () => void;
 } & React.RefAttributes<HTMLInputElement>>;
 export declare const InputRaw: React.ForwardRefExoticComponent<React.InputHTMLAttributes<HTMLInputElement> & ControlProps & {
     placeholder?: string;

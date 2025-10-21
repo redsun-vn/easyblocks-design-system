@@ -41,6 +41,7 @@ const StyledInput = styled.input<InputProps & { isRaw?: boolean }>`
 `;
 
 const StyledInputFileWrapper = styled.div`
+  position: relative;
   width: 168px;
   height: 168px;
 `;
@@ -50,6 +51,20 @@ const StyledInputFile = styled.img`
   height: 100%;
   object-fit: cover;
   box-shadow: 0 0 0 1px ${Colors.black10};
+`;
+
+const StyledInputFileCloseIcon = styled.div`
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${Colors.white};
+  border-radius: 100%;
+  cursor: pointer;
 `;
 
 const StyledInputLabel = styled.label`
@@ -94,6 +109,7 @@ export const InputFile = forwardRef<
     isRaw?: boolean;
     isLoading?: boolean;
     loadingLabel?: boolean;
+    onClearFile?: () => void;
   }
 >((props, ref) => {
   const id = useId();
@@ -110,7 +126,13 @@ export const InputFile = forwardRef<
       />
 
       {props?.src ? (
-        <StyledInputFile src={props?.src} alt={props?.alt} />
+        <>
+          <StyledInputFile src={props?.src} alt={props?.alt} />
+
+          <StyledInputFileCloseIcon onClick={props?.onClearFile}>
+            <Icons.Close size={12} />
+          </StyledInputFileCloseIcon>
+        </>
       ) : (
         <StyledInputLabel htmlFor={inputId}>
           {props?.isLoading ? (
