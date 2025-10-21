@@ -1094,7 +1094,7 @@ const ModalBody = _ref => {
 const MODES = {
   "center-small": {
     width: "320px",
-    maxHeight: "380px",
+    maxHeight: "420px",
     extraClass: ""
   },
   "center-huge": {
