@@ -525,6 +525,24 @@ const LoadingSpinner = createIcon(/*#__PURE__*/React__default.createElement("svg
   type: "rotate",
   attributeName: "transform"
 })))));
+const Save = createIcon(/*#__PURE__*/React__default.createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 256 256",
+  width: "24",
+  height: "24",
+  fill: "currentColor"
+}, /*#__PURE__*/React__default.createElement("g", null, /*#__PURE__*/React__default.createElement("path", {
+  d: "M219.31,72,184,36.69A15.86,15.86,0,0,0,172.69,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V83.31A15.86,15.86,0,0,0,219.31,72ZM168,208H88V152h80Zm40,0H184V152a16,16,0,0,0-16-16H88a16,16,0,0,0-16,16v56H48V48H172.69L208,83.31ZM160,72a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h56A8,8,0,0,1,160,72Z"
+}))));
+const Preview$1 = createIcon(/*#__PURE__*/React__default.createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 256 256",
+  width: "24",
+  height: "24",
+  fill: "currentColor"
+}, /*#__PURE__*/React__default.createElement("g", null, /*#__PURE__*/React__default.createElement("path", {
+  d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48.24-94.78-64-40A8,8,0,0,0,100,88v80a8,8,0,0,0,12.24,6.78l64-40a8,8,0,0,0,0-13.56ZM116,153.57V102.43L156.91,128Z"
+}))));
 const Icons = {
   Dropdown,
   MaxHeight,
@@ -556,7 +574,9 @@ const Icons = {
   CornerRadius,
   ThreeDotsHorizontal,
   OpenInNew,
-  LoadingSpinner
+  LoadingSpinner,
+  Save,
+  Preview: Preview$1
 };
 
 const Typography = _ref => {

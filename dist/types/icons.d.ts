@@ -36,6 +36,8 @@ export declare const Icons: {
     ThreeDotsHorizontal: Icon;
     OpenInNew: Icon;
     LoadingSpinner: Icon;
+    Save: Icon;
+    Preview: Icon;
 };
 export {};
 //# sourceMappingURL=icons.d.ts.map
