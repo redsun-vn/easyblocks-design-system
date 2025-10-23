@@ -1,15 +1,15 @@
 import _extends from '@babel/runtime/helpers/extends';
 import * as React from 'react';
-import React__default, { forwardRef, useId as useId$1, useState, useContext, useEffect, useRef, useLayoutEffect, createElement } from 'react';
+import React__default, { useLayoutEffect, useEffect, forwardRef, useId as useId$1, useState, useContext, useRef, createElement } from 'react';
 import { styled, css, keyframes, createGlobalStyle } from 'styled-components';
+import { jsx, Fragment, jsxs } from 'react/jsx-runtime';
+import * as ReactDOM from 'react-dom';
+import ReactDOM__default from 'react-dom';
 import ReactModal from 'react-modal';
 import debounce from 'lodash/debounce';
 import toast from 'react-hot-toast';
 export { Toaster } from 'react-hot-toast';
 import Select$2 from 'react-select';
-import { jsx, Fragment, jsxs } from 'react/jsx-runtime';
-import * as ReactDOM from 'react-dom';
-import ReactDOM__default from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
 
 const mainFont = `"Inter,sans-serif",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`;
@@ -654,1130 +654,6 @@ function Loader(_ref) {
   });
 }
 
-const sharedCSS = p => css(["", ";border:none;outline:none;height:", ";", " border-radius:6px;line-height:1;transition:all 0.1s;display:flex;flex-direction:row;gap:6px;justify-content:center;align-items:center;"], Fonts.body, p.height !== undefined ? p.height : p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px", p.hideLabel ? `
-    width: ${p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px"};
-  ` : `
-    padding-left: ${p.isGhost ? p.noPadding ? "0px" : "6px" : "10px"};
-    padding-right: ${p.isGhost ? p.noPadding ? "0px" : "6px" : "10px"};
-  `);
-const PrimaryButton = styled.button.withConfig({
-  displayName: "buttons__PrimaryButton",
-  componentId: "sc-1b20me-0"
-})(["", " background-color:", ";color:white;min-width:60px;", ""], p => sharedCSS(p), Colors.blue50, p => p.disabled ? `
-    opacity 0.7;
-  ` : `
-    &:hover {
-      background-color: ${Colors.blue60};
-    }
-  
-    &:focus-visible {
-      box-shadow: 0 0 0 2px ${Colors.blue60};
-    }
-  
-    &:active {
-      background-color: ${Colors.blue70};
-    }
-    
-  `);
-const DangerButton = styled.button.withConfig({
-  displayName: "buttons__DangerButton",
-  componentId: "sc-1b20me-1"
-})(["", " background-color:", ";color:white;min-width:60px;", ""], p => sharedCSS(p), Colors.red, p => p.disabled ? `
-    opacity 0.7;
-  ` : `
-    &:hover {
-      opacity: 0.7
-    }
-  
-    &:focus-visible {
-      box-shadow: 0 0 0 2px ${Colors.blue60};
-    }
-  
-    &:active {
-      background-color: ${Colors.blue70};
-    }
-    
-  `);
-const SecondaryButton = styled.button.withConfig({
-  displayName: "buttons__SecondaryButton",
-  componentId: "sc-1b20me-2"
-})(["", " background-color:", ";color:black;min-width:60px;", ""], p => sharedCSS(p), Colors.black5, p => p.disabled ? `
-    opacity 0.7;
-  ` : `
-      &:hover {
-        background-color: ${Colors.black10};
-      }
-    
-      &:focus-visible {
-        box-shadow: 0 0 0 2px ${Colors.blue50};
-      }
-    
-      &:active {
-        background-color: ${Colors.black40};
-      }
-    
-  `);
-const GhostButton = styled.button.withConfig({
-  displayName: "buttons__GhostButton",
-  componentId: "sc-1b20me-3"
-})(["", " background-color:transparent;color:black;border:1px solid transparent;border-radius:2px;&:hover{border-color:#e5e5e5;}&:focus-visible{box-shadow:0 0 0 2px ", ";}&:active{background-color:", ";}"], p => sharedCSS(p), Colors.blue50, Colors.black20);
-const GhostColorButton = styled.button.withConfig({
-  displayName: "buttons__GhostColorButton",
-  componentId: "sc-1b20me-4"
-})(["", " background-color:transparent;color:", ";&:hover{background-color:", ";}&:focus-visible{box-shadow:0 0 0 2px ", ";}&:active{background-color:", ";}"], p => sharedCSS(p), Colors.blue50, Colors.blue10, Colors.blue50, Colors.black20);
-const EnhancerContainer = styled.div.withConfig({
-  displayName: "buttons__EnhancerContainer",
-  componentId: "sc-1b20me-5"
-})(["position:relative;width:", ";height:", ";overflow:hidden;flex-shrink:0;"], p => p.variant === "large" ? "24px" : "16px", p => p.variant === "large" ? "24px" : "16px");
-const Button = /*#__PURE__*/forwardRef((_ref, ref) => {
-  let {
-    component,
-    Button,
-    ...props
-  } = _ref;
-  let enhancer = null;
-  if (props.isLoading) {
-    enhancer = /*#__PURE__*/React__default.createElement(Loader, null);
-  } else if (props.enhancer) {
-    enhancer = /*#__PURE__*/React__default.createElement(EnhancerContainer, {
-      variant: props.variant
-    }, props.enhancer);
-  } else if (props.icon) {
-    const Icon = props.icon;
-    enhancer = /*#__PURE__*/React__default.createElement(Icon, null);
-  }
-  return /*#__PURE__*/React__default.createElement(Button, _extends({
-    as: component
-  }, props, {
-    ref: ref
-  }), enhancer, !props.hideLabel && props.children);
-});
-const ButtonPrimary = props => /*#__PURE__*/React__default.createElement(Button, _extends({}, props, {
-  Button: PrimaryButton
-}));
-const ButtonDanger = props => /*#__PURE__*/React__default.createElement(Button, _extends({}, props, {
-  Button: DangerButton
-}));
-const ButtonSecondary = /*#__PURE__*/forwardRef((props, ref) => /*#__PURE__*/React__default.createElement(Button, _extends({}, props, {
-  Button: SecondaryButton,
-  ref: ref
-})));
-const ButtonGhost = /*#__PURE__*/forwardRef((props, ref) => /*#__PURE__*/React__default.createElement(Button, _extends({}, props, {
-  Button: GhostButton,
-  isGhost: true,
-  noPadding: props.noPadding,
-  ref: ref
-})));
-const ButtonGhostColor = props => /*#__PURE__*/React__default.createElement(Button, _extends({}, props, {
-  Button: GhostColorButton,
-  isGhost: true,
-  noPadding: props.noPadding
-}));
-const IconButtonPrimaryStyled = styled(Button).withConfig({
-  displayName: "buttons__IconButtonPrimaryStyled",
-  componentId: "sc-1b20me-6"
-})(["min-width:0;border-radius:50%;"]);
-const IconButtonPrimary = props => /*#__PURE__*/React__default.createElement(IconButtonPrimaryStyled, _extends({}, props, {
-  Button: PrimaryButton,
-  hideLabel: true
-}));
-
-function sizing(p) {
-  const height = p.controlSize === "tiny" ? 24 : 28;
-  const paddingHorizontal = p.controlSize === "tiny" ? 4 : 6;
-  let paddingIcon = paddingHorizontal + (p.icon ? 20 : 0);
-  if (p.iconOnly) {
-    paddingIcon = 0;
-  }
-  return {
-    height: height + "px",
-    width: p.controlSize === "full-width" ? "100%" : p.iconOnly ? height + "px" : "auto",
-    paddingHorizontal: paddingHorizontal + "px",
-    paddingVertical: p.controlSize === "tiny" ? "4px" : "6px",
-    paddingIcon: paddingIcon + "px"
-  };
-}
-const Root$8 = styled.div.withConfig({
-  displayName: "ControlContainer__Root",
-  componentId: "sc-1i70r11-0"
-})(["position:relative;height:", ";width:", ";color:black;", " &:focus-within{box-shadow:0 0 0 2px ", ";.ss-arrow{color:black;}}transition:box-shadow 0.1s;border-radius:2px;display:inline-block;", ";"], p => sizing(p).height, p => sizing(p).width, p => {
-  const outlineStyles = `
-      box-shadow: 0 0 0 1px ${p.hasError ? "red" : Colors.black10};
-      .ss-arrow {
-        color: black;
-      }
-    `;
-  if (p.withBorder) {
-    if (p.disabled) {
-      return `
-          ${outlineStyles}
-          color: ${Colors.black40};
-        `;
-    } else {
-      return `
-          ${outlineStyles}
-        `;
-    }
-  } else {
-    if (p.disabled) {
-      return `
-          color: ${Colors.black40};
-        `;
-    } else {
-      return `
-          &:hover {
-             ${outlineStyles}
-          }
-        `;
-    }
-  }
-}, p => p.hasError ? Colors.red : Colors.focus, Fonts.body);
-const IconContainer = styled.div.withConfig({
-  displayName: "ControlContainer__IconContainer",
-  componentId: "sc-1i70r11-1"
-})(["color:", ";position:absolute;left:", ";top:", ";pointer-events:none;"], p => p.iconBlack ? "black" : Colors.black40, p => sizing(p).paddingHorizontal, p => sizing(p).paddingVertical);
-const ControlContainer = _ref => {
-  let {
-    className,
-    ...props
-  } = _ref;
-  const Icon = props.icon;
-  return /*#__PURE__*/React__default.createElement(Root$8, _extends({
-    className: className
-  }, props), Icon && /*#__PURE__*/React__default.createElement(IconContainer, props, /*#__PURE__*/React__default.createElement(Icon, null)), props.children);
-};
-function getControlPadding() {
-  return css(["padding-left:", ";padding-right:", ";"], p => sizing(p).paddingIcon, p => sizing(p).paddingHorizontal);
-}
-
-const StyledInput = styled.input.withConfig({
-  displayName: "Input__StyledInput",
-  componentId: "sc-1nyhv3t-0"
-})(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration{display:none;}", " ", ";"], p => !p.isRaw && getControlPadding(), Fonts.body);
-const StyledInputFileWrapper = styled.div.withConfig({
-  displayName: "Input__StyledInputFileWrapper",
-  componentId: "sc-1nyhv3t-1"
-})(["position:relative;width:168px;height:168px;"]);
-const StyledInputFile = styled.img.withConfig({
-  displayName: "Input__StyledInputFile",
-  componentId: "sc-1nyhv3t-2"
-})(["width:100%;height:100%;object-fit:cover;box-shadow:0 0 0 1px ", ";"], Colors.black10);
-const StyledInputFileCloseIcon = styled.div.withConfig({
-  displayName: "Input__StyledInputFileCloseIcon",
-  componentId: "sc-1nyhv3t-3"
-})(["position:absolute;right:10px;top:10px;width:20px;height:20px;display:flex;justify-content:center;align-items:center;background:", ";border-radius:100%;cursor:pointer;"], Colors.white);
-const StyledInputLabel = styled.label.withConfig({
-  displayName: "Input__StyledInputLabel",
-  componentId: "sc-1nyhv3t-4"
-})(["display:flex;align-items:center;justify-content:center;gap:8px;height:100%;border:1px dashed ", ";cursor:pointer;color:", ";", ";"], Colors.blue50, Colors.blue50, Fonts.body);
-const InputBase = /*#__PURE__*/forwardRef((props, ref) => {
-  return /*#__PURE__*/React__default.createElement(StyledInput, _extends({}, props, {
-    ref: ref
-  }));
-});
-const Input = /*#__PURE__*/forwardRef((props, ref) => {
-  const {
-    iconBlack,
-    controlSize,
-    iconOnly,
-    onBlur,
-    value,
-    ...inputProps
-  } = props;
-  return /*#__PURE__*/React__default.createElement(ControlContainer, _extends({
-    iconBlack: iconBlack,
-    controlSize: controlSize,
-    iconOnly: iconOnly
-  }, inputProps), /*#__PURE__*/React__default.createElement(InputBase, _extends({}, inputProps, {
-    value: value,
-    onBlur: onBlur,
-    ref: ref
-  })));
-});
-const InputFile = /*#__PURE__*/forwardRef((props, ref) => {
-  const id = useId$1();
-  const inputId = props.id ?? id;
-  return /*#__PURE__*/React__default.createElement(StyledInputFileWrapper, null, /*#__PURE__*/React__default.createElement(InputBase, _extends({}, props, {
-    ref: ref,
-    type: "file",
-    id: inputId,
-    style: {
-      display: "none"
-    }
-  })), props?.src ? /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(StyledInputFile, {
-    src: props?.src,
-    alt: props?.alt
-  }), /*#__PURE__*/React__default.createElement(StyledInputFileCloseIcon, {
-    onClick: props?.onClearFile
-  }, /*#__PURE__*/React__default.createElement(Icons.Close, {
-    size: 12
-  }))) : /*#__PURE__*/React__default.createElement(StyledInputLabel, {
-    htmlFor: inputId
-  }, props?.isLoading ? /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Icons.LoadingSpinner, {
-    size: 24
-  }), props?.loadingLabel ?? "Uploading...") : /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Icons.Add, {
-    size: 16
-  }), props?.label ?? "Add or drop image")));
-});
-const InputRaw = /*#__PURE__*/forwardRef((props, ref) => {
-  return /*#__PURE__*/React__default.createElement(InputBase, _extends({}, props, {
-    ref: ref,
-    isRaw: true
-  }));
-});
-
-/**
- * TODO: this toggle button doesn't make much sense from semantic perspective
- */
-
-const StyledButton = styled.button.withConfig({
-  displayName: "ToggleButton__StyledButton",
-  componentId: "sc-1mpua28-0"
-})(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;", " ", " border-radius:2px;background-color:", ";"], getControlPadding(), p => p.hideLabel ? "padding-right: 0;" : "", p => p.selected ? Colors.black10 : "transparent");
-const ToggleButton = props => {
-  const {
-    onChange,
-    ...restProps
-  } = props;
-  return /*#__PURE__*/React__default.createElement(ControlContainer, _extends({}, props, {
-    iconBlack: true,
-    iconOnly: props.hideLabel
-  }), /*#__PURE__*/React__default.createElement(StyledButton, _extends({}, restProps, {
-    "aria-label": props.children,
-    onClick: () => {
-      props.onChange?.(!props.selected);
-    }
-  }), props.hideLabel ? null : props.children));
-};
-const SelectInlineRoot = styled.div.withConfig({
-  displayName: "ToggleButton__SelectInlineRoot",
-  componentId: "sc-1mpua28-1"
-})(["display:flex;flex-direction:row;gap:4px;flex-wrap:nowrap;"]);
-const SelectInline = props => {
-  const buttons = React__default.Children.toArray(props.children);
-  return /*#__PURE__*/React__default.createElement(SelectInlineRoot, null, buttons.map(button => {
-    return /*#__PURE__*/React__default.cloneElement(button, {
-      selected: button.props.value === props.value,
-      onChange: () => {
-        props.onChange(button.props.value);
-      }
-    });
-  }));
-};
-
-const Toggle$1 = props => {
-  const [internalChecked, setInternalChecked] = useState(props.checked ?? false);
-  const checked = props.checked === undefined ? internalChecked : props.checked;
-  const {
-    ...inputProps
-  } = props;
-  const name = inputProps.name;
-  return /*#__PURE__*/React__default.createElement(ToggleWrap, null, /*#__PURE__*/React__default.createElement(ToggleElement, null, /*#__PURE__*/React__default.createElement(ToggleInput, _extends({
-    id: name,
-    type: "checkbox"
-  }, inputProps, {
-    checked: checked,
-    onChange: e => {
-      setInternalChecked(e.target.checked);
-      props.onChange?.(e);
-    }
-  })), /*#__PURE__*/React__default.createElement(ToggleLabel, {
-    htmlFor: name,
-    role: "switch",
-    disabled: !!props.disabled
-  }, /*#__PURE__*/React__default.createElement(ToggleSwitch, {
-    checked: checked,
-    disabled: !!props.disabled
-  }, /*#__PURE__*/React__default.createElement("span", null)))));
-};
-const ToggleWrap = styled.div.withConfig({
-  displayName: "Toggle__ToggleWrap",
-  componentId: "sc-1ecbsxn-0"
-})(["display:flex;align-items:center;> span{color:", ";}"], Colors.black10);
-const ToggleElement = styled.div.withConfig({
-  displayName: "Toggle__ToggleElement",
-  componentId: "sc-1ecbsxn-1"
-})(["position:relative;width:32px;height:18px;padding:1px;"]);
-const ToggleLabel = styled.label.withConfig({
-  displayName: "Toggle__ToggleLabel",
-  componentId: "sc-1ecbsxn-2"
-})(["background:none;color:inherit;padding:0;opacity:", ";outline:none;width:30px;height:16px;pointer-events:", ";"], props => props.disabled ? "0.4" : "1", props => props.disabled ? "none" : "inherit");
-const ToggleSwitch = styled.div.withConfig({
-  displayName: "Toggle__ToggleSwitch",
-  componentId: "sc-1ecbsxn-3"
-})(["position:relative;width:30px;height:16px;border-radius:8px;background-color:white;box-shadow:0 0 0 1px ", ";transition:all 0.1s;pointer-events:none;span{position:absolute;border-radius:8px;left:2px;top:50%;width:10px;height:10px;background:", ";transform:translate3d(", ",-50%,0);transition:transform 150ms ease-out,opacity 0.1s;}"], p => !p.checked || p.disabled ? Colors.black40 : "black", p => !p.checked || p.disabled ? Colors.black40 : "black", p => p.checked ? "16px" : "0");
-const ToggleInput = styled.input.withConfig({
-  displayName: "Toggle__ToggleInput",
-  componentId: "sc-1ecbsxn-4"
-})(["position:absolute;left:0;top:0;width:30px;height:16px;opacity:0;margin:0;cursor:", ";pointer-events:auto;", ""], props => props.disabled ? "not-allowed" : "pointer", p => p.disabled ? "" : `
-  &:hover {
-    + ${ToggleLabel} ${ToggleSwitch} {
-      box-shadow: 0 0 0 1px black;
-    }
-    
-    + ${ToggleLabel} ${ToggleSwitch} span {
-      background-color: black;
-    }
-  }
-  `);
-
-const ModalRoot = styled.div.withConfig({
-  displayName: "Modal__ModalRoot",
-  componentId: "sc-wv205r-0"
-})([""]);
-const Root$7 = styled.div.withConfig({
-  displayName: "Modal__Root",
-  componentId: "sc-wv205r-1"
-})(["width:", ";max-width:", ";height:", ";max-height:", ";position:relative;box-shadow:0px 2px 14px rgba(0,0,0,0.15);border-radius:4px;display:grid;grid-template-columns:1fr;grid-template-rows:auto 1fr;background-color:white;overflow:hidden;"], p => p.width || "100%", p => p.maxWidth || "none", p => p.height || "auto", p => p.maxHeight || "none");
-const HeaderBody = styled.div.withConfig({
-  displayName: "Modal__HeaderBody",
-  componentId: "sc-wv205r-2"
-})(["position:relative;", " color:black;"], p => p.headerLine && `border-bottom: 1px solid ${Colors.black10};`);
-const ContentBody = styled.div.withConfig({
-  displayName: "Modal__ContentBody",
-  componentId: "sc-wv205r-3"
-})(["position:relative;overflow-y:", ";overflow-x:hidden;padding:", ";"], p => p.maxHeight == "auto" ? "auto" : "scroll", p => p.noPadding ? "0" : "12px 12px");
-const TitleHeader = styled.div.withConfig({
-  displayName: "Modal__TitleHeader",
-  componentId: "sc-wv205r-4"
-})(["&:not(:empty){padding:12px;}display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:2rem;"]);
-const TitleHeaderLabel = styled.div.withConfig({
-  displayName: "Modal__TitleHeaderLabel",
-  componentId: "sc-wv205r-5"
-})(["white-space:nowrap;", ";"], Fonts.label);
-const HeaderLetter = styled.div.withConfig({
-  displayName: "Modal__HeaderLetter",
-  componentId: "sc-wv205r-6"
-})(["width:24px;height:24px;border-radius:4px;background-color:", ";", ";display:flex;justify-content:center;align-items:center;"], Colors.black10, Fonts.label3);
-const ModalBody = _ref => {
-  let {
-    onRequestClose,
-    title,
-    width,
-    maxHeight,
-    maxWidth,
-    headerLine,
-    ...props
-  } = _ref;
-  const {
-    children,
-    headerSymbol = "close",
-    searchProps
-  } = props;
-  return /*#__PURE__*/React__default.createElement(Root$7, _extends({
-    width: width,
-    maxWidth: maxWidth,
-    maxHeight: maxHeight
-  }, props), /*#__PURE__*/React__default.createElement(HeaderBody, {
-    headerLine: headerLine
-  }, /*#__PURE__*/React__default.createElement(TitleHeader, null, title && /*#__PURE__*/React__default.createElement(TitleHeaderLabel, null, title), searchProps && /*#__PURE__*/React__default.createElement(InputRaw, _extends({}, searchProps, {
-    ref: node => {
-      if (node) {
-        node.focus();
-      }
-    }
-  })), headerSymbol === "close" && onRequestClose !== undefined && /*#__PURE__*/React__default.createElement(ButtonGhost, {
-    icon: Icons.Close,
-    hideLabel: true,
-    onClick: () => {
-      if (onRequestClose) {
-        onRequestClose();
-      }
-    }
-  }, "Close"), headerSymbol && headerSymbol !== "close" && /*#__PURE__*/React__default.createElement(HeaderLetter, null, headerSymbol))), /*#__PURE__*/React__default.createElement(ContentBody, _extends({
-    maxHeight: maxHeight
-  }, props), children));
-};
-const MODES = {
-  "center-small": {
-    width: "320px",
-    maxHeight: "420px",
-    extraClass: ""
-  },
-  "center-huge": {
-    width: "80vw",
-    maxWidth: "1200px",
-    height: "90vh",
-    extraClass: "background-shade"
-  }
-};
-const ModalContext = /*#__PURE__*/React__default.createContext(null);
-const Modal = props => {
-  const {
-    isOpen,
-    onRequestClose,
-    mode = "center-small",
-    ...bodyProps
-  } = props;
-  const parentSelector = useContext(ModalContext) ?? (() => {
-    return document.querySelector("#modalContainer");
-  });
-  if (typeof window === "undefined") {
-    return null;
-  }
-  const {
-    extraClass,
-    ...modeProps
-  } = MODES[mode];
-  const content = /*#__PURE__*/React__default.createElement(ModalRoot, null, /*#__PURE__*/React__default.createElement(ModalBody, _extends({}, modeProps, bodyProps, {
-    onRequestClose: onRequestClose
-  })));
-  return /*#__PURE__*/React__default.createElement(ReactModal, {
-    isOpen: isOpen,
-    onRequestClose: onRequestClose,
-    parentSelector: parentSelector,
-    className: {
-      base: `Shopstory__ReactModal__Content`,
-      afterOpen: `Shopstory__ReactModal__Content--after-open`,
-      beforeClose: `Shopstory__ReactModal__Content--before-close`
-    },
-    overlayClassName: {
-      base: `Shopstory__ReactModal__Overlay ${extraClass}`,
-      afterOpen: `Shopstory__ReactModal__Overlay--after-open ${extraClass}`,
-      beforeClose: `Shopstory__ReactModal__Overlay--before-close ${extraClass}`
-    },
-    ariaHideApp: false,
-    portalClassName: "Shopstory__ReactModalPortal"
-  }, content);
-};
-const sharedContentStyles = `
-    &:focus {
-      border: none;
-      outline: none;
-    }
-`;
-const GlobalModalStyles = createGlobalStyle([".Shopstory__ReactModalPortal{position:absolute;top:0;left:0;width:100%;height:100%;}.Shopstory__ReactModal__Overlay{width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;&:before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.2;z-index:-1;}}.Shopstory__ReactModal__Overlay.background-shade{&:before{background-color:black;}}.Shopstory__ReactModal__Content{", "}.Shopstory__ReactModal__Content__Left{", " height:100vh;width:70vw;transition:all 350ms cubic-bezier(0.16,1,0.3,1);transform:translateX(-100%);}.Shopstory__ReactModal__Content__Left.Shopstory__ReactModal__Content__Left--after-open{transform:none;}.Shopstory__ReactModal__Content__Left.Shopstory__ReactModal__Content__Left--before-close{transform:translateX(-100%);}"], sharedContentStyles, sharedContentStyles);
-
-const Root$6 = styled.div.withConfig({
-  displayName: "BasicRow__Root",
-  componentId: "sc-1ifay80-0"
-})(["position:relative;background-color:white;transition:all 0.1s;padding:12px;&:hover{background-color:", ";}display:flex;flex-direction:row;align-items:center;gap:8px;cursor:pointer;&:hover{.EditContainer{opacity:1;visibility:visible;}}"], Colors.black5);
-const ImageContainer = styled.div.withConfig({
-  displayName: "BasicRow__ImageContainer",
-  componentId: "sc-1ifay80-1"
-})(["position:relative;box-sizing:border-box;background:", ";width:52px;height:52px;pointer-events:none;padding:2px;flex:0 0 auto;"], Colors.black10);
-const Image = styled.img.withConfig({
-  displayName: "BasicRow__Image",
-  componentId: "sc-1ifay80-2"
-})(["width:100%;height:100%;object-fit:contain;"]);
-const TextContainer = styled.div.withConfig({
-  displayName: "BasicRow__TextContainer",
-  componentId: "sc-1ifay80-3"
-})(["pointer-events:none;min-width:0;flex:1 1 auto;"]);
-const TitleContainer = styled.div.withConfig({
-  displayName: "BasicRow__TitleContainer",
-  componentId: "sc-1ifay80-4"
-})(["display:flex;flex-direction:row;align-items:center;gap:8px;margin-bottom:4px;"]);
-const DescriptionContainer = styled.div.withConfig({
-  displayName: "BasicRow__DescriptionContainer",
-  componentId: "sc-1ifay80-5"
-})(["display:flex;flex-direction:row;align-items:center;gap:5px;"]);
-const Title = styled.div.withConfig({
-  displayName: "BasicRow__Title",
-  componentId: "sc-1ifay80-6"
-})(["", ";color:", ";"], Fonts.label, p => p.custom ? Colors.purple : "black");
-const Description = styled.div.withConfig({
-  displayName: "BasicRow__Description",
-  componentId: "sc-1ifay80-7"
-})(["", ";color:", ";line-height:1;"], p => p.tinyDescription ? Fonts.body4 : Fonts.body, p => p.custom ? Colors.purple : Colors.black40);
-const EditContainer = styled.div.withConfig({
-  displayName: "BasicRow__EditContainer",
-  componentId: "sc-1ifay80-8"
-})(["opacity:0;visibility:hidden;"]);
-const BasicRow = props => {
-  return /*#__PURE__*/React__default.createElement(Root$6, {
-    onClick: props.onClick
-  }, /*#__PURE__*/React__default.createElement(ImageContainer, props, props.image && /*#__PURE__*/React__default.createElement(Image, {
-    src: props.image,
-    loading: "lazy"
-  })), /*#__PURE__*/React__default.createElement(TextContainer, null, /*#__PURE__*/React__default.createElement(TitleContainer, null, props.customTitle && /*#__PURE__*/React__default.createElement(CustomComponentSymbol, null), /*#__PURE__*/React__default.createElement(Title, {
-    custom: props.customTitle
-  }, props.title)), /*#__PURE__*/React__default.createElement(DescriptionContainer, null, props.description && /*#__PURE__*/React__default.createElement(React__default.Fragment, null, props.customDescription && /*#__PURE__*/React__default.createElement(CustomComponentSymbol, {
-    size: 4
-  }), /*#__PURE__*/React__default.createElement(Description, {
-    tinyDescription: props.tinyDescription,
-    custom: props.customDescription
-  }, props.description)))), props.onEdit && /*#__PURE__*/React__default.createElement(EditContainer, {
-    className: "EditContainer"
-  }, /*#__PURE__*/React__default.createElement(ButtonGhost, {
-    onClick: e => {
-      e.preventDefault();
-      e.stopPropagation();
-      props.onEdit?.();
-    }
-  }, "Edit")));
-};
-
-const Preview = styled.div.withConfig({
-  displayName: "ThumbnailButton__Preview",
-  componentId: "sc-1bsunzd-0"
-})(["display:flex;align-items:center;justify-content:center;margin-left:-1px;width:32px;height:32px;border:1px solid #e5e5e5;border-radius:2px;position:relative;min-width:0;"]);
-const PreviewImage = styled.img.withConfig({
-  displayName: "ThumbnailButton__PreviewImage",
-  componentId: "sc-1bsunzd-1"
-})(["display:block;max-width:100%;max-height:100%;object-fit:contain;"]);
-const SolidColorPreview = styled.div.withConfig({
-  displayName: "ThumbnailButton__SolidColorPreview",
-  componentId: "sc-1bsunzd-2"
-})(["width:100%;height:100%;background-color:", ";"], _ref => {
-  let {
-    color
-  } = _ref;
-  return color;
-});
-const ContentRoot = styled.div.withConfig({
-  displayName: "ThumbnailButton__ContentRoot",
-  componentId: "sc-1bsunzd-3"
-})(["display:flex;align-items:center;gap:8px;width:100%;"]);
-const Labels = styled.div.withConfig({
-  displayName: "ThumbnailButton__Labels",
-  componentId: "sc-1bsunzd-4"
-})(["flex:1 0;overflow:hidden;min-width:0;display:grid;"]);
-function ThumbnailButton(_ref2) {
-  let {
-    onClick,
-    label,
-    description,
-    thumbnail,
-    disabled
-  } = _ref2;
-  let preview;
-  if (thumbnail?.type === "image") {
-    preview = /*#__PURE__*/React.createElement(PreviewImage, {
-      src: thumbnail.src,
-      "aria-hidden": "true"
-    });
-  } else if (thumbnail?.type === "color") {
-    preview = /*#__PURE__*/React.createElement(SolidColorPreview, {
-      color: thumbnail.color
-    });
-  } else if (thumbnail?.type === "icon") {
-    const ComponentIcon = thumbnail.icon === "link" ? Icons.Link : thumbnail.icon === "grid_3x3" ? Icons.Grid3x3 : Icons.Link;
-    preview = /*#__PURE__*/React.createElement(ComponentIcon, {
-      size: 16
-    });
-  } else {
-    preview = /*#__PURE__*/React.createElement(SolidColorPreview, {
-      color: "transparent"
-    });
-  }
-  const content = /*#__PURE__*/React.createElement(ContentRoot, null, /*#__PURE__*/React.createElement(Preview, null, preview), /*#__PURE__*/React.createElement(Labels, null, /*#__PURE__*/React.createElement(Typography, {
-    variant: "label",
-    isTruncated: true
-  }, label), description && /*#__PURE__*/React.createElement(Typography, {
-    variant: "body",
-    color: "black40",
-    isTruncated: true
-  }, description)));
-  if (disabled) {
-    return /*#__PURE__*/React.createElement(ContentRoot, null, content);
-  }
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "grid",
-      width: "100%"
-    }
-  }, /*#__PURE__*/React.createElement(ButtonGhost, {
-    onClick: onClick,
-    height: "32px",
-    noPadding: true
-  }, content));
-}
-
-function SimplePicker(_ref) {
-  let {
-    value,
-    onChange,
-    getItemById,
-    getItems,
-    placeholder
-  } = _ref;
-  return /*#__PURE__*/React__default.createElement(ProductPicker, {
-    value: value,
-    onChange: onChange,
-    api: {
-      products: getItems,
-      product: getItemById,
-      placeholder
-    }
-  });
-}
-const ProductPicker = _ref2 => {
-  let {
-    value,
-    onChange,
-    api
-  } = _ref2;
-  const [product, setProduct] = useState(getProductFromCache(value ?? null));
-  const [isOpen, setOpen] = useState(false);
-  const [state, setState] = useState("unknown");
-  function error() {
-    setProduct(null);
-    setState("error");
-  }
-  useEffect(() => {
-    if (product?.id === value) {
-      return;
-    }
-    if (!value) {
-      setProduct(null);
-      return;
-    }
-    let isMounted = true;
-    getProductFromId(value, api).then(product => {
-      if (!isMounted) {
-        return;
-      }
-      if (product === null || product === undefined) {
-        error();
-      } else {
-        if (!isMounted) {
-          return;
-        }
-        setProduct(product);
-        saveProductToCache(product);
-        setState("success");
-      }
-    }, () => {
-      if (!isMounted) {
-        return;
-      }
-      error();
-    });
-    return () => {
-      isMounted = false;
-    };
-  }, [value]);
-  const placeholder = api.placeholder ?? "Pick an item";
-  return /*#__PURE__*/React__default.createElement(Container, null, state === "error" && /*#__PURE__*/React__default.createElement(ErrorMessage, null, "Couldn't fetch data for id: ", value), /*#__PURE__*/React__default.createElement(RowContainer, null, /*#__PURE__*/React__default.createElement(ThumbnailButton, {
-    thumbnail: product?.thumbnail ? {
-      type: "image",
-      src: product.thumbnail
-    } : undefined,
-    label: state === "loading" ? "Loading..." : product?.title ?? placeholder,
-    onClick: () => {
-      setOpen(true);
-    }
-  }), product && /*#__PURE__*/React__default.createElement(ButtonGhost, {
-    icon: Icons.Remove,
-    hideLabel: true,
-    onClick: () => {
-      onChange(null);
-    }
-  }, "Clear"), /*#__PURE__*/React__default.createElement(ItemPickerModal, {
-    isOpen: isOpen,
-    getItems: api.products,
-    onClose: () => {
-      setOpen(false);
-    },
-    onItemPick: item => {
-      onChange(item.id);
-    }
-  })));
-};
-const Container = styled.div.withConfig({
-  displayName: "SimplePicker__Container",
-  componentId: "sc-hh69hi-0"
-})(["width:100%;"]);
-const RowContainer = styled.div.withConfig({
-  displayName: "SimplePicker__RowContainer",
-  componentId: "sc-hh69hi-1"
-})(["display:flex;flex-direction:row;align-items:center;"]);
-function getProductFromId(id, api) {
-  return new Promise((resolve, reject) => {
-    const cached = getProductFromCache(id);
-    if (cached) {
-      resolve(cached);
-    }
-    api.product(id).then(product => {
-      resolve(product);
-    }, () => {
-      reject();
-    });
-  });
-}
-const productCache = {};
-function getProductFromCache(id) {
-  if (!id) {
-    return null;
-  }
-  if (productCache[id]) {
-    return productCache[id];
-  }
-  return null;
-}
-function saveProductToCache(product) {
-  productCache[product.id] = product;
-}
-function ItemPickerModal(_ref3) {
-  let {
-    isOpen,
-    getItems,
-    onClose,
-    onItemPick
-  } = _ref3;
-  const [query, setQuery] = useState("");
-  const previousQuery = useRef();
-  const [getProductsRequest, setGetProductsRequest] = useState({
-    status: "idle",
-    data: undefined,
-    error: null
-  });
-  useEffect(() => {
-    previousQuery.current = query;
-  }, [query]);
-  useEffect(() => {
-    if (!isOpen && query !== "") {
-      setQuery("");
-    }
-  }, [isOpen, query]);
-  useEffect(() => {
-    let loadingTimeoutId;
-    let isCanceled = false;
-    const debouncedGetProducts = debounce(query => {
-      loadingTimeoutId = window.setTimeout(() => {
-        setGetProductsRequest({
-          status: "loading",
-          data: getProductsRequest.data,
-          error: null
-        });
-      }, 1000);
-      getItems(query).then(products => {
-        setGetProductsRequest({
-          status: "success",
-          data: products,
-          error: null
-        });
-
-        // update cache after every download
-        products.forEach(product => {
-          saveProductToCache(product);
-        });
-      }).catch(error => {
-        setGetProductsRequest({
-          status: "error",
-          data: undefined,
-          error
-        });
-      }).finally(() => {
-        window.clearTimeout(loadingTimeoutId);
-        if (isCanceled) {
-          return;
-        }
-      });
-    }, 300);
-    debouncedGetProducts(query);
-    return () => {
-      isCanceled = true;
-      if (loadingTimeoutId) {
-        window.clearTimeout(loadingTimeoutId);
-      }
-      debouncedGetProducts.cancel();
-    };
-  }, [query]);
-  return isOpen ? /*#__PURE__*/React__default.createElement(Modal, {
-    mode: "center-small",
-    isOpen: true,
-    onRequestClose: () => {
-      onClose();
-    },
-    headerLine: true,
-    searchProps: {
-      placeholder: "Search...",
-      onChange: e => {
-        setQuery(e.target.value);
-      }
-    },
-    headerSymbol: "P",
-    noPadding: true
-  }, getProductsRequest.status === "loading" && /*#__PURE__*/React__default.createElement(LoadingContainer, {
-    isEmpty: !getProductsRequest.data?.length
-  }, /*#__PURE__*/React__default.createElement(ProductsContainer, null, getProductsRequest.data?.map(product => /*#__PURE__*/React__default.createElement(BasicRow, {
-    title: product.title,
-    onClick: () => {
-      onItemPick(product);
-      onClose();
-    },
-    image: product.thumbnail
-  })), /*#__PURE__*/React__default.createElement(LoadingIndicatorBackdrop, null)), /*#__PURE__*/React__default.createElement(LoadingIndicatorWrapper, null, /*#__PURE__*/React__default.createElement(LoadingIndicator, null, loadingIcon))), getProductsRequest.status === "success" && (getProductsRequest.data.length > 0 ? getProductsRequest.data.map(product => /*#__PURE__*/React__default.createElement(BasicRow, {
-    key: product.id,
-    title: product.title,
-    onClick: () => {
-      onItemPick(product);
-      onClose();
-    },
-    image: product.thumbnail
-  })) : /*#__PURE__*/React__default.createElement(NoResults, null, "No results")), getProductsRequest.status === "error" && /*#__PURE__*/React__default.createElement(NoResults, null, "Couldn't fetch data for query \"", previousQuery.current, "\"")) : null;
-}
-const ErrorMessage = styled.div.withConfig({
-  displayName: "SimplePicker__ErrorMessage",
-  componentId: "sc-hh69hi-2"
-})(["word-break:break-all;white-space:normal;margin-left:4px;", " color:", ";"], Fonts.body, Colors.black40);
-const LoadingContainer = styled.div.withConfig({
-  displayName: "SimplePicker__LoadingContainer",
-  componentId: "sc-hh69hi-3"
-})(["position:relative;display:flex;flex-direction:column;flex-grow:1;width:100%;", " max-height:331px;"], _ref4 => {
-  let {
-    isEmpty
-  } = _ref4;
-  return isEmpty && css(["min-height:72px;"]);
-});
-const ProductsContainer = styled.div.withConfig({
-  displayName: "SimplePicker__ProductsContainer",
-  componentId: "sc-hh69hi-4"
-})(["width:100%;overflow:hidden;filter:blur(1px);"]);
-const LoadingIndicatorBackdrop = styled.div.withConfig({
-  displayName: "SimplePicker__LoadingIndicatorBackdrop",
-  componentId: "sc-hh69hi-5"
-})(["position:absolute;left:0;top:0;width:100%;height:100%;background:#fefefea1;filter:blur(1px);"]);
-const LoadingIndicatorWrapper = styled.div.withConfig({
-  displayName: "SimplePicker__LoadingIndicatorWrapper",
-  componentId: "sc-hh69hi-6"
-})(["position:absolute;display:grid;place-items:center;left:0;top:0;width:100%;height:100%;"]);
-const rotate = keyframes(["from{transform:rotate(0deg);}to{transform:rotate(360deg);}"]);
-const LoadingIndicator = styled.div.withConfig({
-  displayName: "SimplePicker__LoadingIndicator",
-  componentId: "sc-hh69hi-7"
-})(["width:24px;height:24px;font-size:24px;> svg{animation:", " 500ms linear infinite;}"], rotate);
-const NoResults = styled.div.withConfig({
-  displayName: "SimplePicker__NoResults",
-  componentId: "sc-hh69hi-8"
-})(["display:grid;place-items:center;height:48px;padding:12px;", ";"], Fonts.body);
-const loadingIcon = /*#__PURE__*/React__default.createElement("svg", {
-  width: "1em",
-  height: "1em",
-  viewBox: "0 0 25 25",
-  fill: "none",
-  xmlns: "http://www.w3.org/2000/svg"
-}, /*#__PURE__*/React__default.createElement("path", {
-  d: "M4.5 12.5C4.5 16.9183 8.08172 20.5 12.5 20.5C16.9183 20.5 20.5 16.9183 20.5 12.5C20.5 8.08172 16.9183 4.5 12.5 4.5",
-  stroke: "currentColor",
-  strokeWidth: 1.2
-}));
-
-const trackHeight = "1px";
-const thumbSize = "11px";
-const thumbRadius = "50%";
-const trackColor = Colors.black10;
-const trackColorHover = "black";
-const thumbColor = "black";
-const Root$5 = styled.div.withConfig({
-  displayName: "Slider__Root",
-  componentId: "sc-1l3g6h4-0"
-})(["input[type=\"range\"]{width:100%;margin:5px 0;height:20px;-webkit-appearance:none;cursor:pointer;}input[type=\"range\"]:focus{outline:none;}input[type=\"range\"]::-webkit-slider-runnable-track{background:", ";border:0;width:100%;height:", ";transition:all 0.1s;}input[type=\"range\"]::-webkit-slider-thumb{margin-top:-5px;width:", ";height:", ";border-radius:", ";background:", ";-webkit-appearance:none;}input[type=\"range\"]:focus::-webkit-slider-runnable-track{background:", ";}input[type=\"range\"]:hover::-webkit-slider-runnable-track{background:", ";}input[type=\"range\"]::-moz-range-track{background:", ";border:0;width:100%;height:", ";transition:all 0.1s;}input[type=\"range\"]::-moz-range-thumb{width:", ";height:", ";border-radius:", ";background:", ";border:none;}input[type=\"range\"]:hover::-moz-range-track{background:", ";}input[type=\"range\"]::-ms-track{background:transparent;border-color:transparent;border-width:0px 0;color:transparent;width:100%;height:", ";}input[type=\"range\"]::-ms-fill-lower{background:#000080;border:0;}input[type=\"range\"]::-ms-fill-upper{background:", ";border:0;}input[type=\"range\"]::-ms-thumb{width:", ";height:", ";border-radius:", ";background:", ";margin-top:0px;}input[type=\"range\"]:focus::-ms-fill-lower{background:", ";}input[type=\"range\"]:focus::-ms-fill-upper{background:", ";}"], trackColor, trackHeight, thumbSize, thumbSize, thumbRadius, thumbColor, trackColor, trackColorHover, trackColor, trackHeight, thumbSize, thumbSize, thumbRadius, thumbColor, trackColorHover, trackHeight, trackColor, thumbSize, thumbSize, thumbRadius, thumbColor, trackColor, trackColor);
-const SliderStyled = styled.input.withConfig({
-  displayName: "Slider__SliderStyled",
-  componentId: "sc-1l3g6h4-1"
-})([""]);
-const RangeSlider = props => {
-  return /*#__PURE__*/React__default.createElement(Root$5, null, /*#__PURE__*/React__default.createElement(SliderStyled, _extends({}, props, {
-    type: "range"
-  })));
-};
-
-const Root$4 = styled.div.withConfig({
-  displayName: "FormElement__Root",
-  componentId: "sc-11sxp3-0"
-})(["position:relative;"]);
-const Layout = styled.div.withConfig({
-  displayName: "FormElement__Layout",
-  componentId: "sc-11sxp3-1"
-})(["position:relative;display:flex;flex-direction:row;gap:8px;", ""], _ref => {
-  let {
-    position = "center"
-  } = _ref;
-  return `align-items: ${position}`;
-});
-const Label$1 = styled.label.withConfig({
-  displayName: "FormElement__Label",
-  componentId: "sc-11sxp3-2"
-})(["", " color:black;flex:0 0 120px;min-width:0;"], Fonts.body);
-const ControlWrapper = styled.div.withConfig({
-  displayName: "FormElement__ControlWrapper",
-  componentId: "sc-11sxp3-3"
-})(["flex:1 1 auto;min-width:0;display:grid;"]);
-const ErrorWrapper = styled.div.withConfig({
-  displayName: "FormElement__ErrorWrapper",
-  componentId: "sc-11sxp3-4"
-})(["margin-top:6px;", " color:", ";"], Fonts.body, Colors.red);
-const FormElement = props => {
-  return /*#__PURE__*/React__default.createElement(Root$4, null, /*#__PURE__*/React__default.createElement(Layout, {
-    position: props?.position
-  }, /*#__PURE__*/React__default.createElement(Label$1, {
-    htmlFor: props.name
-  }, props.label), /*#__PURE__*/React__default.createElement(ControlWrapper, null, /*#__PURE__*/React__default.cloneElement(props.children, {
-    name: props.name,
-    hasError: !!props.error
-  }))), props.error && /*#__PURE__*/React__default.createElement(Layout, null, /*#__PURE__*/React__default.createElement(Label$1, {
-    as: "div"
-  }), /*#__PURE__*/React__default.createElement(ErrorWrapper, null, props.error)));
-};
-
-function useToaster() {
-  const style = {
-    borderRadius: "4px",
-    ...Fonts.body
-  };
-  return {
-    notify: message => {
-      toast(message, {
-        style
-      });
-    },
-    success: function (message) {
-      let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      toast.success(message, {
-        style,
-        duration: options.duration
-      });
-    },
-    error: message => {
-      toast.error(message, {
-        style
-      });
-    }
-  };
-}
-
-const options = [{
-  value: "chocolate",
-  label: "Chocolate"
-}, {
-  value: "strawberry",
-  label: "Strawberry"
-}, {
-  value: "vanilla",
-  label: "Vanilla"
-}];
-function DropdownIndicator() {
-  return /*#__PURE__*/React__default.createElement("div", {
-    style: {
-      padding: "0px 3px"
-    }
-  }, /*#__PURE__*/React__default.createElement(Icons.ChevronDown, {
-    size: 16
-  }));
-}
-function ClearIndicator(props) {
-  return /*#__PURE__*/React__default.createElement("div", _extends({}, props.innerProps, {
-    style: {
-      padding: "0px 6px"
-    }
-  }), /*#__PURE__*/React__default.createElement(Icons.Close, {
-    size: 12
-  }));
-}
-
-// export type MutliSelectProps = {
-//   value: string,
-//   options:
-// }
-
-function MultiSelect() {
-  return /*#__PURE__*/React__default.createElement(Select$2, {
-    options: options,
-    isMulti: true,
-    styles: {
-      // @ts-ignore
-      container: (baseStyles, state) => ({
-        ...baseStyles,
-        ...Fonts.body
-      }),
-      // @ts-ignore
-      control: (baseStyles, state) => {
-        return {
-          ...baseStyles,
-          borderWidth: 0,
-          borderRadius: 2,
-          boxShadow: state.isFocused ? `0 0 0 2px ${Colors.focus}` : `0 0 0 1px ${Colors.black10}`,
-          "&:hover": {
-            borderColor: Colors.black20
-          },
-          minHeight: 28
-        };
-      },
-      // @ts-ignore
-      clearIndicator: baseStyles => {
-        {
-          return {
-            ...baseStyles,
-            padding: 4
-          };
-        }
-      },
-      // @ts-ignore
-      dropdownIndicator: baseStyles => {
-        return {
-          ...baseStyles,
-          padding: 4
-        };
-      },
-      // @ts-ignore
-      valueContainer: baseStyles => {
-        {
-          return {
-            ...baseStyles,
-            padding: "2px 6px"
-          };
-        }
-      }
-    },
-    components: {
-      DropdownIndicator,
-      // @ts-ignore
-      ClearIndicator
-    }
-  });
-}
-
-function ShopstoryIcon(_ref) {
-  let {
-    width = 40,
-    height = 40,
-    className
-  } = _ref;
-  return /*#__PURE__*/React__default.createElement("svg", {
-    width: width,
-    height: height,
-    viewBox: "0 0 40 40",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    className: className
-  }, /*#__PURE__*/React__default.createElement("rect", {
-    width: "40",
-    height: "40",
-    fill: "#F0FB98"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M24.8625 24.3526C24.8625 22.0386 23.2513 20.4408 21.4253 19.0909L20.0559 18.0716C18.6595 17.0248 17.9076 16.2534 17.9076 15.0964C17.9076 13.7741 19.0354 13.0028 20.4318 13.0028C21.7207 13.0028 22.768 13.4986 23.5467 14.876L26.2857 13.1956C24.9162 10.7989 22.7948 10 20.5661 10C17.3437 10 14.739 11.9559 14.739 15.2066C14.739 17.438 16.0011 19.0083 18.0687 20.5234L19.4382 21.5427C20.942 22.5895 21.6133 23.3884 21.6133 24.6281C21.6133 26.0055 20.4049 26.9972 18.6058 26.9972C16.6724 26.9972 15.464 25.8678 14.7927 24.2424L12 25.9504C13.0741 28.292 15.3298 30 18.4178 30C22.4189 30 24.8625 27.5207 24.8625 24.3526Z",
-    fill: "black"
-  }));
-}
-
-const StackWrapper = styled.div.withConfig({
-  displayName: "Stack__StackWrapper",
-  componentId: "sc-1wi5rsl-0"
-})(["display:flex;flex-direction:column;gap:", "px;align-items:", ";"], props => props.gap, props => props.align === "start" ? "flex-start" : props.align === "end" ? "flex-end" : props.align === "stretch" ? "stretch" : "center");
-function Stack(props) {
-  return /*#__PURE__*/React__default.createElement(StackWrapper, {
-    gap: props.gap,
-    align: props.align ?? "stretch",
-    className: props.className
-  }, props.children);
-}
-
-function ShopstoryLogo() {
-  return /*#__PURE__*/React__default.createElement("svg", {
-    width: "80",
-    height: "17",
-    viewBox: "0 0 80 17",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    d: "M8.57576 9.71406C8.57576 8.14841 7.50162 7.06658 6.2844 6.15286L5.37068 5.46308C4.44027 4.75469 3.9385 4.23238 3.9385 3.44955C3.9385 2.55444 4.69052 2.03213 5.62157 2.03213C6.48139 2.03213 7.17951 2.36772 7.69861 3.30005L9.52477 2.16303C8.61105 0.540918 7.19748 0 5.71076 0C3.56248 0 1.82616 1.32374 1.82616 3.52399C1.82616 5.03445 2.66737 6.09703 4.0463 7.1224L4.95937 7.81219C5.96164 8.52058 6.40952 9.06149 6.40952 9.90078C6.40952 10.8325 5.6036 11.5036 4.40434 11.5036C3.11461 11.5036 2.30933 10.7401 1.86209 9.63963L0 10.7953C0.71609 12.3801 2.22014 13.5364 4.27922 13.5364C6.94659 13.5364 8.57576 11.8585 8.57576 9.71406ZM9.13464 13.3869H11.1039L12.393 7.01076C13.0192 6.22793 13.8072 5.83588 14.6484 5.83588C16.0633 5.83588 16.6895 6.86125 16.3674 8.40893L15.3472 13.3869H17.3344L18.3726 8.22221C18.8737 5.83588 17.5487 3.9154 15.4184 3.9154C14.3982 3.9154 13.5563 4.21377 12.8402 4.84773L13.8072 0.148865H11.8373L9.13464 13.3869ZM28.6828 8.27867C28.6828 6.00399 27.1614 3.9154 24.4401 3.9154C21.5039 3.9154 19.3376 6.22729 19.3376 9.15454C19.3376 11.4478 20.895 13.5364 23.6162 13.5364C26.5525 13.5364 28.6828 11.2245 28.6828 8.27867ZM21.3608 8.98706C21.3608 7.17823 22.614 5.85449 24.2611 5.85449C25.5861 5.85449 26.6782 6.82403 26.6782 8.46475C26.6782 10.2736 25.443 11.5973 23.7779 11.5973C22.4529 11.5973 21.3608 10.6278 21.3608 8.98706ZM28.2471 16.8179H30.2343L31.0941 12.6041C31.7204 13.2008 32.6155 13.5364 33.6896 13.5364C36.8049 13.5364 38.828 11.0378 38.828 8.11056C38.828 5.85449 37.3419 3.9154 35.0326 3.9154C34.0124 3.9154 33.1885 4.26959 32.5622 4.7919L32.6873 4.0649H30.8432L28.2471 16.8179ZM34.5494 5.83588C35.8918 5.83588 36.7869 6.78682 36.7869 8.3345C36.7869 10.2364 35.4266 11.6159 33.6896 11.6159C32.8298 11.6159 31.9713 11.2617 31.5054 10.5527L32.2754 6.84264C32.5649 6.52751 32.9162 6.27546 33.3075 6.10223C33.6987 5.92901 34.1215 5.83834 34.5494 5.83588ZM45.5853 10.7022C45.5853 9.50873 44.7082 8.72591 43.5981 8.05473L42.9898 7.64407C42.3629 7.25266 42.094 6.95429 42.094 6.48845C42.094 5.96614 42.506 5.64916 43.1329 5.64916C43.7771 5.64916 44.2783 5.98474 44.5651 6.63731L46.1403 5.70562C45.6392 4.56796 44.5298 3.9154 43.1861 3.9154C41.36 3.9154 40.196 5.05306 40.196 6.58149C40.196 7.77497 40.9846 8.53918 41.9689 9.17378L42.6311 9.60241C43.3113 10.031 43.6879 10.348 43.6879 10.8889C43.6879 11.4478 43.1509 11.802 42.488 11.802C41.5037 11.802 40.9307 11.2803 40.5906 10.4225L39.0327 11.3362C39.5165 12.6599 40.6439 13.5364 42.4168 13.5364C44.225 13.5364 45.5853 12.436 45.5853 10.7022ZM47.4262 5.8917H48.8764L47.9992 10.1055C47.5513 12.3057 48.3752 13.3869 50.3445 13.3869H51.8126L52.1886 11.5229H50.9887C49.9864 11.5229 49.7888 11.0564 50.0044 9.99382L50.8636 5.8917H53.2807L53.6747 4.0649H51.2396L51.8126 1.26727L49.6104 2.31189L49.2344 4.0649H47.4262V5.8917ZM62.9441 8.27867C62.9441 6.00399 61.4221 3.9154 58.7008 3.9154C55.7646 3.9154 53.5983 6.22729 53.5983 9.15454C53.5983 11.4478 55.1563 13.5364 57.8776 13.5364C60.8138 13.5364 62.9441 11.2245 62.9441 8.27867ZM55.6215 8.98706C55.6215 7.17823 56.8746 5.85449 58.5218 5.85449C59.8468 5.85449 60.9389 6.82403 60.9389 8.46475C60.9389 10.2736 59.7037 11.5973 58.0386 11.5973C56.7136 11.5973 55.6215 10.6278 55.6215 8.98706ZM63.2065 13.3869H65.1937L66.4649 7.1038C67.0199 6.3768 67.8617 5.96614 68.7209 5.96614C69.0969 5.96614 69.455 6.0226 69.7412 6.15286L70.1711 4.00844C69.9561 3.95261 69.6873 3.93401 69.437 3.93401C68.4161 3.93401 67.5031 4.34467 66.8768 5.07166L67.0918 4.06426H65.1045L63.2065 13.3869ZM70.207 16.8179H72.3553L80 4.0649H77.8158L74.0024 10.6644L72.8384 4.06426H70.7973L72.4804 13.0321L70.207 16.8179Z",
-    fill: "#161616"
-  }));
-}
-
 // packages/core/primitive/src/primitive.tsx
 function composeEventHandlers(originalEventHandler, ourEventHandler, { checkForDefaultPrevented = true } = {}) {
   return function handleEvent(event) {
@@ -1786,6 +662,42 @@ function composeEventHandlers(originalEventHandler, ourEventHandler, { checkForD
       return ourEventHandler?.(event);
     }
   };
+}
+
+// packages/react/compose-refs/src/composeRefs.tsx
+function setRef(ref, value) {
+  if (typeof ref === "function") {
+    return ref(value);
+  } else if (ref !== null && ref !== void 0) {
+    ref.current = value;
+  }
+}
+function composeRefs(...refs) {
+  return (node) => {
+    let hasCleanup = false;
+    const cleanups = refs.map((ref) => {
+      const cleanup = setRef(ref, node);
+      if (!hasCleanup && typeof cleanup == "function") {
+        hasCleanup = true;
+      }
+      return cleanup;
+    });
+    if (hasCleanup) {
+      return () => {
+        for (let i = 0; i < cleanups.length; i++) {
+          const cleanup = cleanups[i];
+          if (typeof cleanup == "function") {
+            cleanup();
+          } else {
+            setRef(refs[i], null);
+          }
+        }
+      };
+    }
+  };
+}
+function useComposedRefs(...refs) {
+  return React.useCallback(composeRefs(...refs), refs);
 }
 
 // packages/react/context/src/createContext.tsx
@@ -1845,42 +757,6 @@ function composeContextScopes(...scopes) {
   };
   createScope.scopeName = baseScope.scopeName;
   return createScope;
-}
-
-// packages/react/compose-refs/src/composeRefs.tsx
-function setRef(ref, value) {
-  if (typeof ref === "function") {
-    return ref(value);
-  } else if (ref !== null && ref !== void 0) {
-    ref.current = value;
-  }
-}
-function composeRefs(...refs) {
-  return (node) => {
-    let hasCleanup = false;
-    const cleanups = refs.map((ref) => {
-      const cleanup = setRef(ref, node);
-      if (!hasCleanup && typeof cleanup == "function") {
-        hasCleanup = true;
-      }
-      return cleanup;
-    });
-    if (hasCleanup) {
-      return () => {
-        for (let i = 0; i < cleanups.length; i++) {
-          const cleanup = cleanups[i];
-          if (typeof cleanup == "function") {
-            cleanup();
-          } else {
-            setRef(refs[i], null);
-          }
-        }
-      };
-    }
-  };
-}
-function useComposedRefs(...refs) {
-  return React.useCallback(composeRefs(...refs), refs);
 }
 
 // packages/react/slot/src/slot.tsx
@@ -1959,82 +835,6 @@ function getElementRef$1(element) {
   return element.props.ref || element.ref;
 }
 
-function createCollection(name) {
-  const PROVIDER_NAME = name + "CollectionProvider";
-  const [createCollectionContext, createCollectionScope] = createContextScope(PROVIDER_NAME);
-  const [CollectionProviderImpl, useCollectionContext] = createCollectionContext(
-    PROVIDER_NAME,
-    { collectionRef: { current: null }, itemMap: /* @__PURE__ */ new Map() }
-  );
-  const CollectionProvider = (props) => {
-    const { scope, children } = props;
-    const ref = React__default.useRef(null);
-    const itemMap = React__default.useRef(/* @__PURE__ */ new Map()).current;
-    return /* @__PURE__ */ jsx(CollectionProviderImpl, { scope, itemMap, collectionRef: ref, children });
-  };
-  CollectionProvider.displayName = PROVIDER_NAME;
-  const COLLECTION_SLOT_NAME = name + "CollectionSlot";
-  const CollectionSlot = React__default.forwardRef(
-    (props, forwardedRef) => {
-      const { scope, children } = props;
-      const context = useCollectionContext(COLLECTION_SLOT_NAME, scope);
-      const composedRefs = useComposedRefs(forwardedRef, context.collectionRef);
-      return /* @__PURE__ */ jsx(Slot, { ref: composedRefs, children });
-    }
-  );
-  CollectionSlot.displayName = COLLECTION_SLOT_NAME;
-  const ITEM_SLOT_NAME = name + "CollectionItemSlot";
-  const ITEM_DATA_ATTR = "data-radix-collection-item";
-  const CollectionItemSlot = React__default.forwardRef(
-    (props, forwardedRef) => {
-      const { scope, children, ...itemData } = props;
-      const ref = React__default.useRef(null);
-      const composedRefs = useComposedRefs(forwardedRef, ref);
-      const context = useCollectionContext(ITEM_SLOT_NAME, scope);
-      React__default.useEffect(() => {
-        context.itemMap.set(ref, { ref, ...itemData });
-        return () => void context.itemMap.delete(ref);
-      });
-      return /* @__PURE__ */ jsx(Slot, { ...{ [ITEM_DATA_ATTR]: "" }, ref: composedRefs, children });
-    }
-  );
-  CollectionItemSlot.displayName = ITEM_SLOT_NAME;
-  function useCollection(scope) {
-    const context = useCollectionContext(name + "CollectionConsumer", scope);
-    const getItems = React__default.useCallback(() => {
-      const collectionNode = context.collectionRef.current;
-      if (!collectionNode) return [];
-      const orderedNodes = Array.from(collectionNode.querySelectorAll(`[${ITEM_DATA_ATTR}]`));
-      const items = Array.from(context.itemMap.values());
-      const orderedItems = items.sort(
-        (a, b) => orderedNodes.indexOf(a.ref.current) - orderedNodes.indexOf(b.ref.current)
-      );
-      return orderedItems;
-    }, [context.collectionRef, context.itemMap]);
-    return getItems;
-  }
-  return [
-    { Provider: CollectionProvider, Slot: CollectionSlot, ItemSlot: CollectionItemSlot },
-    useCollection,
-    createCollectionScope
-  ];
-}
-
-// packages/react/use-layout-effect/src/useLayoutEffect.tsx
-var useLayoutEffect2 = Boolean(globalThis?.document) ? React.useLayoutEffect : () => {
-};
-
-// packages/react/id/src/id.tsx
-var useReactId = React["useId".toString()] || (() => void 0);
-var count$1 = 0;
-function useId(deterministicId) {
-  const [id, setId] = React.useState(useReactId());
-  useLayoutEffect2(() => {
-    if (!deterministicId) setId((reactId) => reactId ?? String(count$1++));
-  }, [deterministicId]);
-  return deterministicId || (id ? `radix-${id}` : "");
-}
-
 // packages/react/primitive/src/primitive.tsx
 var NODES = [
   "a",
@@ -2077,598 +877,6 @@ function useCallbackRef(callback) {
     callbackRef.current = callback;
   });
   return React.useMemo(() => (...args) => callbackRef.current?.(...args), []);
-}
-
-// packages/react/use-controllable-state/src/useControllableState.tsx
-function useControllableState({
-  prop,
-  defaultProp,
-  onChange = () => {
-  }
-}) {
-  const [uncontrolledProp, setUncontrolledProp] = useUncontrolledState({ defaultProp, onChange });
-  const isControlled = prop !== void 0;
-  const value = isControlled ? prop : uncontrolledProp;
-  const handleChange = useCallbackRef(onChange);
-  const setValue = React.useCallback(
-    (nextValue) => {
-      if (isControlled) {
-        const setter = nextValue;
-        const value2 = typeof nextValue === "function" ? setter(prop) : nextValue;
-        if (value2 !== prop) handleChange(value2);
-      } else {
-        setUncontrolledProp(nextValue);
-      }
-    },
-    [isControlled, prop, setUncontrolledProp, handleChange]
-  );
-  return [value, setValue];
-}
-function useUncontrolledState({
-  defaultProp,
-  onChange
-}) {
-  const uncontrolledState = React.useState(defaultProp);
-  const [value] = uncontrolledState;
-  const prevValueRef = React.useRef(value);
-  const handleChange = useCallbackRef(onChange);
-  React.useEffect(() => {
-    if (prevValueRef.current !== value) {
-      handleChange(value);
-      prevValueRef.current = value;
-    }
-  }, [value, prevValueRef, handleChange]);
-  return uncontrolledState;
-}
-
-// packages/react/direction/src/Direction.tsx
-var DirectionContext = React.createContext(void 0);
-function useDirection(localDir) {
-  const globalDir = React.useContext(DirectionContext);
-  return localDir || globalDir || "ltr";
-}
-
-var ENTRY_FOCUS = "rovingFocusGroup.onEntryFocus";
-var EVENT_OPTIONS$1 = { bubbles: false, cancelable: true };
-var GROUP_NAME$3 = "RovingFocusGroup";
-var [Collection$2, useCollection$2, createCollectionScope$2] = createCollection(GROUP_NAME$3);
-var [createRovingFocusGroupContext, createRovingFocusGroupScope] = createContextScope(
-  GROUP_NAME$3,
-  [createCollectionScope$2]
-);
-var [RovingFocusProvider, useRovingFocusContext] = createRovingFocusGroupContext(GROUP_NAME$3);
-var RovingFocusGroup = React.forwardRef(
-  (props, forwardedRef) => {
-    return /* @__PURE__ */ jsx(Collection$2.Provider, { scope: props.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsx(Collection$2.Slot, { scope: props.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsx(RovingFocusGroupImpl, { ...props, ref: forwardedRef }) }) });
-  }
-);
-RovingFocusGroup.displayName = GROUP_NAME$3;
-var RovingFocusGroupImpl = React.forwardRef((props, forwardedRef) => {
-  const {
-    __scopeRovingFocusGroup,
-    orientation,
-    loop = false,
-    dir,
-    currentTabStopId: currentTabStopIdProp,
-    defaultCurrentTabStopId,
-    onCurrentTabStopIdChange,
-    onEntryFocus,
-    preventScrollOnEntryFocus = false,
-    ...groupProps
-  } = props;
-  const ref = React.useRef(null);
-  const composedRefs = useComposedRefs(forwardedRef, ref);
-  const direction = useDirection(dir);
-  const [currentTabStopId = null, setCurrentTabStopId] = useControllableState({
-    prop: currentTabStopIdProp,
-    defaultProp: defaultCurrentTabStopId,
-    onChange: onCurrentTabStopIdChange
-  });
-  const [isTabbingBackOut, setIsTabbingBackOut] = React.useState(false);
-  const handleEntryFocus = useCallbackRef(onEntryFocus);
-  const getItems = useCollection$2(__scopeRovingFocusGroup);
-  const isClickFocusRef = React.useRef(false);
-  const [focusableItemsCount, setFocusableItemsCount] = React.useState(0);
-  React.useEffect(() => {
-    const node = ref.current;
-    if (node) {
-      node.addEventListener(ENTRY_FOCUS, handleEntryFocus);
-      return () => node.removeEventListener(ENTRY_FOCUS, handleEntryFocus);
-    }
-  }, [handleEntryFocus]);
-  return /* @__PURE__ */ jsx(
-    RovingFocusProvider,
-    {
-      scope: __scopeRovingFocusGroup,
-      orientation,
-      dir: direction,
-      loop,
-      currentTabStopId,
-      onItemFocus: React.useCallback(
-        (tabStopId) => setCurrentTabStopId(tabStopId),
-        [setCurrentTabStopId]
-      ),
-      onItemShiftTab: React.useCallback(() => setIsTabbingBackOut(true), []),
-      onFocusableItemAdd: React.useCallback(
-        () => setFocusableItemsCount((prevCount) => prevCount + 1),
-        []
-      ),
-      onFocusableItemRemove: React.useCallback(
-        () => setFocusableItemsCount((prevCount) => prevCount - 1),
-        []
-      ),
-      children: /* @__PURE__ */ jsx(
-        Primitive.div,
-        {
-          tabIndex: isTabbingBackOut || focusableItemsCount === 0 ? -1 : 0,
-          "data-orientation": orientation,
-          ...groupProps,
-          ref: composedRefs,
-          style: { outline: "none", ...props.style },
-          onMouseDown: composeEventHandlers(props.onMouseDown, () => {
-            isClickFocusRef.current = true;
-          }),
-          onFocus: composeEventHandlers(props.onFocus, (event) => {
-            const isKeyboardFocus = !isClickFocusRef.current;
-            if (event.target === event.currentTarget && isKeyboardFocus && !isTabbingBackOut) {
-              const entryFocusEvent = new CustomEvent(ENTRY_FOCUS, EVENT_OPTIONS$1);
-              event.currentTarget.dispatchEvent(entryFocusEvent);
-              if (!entryFocusEvent.defaultPrevented) {
-                const items = getItems().filter((item) => item.focusable);
-                const activeItem = items.find((item) => item.active);
-                const currentItem = items.find((item) => item.id === currentTabStopId);
-                const candidateItems = [activeItem, currentItem, ...items].filter(
-                  Boolean
-                );
-                const candidateNodes = candidateItems.map((item) => item.ref.current);
-                focusFirst$2(candidateNodes, preventScrollOnEntryFocus);
-              }
-            }
-            isClickFocusRef.current = false;
-          }),
-          onBlur: composeEventHandlers(props.onBlur, () => setIsTabbingBackOut(false))
-        }
-      )
-    }
-  );
-});
-var ITEM_NAME$4 = "RovingFocusGroupItem";
-var RovingFocusGroupItem = React.forwardRef(
-  (props, forwardedRef) => {
-    const {
-      __scopeRovingFocusGroup,
-      focusable = true,
-      active = false,
-      tabStopId,
-      ...itemProps
-    } = props;
-    const autoId = useId();
-    const id = tabStopId || autoId;
-    const context = useRovingFocusContext(ITEM_NAME$4, __scopeRovingFocusGroup);
-    const isCurrentTabStop = context.currentTabStopId === id;
-    const getItems = useCollection$2(__scopeRovingFocusGroup);
-    const { onFocusableItemAdd, onFocusableItemRemove } = context;
-    React.useEffect(() => {
-      if (focusable) {
-        onFocusableItemAdd();
-        return () => onFocusableItemRemove();
-      }
-    }, [focusable, onFocusableItemAdd, onFocusableItemRemove]);
-    return /* @__PURE__ */ jsx(
-      Collection$2.ItemSlot,
-      {
-        scope: __scopeRovingFocusGroup,
-        id,
-        focusable,
-        active,
-        children: /* @__PURE__ */ jsx(
-          Primitive.span,
-          {
-            tabIndex: isCurrentTabStop ? 0 : -1,
-            "data-orientation": context.orientation,
-            ...itemProps,
-            ref: forwardedRef,
-            onMouseDown: composeEventHandlers(props.onMouseDown, (event) => {
-              if (!focusable) event.preventDefault();
-              else context.onItemFocus(id);
-            }),
-            onFocus: composeEventHandlers(props.onFocus, () => context.onItemFocus(id)),
-            onKeyDown: composeEventHandlers(props.onKeyDown, (event) => {
-              if (event.key === "Tab" && event.shiftKey) {
-                context.onItemShiftTab();
-                return;
-              }
-              if (event.target !== event.currentTarget) return;
-              const focusIntent = getFocusIntent(event, context.orientation, context.dir);
-              if (focusIntent !== void 0) {
-                if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
-                event.preventDefault();
-                const items = getItems().filter((item) => item.focusable);
-                let candidateNodes = items.map((item) => item.ref.current);
-                if (focusIntent === "last") candidateNodes.reverse();
-                else if (focusIntent === "prev" || focusIntent === "next") {
-                  if (focusIntent === "prev") candidateNodes.reverse();
-                  const currentIndex = candidateNodes.indexOf(event.currentTarget);
-                  candidateNodes = context.loop ? wrapArray$2(candidateNodes, currentIndex + 1) : candidateNodes.slice(currentIndex + 1);
-                }
-                setTimeout(() => focusFirst$2(candidateNodes));
-              }
-            })
-          }
-        )
-      }
-    );
-  }
-);
-RovingFocusGroupItem.displayName = ITEM_NAME$4;
-var MAP_KEY_TO_FOCUS_INTENT = {
-  ArrowLeft: "prev",
-  ArrowUp: "prev",
-  ArrowRight: "next",
-  ArrowDown: "next",
-  PageUp: "first",
-  Home: "first",
-  PageDown: "last",
-  End: "last"
-};
-function getDirectionAwareKey(key, dir) {
-  if (dir !== "rtl") return key;
-  return key === "ArrowLeft" ? "ArrowRight" : key === "ArrowRight" ? "ArrowLeft" : key;
-}
-function getFocusIntent(event, orientation, dir) {
-  const key = getDirectionAwareKey(event.key, dir);
-  if (orientation === "vertical" && ["ArrowLeft", "ArrowRight"].includes(key)) return void 0;
-  if (orientation === "horizontal" && ["ArrowUp", "ArrowDown"].includes(key)) return void 0;
-  return MAP_KEY_TO_FOCUS_INTENT[key];
-}
-function focusFirst$2(candidates, preventScroll = false) {
-  const PREVIOUSLY_FOCUSED_ELEMENT = document.activeElement;
-  for (const candidate of candidates) {
-    if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
-    candidate.focus({ preventScroll });
-    if (document.activeElement !== PREVIOUSLY_FOCUSED_ELEMENT) return;
-  }
-}
-function wrapArray$2(array, startIndex) {
-  return array.map((_, index) => array[(startIndex + index) % array.length]);
-}
-var Root$3 = RovingFocusGroup;
-var Item$1 = RovingFocusGroupItem;
-
-function useStateMachine(initialState, machine) {
-  return React.useReducer((state, event) => {
-    const nextState = machine[state][event];
-    return nextState ?? state;
-  }, initialState);
-}
-
-// packages/react/presence/src/Presence.tsx
-var Presence = (props) => {
-  const { present, children } = props;
-  const presence = usePresence(present);
-  const child = typeof children === "function" ? children({ present: presence.isPresent }) : React.Children.only(children);
-  const ref = useComposedRefs(presence.ref, getElementRef(child));
-  const forceMount = typeof children === "function";
-  return forceMount || presence.isPresent ? React.cloneElement(child, { ref }) : null;
-};
-Presence.displayName = "Presence";
-function usePresence(present) {
-  const [node, setNode] = React.useState();
-  const stylesRef = React.useRef({});
-  const prevPresentRef = React.useRef(present);
-  const prevAnimationNameRef = React.useRef("none");
-  const initialState = present ? "mounted" : "unmounted";
-  const [state, send] = useStateMachine(initialState, {
-    mounted: {
-      UNMOUNT: "unmounted",
-      ANIMATION_OUT: "unmountSuspended"
-    },
-    unmountSuspended: {
-      MOUNT: "mounted",
-      ANIMATION_END: "unmounted"
-    },
-    unmounted: {
-      MOUNT: "mounted"
-    }
-  });
-  React.useEffect(() => {
-    const currentAnimationName = getAnimationName(stylesRef.current);
-    prevAnimationNameRef.current = state === "mounted" ? currentAnimationName : "none";
-  }, [state]);
-  useLayoutEffect2(() => {
-    const styles = stylesRef.current;
-    const wasPresent = prevPresentRef.current;
-    const hasPresentChanged = wasPresent !== present;
-    if (hasPresentChanged) {
-      const prevAnimationName = prevAnimationNameRef.current;
-      const currentAnimationName = getAnimationName(styles);
-      if (present) {
-        send("MOUNT");
-      } else if (currentAnimationName === "none" || styles?.display === "none") {
-        send("UNMOUNT");
-      } else {
-        const isAnimating = prevAnimationName !== currentAnimationName;
-        if (wasPresent && isAnimating) {
-          send("ANIMATION_OUT");
-        } else {
-          send("UNMOUNT");
-        }
-      }
-      prevPresentRef.current = present;
-    }
-  }, [present, send]);
-  useLayoutEffect2(() => {
-    if (node) {
-      let timeoutId;
-      const ownerWindow = node.ownerDocument.defaultView ?? window;
-      const handleAnimationEnd = (event) => {
-        const currentAnimationName = getAnimationName(stylesRef.current);
-        const isCurrentAnimation = currentAnimationName.includes(event.animationName);
-        if (event.target === node && isCurrentAnimation) {
-          send("ANIMATION_END");
-          if (!prevPresentRef.current) {
-            const currentFillMode = node.style.animationFillMode;
-            node.style.animationFillMode = "forwards";
-            timeoutId = ownerWindow.setTimeout(() => {
-              if (node.style.animationFillMode === "forwards") {
-                node.style.animationFillMode = currentFillMode;
-              }
-            });
-          }
-        }
-      };
-      const handleAnimationStart = (event) => {
-        if (event.target === node) {
-          prevAnimationNameRef.current = getAnimationName(stylesRef.current);
-        }
-      };
-      node.addEventListener("animationstart", handleAnimationStart);
-      node.addEventListener("animationcancel", handleAnimationEnd);
-      node.addEventListener("animationend", handleAnimationEnd);
-      return () => {
-        ownerWindow.clearTimeout(timeoutId);
-        node.removeEventListener("animationstart", handleAnimationStart);
-        node.removeEventListener("animationcancel", handleAnimationEnd);
-        node.removeEventListener("animationend", handleAnimationEnd);
-      };
-    } else {
-      send("ANIMATION_END");
-    }
-  }, [node, send]);
-  return {
-    isPresent: ["mounted", "unmountSuspended"].includes(state),
-    ref: React.useCallback((node2) => {
-      if (node2) stylesRef.current = getComputedStyle(node2);
-      setNode(node2);
-    }, [])
-  };
-}
-function getAnimationName(styles) {
-  return styles?.animationName || "none";
-}
-function getElementRef(element) {
-  let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
-  let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
-  if (mayWarn) {
-    return element.ref;
-  }
-  getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
-  mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
-  if (mayWarn) {
-    return element.props.ref;
-  }
-  return element.props.ref || element.ref;
-}
-
-var TABS_NAME = "Tabs";
-var [createTabsContext, createTabsScope] = createContextScope(TABS_NAME, [
-  createRovingFocusGroupScope
-]);
-var useRovingFocusGroupScope$2 = createRovingFocusGroupScope();
-var [TabsProvider, useTabsContext] = createTabsContext(TABS_NAME);
-var Tabs$1 = React.forwardRef(
-  (props, forwardedRef) => {
-    const {
-      __scopeTabs,
-      value: valueProp,
-      onValueChange,
-      defaultValue,
-      orientation = "horizontal",
-      dir,
-      activationMode = "automatic",
-      ...tabsProps
-    } = props;
-    const direction = useDirection(dir);
-    const [value, setValue] = useControllableState({
-      prop: valueProp,
-      onChange: onValueChange,
-      defaultProp: defaultValue
-    });
-    return /* @__PURE__ */ jsx(
-      TabsProvider,
-      {
-        scope: __scopeTabs,
-        baseId: useId(),
-        value,
-        onValueChange: setValue,
-        orientation,
-        dir: direction,
-        activationMode,
-        children: /* @__PURE__ */ jsx(
-          Primitive.div,
-          {
-            dir: direction,
-            "data-orientation": orientation,
-            ...tabsProps,
-            ref: forwardedRef
-          }
-        )
-      }
-    );
-  }
-);
-Tabs$1.displayName = TABS_NAME;
-var TAB_LIST_NAME = "TabsList";
-var TabsList = React.forwardRef(
-  (props, forwardedRef) => {
-    const { __scopeTabs, loop = true, ...listProps } = props;
-    const context = useTabsContext(TAB_LIST_NAME, __scopeTabs);
-    const rovingFocusGroupScope = useRovingFocusGroupScope$2(__scopeTabs);
-    return /* @__PURE__ */ jsx(
-      Root$3,
-      {
-        asChild: true,
-        ...rovingFocusGroupScope,
-        orientation: context.orientation,
-        dir: context.dir,
-        loop,
-        children: /* @__PURE__ */ jsx(
-          Primitive.div,
-          {
-            role: "tablist",
-            "aria-orientation": context.orientation,
-            ...listProps,
-            ref: forwardedRef
-          }
-        )
-      }
-    );
-  }
-);
-TabsList.displayName = TAB_LIST_NAME;
-var TRIGGER_NAME$3 = "TabsTrigger";
-var TabsTrigger = React.forwardRef(
-  (props, forwardedRef) => {
-    const { __scopeTabs, value, disabled = false, ...triggerProps } = props;
-    const context = useTabsContext(TRIGGER_NAME$3, __scopeTabs);
-    const rovingFocusGroupScope = useRovingFocusGroupScope$2(__scopeTabs);
-    const triggerId = makeTriggerId(context.baseId, value);
-    const contentId = makeContentId(context.baseId, value);
-    const isSelected = value === context.value;
-    return /* @__PURE__ */ jsx(
-      Item$1,
-      {
-        asChild: true,
-        ...rovingFocusGroupScope,
-        focusable: !disabled,
-        active: isSelected,
-        children: /* @__PURE__ */ jsx(
-          Primitive.button,
-          {
-            type: "button",
-            role: "tab",
-            "aria-selected": isSelected,
-            "aria-controls": contentId,
-            "data-state": isSelected ? "active" : "inactive",
-            "data-disabled": disabled ? "" : void 0,
-            disabled,
-            id: triggerId,
-            ...triggerProps,
-            ref: forwardedRef,
-            onMouseDown: composeEventHandlers(props.onMouseDown, (event) => {
-              if (!disabled && event.button === 0 && event.ctrlKey === false) {
-                context.onValueChange(value);
-              } else {
-                event.preventDefault();
-              }
-            }),
-            onKeyDown: composeEventHandlers(props.onKeyDown, (event) => {
-              if ([" ", "Enter"].includes(event.key)) context.onValueChange(value);
-            }),
-            onFocus: composeEventHandlers(props.onFocus, () => {
-              const isAutomaticActivation = context.activationMode !== "manual";
-              if (!isSelected && !disabled && isAutomaticActivation) {
-                context.onValueChange(value);
-              }
-            })
-          }
-        )
-      }
-    );
-  }
-);
-TabsTrigger.displayName = TRIGGER_NAME$3;
-var CONTENT_NAME$5 = "TabsContent";
-var TabsContent = React.forwardRef(
-  (props, forwardedRef) => {
-    const { __scopeTabs, value, forceMount, children, ...contentProps } = props;
-    const context = useTabsContext(CONTENT_NAME$5, __scopeTabs);
-    const triggerId = makeTriggerId(context.baseId, value);
-    const contentId = makeContentId(context.baseId, value);
-    const isSelected = value === context.value;
-    const isMountAnimationPreventedRef = React.useRef(isSelected);
-    React.useEffect(() => {
-      const rAF = requestAnimationFrame(() => isMountAnimationPreventedRef.current = false);
-      return () => cancelAnimationFrame(rAF);
-    }, []);
-    return /* @__PURE__ */ jsx(Presence, { present: forceMount || isSelected, children: ({ present }) => /* @__PURE__ */ jsx(
-      Primitive.div,
-      {
-        "data-state": isSelected ? "active" : "inactive",
-        "data-orientation": context.orientation,
-        role: "tabpanel",
-        "aria-labelledby": triggerId,
-        hidden: !present,
-        id: contentId,
-        tabIndex: 0,
-        ...contentProps,
-        ref: forwardedRef,
-        style: {
-          ...props.style,
-          animationDuration: isMountAnimationPreventedRef.current ? "0s" : void 0
-        },
-        children: present && children
-      }
-    ) });
-  }
-);
-TabsContent.displayName = CONTENT_NAME$5;
-function makeTriggerId(baseId, value) {
-  return `${baseId}-trigger-${value}`;
-}
-function makeContentId(baseId, value) {
-  return `${baseId}-content-${value}`;
-}
-var Root2$4 = Tabs$1;
-var List = TabsList;
-var Trigger$3 = TabsTrigger;
-
-const StyledRoot = styled(Root2$4).withConfig({
-  displayName: "Tabs__StyledRoot",
-  componentId: "sc-1nxdand-0"
-})(["width:100%;"]);
-const StyledTabListContainer = styled.div.withConfig({
-  displayName: "Tabs__StyledTabListContainer",
-  componentId: "sc-1nxdand-1"
-})(["display:flex;width:100%;justify-content:space-between;"]);
-const StyledList = styled(List).withConfig({
-  displayName: "Tabs__StyledList",
-  componentId: "sc-1nxdand-2"
-})(["display:flex;flex-wrap:nowrap;gap:36px;min-height:36px;"]);
-const StyledTrigger = styled(Typography).attrs({
-  component: Trigger$3
-}).withConfig({
-  displayName: "Tabs__StyledTrigger",
-  componentId: "sc-1nxdand-3"
-})(["padding:0;margin:0;border:0;background:transparent;@media (hover:hover){cursor:pointer;}&[data-state=\"active\"]{font-weight:bold;}&[data-state=\"inactive\"]{color:", ";}"], Colors.black500);
-function Tabs(props) {
-  return /*#__PURE__*/React__default.createElement(StyledRoot, {
-    value: props.value,
-    onValueChange: value => props.onChange(value)
-  }, props.children);
-}
-function TabList(props) {
-  return /*#__PURE__*/React__default.createElement(StyledTabListContainer, null, /*#__PURE__*/React__default.createElement(StyledList, null, props.children), props.action);
-}
-function Tab(props) {
-  return /*#__PURE__*/React__default.createElement(StyledTrigger, {
-    value: props.value
-  }, props.children);
-}
-function TabPanel(props) {
-  return /*#__PURE__*/React__default.createElement(TabsContent, {
-    value: props.value
-  }, props.children);
 }
 
 // packages/react/use-escape-keydown/src/useEscapeKeydown.tsx
@@ -2887,230 +1095,19 @@ function handleAndDispatchCustomEvent(name, handler, detail, { discrete }) {
   }
 }
 
-var count = 0;
-function useFocusGuards() {
-  React.useEffect(() => {
-    const edgeGuards = document.querySelectorAll("[data-radix-focus-guard]");
-    document.body.insertAdjacentElement("afterbegin", edgeGuards[0] ?? createFocusGuard());
-    document.body.insertAdjacentElement("beforeend", edgeGuards[1] ?? createFocusGuard());
-    count++;
-    return () => {
-      if (count === 1) {
-        document.querySelectorAll("[data-radix-focus-guard]").forEach((node) => node.remove());
-      }
-      count--;
-    };
-  }, []);
-}
-function createFocusGuard() {
-  const element = document.createElement("span");
-  element.setAttribute("data-radix-focus-guard", "");
-  element.tabIndex = 0;
-  element.style.outline = "none";
-  element.style.opacity = "0";
-  element.style.position = "fixed";
-  element.style.pointerEvents = "none";
-  return element;
-}
+// packages/react/use-layout-effect/src/useLayoutEffect.tsx
+var useLayoutEffect2 = Boolean(globalThis?.document) ? React.useLayoutEffect : () => {
+};
 
-var AUTOFOCUS_ON_MOUNT = "focusScope.autoFocusOnMount";
-var AUTOFOCUS_ON_UNMOUNT = "focusScope.autoFocusOnUnmount";
-var EVENT_OPTIONS = { bubbles: false, cancelable: true };
-var FOCUS_SCOPE_NAME = "FocusScope";
-var FocusScope = React.forwardRef((props, forwardedRef) => {
-  const {
-    loop = false,
-    trapped = false,
-    onMountAutoFocus: onMountAutoFocusProp,
-    onUnmountAutoFocus: onUnmountAutoFocusProp,
-    ...scopeProps
-  } = props;
-  const [container, setContainer] = React.useState(null);
-  const onMountAutoFocus = useCallbackRef(onMountAutoFocusProp);
-  const onUnmountAutoFocus = useCallbackRef(onUnmountAutoFocusProp);
-  const lastFocusedElementRef = React.useRef(null);
-  const composedRefs = useComposedRefs(forwardedRef, (node) => setContainer(node));
-  const focusScope = React.useRef({
-    paused: false,
-    pause() {
-      this.paused = true;
-    },
-    resume() {
-      this.paused = false;
-    }
-  }).current;
-  React.useEffect(() => {
-    if (trapped) {
-      let handleFocusIn2 = function(event) {
-        if (focusScope.paused || !container) return;
-        const target = event.target;
-        if (container.contains(target)) {
-          lastFocusedElementRef.current = target;
-        } else {
-          focus(lastFocusedElementRef.current, { select: true });
-        }
-      }, handleFocusOut2 = function(event) {
-        if (focusScope.paused || !container) return;
-        const relatedTarget = event.relatedTarget;
-        if (relatedTarget === null) return;
-        if (!container.contains(relatedTarget)) {
-          focus(lastFocusedElementRef.current, { select: true });
-        }
-      }, handleMutations2 = function(mutations) {
-        const focusedElement = document.activeElement;
-        if (focusedElement !== document.body) return;
-        for (const mutation of mutations) {
-          if (mutation.removedNodes.length > 0) focus(container);
-        }
-      };
-      document.addEventListener("focusin", handleFocusIn2);
-      document.addEventListener("focusout", handleFocusOut2);
-      const mutationObserver = new MutationObserver(handleMutations2);
-      if (container) mutationObserver.observe(container, { childList: true, subtree: true });
-      return () => {
-        document.removeEventListener("focusin", handleFocusIn2);
-        document.removeEventListener("focusout", handleFocusOut2);
-        mutationObserver.disconnect();
-      };
-    }
-  }, [trapped, container, focusScope.paused]);
-  React.useEffect(() => {
-    if (container) {
-      focusScopesStack.add(focusScope);
-      const previouslyFocusedElement = document.activeElement;
-      const hasFocusedCandidate = container.contains(previouslyFocusedElement);
-      if (!hasFocusedCandidate) {
-        const mountEvent = new CustomEvent(AUTOFOCUS_ON_MOUNT, EVENT_OPTIONS);
-        container.addEventListener(AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
-        container.dispatchEvent(mountEvent);
-        if (!mountEvent.defaultPrevented) {
-          focusFirst$1(removeLinks(getTabbableCandidates(container)), { select: true });
-          if (document.activeElement === previouslyFocusedElement) {
-            focus(container);
-          }
-        }
-      }
-      return () => {
-        container.removeEventListener(AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
-        setTimeout(() => {
-          const unmountEvent = new CustomEvent(AUTOFOCUS_ON_UNMOUNT, EVENT_OPTIONS);
-          container.addEventListener(AUTOFOCUS_ON_UNMOUNT, onUnmountAutoFocus);
-          container.dispatchEvent(unmountEvent);
-          if (!unmountEvent.defaultPrevented) {
-            focus(previouslyFocusedElement ?? document.body, { select: true });
-          }
-          container.removeEventListener(AUTOFOCUS_ON_UNMOUNT, onUnmountAutoFocus);
-          focusScopesStack.remove(focusScope);
-        }, 0);
-      };
-    }
-  }, [container, onMountAutoFocus, onUnmountAutoFocus, focusScope]);
-  const handleKeyDown = React.useCallback(
-    (event) => {
-      if (!loop && !trapped) return;
-      if (focusScope.paused) return;
-      const isTabKey = event.key === "Tab" && !event.altKey && !event.ctrlKey && !event.metaKey;
-      const focusedElement = document.activeElement;
-      if (isTabKey && focusedElement) {
-        const container2 = event.currentTarget;
-        const [first, last] = getTabbableEdges(container2);
-        const hasTabbableElementsInside = first && last;
-        if (!hasTabbableElementsInside) {
-          if (focusedElement === container2) event.preventDefault();
-        } else {
-          if (!event.shiftKey && focusedElement === last) {
-            event.preventDefault();
-            if (loop) focus(first, { select: true });
-          } else if (event.shiftKey && focusedElement === first) {
-            event.preventDefault();
-            if (loop) focus(last, { select: true });
-          }
-        }
-      }
-    },
-    [loop, trapped, focusScope.paused]
-  );
-  return /* @__PURE__ */ jsx(Primitive.div, { tabIndex: -1, ...scopeProps, ref: composedRefs, onKeyDown: handleKeyDown });
-});
-FocusScope.displayName = FOCUS_SCOPE_NAME;
-function focusFirst$1(candidates, { select = false } = {}) {
-  const previouslyFocusedElement = document.activeElement;
-  for (const candidate of candidates) {
-    focus(candidate, { select });
-    if (document.activeElement !== previouslyFocusedElement) return;
-  }
-}
-function getTabbableEdges(container) {
-  const candidates = getTabbableCandidates(container);
-  const first = findVisible(candidates, container);
-  const last = findVisible(candidates.reverse(), container);
-  return [first, last];
-}
-function getTabbableCandidates(container) {
-  const nodes = [];
-  const walker = document.createTreeWalker(container, NodeFilter.SHOW_ELEMENT, {
-    acceptNode: (node) => {
-      const isHiddenInput = node.tagName === "INPUT" && node.type === "hidden";
-      if (node.disabled || node.hidden || isHiddenInput) return NodeFilter.FILTER_SKIP;
-      return node.tabIndex >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
-    }
-  });
-  while (walker.nextNode()) nodes.push(walker.currentNode);
-  return nodes;
-}
-function findVisible(elements, container) {
-  for (const element of elements) {
-    if (!isHidden(element, { upTo: container })) return element;
-  }
-}
-function isHidden(node, { upTo }) {
-  if (getComputedStyle(node).visibility === "hidden") return true;
-  while (node) {
-    if (upTo !== void 0 && node === upTo) return false;
-    if (getComputedStyle(node).display === "none") return true;
-    node = node.parentElement;
-  }
-  return false;
-}
-function isSelectableInput(element) {
-  return element instanceof HTMLInputElement && "select" in element;
-}
-function focus(element, { select = false } = {}) {
-  if (element && element.focus) {
-    const previouslyFocusedElement = document.activeElement;
-    element.focus({ preventScroll: true });
-    if (element !== previouslyFocusedElement && isSelectableInput(element) && select)
-      element.select();
-  }
-}
-var focusScopesStack = createFocusScopesStack();
-function createFocusScopesStack() {
-  let stack = [];
-  return {
-    add(focusScope) {
-      const activeFocusScope = stack[0];
-      if (focusScope !== activeFocusScope) {
-        activeFocusScope?.pause();
-      }
-      stack = arrayRemove(stack, focusScope);
-      stack.unshift(focusScope);
-    },
-    remove(focusScope) {
-      stack = arrayRemove(stack, focusScope);
-      stack[0]?.resume();
-    }
-  };
-}
-function arrayRemove(array, item) {
-  const updatedArray = [...array];
-  const index = updatedArray.indexOf(item);
-  if (index !== -1) {
-    updatedArray.splice(index, 1);
-  }
-  return updatedArray;
-}
-function removeLinks(items) {
-  return items.filter((item) => item.tagName !== "A");
+// packages/react/id/src/id.tsx
+var useReactId = React["useId".toString()] || (() => void 0);
+var count$1 = 0;
+function useId(deterministicId) {
+  const [id, setId] = React.useState(useReactId());
+  useLayoutEffect2(() => {
+    if (!deterministicId) setId((reactId) => reactId ?? String(count$1++));
+  }, [deterministicId]);
+  return deterministicId || (id ? `radix-${id}` : "");
 }
 
 /**
@@ -5534,7 +3531,7 @@ var Arrow$1 = React.forwardRef((props, forwardedRef) => {
   );
 });
 Arrow$1.displayName = NAME$2;
-var Root$2 = Arrow$1;
+var Root$8 = Arrow$1;
 
 // packages/react/use-size/src/useSize.tsx
 function useSize(element) {
@@ -5595,8 +3592,8 @@ var PopperAnchor = React.forwardRef(
   }
 );
 PopperAnchor.displayName = ANCHOR_NAME$1;
-var CONTENT_NAME$4 = "PopperContent";
-var [PopperContentProvider, useContentContext] = createPopperContext(CONTENT_NAME$4);
+var CONTENT_NAME$5 = "PopperContent";
+var [PopperContentProvider, useContentContext] = createPopperContext(CONTENT_NAME$5);
 var PopperContent = React.forwardRef(
   (props, forwardedRef) => {
     const {
@@ -5615,7 +3612,7 @@ var PopperContent = React.forwardRef(
       onPlaced,
       ...contentProps
     } = props;
-    const context = usePopperContext(CONTENT_NAME$4, __scopePopper);
+    const context = usePopperContext(CONTENT_NAME$5, __scopePopper);
     const [content, setContent] = React.useState(null);
     const composedRefs = useComposedRefs(forwardedRef, (node) => setContent(node));
     const [arrow$1, setArrow] = React.useState(null);
@@ -5738,7 +3735,7 @@ var PopperContent = React.forwardRef(
     );
   }
 );
-PopperContent.displayName = CONTENT_NAME$4;
+PopperContent.displayName = CONTENT_NAME$5;
 var ARROW_NAME$4 = "PopperArrow";
 var OPPOSITE_SIDE = {
   top: "bottom",
@@ -5778,7 +3775,7 @@ var PopperArrow = React.forwardRef(function PopperArrow2(props, forwardedRef) {
           visibility: contentContext.shouldHideArrow ? "hidden" : void 0
         },
         children: /* @__PURE__ */ jsx(
-          Root$2,
+          Root$8,
           {
             ...arrowProps,
             ref: forwardedRef,
@@ -5832,7 +3829,7 @@ function getSideAndAlignFromPlacement(placement) {
   const [side, align = "center"] = placement.split("-");
   return [side, align];
 }
-var Root2$3 = Popper;
+var Root2$4 = Popper;
 var Anchor = PopperAnchor;
 var Content = PopperContent;
 var Arrow = PopperArrow;
@@ -5846,6 +3843,2542 @@ var Portal$3 = React.forwardRef((props, forwardedRef) => {
   return container ? ReactDOM__default.createPortal(/* @__PURE__ */ jsx(Primitive.div, { ...portalProps, ref: forwardedRef }), container) : null;
 });
 Portal$3.displayName = PORTAL_NAME$4;
+
+function useStateMachine(initialState, machine) {
+  return React.useReducer((state, event) => {
+    const nextState = machine[state][event];
+    return nextState ?? state;
+  }, initialState);
+}
+
+// packages/react/presence/src/Presence.tsx
+var Presence = (props) => {
+  const { present, children } = props;
+  const presence = usePresence(present);
+  const child = typeof children === "function" ? children({ present: presence.isPresent }) : React.Children.only(children);
+  const ref = useComposedRefs(presence.ref, getElementRef(child));
+  const forceMount = typeof children === "function";
+  return forceMount || presence.isPresent ? React.cloneElement(child, { ref }) : null;
+};
+Presence.displayName = "Presence";
+function usePresence(present) {
+  const [node, setNode] = React.useState();
+  const stylesRef = React.useRef({});
+  const prevPresentRef = React.useRef(present);
+  const prevAnimationNameRef = React.useRef("none");
+  const initialState = present ? "mounted" : "unmounted";
+  const [state, send] = useStateMachine(initialState, {
+    mounted: {
+      UNMOUNT: "unmounted",
+      ANIMATION_OUT: "unmountSuspended"
+    },
+    unmountSuspended: {
+      MOUNT: "mounted",
+      ANIMATION_END: "unmounted"
+    },
+    unmounted: {
+      MOUNT: "mounted"
+    }
+  });
+  React.useEffect(() => {
+    const currentAnimationName = getAnimationName(stylesRef.current);
+    prevAnimationNameRef.current = state === "mounted" ? currentAnimationName : "none";
+  }, [state]);
+  useLayoutEffect2(() => {
+    const styles = stylesRef.current;
+    const wasPresent = prevPresentRef.current;
+    const hasPresentChanged = wasPresent !== present;
+    if (hasPresentChanged) {
+      const prevAnimationName = prevAnimationNameRef.current;
+      const currentAnimationName = getAnimationName(styles);
+      if (present) {
+        send("MOUNT");
+      } else if (currentAnimationName === "none" || styles?.display === "none") {
+        send("UNMOUNT");
+      } else {
+        const isAnimating = prevAnimationName !== currentAnimationName;
+        if (wasPresent && isAnimating) {
+          send("ANIMATION_OUT");
+        } else {
+          send("UNMOUNT");
+        }
+      }
+      prevPresentRef.current = present;
+    }
+  }, [present, send]);
+  useLayoutEffect2(() => {
+    if (node) {
+      let timeoutId;
+      const ownerWindow = node.ownerDocument.defaultView ?? window;
+      const handleAnimationEnd = (event) => {
+        const currentAnimationName = getAnimationName(stylesRef.current);
+        const isCurrentAnimation = currentAnimationName.includes(event.animationName);
+        if (event.target === node && isCurrentAnimation) {
+          send("ANIMATION_END");
+          if (!prevPresentRef.current) {
+            const currentFillMode = node.style.animationFillMode;
+            node.style.animationFillMode = "forwards";
+            timeoutId = ownerWindow.setTimeout(() => {
+              if (node.style.animationFillMode === "forwards") {
+                node.style.animationFillMode = currentFillMode;
+              }
+            });
+          }
+        }
+      };
+      const handleAnimationStart = (event) => {
+        if (event.target === node) {
+          prevAnimationNameRef.current = getAnimationName(stylesRef.current);
+        }
+      };
+      node.addEventListener("animationstart", handleAnimationStart);
+      node.addEventListener("animationcancel", handleAnimationEnd);
+      node.addEventListener("animationend", handleAnimationEnd);
+      return () => {
+        ownerWindow.clearTimeout(timeoutId);
+        node.removeEventListener("animationstart", handleAnimationStart);
+        node.removeEventListener("animationcancel", handleAnimationEnd);
+        node.removeEventListener("animationend", handleAnimationEnd);
+      };
+    } else {
+      send("ANIMATION_END");
+    }
+  }, [node, send]);
+  return {
+    isPresent: ["mounted", "unmountSuspended"].includes(state),
+    ref: React.useCallback((node2) => {
+      if (node2) stylesRef.current = getComputedStyle(node2);
+      setNode(node2);
+    }, [])
+  };
+}
+function getAnimationName(styles) {
+  return styles?.animationName || "none";
+}
+function getElementRef(element) {
+  let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
+  let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+  if (mayWarn) {
+    return element.ref;
+  }
+  getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
+  mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+  if (mayWarn) {
+    return element.props.ref;
+  }
+  return element.props.ref || element.ref;
+}
+
+// packages/react/use-controllable-state/src/useControllableState.tsx
+function useControllableState({
+  prop,
+  defaultProp,
+  onChange = () => {
+  }
+}) {
+  const [uncontrolledProp, setUncontrolledProp] = useUncontrolledState({ defaultProp, onChange });
+  const isControlled = prop !== void 0;
+  const value = isControlled ? prop : uncontrolledProp;
+  const handleChange = useCallbackRef(onChange);
+  const setValue = React.useCallback(
+    (nextValue) => {
+      if (isControlled) {
+        const setter = nextValue;
+        const value2 = typeof nextValue === "function" ? setter(prop) : nextValue;
+        if (value2 !== prop) handleChange(value2);
+      } else {
+        setUncontrolledProp(nextValue);
+      }
+    },
+    [isControlled, prop, setUncontrolledProp, handleChange]
+  );
+  return [value, setValue];
+}
+function useUncontrolledState({
+  defaultProp,
+  onChange
+}) {
+  const uncontrolledState = React.useState(defaultProp);
+  const [value] = uncontrolledState;
+  const prevValueRef = React.useRef(value);
+  const handleChange = useCallbackRef(onChange);
+  React.useEffect(() => {
+    if (prevValueRef.current !== value) {
+      handleChange(value);
+      prevValueRef.current = value;
+    }
+  }, [value, prevValueRef, handleChange]);
+  return uncontrolledState;
+}
+
+// packages/react/visually-hidden/src/visually-hidden.tsx
+var NAME$1 = "VisuallyHidden";
+var VisuallyHidden = React.forwardRef(
+  (props, forwardedRef) => {
+    return /* @__PURE__ */ jsx(
+      Primitive.span,
+      {
+        ...props,
+        ref: forwardedRef,
+        style: {
+          // See: https://github.com/twbs/bootstrap/blob/main/scss/mixins/_visually-hidden.scss
+          position: "absolute",
+          border: 0,
+          width: 1,
+          height: 1,
+          padding: 0,
+          margin: -1,
+          overflow: "hidden",
+          clip: "rect(0, 0, 0, 0)",
+          whiteSpace: "nowrap",
+          wordWrap: "normal",
+          ...props.style
+        }
+      }
+    );
+  }
+);
+VisuallyHidden.displayName = NAME$1;
+var Root$7 = VisuallyHidden;
+
+var [createTooltipContext, createTooltipScope] = createContextScope("Tooltip", [
+  createPopperScope
+]);
+var usePopperScope$2 = createPopperScope();
+var PROVIDER_NAME = "TooltipProvider";
+var DEFAULT_DELAY_DURATION = 700;
+var TOOLTIP_OPEN = "tooltip.open";
+var [TooltipProviderContextProvider, useTooltipProviderContext] = createTooltipContext(PROVIDER_NAME);
+var TooltipProvider$1 = (props) => {
+  const {
+    __scopeTooltip,
+    delayDuration = DEFAULT_DELAY_DURATION,
+    skipDelayDuration = 300,
+    disableHoverableContent = false,
+    children
+  } = props;
+  const [isOpenDelayed, setIsOpenDelayed] = React.useState(true);
+  const isPointerInTransitRef = React.useRef(false);
+  const skipDelayTimerRef = React.useRef(0);
+  React.useEffect(() => {
+    const skipDelayTimer = skipDelayTimerRef.current;
+    return () => window.clearTimeout(skipDelayTimer);
+  }, []);
+  return /* @__PURE__ */ jsx(
+    TooltipProviderContextProvider,
+    {
+      scope: __scopeTooltip,
+      isOpenDelayed,
+      delayDuration,
+      onOpen: React.useCallback(() => {
+        window.clearTimeout(skipDelayTimerRef.current);
+        setIsOpenDelayed(false);
+      }, []),
+      onClose: React.useCallback(() => {
+        window.clearTimeout(skipDelayTimerRef.current);
+        skipDelayTimerRef.current = window.setTimeout(
+          () => setIsOpenDelayed(true),
+          skipDelayDuration
+        );
+      }, [skipDelayDuration]),
+      isPointerInTransitRef,
+      onPointerInTransitChange: React.useCallback((inTransit) => {
+        isPointerInTransitRef.current = inTransit;
+      }, []),
+      disableHoverableContent,
+      children
+    }
+  );
+};
+TooltipProvider$1.displayName = PROVIDER_NAME;
+var TOOLTIP_NAME = "Tooltip";
+var [TooltipContextProvider, useTooltipContext] = createTooltipContext(TOOLTIP_NAME);
+var Tooltip$1 = (props) => {
+  const {
+    __scopeTooltip,
+    children,
+    open: openProp,
+    defaultOpen = false,
+    onOpenChange,
+    disableHoverableContent: disableHoverableContentProp,
+    delayDuration: delayDurationProp
+  } = props;
+  const providerContext = useTooltipProviderContext(TOOLTIP_NAME, props.__scopeTooltip);
+  const popperScope = usePopperScope$2(__scopeTooltip);
+  const [trigger, setTrigger] = React.useState(null);
+  const contentId = useId();
+  const openTimerRef = React.useRef(0);
+  const disableHoverableContent = disableHoverableContentProp ?? providerContext.disableHoverableContent;
+  const delayDuration = delayDurationProp ?? providerContext.delayDuration;
+  const wasOpenDelayedRef = React.useRef(false);
+  const [open = false, setOpen] = useControllableState({
+    prop: openProp,
+    defaultProp: defaultOpen,
+    onChange: (open2) => {
+      if (open2) {
+        providerContext.onOpen();
+        document.dispatchEvent(new CustomEvent(TOOLTIP_OPEN));
+      } else {
+        providerContext.onClose();
+      }
+      onOpenChange?.(open2);
+    }
+  });
+  const stateAttribute = React.useMemo(() => {
+    return open ? wasOpenDelayedRef.current ? "delayed-open" : "instant-open" : "closed";
+  }, [open]);
+  const handleOpen = React.useCallback(() => {
+    window.clearTimeout(openTimerRef.current);
+    openTimerRef.current = 0;
+    wasOpenDelayedRef.current = false;
+    setOpen(true);
+  }, [setOpen]);
+  const handleClose = React.useCallback(() => {
+    window.clearTimeout(openTimerRef.current);
+    openTimerRef.current = 0;
+    setOpen(false);
+  }, [setOpen]);
+  const handleDelayedOpen = React.useCallback(() => {
+    window.clearTimeout(openTimerRef.current);
+    openTimerRef.current = window.setTimeout(() => {
+      wasOpenDelayedRef.current = true;
+      setOpen(true);
+      openTimerRef.current = 0;
+    }, delayDuration);
+  }, [delayDuration, setOpen]);
+  React.useEffect(() => {
+    return () => {
+      if (openTimerRef.current) {
+        window.clearTimeout(openTimerRef.current);
+        openTimerRef.current = 0;
+      }
+    };
+  }, []);
+  return /* @__PURE__ */ jsx(Root2$4, { ...popperScope, children: /* @__PURE__ */ jsx(
+    TooltipContextProvider,
+    {
+      scope: __scopeTooltip,
+      contentId,
+      open,
+      stateAttribute,
+      trigger,
+      onTriggerChange: setTrigger,
+      onTriggerEnter: React.useCallback(() => {
+        if (providerContext.isOpenDelayed) handleDelayedOpen();
+        else handleOpen();
+      }, [providerContext.isOpenDelayed, handleDelayedOpen, handleOpen]),
+      onTriggerLeave: React.useCallback(() => {
+        if (disableHoverableContent) {
+          handleClose();
+        } else {
+          window.clearTimeout(openTimerRef.current);
+          openTimerRef.current = 0;
+        }
+      }, [handleClose, disableHoverableContent]),
+      onOpen: handleOpen,
+      onClose: handleClose,
+      disableHoverableContent,
+      children
+    }
+  ) });
+};
+Tooltip$1.displayName = TOOLTIP_NAME;
+var TRIGGER_NAME$3 = "TooltipTrigger";
+var TooltipTrigger$1 = React.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeTooltip, ...triggerProps } = props;
+    const context = useTooltipContext(TRIGGER_NAME$3, __scopeTooltip);
+    const providerContext = useTooltipProviderContext(TRIGGER_NAME$3, __scopeTooltip);
+    const popperScope = usePopperScope$2(__scopeTooltip);
+    const ref = React.useRef(null);
+    const composedRefs = useComposedRefs(forwardedRef, ref, context.onTriggerChange);
+    const isPointerDownRef = React.useRef(false);
+    const hasPointerMoveOpenedRef = React.useRef(false);
+    const handlePointerUp = React.useCallback(() => isPointerDownRef.current = false, []);
+    React.useEffect(() => {
+      return () => document.removeEventListener("pointerup", handlePointerUp);
+    }, [handlePointerUp]);
+    return /* @__PURE__ */ jsx(Anchor, { asChild: true, ...popperScope, children: /* @__PURE__ */ jsx(
+      Primitive.button,
+      {
+        "aria-describedby": context.open ? context.contentId : void 0,
+        "data-state": context.stateAttribute,
+        ...triggerProps,
+        ref: composedRefs,
+        onPointerMove: composeEventHandlers(props.onPointerMove, (event) => {
+          if (event.pointerType === "touch") return;
+          if (!hasPointerMoveOpenedRef.current && !providerContext.isPointerInTransitRef.current) {
+            context.onTriggerEnter();
+            hasPointerMoveOpenedRef.current = true;
+          }
+        }),
+        onPointerLeave: composeEventHandlers(props.onPointerLeave, () => {
+          context.onTriggerLeave();
+          hasPointerMoveOpenedRef.current = false;
+        }),
+        onPointerDown: composeEventHandlers(props.onPointerDown, () => {
+          isPointerDownRef.current = true;
+          document.addEventListener("pointerup", handlePointerUp, { once: true });
+        }),
+        onFocus: composeEventHandlers(props.onFocus, () => {
+          if (!isPointerDownRef.current) context.onOpen();
+        }),
+        onBlur: composeEventHandlers(props.onBlur, context.onClose),
+        onClick: composeEventHandlers(props.onClick, context.onClose)
+      }
+    ) });
+  }
+);
+TooltipTrigger$1.displayName = TRIGGER_NAME$3;
+var PORTAL_NAME$3 = "TooltipPortal";
+var [PortalProvider$1, usePortalContext$1] = createTooltipContext(PORTAL_NAME$3, {
+  forceMount: void 0
+});
+var TooltipPortal = (props) => {
+  const { __scopeTooltip, forceMount, children, container } = props;
+  const context = useTooltipContext(PORTAL_NAME$3, __scopeTooltip);
+  return /* @__PURE__ */ jsx(PortalProvider$1, { scope: __scopeTooltip, forceMount, children: /* @__PURE__ */ jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsx(Portal$3, { asChild: true, container, children }) }) });
+};
+TooltipPortal.displayName = PORTAL_NAME$3;
+var CONTENT_NAME$4 = "TooltipContent";
+var TooltipContent$1 = React.forwardRef(
+  (props, forwardedRef) => {
+    const portalContext = usePortalContext$1(CONTENT_NAME$4, props.__scopeTooltip);
+    const { forceMount = portalContext.forceMount, side = "top", ...contentProps } = props;
+    const context = useTooltipContext(CONTENT_NAME$4, props.__scopeTooltip);
+    return /* @__PURE__ */ jsx(Presence, { present: forceMount || context.open, children: context.disableHoverableContent ? /* @__PURE__ */ jsx(TooltipContentImpl, { side, ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsx(TooltipContentHoverable, { side, ...contentProps, ref: forwardedRef }) });
+  }
+);
+var TooltipContentHoverable = React.forwardRef((props, forwardedRef) => {
+  const context = useTooltipContext(CONTENT_NAME$4, props.__scopeTooltip);
+  const providerContext = useTooltipProviderContext(CONTENT_NAME$4, props.__scopeTooltip);
+  const ref = React.useRef(null);
+  const composedRefs = useComposedRefs(forwardedRef, ref);
+  const [pointerGraceArea, setPointerGraceArea] = React.useState(null);
+  const { trigger, onClose } = context;
+  const content = ref.current;
+  const { onPointerInTransitChange } = providerContext;
+  const handleRemoveGraceArea = React.useCallback(() => {
+    setPointerGraceArea(null);
+    onPointerInTransitChange(false);
+  }, [onPointerInTransitChange]);
+  const handleCreateGraceArea = React.useCallback(
+    (event, hoverTarget) => {
+      const currentTarget = event.currentTarget;
+      const exitPoint = { x: event.clientX, y: event.clientY };
+      const exitSide = getExitSideFromRect(exitPoint, currentTarget.getBoundingClientRect());
+      const paddedExitPoints = getPaddedExitPoints(exitPoint, exitSide);
+      const hoverTargetPoints = getPointsFromRect(hoverTarget.getBoundingClientRect());
+      const graceArea = getHull([...paddedExitPoints, ...hoverTargetPoints]);
+      setPointerGraceArea(graceArea);
+      onPointerInTransitChange(true);
+    },
+    [onPointerInTransitChange]
+  );
+  React.useEffect(() => {
+    return () => handleRemoveGraceArea();
+  }, [handleRemoveGraceArea]);
+  React.useEffect(() => {
+    if (trigger && content) {
+      const handleTriggerLeave = (event) => handleCreateGraceArea(event, content);
+      const handleContentLeave = (event) => handleCreateGraceArea(event, trigger);
+      trigger.addEventListener("pointerleave", handleTriggerLeave);
+      content.addEventListener("pointerleave", handleContentLeave);
+      return () => {
+        trigger.removeEventListener("pointerleave", handleTriggerLeave);
+        content.removeEventListener("pointerleave", handleContentLeave);
+      };
+    }
+  }, [trigger, content, handleCreateGraceArea, handleRemoveGraceArea]);
+  React.useEffect(() => {
+    if (pointerGraceArea) {
+      const handleTrackPointerGrace = (event) => {
+        const target = event.target;
+        const pointerPosition = { x: event.clientX, y: event.clientY };
+        const hasEnteredTarget = trigger?.contains(target) || content?.contains(target);
+        const isPointerOutsideGraceArea = !isPointInPolygon$1(pointerPosition, pointerGraceArea);
+        if (hasEnteredTarget) {
+          handleRemoveGraceArea();
+        } else if (isPointerOutsideGraceArea) {
+          handleRemoveGraceArea();
+          onClose();
+        }
+      };
+      document.addEventListener("pointermove", handleTrackPointerGrace);
+      return () => document.removeEventListener("pointermove", handleTrackPointerGrace);
+    }
+  }, [trigger, content, pointerGraceArea, onClose, handleRemoveGraceArea]);
+  return /* @__PURE__ */ jsx(TooltipContentImpl, { ...props, ref: composedRefs });
+});
+var [VisuallyHiddenContentContextProvider, useVisuallyHiddenContentContext] = createTooltipContext(TOOLTIP_NAME, { isInside: false });
+var TooltipContentImpl = React.forwardRef(
+  (props, forwardedRef) => {
+    const {
+      __scopeTooltip,
+      children,
+      "aria-label": ariaLabel,
+      onEscapeKeyDown,
+      onPointerDownOutside,
+      ...contentProps
+    } = props;
+    const context = useTooltipContext(CONTENT_NAME$4, __scopeTooltip);
+    const popperScope = usePopperScope$2(__scopeTooltip);
+    const { onClose } = context;
+    React.useEffect(() => {
+      document.addEventListener(TOOLTIP_OPEN, onClose);
+      return () => document.removeEventListener(TOOLTIP_OPEN, onClose);
+    }, [onClose]);
+    React.useEffect(() => {
+      if (context.trigger) {
+        const handleScroll = (event) => {
+          const target = event.target;
+          if (target?.contains(context.trigger)) onClose();
+        };
+        window.addEventListener("scroll", handleScroll, { capture: true });
+        return () => window.removeEventListener("scroll", handleScroll, { capture: true });
+      }
+    }, [context.trigger, onClose]);
+    return /* @__PURE__ */ jsx(
+      DismissableLayer,
+      {
+        asChild: true,
+        disableOutsidePointerEvents: false,
+        onEscapeKeyDown,
+        onPointerDownOutside,
+        onFocusOutside: (event) => event.preventDefault(),
+        onDismiss: onClose,
+        children: /* @__PURE__ */ jsxs(
+          Content,
+          {
+            "data-state": context.stateAttribute,
+            ...popperScope,
+            ...contentProps,
+            ref: forwardedRef,
+            style: {
+              ...contentProps.style,
+              // re-namespace exposed content custom properties
+              ...{
+                "--radix-tooltip-content-transform-origin": "var(--radix-popper-transform-origin)",
+                "--radix-tooltip-content-available-width": "var(--radix-popper-available-width)",
+                "--radix-tooltip-content-available-height": "var(--radix-popper-available-height)",
+                "--radix-tooltip-trigger-width": "var(--radix-popper-anchor-width)",
+                "--radix-tooltip-trigger-height": "var(--radix-popper-anchor-height)"
+              }
+            },
+            children: [
+              /* @__PURE__ */ jsx(Slottable, { children }),
+              /* @__PURE__ */ jsx(VisuallyHiddenContentContextProvider, { scope: __scopeTooltip, isInside: true, children: /* @__PURE__ */ jsx(Root$7, { id: context.contentId, role: "tooltip", children: ariaLabel || children }) })
+            ]
+          }
+        )
+      }
+    );
+  }
+);
+TooltipContent$1.displayName = CONTENT_NAME$4;
+var ARROW_NAME$3 = "TooltipArrow";
+var TooltipArrow = React.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeTooltip, ...arrowProps } = props;
+    const popperScope = usePopperScope$2(__scopeTooltip);
+    const visuallyHiddenContentContext = useVisuallyHiddenContentContext(
+      ARROW_NAME$3,
+      __scopeTooltip
+    );
+    return visuallyHiddenContentContext.isInside ? null : /* @__PURE__ */ jsx(Arrow, { ...popperScope, ...arrowProps, ref: forwardedRef });
+  }
+);
+TooltipArrow.displayName = ARROW_NAME$3;
+function getExitSideFromRect(point, rect) {
+  const top = Math.abs(rect.top - point.y);
+  const bottom = Math.abs(rect.bottom - point.y);
+  const right = Math.abs(rect.right - point.x);
+  const left = Math.abs(rect.left - point.x);
+  switch (Math.min(top, bottom, right, left)) {
+    case left:
+      return "left";
+    case right:
+      return "right";
+    case top:
+      return "top";
+    case bottom:
+      return "bottom";
+    default:
+      throw new Error("unreachable");
+  }
+}
+function getPaddedExitPoints(exitPoint, exitSide, padding = 5) {
+  const paddedExitPoints = [];
+  switch (exitSide) {
+    case "top":
+      paddedExitPoints.push(
+        { x: exitPoint.x - padding, y: exitPoint.y + padding },
+        { x: exitPoint.x + padding, y: exitPoint.y + padding }
+      );
+      break;
+    case "bottom":
+      paddedExitPoints.push(
+        { x: exitPoint.x - padding, y: exitPoint.y - padding },
+        { x: exitPoint.x + padding, y: exitPoint.y - padding }
+      );
+      break;
+    case "left":
+      paddedExitPoints.push(
+        { x: exitPoint.x + padding, y: exitPoint.y - padding },
+        { x: exitPoint.x + padding, y: exitPoint.y + padding }
+      );
+      break;
+    case "right":
+      paddedExitPoints.push(
+        { x: exitPoint.x - padding, y: exitPoint.y - padding },
+        { x: exitPoint.x - padding, y: exitPoint.y + padding }
+      );
+      break;
+  }
+  return paddedExitPoints;
+}
+function getPointsFromRect(rect) {
+  const { top, right, bottom, left } = rect;
+  return [
+    { x: left, y: top },
+    { x: right, y: top },
+    { x: right, y: bottom },
+    { x: left, y: bottom }
+  ];
+}
+function isPointInPolygon$1(point, polygon) {
+  const { x, y } = point;
+  let inside = false;
+  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+    const xi = polygon[i].x;
+    const yi = polygon[i].y;
+    const xj = polygon[j].x;
+    const yj = polygon[j].y;
+    const intersect = yi > y !== yj > y && x < (xj - xi) * (y - yi) / (yj - yi) + xi;
+    if (intersect) inside = !inside;
+  }
+  return inside;
+}
+function getHull(points) {
+  const newPoints = points.slice();
+  newPoints.sort((a, b) => {
+    if (a.x < b.x) return -1;
+    else if (a.x > b.x) return 1;
+    else if (a.y < b.y) return -1;
+    else if (a.y > b.y) return 1;
+    else return 0;
+  });
+  return getHullPresorted(newPoints);
+}
+function getHullPresorted(points) {
+  if (points.length <= 1) return points.slice();
+  const upperHull = [];
+  for (let i = 0; i < points.length; i++) {
+    const p = points[i];
+    while (upperHull.length >= 2) {
+      const q = upperHull[upperHull.length - 1];
+      const r = upperHull[upperHull.length - 2];
+      if ((q.x - r.x) * (p.y - r.y) >= (q.y - r.y) * (p.x - r.x)) upperHull.pop();
+      else break;
+    }
+    upperHull.push(p);
+  }
+  upperHull.pop();
+  const lowerHull = [];
+  for (let i = points.length - 1; i >= 0; i--) {
+    const p = points[i];
+    while (lowerHull.length >= 2) {
+      const q = lowerHull[lowerHull.length - 1];
+      const r = lowerHull[lowerHull.length - 2];
+      if ((q.x - r.x) * (p.y - r.y) >= (q.y - r.y) * (p.x - r.x)) lowerHull.pop();
+      else break;
+    }
+    lowerHull.push(p);
+  }
+  lowerHull.pop();
+  if (upperHull.length === 1 && lowerHull.length === 1 && upperHull[0].x === lowerHull[0].x && upperHull[0].y === lowerHull[0].y) {
+    return upperHull;
+  } else {
+    return upperHull.concat(lowerHull);
+  }
+}
+var Provider = TooltipProvider$1;
+var Root3$1 = Tooltip$1;
+var Trigger$3 = TooltipTrigger$1;
+var Portal$2 = TooltipPortal;
+var Content2$3 = TooltipContent$1;
+var Arrow2$1 = TooltipArrow;
+
+function TooltipProvider(props) {
+  return /*#__PURE__*/React__default.createElement(Provider, null, props.children);
+}
+function Tooltip(props) {
+  return /*#__PURE__*/React__default.createElement(Root3$1, null, props.children);
+}
+function TooltipTrigger(props) {
+  return /*#__PURE__*/React__default.createElement(Trigger$3, {
+    asChild: true
+  }, props.children);
+}
+function TooltipContent(props) {
+  return /*#__PURE__*/React__default.createElement(Portal$2, null, /*#__PURE__*/React__default.createElement(Content2$3, {
+    style: {
+      display: "flex",
+      padding: "6px 8px",
+      justifyContent: "center",
+      alignItems: "center",
+      borderRadius: "2px",
+      background: Colors.black800,
+      color: Colors.white,
+      ...props?.style
+    }
+  }, /*#__PURE__*/React__default.createElement(Arrow2$1, {
+    style: {
+      fill: Colors.black800
+    }
+  }), props.children));
+}
+
+const sharedCSS = p => css(["", ";border:none;outline:none;height:", ";", " border-radius:6px;line-height:1;transition:all 0.1s;display:flex;flex-direction:row;gap:6px;justify-content:center;align-items:center;"], Fonts.body, p.height !== undefined ? p.height : p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px", p.hideLabel ? `
+    width: ${p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px"};
+  ` : `
+    padding-left: ${p.isGhost ? p.noPadding ? "0px" : "6px" : "10px"};
+    padding-right: ${p.isGhost ? p.noPadding ? "0px" : "6px" : "10px"};
+  `);
+const PrimaryButton = styled.button.withConfig({
+  displayName: "buttons__PrimaryButton",
+  componentId: "sc-1b20me-0"
+})(["", " background-color:", ";color:white;min-width:60px;", ""], p => sharedCSS(p), Colors.blue50, p => p.disabled ? `
+    opacity 0.7;
+  ` : `
+    &:hover {
+      background-color: ${Colors.blue60};
+    }
+  
+    &:focus-visible {
+      box-shadow: 0 0 0 2px ${Colors.blue60};
+    }
+  
+    &:active {
+      background-color: ${Colors.blue70};
+    }
+    
+  `);
+const DangerButton = styled.button.withConfig({
+  displayName: "buttons__DangerButton",
+  componentId: "sc-1b20me-1"
+})(["", " background-color:", ";color:white;min-width:60px;", ""], p => sharedCSS(p), Colors.red, p => p.disabled ? `
+    opacity 0.7;
+  ` : `
+    &:hover {
+      opacity: 0.7
+    }
+  
+    &:focus-visible {
+      box-shadow: 0 0 0 2px ${Colors.blue60};
+    }
+  
+    &:active {
+      background-color: ${Colors.blue70};
+    }
+    
+  `);
+const SecondaryButton = styled.button.withConfig({
+  displayName: "buttons__SecondaryButton",
+  componentId: "sc-1b20me-2"
+})(["", " background-color:", ";color:black;min-width:60px;", ""], p => sharedCSS(p), Colors.black5, p => p.disabled ? `
+    opacity 0.7;
+  ` : `
+      &:hover {
+        background-color: ${Colors.black10};
+      }
+    
+      &:focus-visible {
+        box-shadow: 0 0 0 2px ${Colors.blue50};
+      }
+    
+      &:active {
+        background-color: ${Colors.black40};
+      }
+    
+  `);
+const GhostButton = styled.button.withConfig({
+  displayName: "buttons__GhostButton",
+  componentId: "sc-1b20me-3"
+})(["", " background-color:transparent;color:black;border:1px solid transparent;border-radius:2px;&:hover{border-color:#e5e5e5;}&:focus-visible{box-shadow:0 0 0 2px ", ";}&:active{background-color:", ";}"], p => sharedCSS(p), Colors.blue50, Colors.black20);
+const GhostColorButton = styled.button.withConfig({
+  displayName: "buttons__GhostColorButton",
+  componentId: "sc-1b20me-4"
+})(["", " background-color:transparent;color:", ";&:hover{background-color:", ";}&:focus-visible{box-shadow:0 0 0 2px ", ";}&:active{background-color:", ";}"], p => sharedCSS(p), Colors.blue50, Colors.blue10, Colors.blue50, Colors.black20);
+const EnhancerContainer = styled.div.withConfig({
+  displayName: "buttons__EnhancerContainer",
+  componentId: "sc-1b20me-5"
+})(["position:relative;width:", ";height:", ";overflow:hidden;flex-shrink:0;"], p => p.variant === "large" ? "24px" : "16px", p => p.variant === "large" ? "24px" : "16px");
+const Button = /*#__PURE__*/forwardRef((_ref, ref) => {
+  let {
+    component,
+    Button,
+    ...props
+  } = _ref;
+  const showTooltip = props.showTooltip ?? true;
+  let enhancer = null;
+  if (props.isLoading) {
+    enhancer = /*#__PURE__*/React__default.createElement(Loader, null);
+  } else if (props.enhancer) {
+    enhancer = /*#__PURE__*/React__default.createElement(EnhancerContainer, {
+      variant: props.variant
+    }, props.enhancer);
+  } else if (props.icon) {
+    const Icon = props.icon;
+    enhancer = /*#__PURE__*/React__default.createElement(Icon, null);
+  }
+  return /*#__PURE__*/React__default.createElement(Tooltip, null, /*#__PURE__*/React__default.createElement(TooltipTrigger, null, /*#__PURE__*/React__default.createElement(Button, _extends({
+    as: component
+  }, props, {
+    ref: ref
+  }), enhancer, !props.hideLabel && props.children)), showTooltip ? /*#__PURE__*/React__default.createElement(TooltipContent, {
+    style: {
+      ...Fonts.body
+    }
+  }, props.children) : null);
+});
+const ButtonPrimary = props => /*#__PURE__*/React__default.createElement(Button, _extends({}, props, {
+  Button: PrimaryButton
+}));
+const ButtonDanger = props => /*#__PURE__*/React__default.createElement(Button, _extends({}, props, {
+  Button: DangerButton
+}));
+const ButtonSecondary = /*#__PURE__*/forwardRef((props, ref) => /*#__PURE__*/React__default.createElement(Button, _extends({}, props, {
+  Button: SecondaryButton,
+  ref: ref
+})));
+const ButtonGhost = /*#__PURE__*/forwardRef((props, ref) => /*#__PURE__*/React__default.createElement(Button, _extends({}, props, {
+  Button: GhostButton,
+  isGhost: true,
+  noPadding: props.noPadding,
+  ref: ref
+})));
+const ButtonGhostColor = props => /*#__PURE__*/React__default.createElement(Button, _extends({}, props, {
+  Button: GhostColorButton,
+  isGhost: true,
+  noPadding: props.noPadding
+}));
+const IconButtonPrimaryStyled = styled(Button).withConfig({
+  displayName: "buttons__IconButtonPrimaryStyled",
+  componentId: "sc-1b20me-6"
+})(["min-width:0;border-radius:50%;"]);
+const IconButtonPrimary = props => /*#__PURE__*/React__default.createElement(IconButtonPrimaryStyled, _extends({}, props, {
+  Button: PrimaryButton,
+  hideLabel: true
+}));
+
+function sizing(p) {
+  const height = p.controlSize === "tiny" ? 24 : 28;
+  const paddingHorizontal = p.controlSize === "tiny" ? 4 : 6;
+  let paddingIcon = paddingHorizontal + (p.icon ? 20 : 0);
+  if (p.iconOnly) {
+    paddingIcon = 0;
+  }
+  return {
+    height: height + "px",
+    width: p.controlSize === "full-width" ? "100%" : p.iconOnly ? height + "px" : "auto",
+    paddingHorizontal: paddingHorizontal + "px",
+    paddingVertical: p.controlSize === "tiny" ? "4px" : "6px",
+    paddingIcon: paddingIcon + "px"
+  };
+}
+const Root$6 = styled.div.withConfig({
+  displayName: "ControlContainer__Root",
+  componentId: "sc-1i70r11-0"
+})(["position:relative;height:", ";width:", ";color:black;", " &:focus-within{box-shadow:0 0 0 2px ", ";.ss-arrow{color:black;}}transition:box-shadow 0.1s;border-radius:2px;display:inline-block;", ";"], p => sizing(p).height, p => sizing(p).width, p => {
+  const outlineStyles = `
+      box-shadow: 0 0 0 1px ${p.hasError ? "red" : Colors.black10};
+      .ss-arrow {
+        color: black;
+      }
+    `;
+  if (p.withBorder) {
+    if (p.disabled) {
+      return `
+          ${outlineStyles}
+          color: ${Colors.black40};
+        `;
+    } else {
+      return `
+          ${outlineStyles}
+        `;
+    }
+  } else {
+    if (p.disabled) {
+      return `
+          color: ${Colors.black40};
+        `;
+    } else {
+      return `
+          &:hover {
+             ${outlineStyles}
+          }
+        `;
+    }
+  }
+}, p => p.hasError ? Colors.red : Colors.focus, Fonts.body);
+const IconContainer = styled.div.withConfig({
+  displayName: "ControlContainer__IconContainer",
+  componentId: "sc-1i70r11-1"
+})(["color:", ";position:absolute;left:", ";top:", ";pointer-events:none;"], p => p.iconBlack ? "black" : Colors.black40, p => sizing(p).paddingHorizontal, p => sizing(p).paddingVertical);
+const ControlContainer = _ref => {
+  let {
+    className,
+    ...props
+  } = _ref;
+  const Icon = props.icon;
+  return /*#__PURE__*/React__default.createElement(Root$6, _extends({
+    className: className
+  }, props), Icon && /*#__PURE__*/React__default.createElement(IconContainer, props, /*#__PURE__*/React__default.createElement(Icon, null)), props.children);
+};
+function getControlPadding() {
+  return css(["padding-left:", ";padding-right:", ";"], p => sizing(p).paddingIcon, p => sizing(p).paddingHorizontal);
+}
+
+const StyledInput = styled.input.withConfig({
+  displayName: "Input__StyledInput",
+  componentId: "sc-1nyhv3t-0"
+})(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration{display:none;}", " ", ";"], p => !p.isRaw && getControlPadding(), Fonts.body);
+const StyledInputFileWrapper = styled.div.withConfig({
+  displayName: "Input__StyledInputFileWrapper",
+  componentId: "sc-1nyhv3t-1"
+})(["position:relative;width:168px;height:168px;"]);
+const StyledInputFile = styled.img.withConfig({
+  displayName: "Input__StyledInputFile",
+  componentId: "sc-1nyhv3t-2"
+})(["width:100%;height:100%;object-fit:cover;box-shadow:0 0 0 1px ", ";"], Colors.black10);
+const StyledInputFileCloseIcon = styled.div.withConfig({
+  displayName: "Input__StyledInputFileCloseIcon",
+  componentId: "sc-1nyhv3t-3"
+})(["position:absolute;right:10px;top:10px;width:20px;height:20px;display:flex;justify-content:center;align-items:center;background:", ";border-radius:100%;cursor:pointer;"], Colors.white);
+const StyledInputLabel = styled.label.withConfig({
+  displayName: "Input__StyledInputLabel",
+  componentId: "sc-1nyhv3t-4"
+})(["display:flex;align-items:center;justify-content:center;gap:8px;height:100%;border:1px dashed ", ";cursor:pointer;color:", ";", ";"], Colors.blue50, Colors.blue50, Fonts.body);
+const InputBase = /*#__PURE__*/forwardRef((props, ref) => {
+  return /*#__PURE__*/React__default.createElement(StyledInput, _extends({}, props, {
+    ref: ref
+  }));
+});
+const Input = /*#__PURE__*/forwardRef((props, ref) => {
+  const {
+    iconBlack,
+    controlSize,
+    iconOnly,
+    onBlur,
+    value,
+    ...inputProps
+  } = props;
+  return /*#__PURE__*/React__default.createElement(ControlContainer, _extends({
+    iconBlack: iconBlack,
+    controlSize: controlSize,
+    iconOnly: iconOnly
+  }, inputProps), /*#__PURE__*/React__default.createElement(InputBase, _extends({}, inputProps, {
+    value: value,
+    onBlur: onBlur,
+    ref: ref
+  })));
+});
+const InputFile = /*#__PURE__*/forwardRef((props, ref) => {
+  const id = useId$1();
+  const inputId = props.id ?? id;
+  return /*#__PURE__*/React__default.createElement(StyledInputFileWrapper, null, /*#__PURE__*/React__default.createElement(InputBase, _extends({}, props, {
+    ref: ref,
+    type: "file",
+    id: inputId,
+    style: {
+      display: "none"
+    }
+  })), props?.src ? /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(StyledInputFile, {
+    src: props?.src,
+    alt: props?.alt
+  }), /*#__PURE__*/React__default.createElement(StyledInputFileCloseIcon, {
+    onClick: props?.onClearFile
+  }, /*#__PURE__*/React__default.createElement(Icons.Close, {
+    size: 12
+  }))) : /*#__PURE__*/React__default.createElement(StyledInputLabel, {
+    htmlFor: inputId
+  }, props?.isLoading ? /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Icons.LoadingSpinner, {
+    size: 24
+  }), props?.loadingLabel ?? "Uploading...") : /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Icons.Add, {
+    size: 16
+  }), props?.label ?? "Add or drop image")));
+});
+const InputRaw = /*#__PURE__*/forwardRef((props, ref) => {
+  return /*#__PURE__*/React__default.createElement(InputBase, _extends({}, props, {
+    ref: ref,
+    isRaw: true
+  }));
+});
+
+/**
+ * TODO: this toggle button doesn't make much sense from semantic perspective
+ */
+
+const StyledButton = styled.button.withConfig({
+  displayName: "ToggleButton__StyledButton",
+  componentId: "sc-1mpua28-0"
+})(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;", " ", " border-radius:2px;background-color:", ";"], getControlPadding(), p => p.hideLabel ? "padding-right: 0;" : "", p => p.selected ? Colors.black10 : "transparent");
+const ToggleButton = props => {
+  const {
+    onChange,
+    ...restProps
+  } = props;
+  return /*#__PURE__*/React__default.createElement(ControlContainer, _extends({}, props, {
+    iconBlack: true,
+    iconOnly: props.hideLabel
+  }), /*#__PURE__*/React__default.createElement(StyledButton, _extends({}, restProps, {
+    "aria-label": props.children,
+    onClick: () => {
+      props.onChange?.(!props.selected);
+    }
+  }), props.hideLabel ? null : props.children));
+};
+const SelectInlineRoot = styled.div.withConfig({
+  displayName: "ToggleButton__SelectInlineRoot",
+  componentId: "sc-1mpua28-1"
+})(["display:flex;flex-direction:row;gap:4px;flex-wrap:nowrap;"]);
+const SelectInline = props => {
+  const buttons = React__default.Children.toArray(props.children);
+  return /*#__PURE__*/React__default.createElement(SelectInlineRoot, null, buttons.map(button => {
+    return /*#__PURE__*/React__default.cloneElement(button, {
+      selected: button.props.value === props.value,
+      onChange: () => {
+        props.onChange(button.props.value);
+      }
+    });
+  }));
+};
+
+const Toggle$1 = props => {
+  const [internalChecked, setInternalChecked] = useState(props.checked ?? false);
+  const checked = props.checked === undefined ? internalChecked : props.checked;
+  const {
+    ...inputProps
+  } = props;
+  const name = inputProps.name;
+  return /*#__PURE__*/React__default.createElement(ToggleWrap, null, /*#__PURE__*/React__default.createElement(ToggleElement, null, /*#__PURE__*/React__default.createElement(ToggleInput, _extends({
+    id: name,
+    type: "checkbox"
+  }, inputProps, {
+    checked: checked,
+    onChange: e => {
+      setInternalChecked(e.target.checked);
+      props.onChange?.(e);
+    }
+  })), /*#__PURE__*/React__default.createElement(ToggleLabel, {
+    htmlFor: name,
+    role: "switch",
+    disabled: !!props.disabled
+  }, /*#__PURE__*/React__default.createElement(ToggleSwitch, {
+    checked: checked,
+    disabled: !!props.disabled
+  }, /*#__PURE__*/React__default.createElement("span", null)))));
+};
+const ToggleWrap = styled.div.withConfig({
+  displayName: "Toggle__ToggleWrap",
+  componentId: "sc-1ecbsxn-0"
+})(["display:flex;align-items:center;> span{color:", ";}"], Colors.black10);
+const ToggleElement = styled.div.withConfig({
+  displayName: "Toggle__ToggleElement",
+  componentId: "sc-1ecbsxn-1"
+})(["position:relative;width:32px;height:18px;padding:1px;"]);
+const ToggleLabel = styled.label.withConfig({
+  displayName: "Toggle__ToggleLabel",
+  componentId: "sc-1ecbsxn-2"
+})(["background:none;color:inherit;padding:0;opacity:", ";outline:none;width:30px;height:16px;pointer-events:", ";"], props => props.disabled ? "0.4" : "1", props => props.disabled ? "none" : "inherit");
+const ToggleSwitch = styled.div.withConfig({
+  displayName: "Toggle__ToggleSwitch",
+  componentId: "sc-1ecbsxn-3"
+})(["position:relative;width:30px;height:16px;border-radius:8px;background-color:white;box-shadow:0 0 0 1px ", ";transition:all 0.1s;pointer-events:none;span{position:absolute;border-radius:8px;left:2px;top:50%;width:10px;height:10px;background:", ";transform:translate3d(", ",-50%,0);transition:transform 150ms ease-out,opacity 0.1s;}"], p => !p.checked || p.disabled ? Colors.black40 : "black", p => !p.checked || p.disabled ? Colors.black40 : "black", p => p.checked ? "16px" : "0");
+const ToggleInput = styled.input.withConfig({
+  displayName: "Toggle__ToggleInput",
+  componentId: "sc-1ecbsxn-4"
+})(["position:absolute;left:0;top:0;width:30px;height:16px;opacity:0;margin:0;cursor:", ";pointer-events:auto;", ""], props => props.disabled ? "not-allowed" : "pointer", p => p.disabled ? "" : `
+  &:hover {
+    + ${ToggleLabel} ${ToggleSwitch} {
+      box-shadow: 0 0 0 1px black;
+    }
+    
+    + ${ToggleLabel} ${ToggleSwitch} span {
+      background-color: black;
+    }
+  }
+  `);
+
+const ModalRoot = styled.div.withConfig({
+  displayName: "Modal__ModalRoot",
+  componentId: "sc-wv205r-0"
+})([""]);
+const Root$5 = styled.div.withConfig({
+  displayName: "Modal__Root",
+  componentId: "sc-wv205r-1"
+})(["width:", ";max-width:", ";height:", ";max-height:", ";position:relative;box-shadow:0px 2px 14px rgba(0,0,0,0.15);border-radius:4px;display:grid;grid-template-columns:1fr;grid-template-rows:auto 1fr;background-color:white;overflow:hidden;"], p => p.width || "100%", p => p.maxWidth || "none", p => p.height || "auto", p => p.maxHeight || "none");
+const HeaderBody = styled.div.withConfig({
+  displayName: "Modal__HeaderBody",
+  componentId: "sc-wv205r-2"
+})(["position:relative;", " color:black;"], p => p.headerLine && `border-bottom: 1px solid ${Colors.black10};`);
+const ContentBody = styled.div.withConfig({
+  displayName: "Modal__ContentBody",
+  componentId: "sc-wv205r-3"
+})(["position:relative;overflow-y:", ";overflow-x:hidden;padding:", ";"], p => p.maxHeight == "auto" ? "auto" : "scroll", p => p.noPadding ? "0" : "12px 12px");
+const TitleHeader = styled.div.withConfig({
+  displayName: "Modal__TitleHeader",
+  componentId: "sc-wv205r-4"
+})(["&:not(:empty){padding:12px;}display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:2rem;"]);
+const TitleHeaderLabel = styled.div.withConfig({
+  displayName: "Modal__TitleHeaderLabel",
+  componentId: "sc-wv205r-5"
+})(["white-space:nowrap;", ";"], Fonts.label);
+const HeaderLetter = styled.div.withConfig({
+  displayName: "Modal__HeaderLetter",
+  componentId: "sc-wv205r-6"
+})(["width:24px;height:24px;border-radius:4px;background-color:", ";", ";display:flex;justify-content:center;align-items:center;"], Colors.black10, Fonts.label3);
+const ModalBody = _ref => {
+  let {
+    onRequestClose,
+    title,
+    width,
+    maxHeight,
+    maxWidth,
+    headerLine,
+    ...props
+  } = _ref;
+  const {
+    children,
+    headerSymbol = "close",
+    searchProps
+  } = props;
+  return /*#__PURE__*/React__default.createElement(Root$5, _extends({
+    width: width,
+    maxWidth: maxWidth,
+    maxHeight: maxHeight
+  }, props), /*#__PURE__*/React__default.createElement(HeaderBody, {
+    headerLine: headerLine
+  }, /*#__PURE__*/React__default.createElement(TitleHeader, null, title && /*#__PURE__*/React__default.createElement(TitleHeaderLabel, null, title), searchProps && /*#__PURE__*/React__default.createElement(InputRaw, _extends({}, searchProps, {
+    ref: node => {
+      if (node) {
+        node.focus();
+      }
+    }
+  })), headerSymbol === "close" && onRequestClose !== undefined && /*#__PURE__*/React__default.createElement(ButtonGhost, {
+    icon: Icons.Close,
+    hideLabel: true,
+    onClick: () => {
+      if (onRequestClose) {
+        onRequestClose();
+      }
+    }
+  }, "Close"), headerSymbol && headerSymbol !== "close" && /*#__PURE__*/React__default.createElement(HeaderLetter, null, headerSymbol))), /*#__PURE__*/React__default.createElement(ContentBody, _extends({
+    maxHeight: maxHeight
+  }, props), children));
+};
+const MODES = {
+  "center-small": {
+    width: "320px",
+    maxHeight: "420px",
+    extraClass: ""
+  },
+  "center-huge": {
+    width: "80vw",
+    maxWidth: "1200px",
+    height: "90vh",
+    extraClass: "background-shade"
+  }
+};
+const ModalContext = /*#__PURE__*/React__default.createContext(null);
+const Modal = props => {
+  const {
+    isOpen,
+    onRequestClose,
+    mode = "center-small",
+    ...bodyProps
+  } = props;
+  const parentSelector = useContext(ModalContext) ?? (() => {
+    return document.querySelector("#modalContainer");
+  });
+  if (typeof window === "undefined") {
+    return null;
+  }
+  const {
+    extraClass,
+    ...modeProps
+  } = MODES[mode];
+  const content = /*#__PURE__*/React__default.createElement(ModalRoot, null, /*#__PURE__*/React__default.createElement(ModalBody, _extends({}, modeProps, bodyProps, {
+    onRequestClose: onRequestClose
+  })));
+  return /*#__PURE__*/React__default.createElement(ReactModal, {
+    isOpen: isOpen,
+    onRequestClose: onRequestClose,
+    parentSelector: parentSelector,
+    className: {
+      base: `Shopstory__ReactModal__Content`,
+      afterOpen: `Shopstory__ReactModal__Content--after-open`,
+      beforeClose: `Shopstory__ReactModal__Content--before-close`
+    },
+    overlayClassName: {
+      base: `Shopstory__ReactModal__Overlay ${extraClass}`,
+      afterOpen: `Shopstory__ReactModal__Overlay--after-open ${extraClass}`,
+      beforeClose: `Shopstory__ReactModal__Overlay--before-close ${extraClass}`
+    },
+    ariaHideApp: false,
+    portalClassName: "Shopstory__ReactModalPortal"
+  }, content);
+};
+const sharedContentStyles = `
+    &:focus {
+      border: none;
+      outline: none;
+    }
+`;
+const GlobalModalStyles = createGlobalStyle([".Shopstory__ReactModalPortal{position:absolute;top:0;left:0;width:100%;height:100%;}.Shopstory__ReactModal__Overlay{width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;&:before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.2;z-index:-1;}}.Shopstory__ReactModal__Overlay.background-shade{&:before{background-color:black;}}.Shopstory__ReactModal__Content{", "}.Shopstory__ReactModal__Content__Left{", " height:100vh;width:70vw;transition:all 350ms cubic-bezier(0.16,1,0.3,1);transform:translateX(-100%);}.Shopstory__ReactModal__Content__Left.Shopstory__ReactModal__Content__Left--after-open{transform:none;}.Shopstory__ReactModal__Content__Left.Shopstory__ReactModal__Content__Left--before-close{transform:translateX(-100%);}"], sharedContentStyles, sharedContentStyles);
+
+const Root$4 = styled.div.withConfig({
+  displayName: "BasicRow__Root",
+  componentId: "sc-1ifay80-0"
+})(["position:relative;background-color:white;transition:all 0.1s;padding:12px;&:hover{background-color:", ";}display:flex;flex-direction:row;align-items:center;gap:8px;cursor:pointer;&:hover{.EditContainer{opacity:1;visibility:visible;}}"], Colors.black5);
+const ImageContainer = styled.div.withConfig({
+  displayName: "BasicRow__ImageContainer",
+  componentId: "sc-1ifay80-1"
+})(["position:relative;box-sizing:border-box;background:", ";width:52px;height:52px;pointer-events:none;padding:2px;flex:0 0 auto;"], Colors.black10);
+const Image = styled.img.withConfig({
+  displayName: "BasicRow__Image",
+  componentId: "sc-1ifay80-2"
+})(["width:100%;height:100%;object-fit:contain;"]);
+const TextContainer = styled.div.withConfig({
+  displayName: "BasicRow__TextContainer",
+  componentId: "sc-1ifay80-3"
+})(["pointer-events:none;min-width:0;flex:1 1 auto;"]);
+const TitleContainer = styled.div.withConfig({
+  displayName: "BasicRow__TitleContainer",
+  componentId: "sc-1ifay80-4"
+})(["display:flex;flex-direction:row;align-items:center;gap:8px;margin-bottom:4px;"]);
+const DescriptionContainer = styled.div.withConfig({
+  displayName: "BasicRow__DescriptionContainer",
+  componentId: "sc-1ifay80-5"
+})(["display:flex;flex-direction:row;align-items:center;gap:5px;"]);
+const Title = styled.div.withConfig({
+  displayName: "BasicRow__Title",
+  componentId: "sc-1ifay80-6"
+})(["", ";color:", ";"], Fonts.label, p => p.custom ? Colors.purple : "black");
+const Description = styled.div.withConfig({
+  displayName: "BasicRow__Description",
+  componentId: "sc-1ifay80-7"
+})(["", ";color:", ";line-height:1;"], p => p.tinyDescription ? Fonts.body4 : Fonts.body, p => p.custom ? Colors.purple : Colors.black40);
+const EditContainer = styled.div.withConfig({
+  displayName: "BasicRow__EditContainer",
+  componentId: "sc-1ifay80-8"
+})(["opacity:0;visibility:hidden;"]);
+const BasicRow = props => {
+  return /*#__PURE__*/React__default.createElement(Root$4, {
+    onClick: props.onClick
+  }, /*#__PURE__*/React__default.createElement(ImageContainer, props, props.image && /*#__PURE__*/React__default.createElement(Image, {
+    src: props.image,
+    loading: "lazy"
+  })), /*#__PURE__*/React__default.createElement(TextContainer, null, /*#__PURE__*/React__default.createElement(TitleContainer, null, props.customTitle && /*#__PURE__*/React__default.createElement(CustomComponentSymbol, null), /*#__PURE__*/React__default.createElement(Title, {
+    custom: props.customTitle
+  }, props.title)), /*#__PURE__*/React__default.createElement(DescriptionContainer, null, props.description && /*#__PURE__*/React__default.createElement(React__default.Fragment, null, props.customDescription && /*#__PURE__*/React__default.createElement(CustomComponentSymbol, {
+    size: 4
+  }), /*#__PURE__*/React__default.createElement(Description, {
+    tinyDescription: props.tinyDescription,
+    custom: props.customDescription
+  }, props.description)))), props.onEdit && /*#__PURE__*/React__default.createElement(EditContainer, {
+    className: "EditContainer"
+  }, /*#__PURE__*/React__default.createElement(ButtonGhost, {
+    onClick: e => {
+      e.preventDefault();
+      e.stopPropagation();
+      props.onEdit?.();
+    }
+  }, "Edit")));
+};
+
+const Preview = styled.div.withConfig({
+  displayName: "ThumbnailButton__Preview",
+  componentId: "sc-1bsunzd-0"
+})(["display:flex;align-items:center;justify-content:center;margin-left:-1px;width:32px;height:32px;border:1px solid #e5e5e5;border-radius:2px;position:relative;min-width:0;"]);
+const PreviewImage = styled.img.withConfig({
+  displayName: "ThumbnailButton__PreviewImage",
+  componentId: "sc-1bsunzd-1"
+})(["display:block;max-width:100%;max-height:100%;object-fit:contain;"]);
+const SolidColorPreview = styled.div.withConfig({
+  displayName: "ThumbnailButton__SolidColorPreview",
+  componentId: "sc-1bsunzd-2"
+})(["width:100%;height:100%;background-color:", ";"], _ref => {
+  let {
+    color
+  } = _ref;
+  return color;
+});
+const ContentRoot = styled.div.withConfig({
+  displayName: "ThumbnailButton__ContentRoot",
+  componentId: "sc-1bsunzd-3"
+})(["display:flex;align-items:center;gap:8px;width:100%;"]);
+const Labels = styled.div.withConfig({
+  displayName: "ThumbnailButton__Labels",
+  componentId: "sc-1bsunzd-4"
+})(["flex:1 0;overflow:hidden;min-width:0;display:grid;"]);
+function ThumbnailButton(_ref2) {
+  let {
+    onClick,
+    label,
+    description,
+    thumbnail,
+    disabled
+  } = _ref2;
+  let preview;
+  if (thumbnail?.type === "image") {
+    preview = /*#__PURE__*/React.createElement(PreviewImage, {
+      src: thumbnail.src,
+      "aria-hidden": "true"
+    });
+  } else if (thumbnail?.type === "color") {
+    preview = /*#__PURE__*/React.createElement(SolidColorPreview, {
+      color: thumbnail.color
+    });
+  } else if (thumbnail?.type === "icon") {
+    const ComponentIcon = thumbnail.icon === "link" ? Icons.Link : thumbnail.icon === "grid_3x3" ? Icons.Grid3x3 : Icons.Link;
+    preview = /*#__PURE__*/React.createElement(ComponentIcon, {
+      size: 16
+    });
+  } else {
+    preview = /*#__PURE__*/React.createElement(SolidColorPreview, {
+      color: "transparent"
+    });
+  }
+  const content = /*#__PURE__*/React.createElement(ContentRoot, null, /*#__PURE__*/React.createElement(Preview, null, preview), /*#__PURE__*/React.createElement(Labels, null, /*#__PURE__*/React.createElement(Typography, {
+    variant: "label",
+    isTruncated: true
+  }, label), description && /*#__PURE__*/React.createElement(Typography, {
+    variant: "body",
+    color: "black40",
+    isTruncated: true
+  }, description)));
+  if (disabled) {
+    return /*#__PURE__*/React.createElement(ContentRoot, null, content);
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      width: "100%"
+    }
+  }, /*#__PURE__*/React.createElement(ButtonGhost, {
+    onClick: onClick,
+    height: "32px",
+    noPadding: true
+  }, content));
+}
+
+function SimplePicker(_ref) {
+  let {
+    value,
+    onChange,
+    getItemById,
+    getItems,
+    placeholder
+  } = _ref;
+  return /*#__PURE__*/React__default.createElement(ProductPicker, {
+    value: value,
+    onChange: onChange,
+    api: {
+      products: getItems,
+      product: getItemById,
+      placeholder
+    }
+  });
+}
+const ProductPicker = _ref2 => {
+  let {
+    value,
+    onChange,
+    api
+  } = _ref2;
+  const [product, setProduct] = useState(getProductFromCache(value ?? null));
+  const [isOpen, setOpen] = useState(false);
+  const [state, setState] = useState("unknown");
+  function error() {
+    setProduct(null);
+    setState("error");
+  }
+  useEffect(() => {
+    if (product?.id === value) {
+      return;
+    }
+    if (!value) {
+      setProduct(null);
+      return;
+    }
+    let isMounted = true;
+    getProductFromId(value, api).then(product => {
+      if (!isMounted) {
+        return;
+      }
+      if (product === null || product === undefined) {
+        error();
+      } else {
+        if (!isMounted) {
+          return;
+        }
+        setProduct(product);
+        saveProductToCache(product);
+        setState("success");
+      }
+    }, () => {
+      if (!isMounted) {
+        return;
+      }
+      error();
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, [value]);
+  const placeholder = api.placeholder ?? "Pick an item";
+  return /*#__PURE__*/React__default.createElement(Container, null, state === "error" && /*#__PURE__*/React__default.createElement(ErrorMessage, null, "Couldn't fetch data for id: ", value), /*#__PURE__*/React__default.createElement(RowContainer, null, /*#__PURE__*/React__default.createElement(ThumbnailButton, {
+    thumbnail: product?.thumbnail ? {
+      type: "image",
+      src: product.thumbnail
+    } : undefined,
+    label: state === "loading" ? "Loading..." : product?.title ?? placeholder,
+    onClick: () => {
+      setOpen(true);
+    }
+  }), product && /*#__PURE__*/React__default.createElement(ButtonGhost, {
+    icon: Icons.Remove,
+    hideLabel: true,
+    onClick: () => {
+      onChange(null);
+    }
+  }, "Clear"), /*#__PURE__*/React__default.createElement(ItemPickerModal, {
+    isOpen: isOpen,
+    getItems: api.products,
+    onClose: () => {
+      setOpen(false);
+    },
+    onItemPick: item => {
+      onChange(item.id);
+    }
+  })));
+};
+const Container = styled.div.withConfig({
+  displayName: "SimplePicker__Container",
+  componentId: "sc-hh69hi-0"
+})(["width:100%;"]);
+const RowContainer = styled.div.withConfig({
+  displayName: "SimplePicker__RowContainer",
+  componentId: "sc-hh69hi-1"
+})(["display:flex;flex-direction:row;align-items:center;"]);
+function getProductFromId(id, api) {
+  return new Promise((resolve, reject) => {
+    const cached = getProductFromCache(id);
+    if (cached) {
+      resolve(cached);
+    }
+    api.product(id).then(product => {
+      resolve(product);
+    }, () => {
+      reject();
+    });
+  });
+}
+const productCache = {};
+function getProductFromCache(id) {
+  if (!id) {
+    return null;
+  }
+  if (productCache[id]) {
+    return productCache[id];
+  }
+  return null;
+}
+function saveProductToCache(product) {
+  productCache[product.id] = product;
+}
+function ItemPickerModal(_ref3) {
+  let {
+    isOpen,
+    getItems,
+    onClose,
+    onItemPick
+  } = _ref3;
+  const [query, setQuery] = useState("");
+  const previousQuery = useRef();
+  const [getProductsRequest, setGetProductsRequest] = useState({
+    status: "idle",
+    data: undefined,
+    error: null
+  });
+  useEffect(() => {
+    previousQuery.current = query;
+  }, [query]);
+  useEffect(() => {
+    if (!isOpen && query !== "") {
+      setQuery("");
+    }
+  }, [isOpen, query]);
+  useEffect(() => {
+    let loadingTimeoutId;
+    let isCanceled = false;
+    const debouncedGetProducts = debounce(query => {
+      loadingTimeoutId = window.setTimeout(() => {
+        setGetProductsRequest({
+          status: "loading",
+          data: getProductsRequest.data,
+          error: null
+        });
+      }, 1000);
+      getItems(query).then(products => {
+        setGetProductsRequest({
+          status: "success",
+          data: products,
+          error: null
+        });
+
+        // update cache after every download
+        products.forEach(product => {
+          saveProductToCache(product);
+        });
+      }).catch(error => {
+        setGetProductsRequest({
+          status: "error",
+          data: undefined,
+          error
+        });
+      }).finally(() => {
+        window.clearTimeout(loadingTimeoutId);
+        if (isCanceled) {
+          return;
+        }
+      });
+    }, 300);
+    debouncedGetProducts(query);
+    return () => {
+      isCanceled = true;
+      if (loadingTimeoutId) {
+        window.clearTimeout(loadingTimeoutId);
+      }
+      debouncedGetProducts.cancel();
+    };
+  }, [query]);
+  return isOpen ? /*#__PURE__*/React__default.createElement(Modal, {
+    mode: "center-small",
+    isOpen: true,
+    onRequestClose: () => {
+      onClose();
+    },
+    headerLine: true,
+    searchProps: {
+      placeholder: "Search...",
+      onChange: e => {
+        setQuery(e.target.value);
+      }
+    },
+    headerSymbol: "P",
+    noPadding: true
+  }, getProductsRequest.status === "loading" && /*#__PURE__*/React__default.createElement(LoadingContainer, {
+    isEmpty: !getProductsRequest.data?.length
+  }, /*#__PURE__*/React__default.createElement(ProductsContainer, null, getProductsRequest.data?.map(product => /*#__PURE__*/React__default.createElement(BasicRow, {
+    title: product.title,
+    onClick: () => {
+      onItemPick(product);
+      onClose();
+    },
+    image: product.thumbnail
+  })), /*#__PURE__*/React__default.createElement(LoadingIndicatorBackdrop, null)), /*#__PURE__*/React__default.createElement(LoadingIndicatorWrapper, null, /*#__PURE__*/React__default.createElement(LoadingIndicator, null, loadingIcon))), getProductsRequest.status === "success" && (getProductsRequest.data.length > 0 ? getProductsRequest.data.map(product => /*#__PURE__*/React__default.createElement(BasicRow, {
+    key: product.id,
+    title: product.title,
+    onClick: () => {
+      onItemPick(product);
+      onClose();
+    },
+    image: product.thumbnail
+  })) : /*#__PURE__*/React__default.createElement(NoResults, null, "No results")), getProductsRequest.status === "error" && /*#__PURE__*/React__default.createElement(NoResults, null, "Couldn't fetch data for query \"", previousQuery.current, "\"")) : null;
+}
+const ErrorMessage = styled.div.withConfig({
+  displayName: "SimplePicker__ErrorMessage",
+  componentId: "sc-hh69hi-2"
+})(["word-break:break-all;white-space:normal;margin-left:4px;", " color:", ";"], Fonts.body, Colors.black40);
+const LoadingContainer = styled.div.withConfig({
+  displayName: "SimplePicker__LoadingContainer",
+  componentId: "sc-hh69hi-3"
+})(["position:relative;display:flex;flex-direction:column;flex-grow:1;width:100%;", " max-height:331px;"], _ref4 => {
+  let {
+    isEmpty
+  } = _ref4;
+  return isEmpty && css(["min-height:72px;"]);
+});
+const ProductsContainer = styled.div.withConfig({
+  displayName: "SimplePicker__ProductsContainer",
+  componentId: "sc-hh69hi-4"
+})(["width:100%;overflow:hidden;filter:blur(1px);"]);
+const LoadingIndicatorBackdrop = styled.div.withConfig({
+  displayName: "SimplePicker__LoadingIndicatorBackdrop",
+  componentId: "sc-hh69hi-5"
+})(["position:absolute;left:0;top:0;width:100%;height:100%;background:#fefefea1;filter:blur(1px);"]);
+const LoadingIndicatorWrapper = styled.div.withConfig({
+  displayName: "SimplePicker__LoadingIndicatorWrapper",
+  componentId: "sc-hh69hi-6"
+})(["position:absolute;display:grid;place-items:center;left:0;top:0;width:100%;height:100%;"]);
+const rotate = keyframes(["from{transform:rotate(0deg);}to{transform:rotate(360deg);}"]);
+const LoadingIndicator = styled.div.withConfig({
+  displayName: "SimplePicker__LoadingIndicator",
+  componentId: "sc-hh69hi-7"
+})(["width:24px;height:24px;font-size:24px;> svg{animation:", " 500ms linear infinite;}"], rotate);
+const NoResults = styled.div.withConfig({
+  displayName: "SimplePicker__NoResults",
+  componentId: "sc-hh69hi-8"
+})(["display:grid;place-items:center;height:48px;padding:12px;", ";"], Fonts.body);
+const loadingIcon = /*#__PURE__*/React__default.createElement("svg", {
+  width: "1em",
+  height: "1em",
+  viewBox: "0 0 25 25",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, /*#__PURE__*/React__default.createElement("path", {
+  d: "M4.5 12.5C4.5 16.9183 8.08172 20.5 12.5 20.5C16.9183 20.5 20.5 16.9183 20.5 12.5C20.5 8.08172 16.9183 4.5 12.5 4.5",
+  stroke: "currentColor",
+  strokeWidth: 1.2
+}));
+
+const trackHeight = "1px";
+const thumbSize = "11px";
+const thumbRadius = "50%";
+const trackColor = Colors.black10;
+const trackColorHover = "black";
+const thumbColor = "black";
+const Root$3 = styled.div.withConfig({
+  displayName: "Slider__Root",
+  componentId: "sc-1l3g6h4-0"
+})(["input[type=\"range\"]{width:100%;margin:5px 0;height:20px;-webkit-appearance:none;cursor:pointer;}input[type=\"range\"]:focus{outline:none;}input[type=\"range\"]::-webkit-slider-runnable-track{background:", ";border:0;width:100%;height:", ";transition:all 0.1s;}input[type=\"range\"]::-webkit-slider-thumb{margin-top:-5px;width:", ";height:", ";border-radius:", ";background:", ";-webkit-appearance:none;}input[type=\"range\"]:focus::-webkit-slider-runnable-track{background:", ";}input[type=\"range\"]:hover::-webkit-slider-runnable-track{background:", ";}input[type=\"range\"]::-moz-range-track{background:", ";border:0;width:100%;height:", ";transition:all 0.1s;}input[type=\"range\"]::-moz-range-thumb{width:", ";height:", ";border-radius:", ";background:", ";border:none;}input[type=\"range\"]:hover::-moz-range-track{background:", ";}input[type=\"range\"]::-ms-track{background:transparent;border-color:transparent;border-width:0px 0;color:transparent;width:100%;height:", ";}input[type=\"range\"]::-ms-fill-lower{background:#000080;border:0;}input[type=\"range\"]::-ms-fill-upper{background:", ";border:0;}input[type=\"range\"]::-ms-thumb{width:", ";height:", ";border-radius:", ";background:", ";margin-top:0px;}input[type=\"range\"]:focus::-ms-fill-lower{background:", ";}input[type=\"range\"]:focus::-ms-fill-upper{background:", ";}"], trackColor, trackHeight, thumbSize, thumbSize, thumbRadius, thumbColor, trackColor, trackColorHover, trackColor, trackHeight, thumbSize, thumbSize, thumbRadius, thumbColor, trackColorHover, trackHeight, trackColor, thumbSize, thumbSize, thumbRadius, thumbColor, trackColor, trackColor);
+const SliderStyled = styled.input.withConfig({
+  displayName: "Slider__SliderStyled",
+  componentId: "sc-1l3g6h4-1"
+})([""]);
+const RangeSlider = props => {
+  return /*#__PURE__*/React__default.createElement(Root$3, null, /*#__PURE__*/React__default.createElement(SliderStyled, _extends({}, props, {
+    type: "range"
+  })));
+};
+
+const Root$2 = styled.div.withConfig({
+  displayName: "FormElement__Root",
+  componentId: "sc-11sxp3-0"
+})(["position:relative;"]);
+const Layout = styled.div.withConfig({
+  displayName: "FormElement__Layout",
+  componentId: "sc-11sxp3-1"
+})(["position:relative;display:flex;flex-direction:row;gap:8px;", ""], _ref => {
+  let {
+    position = "center"
+  } = _ref;
+  return `align-items: ${position}`;
+});
+const Label$1 = styled.label.withConfig({
+  displayName: "FormElement__Label",
+  componentId: "sc-11sxp3-2"
+})(["", " color:black;flex:0 0 120px;min-width:0;"], Fonts.body);
+const ControlWrapper = styled.div.withConfig({
+  displayName: "FormElement__ControlWrapper",
+  componentId: "sc-11sxp3-3"
+})(["flex:1 1 auto;min-width:0;display:grid;"]);
+const ErrorWrapper = styled.div.withConfig({
+  displayName: "FormElement__ErrorWrapper",
+  componentId: "sc-11sxp3-4"
+})(["margin-top:6px;", " color:", ";"], Fonts.body, Colors.red);
+const FormElement = props => {
+  return /*#__PURE__*/React__default.createElement(Root$2, null, /*#__PURE__*/React__default.createElement(Layout, {
+    position: props?.position
+  }, /*#__PURE__*/React__default.createElement(Label$1, {
+    htmlFor: props.name
+  }, props.label), /*#__PURE__*/React__default.createElement(ControlWrapper, null, /*#__PURE__*/React__default.cloneElement(props.children, {
+    name: props.name,
+    hasError: !!props.error
+  }))), props.error && /*#__PURE__*/React__default.createElement(Layout, null, /*#__PURE__*/React__default.createElement(Label$1, {
+    as: "div"
+  }), /*#__PURE__*/React__default.createElement(ErrorWrapper, null, props.error)));
+};
+
+function useToaster() {
+  const style = {
+    borderRadius: "4px",
+    ...Fonts.body
+  };
+  return {
+    notify: message => {
+      toast(message, {
+        style
+      });
+    },
+    success: function (message) {
+      let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      toast.success(message, {
+        style,
+        duration: options.duration
+      });
+    },
+    error: message => {
+      toast.error(message, {
+        style
+      });
+    }
+  };
+}
+
+const options = [{
+  value: "chocolate",
+  label: "Chocolate"
+}, {
+  value: "strawberry",
+  label: "Strawberry"
+}, {
+  value: "vanilla",
+  label: "Vanilla"
+}];
+function DropdownIndicator() {
+  return /*#__PURE__*/React__default.createElement("div", {
+    style: {
+      padding: "0px 3px"
+    }
+  }, /*#__PURE__*/React__default.createElement(Icons.ChevronDown, {
+    size: 16
+  }));
+}
+function ClearIndicator(props) {
+  return /*#__PURE__*/React__default.createElement("div", _extends({}, props.innerProps, {
+    style: {
+      padding: "0px 6px"
+    }
+  }), /*#__PURE__*/React__default.createElement(Icons.Close, {
+    size: 12
+  }));
+}
+
+// export type MutliSelectProps = {
+//   value: string,
+//   options:
+// }
+
+function MultiSelect() {
+  return /*#__PURE__*/React__default.createElement(Select$2, {
+    options: options,
+    isMulti: true,
+    styles: {
+      // @ts-ignore
+      container: (baseStyles, state) => ({
+        ...baseStyles,
+        ...Fonts.body
+      }),
+      // @ts-ignore
+      control: (baseStyles, state) => {
+        return {
+          ...baseStyles,
+          borderWidth: 0,
+          borderRadius: 2,
+          boxShadow: state.isFocused ? `0 0 0 2px ${Colors.focus}` : `0 0 0 1px ${Colors.black10}`,
+          "&:hover": {
+            borderColor: Colors.black20
+          },
+          minHeight: 28
+        };
+      },
+      // @ts-ignore
+      clearIndicator: baseStyles => {
+        {
+          return {
+            ...baseStyles,
+            padding: 4
+          };
+        }
+      },
+      // @ts-ignore
+      dropdownIndicator: baseStyles => {
+        return {
+          ...baseStyles,
+          padding: 4
+        };
+      },
+      // @ts-ignore
+      valueContainer: baseStyles => {
+        {
+          return {
+            ...baseStyles,
+            padding: "2px 6px"
+          };
+        }
+      }
+    },
+    components: {
+      DropdownIndicator,
+      // @ts-ignore
+      ClearIndicator
+    }
+  });
+}
+
+function ShopstoryIcon(_ref) {
+  let {
+    width = 40,
+    height = 40,
+    className
+  } = _ref;
+  return /*#__PURE__*/React__default.createElement("svg", {
+    width: width,
+    height: height,
+    viewBox: "0 0 40 40",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    className: className
+  }, /*#__PURE__*/React__default.createElement("rect", {
+    width: "40",
+    height: "40",
+    fill: "#F0FB98"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M24.8625 24.3526C24.8625 22.0386 23.2513 20.4408 21.4253 19.0909L20.0559 18.0716C18.6595 17.0248 17.9076 16.2534 17.9076 15.0964C17.9076 13.7741 19.0354 13.0028 20.4318 13.0028C21.7207 13.0028 22.768 13.4986 23.5467 14.876L26.2857 13.1956C24.9162 10.7989 22.7948 10 20.5661 10C17.3437 10 14.739 11.9559 14.739 15.2066C14.739 17.438 16.0011 19.0083 18.0687 20.5234L19.4382 21.5427C20.942 22.5895 21.6133 23.3884 21.6133 24.6281C21.6133 26.0055 20.4049 26.9972 18.6058 26.9972C16.6724 26.9972 15.464 25.8678 14.7927 24.2424L12 25.9504C13.0741 28.292 15.3298 30 18.4178 30C22.4189 30 24.8625 27.5207 24.8625 24.3526Z",
+    fill: "black"
+  }));
+}
+
+const StackWrapper = styled.div.withConfig({
+  displayName: "Stack__StackWrapper",
+  componentId: "sc-1wi5rsl-0"
+})(["display:flex;flex-direction:column;gap:", "px;align-items:", ";"], props => props.gap, props => props.align === "start" ? "flex-start" : props.align === "end" ? "flex-end" : props.align === "stretch" ? "stretch" : "center");
+function Stack(props) {
+  return /*#__PURE__*/React__default.createElement(StackWrapper, {
+    gap: props.gap,
+    align: props.align ?? "stretch",
+    className: props.className
+  }, props.children);
+}
+
+function ShopstoryLogo() {
+  return /*#__PURE__*/React__default.createElement("svg", {
+    width: "80",
+    height: "17",
+    viewBox: "0 0 80 17",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    d: "M8.57576 9.71406C8.57576 8.14841 7.50162 7.06658 6.2844 6.15286L5.37068 5.46308C4.44027 4.75469 3.9385 4.23238 3.9385 3.44955C3.9385 2.55444 4.69052 2.03213 5.62157 2.03213C6.48139 2.03213 7.17951 2.36772 7.69861 3.30005L9.52477 2.16303C8.61105 0.540918 7.19748 0 5.71076 0C3.56248 0 1.82616 1.32374 1.82616 3.52399C1.82616 5.03445 2.66737 6.09703 4.0463 7.1224L4.95937 7.81219C5.96164 8.52058 6.40952 9.06149 6.40952 9.90078C6.40952 10.8325 5.6036 11.5036 4.40434 11.5036C3.11461 11.5036 2.30933 10.7401 1.86209 9.63963L0 10.7953C0.71609 12.3801 2.22014 13.5364 4.27922 13.5364C6.94659 13.5364 8.57576 11.8585 8.57576 9.71406ZM9.13464 13.3869H11.1039L12.393 7.01076C13.0192 6.22793 13.8072 5.83588 14.6484 5.83588C16.0633 5.83588 16.6895 6.86125 16.3674 8.40893L15.3472 13.3869H17.3344L18.3726 8.22221C18.8737 5.83588 17.5487 3.9154 15.4184 3.9154C14.3982 3.9154 13.5563 4.21377 12.8402 4.84773L13.8072 0.148865H11.8373L9.13464 13.3869ZM28.6828 8.27867C28.6828 6.00399 27.1614 3.9154 24.4401 3.9154C21.5039 3.9154 19.3376 6.22729 19.3376 9.15454C19.3376 11.4478 20.895 13.5364 23.6162 13.5364C26.5525 13.5364 28.6828 11.2245 28.6828 8.27867ZM21.3608 8.98706C21.3608 7.17823 22.614 5.85449 24.2611 5.85449C25.5861 5.85449 26.6782 6.82403 26.6782 8.46475C26.6782 10.2736 25.443 11.5973 23.7779 11.5973C22.4529 11.5973 21.3608 10.6278 21.3608 8.98706ZM28.2471 16.8179H30.2343L31.0941 12.6041C31.7204 13.2008 32.6155 13.5364 33.6896 13.5364C36.8049 13.5364 38.828 11.0378 38.828 8.11056C38.828 5.85449 37.3419 3.9154 35.0326 3.9154C34.0124 3.9154 33.1885 4.26959 32.5622 4.7919L32.6873 4.0649H30.8432L28.2471 16.8179ZM34.5494 5.83588C35.8918 5.83588 36.7869 6.78682 36.7869 8.3345C36.7869 10.2364 35.4266 11.6159 33.6896 11.6159C32.8298 11.6159 31.9713 11.2617 31.5054 10.5527L32.2754 6.84264C32.5649 6.52751 32.9162 6.27546 33.3075 6.10223C33.6987 5.92901 34.1215 5.83834 34.5494 5.83588ZM45.5853 10.7022C45.5853 9.50873 44.7082 8.72591 43.5981 8.05473L42.9898 7.64407C42.3629 7.25266 42.094 6.95429 42.094 6.48845C42.094 5.96614 42.506 5.64916 43.1329 5.64916C43.7771 5.64916 44.2783 5.98474 44.5651 6.63731L46.1403 5.70562C45.6392 4.56796 44.5298 3.9154 43.1861 3.9154C41.36 3.9154 40.196 5.05306 40.196 6.58149C40.196 7.77497 40.9846 8.53918 41.9689 9.17378L42.6311 9.60241C43.3113 10.031 43.6879 10.348 43.6879 10.8889C43.6879 11.4478 43.1509 11.802 42.488 11.802C41.5037 11.802 40.9307 11.2803 40.5906 10.4225L39.0327 11.3362C39.5165 12.6599 40.6439 13.5364 42.4168 13.5364C44.225 13.5364 45.5853 12.436 45.5853 10.7022ZM47.4262 5.8917H48.8764L47.9992 10.1055C47.5513 12.3057 48.3752 13.3869 50.3445 13.3869H51.8126L52.1886 11.5229H50.9887C49.9864 11.5229 49.7888 11.0564 50.0044 9.99382L50.8636 5.8917H53.2807L53.6747 4.0649H51.2396L51.8126 1.26727L49.6104 2.31189L49.2344 4.0649H47.4262V5.8917ZM62.9441 8.27867C62.9441 6.00399 61.4221 3.9154 58.7008 3.9154C55.7646 3.9154 53.5983 6.22729 53.5983 9.15454C53.5983 11.4478 55.1563 13.5364 57.8776 13.5364C60.8138 13.5364 62.9441 11.2245 62.9441 8.27867ZM55.6215 8.98706C55.6215 7.17823 56.8746 5.85449 58.5218 5.85449C59.8468 5.85449 60.9389 6.82403 60.9389 8.46475C60.9389 10.2736 59.7037 11.5973 58.0386 11.5973C56.7136 11.5973 55.6215 10.6278 55.6215 8.98706ZM63.2065 13.3869H65.1937L66.4649 7.1038C67.0199 6.3768 67.8617 5.96614 68.7209 5.96614C69.0969 5.96614 69.455 6.0226 69.7412 6.15286L70.1711 4.00844C69.9561 3.95261 69.6873 3.93401 69.437 3.93401C68.4161 3.93401 67.5031 4.34467 66.8768 5.07166L67.0918 4.06426H65.1045L63.2065 13.3869ZM70.207 16.8179H72.3553L80 4.0649H77.8158L74.0024 10.6644L72.8384 4.06426H70.7973L72.4804 13.0321L70.207 16.8179Z",
+    fill: "#161616"
+  }));
+}
+
+function createCollection(name) {
+  const PROVIDER_NAME = name + "CollectionProvider";
+  const [createCollectionContext, createCollectionScope] = createContextScope(PROVIDER_NAME);
+  const [CollectionProviderImpl, useCollectionContext] = createCollectionContext(
+    PROVIDER_NAME,
+    { collectionRef: { current: null }, itemMap: /* @__PURE__ */ new Map() }
+  );
+  const CollectionProvider = (props) => {
+    const { scope, children } = props;
+    const ref = React__default.useRef(null);
+    const itemMap = React__default.useRef(/* @__PURE__ */ new Map()).current;
+    return /* @__PURE__ */ jsx(CollectionProviderImpl, { scope, itemMap, collectionRef: ref, children });
+  };
+  CollectionProvider.displayName = PROVIDER_NAME;
+  const COLLECTION_SLOT_NAME = name + "CollectionSlot";
+  const CollectionSlot = React__default.forwardRef(
+    (props, forwardedRef) => {
+      const { scope, children } = props;
+      const context = useCollectionContext(COLLECTION_SLOT_NAME, scope);
+      const composedRefs = useComposedRefs(forwardedRef, context.collectionRef);
+      return /* @__PURE__ */ jsx(Slot, { ref: composedRefs, children });
+    }
+  );
+  CollectionSlot.displayName = COLLECTION_SLOT_NAME;
+  const ITEM_SLOT_NAME = name + "CollectionItemSlot";
+  const ITEM_DATA_ATTR = "data-radix-collection-item";
+  const CollectionItemSlot = React__default.forwardRef(
+    (props, forwardedRef) => {
+      const { scope, children, ...itemData } = props;
+      const ref = React__default.useRef(null);
+      const composedRefs = useComposedRefs(forwardedRef, ref);
+      const context = useCollectionContext(ITEM_SLOT_NAME, scope);
+      React__default.useEffect(() => {
+        context.itemMap.set(ref, { ref, ...itemData });
+        return () => void context.itemMap.delete(ref);
+      });
+      return /* @__PURE__ */ jsx(Slot, { ...{ [ITEM_DATA_ATTR]: "" }, ref: composedRefs, children });
+    }
+  );
+  CollectionItemSlot.displayName = ITEM_SLOT_NAME;
+  function useCollection(scope) {
+    const context = useCollectionContext(name + "CollectionConsumer", scope);
+    const getItems = React__default.useCallback(() => {
+      const collectionNode = context.collectionRef.current;
+      if (!collectionNode) return [];
+      const orderedNodes = Array.from(collectionNode.querySelectorAll(`[${ITEM_DATA_ATTR}]`));
+      const items = Array.from(context.itemMap.values());
+      const orderedItems = items.sort(
+        (a, b) => orderedNodes.indexOf(a.ref.current) - orderedNodes.indexOf(b.ref.current)
+      );
+      return orderedItems;
+    }, [context.collectionRef, context.itemMap]);
+    return getItems;
+  }
+  return [
+    { Provider: CollectionProvider, Slot: CollectionSlot, ItemSlot: CollectionItemSlot },
+    useCollection,
+    createCollectionScope
+  ];
+}
+
+// packages/react/direction/src/Direction.tsx
+var DirectionContext = React.createContext(void 0);
+function useDirection(localDir) {
+  const globalDir = React.useContext(DirectionContext);
+  return localDir || globalDir || "ltr";
+}
+
+var ENTRY_FOCUS = "rovingFocusGroup.onEntryFocus";
+var EVENT_OPTIONS$1 = { bubbles: false, cancelable: true };
+var GROUP_NAME$3 = "RovingFocusGroup";
+var [Collection$2, useCollection$2, createCollectionScope$2] = createCollection(GROUP_NAME$3);
+var [createRovingFocusGroupContext, createRovingFocusGroupScope] = createContextScope(
+  GROUP_NAME$3,
+  [createCollectionScope$2]
+);
+var [RovingFocusProvider, useRovingFocusContext] = createRovingFocusGroupContext(GROUP_NAME$3);
+var RovingFocusGroup = React.forwardRef(
+  (props, forwardedRef) => {
+    return /* @__PURE__ */ jsx(Collection$2.Provider, { scope: props.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsx(Collection$2.Slot, { scope: props.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsx(RovingFocusGroupImpl, { ...props, ref: forwardedRef }) }) });
+  }
+);
+RovingFocusGroup.displayName = GROUP_NAME$3;
+var RovingFocusGroupImpl = React.forwardRef((props, forwardedRef) => {
+  const {
+    __scopeRovingFocusGroup,
+    orientation,
+    loop = false,
+    dir,
+    currentTabStopId: currentTabStopIdProp,
+    defaultCurrentTabStopId,
+    onCurrentTabStopIdChange,
+    onEntryFocus,
+    preventScrollOnEntryFocus = false,
+    ...groupProps
+  } = props;
+  const ref = React.useRef(null);
+  const composedRefs = useComposedRefs(forwardedRef, ref);
+  const direction = useDirection(dir);
+  const [currentTabStopId = null, setCurrentTabStopId] = useControllableState({
+    prop: currentTabStopIdProp,
+    defaultProp: defaultCurrentTabStopId,
+    onChange: onCurrentTabStopIdChange
+  });
+  const [isTabbingBackOut, setIsTabbingBackOut] = React.useState(false);
+  const handleEntryFocus = useCallbackRef(onEntryFocus);
+  const getItems = useCollection$2(__scopeRovingFocusGroup);
+  const isClickFocusRef = React.useRef(false);
+  const [focusableItemsCount, setFocusableItemsCount] = React.useState(0);
+  React.useEffect(() => {
+    const node = ref.current;
+    if (node) {
+      node.addEventListener(ENTRY_FOCUS, handleEntryFocus);
+      return () => node.removeEventListener(ENTRY_FOCUS, handleEntryFocus);
+    }
+  }, [handleEntryFocus]);
+  return /* @__PURE__ */ jsx(
+    RovingFocusProvider,
+    {
+      scope: __scopeRovingFocusGroup,
+      orientation,
+      dir: direction,
+      loop,
+      currentTabStopId,
+      onItemFocus: React.useCallback(
+        (tabStopId) => setCurrentTabStopId(tabStopId),
+        [setCurrentTabStopId]
+      ),
+      onItemShiftTab: React.useCallback(() => setIsTabbingBackOut(true), []),
+      onFocusableItemAdd: React.useCallback(
+        () => setFocusableItemsCount((prevCount) => prevCount + 1),
+        []
+      ),
+      onFocusableItemRemove: React.useCallback(
+        () => setFocusableItemsCount((prevCount) => prevCount - 1),
+        []
+      ),
+      children: /* @__PURE__ */ jsx(
+        Primitive.div,
+        {
+          tabIndex: isTabbingBackOut || focusableItemsCount === 0 ? -1 : 0,
+          "data-orientation": orientation,
+          ...groupProps,
+          ref: composedRefs,
+          style: { outline: "none", ...props.style },
+          onMouseDown: composeEventHandlers(props.onMouseDown, () => {
+            isClickFocusRef.current = true;
+          }),
+          onFocus: composeEventHandlers(props.onFocus, (event) => {
+            const isKeyboardFocus = !isClickFocusRef.current;
+            if (event.target === event.currentTarget && isKeyboardFocus && !isTabbingBackOut) {
+              const entryFocusEvent = new CustomEvent(ENTRY_FOCUS, EVENT_OPTIONS$1);
+              event.currentTarget.dispatchEvent(entryFocusEvent);
+              if (!entryFocusEvent.defaultPrevented) {
+                const items = getItems().filter((item) => item.focusable);
+                const activeItem = items.find((item) => item.active);
+                const currentItem = items.find((item) => item.id === currentTabStopId);
+                const candidateItems = [activeItem, currentItem, ...items].filter(
+                  Boolean
+                );
+                const candidateNodes = candidateItems.map((item) => item.ref.current);
+                focusFirst$2(candidateNodes, preventScrollOnEntryFocus);
+              }
+            }
+            isClickFocusRef.current = false;
+          }),
+          onBlur: composeEventHandlers(props.onBlur, () => setIsTabbingBackOut(false))
+        }
+      )
+    }
+  );
+});
+var ITEM_NAME$4 = "RovingFocusGroupItem";
+var RovingFocusGroupItem = React.forwardRef(
+  (props, forwardedRef) => {
+    const {
+      __scopeRovingFocusGroup,
+      focusable = true,
+      active = false,
+      tabStopId,
+      ...itemProps
+    } = props;
+    const autoId = useId();
+    const id = tabStopId || autoId;
+    const context = useRovingFocusContext(ITEM_NAME$4, __scopeRovingFocusGroup);
+    const isCurrentTabStop = context.currentTabStopId === id;
+    const getItems = useCollection$2(__scopeRovingFocusGroup);
+    const { onFocusableItemAdd, onFocusableItemRemove } = context;
+    React.useEffect(() => {
+      if (focusable) {
+        onFocusableItemAdd();
+        return () => onFocusableItemRemove();
+      }
+    }, [focusable, onFocusableItemAdd, onFocusableItemRemove]);
+    return /* @__PURE__ */ jsx(
+      Collection$2.ItemSlot,
+      {
+        scope: __scopeRovingFocusGroup,
+        id,
+        focusable,
+        active,
+        children: /* @__PURE__ */ jsx(
+          Primitive.span,
+          {
+            tabIndex: isCurrentTabStop ? 0 : -1,
+            "data-orientation": context.orientation,
+            ...itemProps,
+            ref: forwardedRef,
+            onMouseDown: composeEventHandlers(props.onMouseDown, (event) => {
+              if (!focusable) event.preventDefault();
+              else context.onItemFocus(id);
+            }),
+            onFocus: composeEventHandlers(props.onFocus, () => context.onItemFocus(id)),
+            onKeyDown: composeEventHandlers(props.onKeyDown, (event) => {
+              if (event.key === "Tab" && event.shiftKey) {
+                context.onItemShiftTab();
+                return;
+              }
+              if (event.target !== event.currentTarget) return;
+              const focusIntent = getFocusIntent(event, context.orientation, context.dir);
+              if (focusIntent !== void 0) {
+                if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+                event.preventDefault();
+                const items = getItems().filter((item) => item.focusable);
+                let candidateNodes = items.map((item) => item.ref.current);
+                if (focusIntent === "last") candidateNodes.reverse();
+                else if (focusIntent === "prev" || focusIntent === "next") {
+                  if (focusIntent === "prev") candidateNodes.reverse();
+                  const currentIndex = candidateNodes.indexOf(event.currentTarget);
+                  candidateNodes = context.loop ? wrapArray$2(candidateNodes, currentIndex + 1) : candidateNodes.slice(currentIndex + 1);
+                }
+                setTimeout(() => focusFirst$2(candidateNodes));
+              }
+            })
+          }
+        )
+      }
+    );
+  }
+);
+RovingFocusGroupItem.displayName = ITEM_NAME$4;
+var MAP_KEY_TO_FOCUS_INTENT = {
+  ArrowLeft: "prev",
+  ArrowUp: "prev",
+  ArrowRight: "next",
+  ArrowDown: "next",
+  PageUp: "first",
+  Home: "first",
+  PageDown: "last",
+  End: "last"
+};
+function getDirectionAwareKey(key, dir) {
+  if (dir !== "rtl") return key;
+  return key === "ArrowLeft" ? "ArrowRight" : key === "ArrowRight" ? "ArrowLeft" : key;
+}
+function getFocusIntent(event, orientation, dir) {
+  const key = getDirectionAwareKey(event.key, dir);
+  if (orientation === "vertical" && ["ArrowLeft", "ArrowRight"].includes(key)) return void 0;
+  if (orientation === "horizontal" && ["ArrowUp", "ArrowDown"].includes(key)) return void 0;
+  return MAP_KEY_TO_FOCUS_INTENT[key];
+}
+function focusFirst$2(candidates, preventScroll = false) {
+  const PREVIOUSLY_FOCUSED_ELEMENT = document.activeElement;
+  for (const candidate of candidates) {
+    if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
+    candidate.focus({ preventScroll });
+    if (document.activeElement !== PREVIOUSLY_FOCUSED_ELEMENT) return;
+  }
+}
+function wrapArray$2(array, startIndex) {
+  return array.map((_, index) => array[(startIndex + index) % array.length]);
+}
+var Root$1 = RovingFocusGroup;
+var Item$1 = RovingFocusGroupItem;
+
+var TABS_NAME = "Tabs";
+var [createTabsContext, createTabsScope] = createContextScope(TABS_NAME, [
+  createRovingFocusGroupScope
+]);
+var useRovingFocusGroupScope$2 = createRovingFocusGroupScope();
+var [TabsProvider, useTabsContext] = createTabsContext(TABS_NAME);
+var Tabs$1 = React.forwardRef(
+  (props, forwardedRef) => {
+    const {
+      __scopeTabs,
+      value: valueProp,
+      onValueChange,
+      defaultValue,
+      orientation = "horizontal",
+      dir,
+      activationMode = "automatic",
+      ...tabsProps
+    } = props;
+    const direction = useDirection(dir);
+    const [value, setValue] = useControllableState({
+      prop: valueProp,
+      onChange: onValueChange,
+      defaultProp: defaultValue
+    });
+    return /* @__PURE__ */ jsx(
+      TabsProvider,
+      {
+        scope: __scopeTabs,
+        baseId: useId(),
+        value,
+        onValueChange: setValue,
+        orientation,
+        dir: direction,
+        activationMode,
+        children: /* @__PURE__ */ jsx(
+          Primitive.div,
+          {
+            dir: direction,
+            "data-orientation": orientation,
+            ...tabsProps,
+            ref: forwardedRef
+          }
+        )
+      }
+    );
+  }
+);
+Tabs$1.displayName = TABS_NAME;
+var TAB_LIST_NAME = "TabsList";
+var TabsList = React.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeTabs, loop = true, ...listProps } = props;
+    const context = useTabsContext(TAB_LIST_NAME, __scopeTabs);
+    const rovingFocusGroupScope = useRovingFocusGroupScope$2(__scopeTabs);
+    return /* @__PURE__ */ jsx(
+      Root$1,
+      {
+        asChild: true,
+        ...rovingFocusGroupScope,
+        orientation: context.orientation,
+        dir: context.dir,
+        loop,
+        children: /* @__PURE__ */ jsx(
+          Primitive.div,
+          {
+            role: "tablist",
+            "aria-orientation": context.orientation,
+            ...listProps,
+            ref: forwardedRef
+          }
+        )
+      }
+    );
+  }
+);
+TabsList.displayName = TAB_LIST_NAME;
+var TRIGGER_NAME$2 = "TabsTrigger";
+var TabsTrigger = React.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeTabs, value, disabled = false, ...triggerProps } = props;
+    const context = useTabsContext(TRIGGER_NAME$2, __scopeTabs);
+    const rovingFocusGroupScope = useRovingFocusGroupScope$2(__scopeTabs);
+    const triggerId = makeTriggerId(context.baseId, value);
+    const contentId = makeContentId(context.baseId, value);
+    const isSelected = value === context.value;
+    return /* @__PURE__ */ jsx(
+      Item$1,
+      {
+        asChild: true,
+        ...rovingFocusGroupScope,
+        focusable: !disabled,
+        active: isSelected,
+        children: /* @__PURE__ */ jsx(
+          Primitive.button,
+          {
+            type: "button",
+            role: "tab",
+            "aria-selected": isSelected,
+            "aria-controls": contentId,
+            "data-state": isSelected ? "active" : "inactive",
+            "data-disabled": disabled ? "" : void 0,
+            disabled,
+            id: triggerId,
+            ...triggerProps,
+            ref: forwardedRef,
+            onMouseDown: composeEventHandlers(props.onMouseDown, (event) => {
+              if (!disabled && event.button === 0 && event.ctrlKey === false) {
+                context.onValueChange(value);
+              } else {
+                event.preventDefault();
+              }
+            }),
+            onKeyDown: composeEventHandlers(props.onKeyDown, (event) => {
+              if ([" ", "Enter"].includes(event.key)) context.onValueChange(value);
+            }),
+            onFocus: composeEventHandlers(props.onFocus, () => {
+              const isAutomaticActivation = context.activationMode !== "manual";
+              if (!isSelected && !disabled && isAutomaticActivation) {
+                context.onValueChange(value);
+              }
+            })
+          }
+        )
+      }
+    );
+  }
+);
+TabsTrigger.displayName = TRIGGER_NAME$2;
+var CONTENT_NAME$3 = "TabsContent";
+var TabsContent = React.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeTabs, value, forceMount, children, ...contentProps } = props;
+    const context = useTabsContext(CONTENT_NAME$3, __scopeTabs);
+    const triggerId = makeTriggerId(context.baseId, value);
+    const contentId = makeContentId(context.baseId, value);
+    const isSelected = value === context.value;
+    const isMountAnimationPreventedRef = React.useRef(isSelected);
+    React.useEffect(() => {
+      const rAF = requestAnimationFrame(() => isMountAnimationPreventedRef.current = false);
+      return () => cancelAnimationFrame(rAF);
+    }, []);
+    return /* @__PURE__ */ jsx(Presence, { present: forceMount || isSelected, children: ({ present }) => /* @__PURE__ */ jsx(
+      Primitive.div,
+      {
+        "data-state": isSelected ? "active" : "inactive",
+        "data-orientation": context.orientation,
+        role: "tabpanel",
+        "aria-labelledby": triggerId,
+        hidden: !present,
+        id: contentId,
+        tabIndex: 0,
+        ...contentProps,
+        ref: forwardedRef,
+        style: {
+          ...props.style,
+          animationDuration: isMountAnimationPreventedRef.current ? "0s" : void 0
+        },
+        children: present && children
+      }
+    ) });
+  }
+);
+TabsContent.displayName = CONTENT_NAME$3;
+function makeTriggerId(baseId, value) {
+  return `${baseId}-trigger-${value}`;
+}
+function makeContentId(baseId, value) {
+  return `${baseId}-content-${value}`;
+}
+var Root2$3 = Tabs$1;
+var List = TabsList;
+var Trigger$2 = TabsTrigger;
+
+const StyledRoot = styled(Root2$3).withConfig({
+  displayName: "Tabs__StyledRoot",
+  componentId: "sc-1nxdand-0"
+})(["width:100%;"]);
+const StyledTabListContainer = styled.div.withConfig({
+  displayName: "Tabs__StyledTabListContainer",
+  componentId: "sc-1nxdand-1"
+})(["display:flex;width:100%;justify-content:space-between;"]);
+const StyledList = styled(List).withConfig({
+  displayName: "Tabs__StyledList",
+  componentId: "sc-1nxdand-2"
+})(["display:flex;flex-wrap:nowrap;gap:36px;min-height:36px;"]);
+const StyledTrigger = styled(Typography).attrs({
+  component: Trigger$2
+}).withConfig({
+  displayName: "Tabs__StyledTrigger",
+  componentId: "sc-1nxdand-3"
+})(["padding:0;margin:0;border:0;background:transparent;@media (hover:hover){cursor:pointer;}&[data-state=\"active\"]{font-weight:bold;}&[data-state=\"inactive\"]{color:", ";}"], Colors.black500);
+function Tabs(props) {
+  return /*#__PURE__*/React__default.createElement(StyledRoot, {
+    value: props.value,
+    onValueChange: value => props.onChange(value)
+  }, props.children);
+}
+function TabList(props) {
+  return /*#__PURE__*/React__default.createElement(StyledTabListContainer, null, /*#__PURE__*/React__default.createElement(StyledList, null, props.children), props.action);
+}
+function Tab(props) {
+  return /*#__PURE__*/React__default.createElement(StyledTrigger, {
+    value: props.value
+  }, props.children);
+}
+function TabPanel(props) {
+  return /*#__PURE__*/React__default.createElement(TabsContent, {
+    value: props.value
+  }, props.children);
+}
+
+var count = 0;
+function useFocusGuards() {
+  React.useEffect(() => {
+    const edgeGuards = document.querySelectorAll("[data-radix-focus-guard]");
+    document.body.insertAdjacentElement("afterbegin", edgeGuards[0] ?? createFocusGuard());
+    document.body.insertAdjacentElement("beforeend", edgeGuards[1] ?? createFocusGuard());
+    count++;
+    return () => {
+      if (count === 1) {
+        document.querySelectorAll("[data-radix-focus-guard]").forEach((node) => node.remove());
+      }
+      count--;
+    };
+  }, []);
+}
+function createFocusGuard() {
+  const element = document.createElement("span");
+  element.setAttribute("data-radix-focus-guard", "");
+  element.tabIndex = 0;
+  element.style.outline = "none";
+  element.style.opacity = "0";
+  element.style.position = "fixed";
+  element.style.pointerEvents = "none";
+  return element;
+}
+
+var AUTOFOCUS_ON_MOUNT = "focusScope.autoFocusOnMount";
+var AUTOFOCUS_ON_UNMOUNT = "focusScope.autoFocusOnUnmount";
+var EVENT_OPTIONS = { bubbles: false, cancelable: true };
+var FOCUS_SCOPE_NAME = "FocusScope";
+var FocusScope = React.forwardRef((props, forwardedRef) => {
+  const {
+    loop = false,
+    trapped = false,
+    onMountAutoFocus: onMountAutoFocusProp,
+    onUnmountAutoFocus: onUnmountAutoFocusProp,
+    ...scopeProps
+  } = props;
+  const [container, setContainer] = React.useState(null);
+  const onMountAutoFocus = useCallbackRef(onMountAutoFocusProp);
+  const onUnmountAutoFocus = useCallbackRef(onUnmountAutoFocusProp);
+  const lastFocusedElementRef = React.useRef(null);
+  const composedRefs = useComposedRefs(forwardedRef, (node) => setContainer(node));
+  const focusScope = React.useRef({
+    paused: false,
+    pause() {
+      this.paused = true;
+    },
+    resume() {
+      this.paused = false;
+    }
+  }).current;
+  React.useEffect(() => {
+    if (trapped) {
+      let handleFocusIn2 = function(event) {
+        if (focusScope.paused || !container) return;
+        const target = event.target;
+        if (container.contains(target)) {
+          lastFocusedElementRef.current = target;
+        } else {
+          focus(lastFocusedElementRef.current, { select: true });
+        }
+      }, handleFocusOut2 = function(event) {
+        if (focusScope.paused || !container) return;
+        const relatedTarget = event.relatedTarget;
+        if (relatedTarget === null) return;
+        if (!container.contains(relatedTarget)) {
+          focus(lastFocusedElementRef.current, { select: true });
+        }
+      }, handleMutations2 = function(mutations) {
+        const focusedElement = document.activeElement;
+        if (focusedElement !== document.body) return;
+        for (const mutation of mutations) {
+          if (mutation.removedNodes.length > 0) focus(container);
+        }
+      };
+      document.addEventListener("focusin", handleFocusIn2);
+      document.addEventListener("focusout", handleFocusOut2);
+      const mutationObserver = new MutationObserver(handleMutations2);
+      if (container) mutationObserver.observe(container, { childList: true, subtree: true });
+      return () => {
+        document.removeEventListener("focusin", handleFocusIn2);
+        document.removeEventListener("focusout", handleFocusOut2);
+        mutationObserver.disconnect();
+      };
+    }
+  }, [trapped, container, focusScope.paused]);
+  React.useEffect(() => {
+    if (container) {
+      focusScopesStack.add(focusScope);
+      const previouslyFocusedElement = document.activeElement;
+      const hasFocusedCandidate = container.contains(previouslyFocusedElement);
+      if (!hasFocusedCandidate) {
+        const mountEvent = new CustomEvent(AUTOFOCUS_ON_MOUNT, EVENT_OPTIONS);
+        container.addEventListener(AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
+        container.dispatchEvent(mountEvent);
+        if (!mountEvent.defaultPrevented) {
+          focusFirst$1(removeLinks(getTabbableCandidates(container)), { select: true });
+          if (document.activeElement === previouslyFocusedElement) {
+            focus(container);
+          }
+        }
+      }
+      return () => {
+        container.removeEventListener(AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
+        setTimeout(() => {
+          const unmountEvent = new CustomEvent(AUTOFOCUS_ON_UNMOUNT, EVENT_OPTIONS);
+          container.addEventListener(AUTOFOCUS_ON_UNMOUNT, onUnmountAutoFocus);
+          container.dispatchEvent(unmountEvent);
+          if (!unmountEvent.defaultPrevented) {
+            focus(previouslyFocusedElement ?? document.body, { select: true });
+          }
+          container.removeEventListener(AUTOFOCUS_ON_UNMOUNT, onUnmountAutoFocus);
+          focusScopesStack.remove(focusScope);
+        }, 0);
+      };
+    }
+  }, [container, onMountAutoFocus, onUnmountAutoFocus, focusScope]);
+  const handleKeyDown = React.useCallback(
+    (event) => {
+      if (!loop && !trapped) return;
+      if (focusScope.paused) return;
+      const isTabKey = event.key === "Tab" && !event.altKey && !event.ctrlKey && !event.metaKey;
+      const focusedElement = document.activeElement;
+      if (isTabKey && focusedElement) {
+        const container2 = event.currentTarget;
+        const [first, last] = getTabbableEdges(container2);
+        const hasTabbableElementsInside = first && last;
+        if (!hasTabbableElementsInside) {
+          if (focusedElement === container2) event.preventDefault();
+        } else {
+          if (!event.shiftKey && focusedElement === last) {
+            event.preventDefault();
+            if (loop) focus(first, { select: true });
+          } else if (event.shiftKey && focusedElement === first) {
+            event.preventDefault();
+            if (loop) focus(last, { select: true });
+          }
+        }
+      }
+    },
+    [loop, trapped, focusScope.paused]
+  );
+  return /* @__PURE__ */ jsx(Primitive.div, { tabIndex: -1, ...scopeProps, ref: composedRefs, onKeyDown: handleKeyDown });
+});
+FocusScope.displayName = FOCUS_SCOPE_NAME;
+function focusFirst$1(candidates, { select = false } = {}) {
+  const previouslyFocusedElement = document.activeElement;
+  for (const candidate of candidates) {
+    focus(candidate, { select });
+    if (document.activeElement !== previouslyFocusedElement) return;
+  }
+}
+function getTabbableEdges(container) {
+  const candidates = getTabbableCandidates(container);
+  const first = findVisible(candidates, container);
+  const last = findVisible(candidates.reverse(), container);
+  return [first, last];
+}
+function getTabbableCandidates(container) {
+  const nodes = [];
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_ELEMENT, {
+    acceptNode: (node) => {
+      const isHiddenInput = node.tagName === "INPUT" && node.type === "hidden";
+      if (node.disabled || node.hidden || isHiddenInput) return NodeFilter.FILTER_SKIP;
+      return node.tabIndex >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+    }
+  });
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  return nodes;
+}
+function findVisible(elements, container) {
+  for (const element of elements) {
+    if (!isHidden(element, { upTo: container })) return element;
+  }
+}
+function isHidden(node, { upTo }) {
+  if (getComputedStyle(node).visibility === "hidden") return true;
+  while (node) {
+    if (upTo !== void 0 && node === upTo) return false;
+    if (getComputedStyle(node).display === "none") return true;
+    node = node.parentElement;
+  }
+  return false;
+}
+function isSelectableInput(element) {
+  return element instanceof HTMLInputElement && "select" in element;
+}
+function focus(element, { select = false } = {}) {
+  if (element && element.focus) {
+    const previouslyFocusedElement = document.activeElement;
+    element.focus({ preventScroll: true });
+    if (element !== previouslyFocusedElement && isSelectableInput(element) && select)
+      element.select();
+  }
+}
+var focusScopesStack = createFocusScopesStack();
+function createFocusScopesStack() {
+  let stack = [];
+  return {
+    add(focusScope) {
+      const activeFocusScope = stack[0];
+      if (focusScope !== activeFocusScope) {
+        activeFocusScope?.pause();
+      }
+      stack = arrayRemove(stack, focusScope);
+      stack.unshift(focusScope);
+    },
+    remove(focusScope) {
+      stack = arrayRemove(stack, focusScope);
+      stack[0]?.resume();
+    }
+  };
+}
+function arrayRemove(array, item) {
+  const updatedArray = [...array];
+  const index = updatedArray.indexOf(item);
+  if (index !== -1) {
+    updatedArray.splice(index, 1);
+  }
+  return updatedArray;
+}
+function removeLinks(items) {
+  return items.filter((item) => item.tagName !== "A");
+}
 
 var getDefaultParent = function (originalTarget) {
     if (typeof document === 'undefined') {
@@ -6001,13 +6534,13 @@ var [createMenuContext, createMenuScope] = createContextScope(MENU_NAME, [
   createPopperScope,
   createRovingFocusGroupScope
 ]);
-var usePopperScope$2 = createPopperScope();
+var usePopperScope$1 = createPopperScope();
 var useRovingFocusGroupScope$1 = createRovingFocusGroupScope();
 var [MenuProvider, useMenuContext] = createMenuContext(MENU_NAME);
 var [MenuRootProvider, useMenuRootContext] = createMenuContext(MENU_NAME);
 var Menu$1 = (props) => {
   const { __scopeMenu, open = false, children, dir, onOpenChange, modal = true } = props;
-  const popperScope = usePopperScope$2(__scopeMenu);
+  const popperScope = usePopperScope$1(__scopeMenu);
   const [content, setContent] = React.useState(null);
   const isUsingKeyboardRef = React.useRef(false);
   const handleOpenChange = useCallbackRef(onOpenChange);
@@ -6026,7 +6559,7 @@ var Menu$1 = (props) => {
       document.removeEventListener("pointermove", handlePointer, { capture: true });
     };
   }, []);
-  return /* @__PURE__ */ jsx(Root2$3, { ...popperScope, children: /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsx(Root2$4, { ...popperScope, children: /* @__PURE__ */ jsx(
     MenuProvider,
     {
       scope: __scopeMenu,
@@ -6053,35 +6586,35 @@ var ANCHOR_NAME = "MenuAnchor";
 var MenuAnchor = React.forwardRef(
   (props, forwardedRef) => {
     const { __scopeMenu, ...anchorProps } = props;
-    const popperScope = usePopperScope$2(__scopeMenu);
+    const popperScope = usePopperScope$1(__scopeMenu);
     return /* @__PURE__ */ jsx(Anchor, { ...popperScope, ...anchorProps, ref: forwardedRef });
   }
 );
 MenuAnchor.displayName = ANCHOR_NAME;
-var PORTAL_NAME$3 = "MenuPortal";
-var [PortalProvider$1, usePortalContext$1] = createMenuContext(PORTAL_NAME$3, {
+var PORTAL_NAME$2 = "MenuPortal";
+var [PortalProvider, usePortalContext] = createMenuContext(PORTAL_NAME$2, {
   forceMount: void 0
 });
 var MenuPortal = (props) => {
   const { __scopeMenu, forceMount, children, container } = props;
-  const context = useMenuContext(PORTAL_NAME$3, __scopeMenu);
-  return /* @__PURE__ */ jsx(PortalProvider$1, { scope: __scopeMenu, forceMount, children: /* @__PURE__ */ jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsx(Portal$3, { asChild: true, container, children }) }) });
+  const context = useMenuContext(PORTAL_NAME$2, __scopeMenu);
+  return /* @__PURE__ */ jsx(PortalProvider, { scope: __scopeMenu, forceMount, children: /* @__PURE__ */ jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsx(Portal$3, { asChild: true, container, children }) }) });
 };
-MenuPortal.displayName = PORTAL_NAME$3;
-var CONTENT_NAME$3 = "MenuContent";
-var [MenuContentProvider, useMenuContentContext] = createMenuContext(CONTENT_NAME$3);
+MenuPortal.displayName = PORTAL_NAME$2;
+var CONTENT_NAME$2 = "MenuContent";
+var [MenuContentProvider, useMenuContentContext] = createMenuContext(CONTENT_NAME$2);
 var MenuContent$1 = React.forwardRef(
   (props, forwardedRef) => {
-    const portalContext = usePortalContext$1(CONTENT_NAME$3, props.__scopeMenu);
+    const portalContext = usePortalContext(CONTENT_NAME$2, props.__scopeMenu);
     const { forceMount = portalContext.forceMount, ...contentProps } = props;
-    const context = useMenuContext(CONTENT_NAME$3, props.__scopeMenu);
-    const rootContext = useMenuRootContext(CONTENT_NAME$3, props.__scopeMenu);
+    const context = useMenuContext(CONTENT_NAME$2, props.__scopeMenu);
+    const rootContext = useMenuRootContext(CONTENT_NAME$2, props.__scopeMenu);
     return /* @__PURE__ */ jsx(Collection$1.Provider, { scope: props.__scopeMenu, children: /* @__PURE__ */ jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsx(Collection$1.Slot, { scope: props.__scopeMenu, children: rootContext.modal ? /* @__PURE__ */ jsx(MenuRootContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsx(MenuRootContentNonModal, { ...contentProps, ref: forwardedRef }) }) }) });
   }
 );
 var MenuRootContentModal = React.forwardRef(
   (props, forwardedRef) => {
-    const context = useMenuContext(CONTENT_NAME$3, props.__scopeMenu);
+    const context = useMenuContext(CONTENT_NAME$2, props.__scopeMenu);
     const ref = React.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, ref);
     React.useEffect(() => {
@@ -6107,7 +6640,7 @@ var MenuRootContentModal = React.forwardRef(
   }
 );
 var MenuRootContentNonModal = React.forwardRef((props, forwardedRef) => {
-  const context = useMenuContext(CONTENT_NAME$3, props.__scopeMenu);
+  const context = useMenuContext(CONTENT_NAME$2, props.__scopeMenu);
   return /* @__PURE__ */ jsx(
     MenuContentImpl,
     {
@@ -6138,9 +6671,9 @@ var MenuContentImpl = React.forwardRef(
       disableOutsideScroll,
       ...contentProps
     } = props;
-    const context = useMenuContext(CONTENT_NAME$3, __scopeMenu);
-    const rootContext = useMenuRootContext(CONTENT_NAME$3, __scopeMenu);
-    const popperScope = usePopperScope$2(__scopeMenu);
+    const context = useMenuContext(CONTENT_NAME$2, __scopeMenu);
+    const rootContext = useMenuRootContext(CONTENT_NAME$2, __scopeMenu);
+    const popperScope = usePopperScope$1(__scopeMenu);
     const rovingFocusGroupScope = useRovingFocusGroupScope$1(__scopeMenu);
     const getItems = useCollection$1(__scopeMenu);
     const [currentItemId, setCurrentItemId] = React.useState(null);
@@ -6229,7 +6762,7 @@ var MenuContentImpl = React.forwardRef(
                 onInteractOutside,
                 onDismiss,
                 children: /* @__PURE__ */ jsx(
-                  Root$3,
+                  Root$1,
                   {
                     asChild: true,
                     ...rovingFocusGroupScope,
@@ -6302,7 +6835,7 @@ var MenuContentImpl = React.forwardRef(
     );
   }
 );
-MenuContent$1.displayName = CONTENT_NAME$3;
+MenuContent$1.displayName = CONTENT_NAME$2;
 var GROUP_NAME$2 = "MenuGroup";
 var MenuGroup = React.forwardRef(
   (props, forwardedRef) => {
@@ -6527,15 +7060,15 @@ var MenuSeparator$1 = React.forwardRef(
   }
 );
 MenuSeparator$1.displayName = SEPARATOR_NAME$2;
-var ARROW_NAME$3 = "MenuArrow";
+var ARROW_NAME$2 = "MenuArrow";
 var MenuArrow = React.forwardRef(
   (props, forwardedRef) => {
     const { __scopeMenu, ...arrowProps } = props;
-    const popperScope = usePopperScope$2(__scopeMenu);
+    const popperScope = usePopperScope$1(__scopeMenu);
     return /* @__PURE__ */ jsx(Arrow, { ...popperScope, ...arrowProps, ref: forwardedRef });
   }
 );
-MenuArrow.displayName = ARROW_NAME$3;
+MenuArrow.displayName = ARROW_NAME$2;
 var SUB_NAME = "MenuSub";
 var [MenuSubProvider, useMenuSubContext] = createMenuContext(SUB_NAME);
 var SUB_TRIGGER_NAME$1 = "MenuSubTrigger";
@@ -6642,10 +7175,10 @@ MenuSubTrigger.displayName = SUB_TRIGGER_NAME$1;
 var SUB_CONTENT_NAME$1 = "MenuSubContent";
 var MenuSubContent = React.forwardRef(
   (props, forwardedRef) => {
-    const portalContext = usePortalContext$1(CONTENT_NAME$3, props.__scopeMenu);
+    const portalContext = usePortalContext(CONTENT_NAME$2, props.__scopeMenu);
     const { forceMount = portalContext.forceMount, ...subContentProps } = props;
-    const context = useMenuContext(CONTENT_NAME$3, props.__scopeMenu);
-    const rootContext = useMenuRootContext(CONTENT_NAME$3, props.__scopeMenu);
+    const context = useMenuContext(CONTENT_NAME$2, props.__scopeMenu);
+    const rootContext = useMenuRootContext(CONTENT_NAME$2, props.__scopeMenu);
     const subContext = useMenuSubContext(SUB_CONTENT_NAME$1, props.__scopeMenu);
     const ref = React.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, ref);
@@ -6719,7 +7252,7 @@ function getNextMatch(values, search, currentMatch) {
   );
   return nextMatch !== currentMatch ? nextMatch : void 0;
 }
-function isPointInPolygon$1(point, polygon) {
+function isPointInPolygon(point, polygon) {
   const { x, y } = point;
   let inside = false;
   for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
@@ -6735,15 +7268,15 @@ function isPointInPolygon$1(point, polygon) {
 function isPointerInGraceArea(event, area) {
   if (!area) return false;
   const cursorPos = { x: event.clientX, y: event.clientY };
-  return isPointInPolygon$1(cursorPos, area);
+  return isPointInPolygon(cursorPos, area);
 }
 function whenMouse(handler) {
   return (event) => event.pointerType === "mouse" ? handler(event) : void 0;
 }
-var Root3$1 = Menu$1;
+var Root3 = Menu$1;
 var Anchor2 = MenuAnchor;
-var Portal$2 = MenuPortal;
-var Content2$3 = MenuContent$1;
+var Portal$1 = MenuPortal;
+var Content2$2 = MenuContent$1;
 var Group = MenuGroup;
 var Label = MenuLabel;
 var Item2$2 = MenuItem$1;
@@ -6752,7 +7285,7 @@ var RadioGroup = MenuRadioGroup;
 var RadioItem = MenuRadioItem;
 var ItemIndicator$1 = MenuItemIndicator;
 var Separator$1 = MenuSeparator$1;
-var Arrow2$1 = MenuArrow;
+var Arrow2 = MenuArrow;
 var SubTrigger = MenuSubTrigger;
 var SubContent = MenuSubContent;
 
@@ -6791,16 +7324,16 @@ var DropdownMenu = (props) => {
       onOpenChange: setOpen,
       onOpenToggle: React.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
       modal,
-      children: /* @__PURE__ */ jsx(Root3$1, { ...menuScope, open, onOpenChange: setOpen, dir, modal, children })
+      children: /* @__PURE__ */ jsx(Root3, { ...menuScope, open, onOpenChange: setOpen, dir, modal, children })
     }
   );
 };
 DropdownMenu.displayName = DROPDOWN_MENU_NAME;
-var TRIGGER_NAME$2 = "DropdownMenuTrigger";
+var TRIGGER_NAME$1 = "DropdownMenuTrigger";
 var DropdownMenuTrigger = React.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDropdownMenu, disabled = false, ...triggerProps } = props;
-    const context = useDropdownMenuContext(TRIGGER_NAME$2, __scopeDropdownMenu);
+    const context = useDropdownMenuContext(TRIGGER_NAME$1, __scopeDropdownMenu);
     const menuScope = useMenuScope(__scopeDropdownMenu);
     return /* @__PURE__ */ jsx(Anchor2, { asChild: true, ...menuScope, children: /* @__PURE__ */ jsx(
       Primitive.button,
@@ -6831,23 +7364,23 @@ var DropdownMenuTrigger = React.forwardRef(
     ) });
   }
 );
-DropdownMenuTrigger.displayName = TRIGGER_NAME$2;
-var PORTAL_NAME$2 = "DropdownMenuPortal";
+DropdownMenuTrigger.displayName = TRIGGER_NAME$1;
+var PORTAL_NAME$1 = "DropdownMenuPortal";
 var DropdownMenuPortal = (props) => {
   const { __scopeDropdownMenu, ...portalProps } = props;
   const menuScope = useMenuScope(__scopeDropdownMenu);
-  return /* @__PURE__ */ jsx(Portal$2, { ...menuScope, ...portalProps });
+  return /* @__PURE__ */ jsx(Portal$1, { ...menuScope, ...portalProps });
 };
-DropdownMenuPortal.displayName = PORTAL_NAME$2;
-var CONTENT_NAME$2 = "DropdownMenuContent";
+DropdownMenuPortal.displayName = PORTAL_NAME$1;
+var CONTENT_NAME$1 = "DropdownMenuContent";
 var DropdownMenuContent = React.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDropdownMenu, ...contentProps } = props;
-    const context = useDropdownMenuContext(CONTENT_NAME$2, __scopeDropdownMenu);
+    const context = useDropdownMenuContext(CONTENT_NAME$1, __scopeDropdownMenu);
     const menuScope = useMenuScope(__scopeDropdownMenu);
     const hasInteractedOutsideRef = React.useRef(false);
     return /* @__PURE__ */ jsx(
-      Content2$3,
+      Content2$2,
       {
         id: context.contentId,
         "aria-labelledby": context.triggerId,
@@ -6880,7 +7413,7 @@ var DropdownMenuContent = React.forwardRef(
     );
   }
 );
-DropdownMenuContent.displayName = CONTENT_NAME$2;
+DropdownMenuContent.displayName = CONTENT_NAME$1;
 var GROUP_NAME$1 = "DropdownMenuGroup";
 var DropdownMenuGroup = React.forwardRef(
   (props, forwardedRef) => {
@@ -6943,15 +7476,15 @@ var DropdownMenuSeparator = React.forwardRef((props, forwardedRef) => {
   return /* @__PURE__ */ jsx(Separator$1, { ...menuScope, ...separatorProps, ref: forwardedRef });
 });
 DropdownMenuSeparator.displayName = SEPARATOR_NAME$1;
-var ARROW_NAME$2 = "DropdownMenuArrow";
+var ARROW_NAME$1 = "DropdownMenuArrow";
 var DropdownMenuArrow = React.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDropdownMenu, ...arrowProps } = props;
     const menuScope = useMenuScope(__scopeDropdownMenu);
-    return /* @__PURE__ */ jsx(Arrow2$1, { ...menuScope, ...arrowProps, ref: forwardedRef });
+    return /* @__PURE__ */ jsx(Arrow2, { ...menuScope, ...arrowProps, ref: forwardedRef });
   }
 );
-DropdownMenuArrow.displayName = ARROW_NAME$2;
+DropdownMenuArrow.displayName = ARROW_NAME$1;
 var SUB_TRIGGER_NAME = "DropdownMenuSubTrigger";
 var DropdownMenuSubTrigger = React.forwardRef((props, forwardedRef) => {
   const { __scopeDropdownMenu, ...subTriggerProps } = props;
@@ -6985,9 +7518,9 @@ var DropdownMenuSubContent = React.forwardRef((props, forwardedRef) => {
 });
 DropdownMenuSubContent.displayName = SUB_CONTENT_NAME;
 var Root2$2 = DropdownMenu;
-var Trigger$2 = DropdownMenuTrigger;
+var Trigger$1 = DropdownMenuTrigger;
 var Portal2 = DropdownMenuPortal;
-var Content2$2 = DropdownMenuContent;
+var Content2$1 = DropdownMenuContent;
 var Item2$1 = DropdownMenuItem;
 var Separator2 = DropdownMenuSeparator;
 
@@ -6995,11 +7528,11 @@ function Menu(props) {
   return /*#__PURE__*/React__default.createElement(Root2$2, null, props.children);
 }
 function MenuTrigger(props) {
-  return /*#__PURE__*/React__default.createElement(Trigger$2, {
+  return /*#__PURE__*/React__default.createElement(Trigger$1, {
     asChild: true
   }, props.children);
 }
-const StyledContent = styled(Content2$2).withConfig({
+const StyledContent = styled(Content2$1).withConfig({
   displayName: "Menu__StyledContent",
   componentId: "sc-15igjrv-0"
 })(["min-width:200px;padding:0 4px;background-color:", ";border-radius:4px;"], Colors.black800);
@@ -7106,36 +7639,6 @@ function usePrevious(value) {
   }, [value]);
 }
 
-// packages/react/visually-hidden/src/visually-hidden.tsx
-var NAME$1 = "VisuallyHidden";
-var VisuallyHidden = React.forwardRef(
-  (props, forwardedRef) => {
-    return /* @__PURE__ */ jsx(
-      Primitive.span,
-      {
-        ...props,
-        ref: forwardedRef,
-        style: {
-          // See: https://github.com/twbs/bootstrap/blob/main/scss/mixins/_visually-hidden.scss
-          position: "absolute",
-          border: 0,
-          width: 1,
-          height: 1,
-          padding: 0,
-          margin: -1,
-          overflow: "hidden",
-          clip: "rect(0, 0, 0, 0)",
-          whiteSpace: "nowrap",
-          wordWrap: "normal",
-          ...props.style
-        }
-      }
-    );
-  }
-);
-VisuallyHidden.displayName = NAME$1;
-var Root$1 = VisuallyHidden;
-
 var OPEN_KEYS = [" ", "Enter", "ArrowUp", "ArrowDown"];
 var SELECTION_KEYS = [" ", "Enter"];
 var SELECT_NAME = "Select";
@@ -7144,7 +7647,7 @@ var [createSelectContext, createSelectScope] = createContextScope(SELECT_NAME, [
   createCollectionScope,
   createPopperScope
 ]);
-var usePopperScope$1 = createPopperScope();
+var usePopperScope = createPopperScope();
 var [SelectProvider, useSelectContext] = createSelectContext(SELECT_NAME);
 var [SelectNativeOptionsProvider, useSelectNativeOptionsContext] = createSelectContext(SELECT_NAME);
 var Select$1 = (props) => {
@@ -7164,7 +7667,7 @@ var Select$1 = (props) => {
     required,
     form
   } = props;
-  const popperScope = usePopperScope$1(__scopeSelect);
+  const popperScope = usePopperScope(__scopeSelect);
   const [trigger, setTrigger] = React.useState(null);
   const [valueNode, setValueNode] = React.useState(null);
   const [valueNodeHasChildren, setValueNodeHasChildren] = React.useState(false);
@@ -7183,7 +7686,7 @@ var Select$1 = (props) => {
   const isFormControl = trigger ? form || !!trigger.closest("form") : true;
   const [nativeOptionsSet, setNativeOptionsSet] = React.useState(/* @__PURE__ */ new Set());
   const nativeSelectKey = Array.from(nativeOptionsSet).map((option) => option.props.value).join(";");
-  return /* @__PURE__ */ jsx(Root2$3, { ...popperScope, children: /* @__PURE__ */ jsxs(
+  return /* @__PURE__ */ jsx(Root2$4, { ...popperScope, children: /* @__PURE__ */ jsxs(
     SelectProvider,
     {
       required,
@@ -7244,12 +7747,12 @@ var Select$1 = (props) => {
   ) });
 };
 Select$1.displayName = SELECT_NAME;
-var TRIGGER_NAME$1 = "SelectTrigger";
+var TRIGGER_NAME = "SelectTrigger";
 var SelectTrigger$1 = React.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, disabled = false, ...triggerProps } = props;
-    const popperScope = usePopperScope$1(__scopeSelect);
-    const context = useSelectContext(TRIGGER_NAME$1, __scopeSelect);
+    const popperScope = usePopperScope(__scopeSelect);
+    const context = useSelectContext(TRIGGER_NAME, __scopeSelect);
     const isDisabled = context.disabled || disabled;
     const composedRefs = useComposedRefs(forwardedRef, context.onTriggerChange);
     const getItems = useCollection(__scopeSelect);
@@ -7321,7 +7824,7 @@ var SelectTrigger$1 = React.forwardRef(
     ) });
   }
 );
-SelectTrigger$1.displayName = TRIGGER_NAME$1;
+SelectTrigger$1.displayName = TRIGGER_NAME;
 var VALUE_NAME = "SelectValue";
 var SelectValue = React.forwardRef(
   (props, forwardedRef) => {
@@ -7353,15 +7856,15 @@ var SelectIcon = React.forwardRef(
   }
 );
 SelectIcon.displayName = ICON_NAME;
-var PORTAL_NAME$1 = "SelectPortal";
+var PORTAL_NAME = "SelectPortal";
 var SelectPortal = (props) => {
   return /* @__PURE__ */ jsx(Portal$3, { asChild: true, ...props });
 };
-SelectPortal.displayName = PORTAL_NAME$1;
-var CONTENT_NAME$1 = "SelectContent";
+SelectPortal.displayName = PORTAL_NAME;
+var CONTENT_NAME = "SelectContent";
 var SelectContent = React.forwardRef(
   (props, forwardedRef) => {
-    const context = useSelectContext(CONTENT_NAME$1, props.__scopeSelect);
+    const context = useSelectContext(CONTENT_NAME, props.__scopeSelect);
     const [fragment, setFragment] = React.useState();
     useLayoutEffect2(() => {
       setFragment(new DocumentFragment());
@@ -7376,9 +7879,9 @@ var SelectContent = React.forwardRef(
     return /* @__PURE__ */ jsx(SelectContentImpl, { ...props, ref: forwardedRef });
   }
 );
-SelectContent.displayName = CONTENT_NAME$1;
+SelectContent.displayName = CONTENT_NAME;
 var CONTENT_MARGIN = 10;
-var [SelectContentProvider, useSelectContentContext] = createSelectContext(CONTENT_NAME$1);
+var [SelectContentProvider, useSelectContentContext] = createSelectContext(CONTENT_NAME);
 var CONTENT_IMPL_NAME = "SelectContentImpl";
 var SelectContentImpl = React.forwardRef(
   (props, forwardedRef) => {
@@ -7403,7 +7906,7 @@ var SelectContentImpl = React.forwardRef(
       //
       ...contentProps
     } = props;
-    const context = useSelectContext(CONTENT_NAME$1, __scopeSelect);
+    const context = useSelectContext(CONTENT_NAME, __scopeSelect);
     const [content, setContent] = React.useState(null);
     const [viewport, setViewport] = React.useState(null);
     const composedRefs = useComposedRefs(forwardedRef, (node) => setContent(node));
@@ -7616,8 +8119,8 @@ SelectContentImpl.displayName = CONTENT_IMPL_NAME;
 var ITEM_ALIGNED_POSITION_NAME = "SelectItemAlignedPosition";
 var SelectItemAlignedPosition = React.forwardRef((props, forwardedRef) => {
   const { __scopeSelect, onPlaced, ...popperProps } = props;
-  const context = useSelectContext(CONTENT_NAME$1, __scopeSelect);
-  const contentContext = useSelectContentContext(CONTENT_NAME$1, __scopeSelect);
+  const context = useSelectContext(CONTENT_NAME, __scopeSelect);
+  const contentContext = useSelectContentContext(CONTENT_NAME, __scopeSelect);
   const [contentWrapper, setContentWrapper] = React.useState(null);
   const [content, setContent] = React.useState(null);
   const composedRefs = useComposedRefs(forwardedRef, (node) => setContent(node));
@@ -7785,7 +8288,7 @@ var SelectPopperPosition = React.forwardRef((props, forwardedRef) => {
     collisionPadding = CONTENT_MARGIN,
     ...popperProps
   } = props;
-  const popperScope = usePopperScope$1(__scopeSelect);
+  const popperScope = usePopperScope(__scopeSelect);
   return /* @__PURE__ */ jsx(
     Content,
     {
@@ -7811,7 +8314,7 @@ var SelectPopperPosition = React.forwardRef((props, forwardedRef) => {
   );
 });
 SelectPopperPosition.displayName = POPPER_POSITION_NAME;
-var [SelectViewportProvider, useSelectViewportContext] = createSelectContext(CONTENT_NAME$1, {});
+var [SelectViewportProvider, useSelectViewportContext] = createSelectContext(CONTENT_NAME, {});
 var VIEWPORT_NAME = "SelectViewport";
 var SelectViewport = React.forwardRef(
   (props, forwardedRef) => {
@@ -8160,17 +8663,17 @@ var SelectSeparator$1 = React.forwardRef(
   }
 );
 SelectSeparator$1.displayName = SEPARATOR_NAME;
-var ARROW_NAME$1 = "SelectArrow";
+var ARROW_NAME = "SelectArrow";
 var SelectArrow = React.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, ...arrowProps } = props;
-    const popperScope = usePopperScope$1(__scopeSelect);
-    const context = useSelectContext(ARROW_NAME$1, __scopeSelect);
-    const contentContext = useSelectContentContext(ARROW_NAME$1, __scopeSelect);
+    const popperScope = usePopperScope(__scopeSelect);
+    const context = useSelectContext(ARROW_NAME, __scopeSelect);
+    const contentContext = useSelectContentContext(ARROW_NAME, __scopeSelect);
     return context.open && contentContext.position === "popper" ? /* @__PURE__ */ jsx(Arrow, { ...popperScope, ...arrowProps, ref: forwardedRef }) : null;
   }
 );
-SelectArrow.displayName = ARROW_NAME$1;
+SelectArrow.displayName = ARROW_NAME;
 function shouldShowPlaceholder(value) {
   return value === "" || value === void 0;
 }
@@ -8239,18 +8742,18 @@ function wrapArray(array, startIndex) {
   return array.map((_, index) => array[(startIndex + index) % array.length]);
 }
 var Root2$1 = Select$1;
-var Trigger$1 = SelectTrigger$1;
+var Trigger = SelectTrigger$1;
 var Value = SelectValue;
 var Icon = SelectIcon;
-var Portal$1 = SelectPortal;
-var Content2$1 = SelectContent;
+var Portal = SelectPortal;
+var Content2 = SelectContent;
 var Viewport = SelectViewport;
 var Item = SelectItem$1;
 var ItemText = SelectItemText;
 var ItemIndicator = SelectItemIndicator;
 var Separator = SelectSeparator$1;
 
-const SelectTrigger = styled(Trigger$1).withConfig({
+const SelectTrigger = styled(Trigger).withConfig({
   displayName: "Select__SelectTrigger",
   componentId: "sc-1ehkd60-0"
 })(["all:unset;display:flex;align-items:center;", ";display:flex;gap:4px;max-width:100%;box-sizing:border-box;height:28px;padding:0 2px 0 6px;border-radius:2px;@media (hover:hover){&:hover{box-shadow:0 0 0 1px ", ";}}"], Fonts.body, Colors.black10);
@@ -8268,7 +8771,7 @@ function Select(props) {
     placeholder: props.placeholder ?? "Select a value..."
   }), /*#__PURE__*/React__default.createElement(Icon, null, /*#__PURE__*/React__default.createElement(ChevronDownIcon, {
     color: Colors.black40
-  }))), /*#__PURE__*/React__default.createElement(Portal$1, null, /*#__PURE__*/React__default.createElement(Content2$1, {
+  }))), /*#__PURE__*/React__default.createElement(Portal, null, /*#__PURE__*/React__default.createElement(Content2, {
     style: {
       minWidth: "100px",
       maxHeight: "600px",
@@ -8424,7 +8927,7 @@ var ToggleGroupImpl = React__default.forwardRef(
     const direction = useDirection(dir);
     const commonProps = { role: "group", dir: direction, ...toggleGroupProps };
     return /* @__PURE__ */ jsx(ToggleGroupContext, { scope: __scopeToggleGroup, rovingFocus, disabled, children: rovingFocus ? /* @__PURE__ */ jsx(
-      Root$3,
+      Root$1,
       {
         asChild: true,
         ...rovingFocusGroupScope,
@@ -8513,503 +9016,6 @@ const ToggleGroupItem = /*#__PURE__*/forwardRef(function ToggleGroupItem(_ref, f
     ref: forwardedRef
   }, props), children);
 });
-
-var [createTooltipContext, createTooltipScope] = createContextScope("Tooltip", [
-  createPopperScope
-]);
-var usePopperScope = createPopperScope();
-var PROVIDER_NAME = "TooltipProvider";
-var DEFAULT_DELAY_DURATION = 700;
-var TOOLTIP_OPEN = "tooltip.open";
-var [TooltipProviderContextProvider, useTooltipProviderContext] = createTooltipContext(PROVIDER_NAME);
-var TooltipProvider$1 = (props) => {
-  const {
-    __scopeTooltip,
-    delayDuration = DEFAULT_DELAY_DURATION,
-    skipDelayDuration = 300,
-    disableHoverableContent = false,
-    children
-  } = props;
-  const [isOpenDelayed, setIsOpenDelayed] = React.useState(true);
-  const isPointerInTransitRef = React.useRef(false);
-  const skipDelayTimerRef = React.useRef(0);
-  React.useEffect(() => {
-    const skipDelayTimer = skipDelayTimerRef.current;
-    return () => window.clearTimeout(skipDelayTimer);
-  }, []);
-  return /* @__PURE__ */ jsx(
-    TooltipProviderContextProvider,
-    {
-      scope: __scopeTooltip,
-      isOpenDelayed,
-      delayDuration,
-      onOpen: React.useCallback(() => {
-        window.clearTimeout(skipDelayTimerRef.current);
-        setIsOpenDelayed(false);
-      }, []),
-      onClose: React.useCallback(() => {
-        window.clearTimeout(skipDelayTimerRef.current);
-        skipDelayTimerRef.current = window.setTimeout(
-          () => setIsOpenDelayed(true),
-          skipDelayDuration
-        );
-      }, [skipDelayDuration]),
-      isPointerInTransitRef,
-      onPointerInTransitChange: React.useCallback((inTransit) => {
-        isPointerInTransitRef.current = inTransit;
-      }, []),
-      disableHoverableContent,
-      children
-    }
-  );
-};
-TooltipProvider$1.displayName = PROVIDER_NAME;
-var TOOLTIP_NAME = "Tooltip";
-var [TooltipContextProvider, useTooltipContext] = createTooltipContext(TOOLTIP_NAME);
-var Tooltip$1 = (props) => {
-  const {
-    __scopeTooltip,
-    children,
-    open: openProp,
-    defaultOpen = false,
-    onOpenChange,
-    disableHoverableContent: disableHoverableContentProp,
-    delayDuration: delayDurationProp
-  } = props;
-  const providerContext = useTooltipProviderContext(TOOLTIP_NAME, props.__scopeTooltip);
-  const popperScope = usePopperScope(__scopeTooltip);
-  const [trigger, setTrigger] = React.useState(null);
-  const contentId = useId();
-  const openTimerRef = React.useRef(0);
-  const disableHoverableContent = disableHoverableContentProp ?? providerContext.disableHoverableContent;
-  const delayDuration = delayDurationProp ?? providerContext.delayDuration;
-  const wasOpenDelayedRef = React.useRef(false);
-  const [open = false, setOpen] = useControllableState({
-    prop: openProp,
-    defaultProp: defaultOpen,
-    onChange: (open2) => {
-      if (open2) {
-        providerContext.onOpen();
-        document.dispatchEvent(new CustomEvent(TOOLTIP_OPEN));
-      } else {
-        providerContext.onClose();
-      }
-      onOpenChange?.(open2);
-    }
-  });
-  const stateAttribute = React.useMemo(() => {
-    return open ? wasOpenDelayedRef.current ? "delayed-open" : "instant-open" : "closed";
-  }, [open]);
-  const handleOpen = React.useCallback(() => {
-    window.clearTimeout(openTimerRef.current);
-    openTimerRef.current = 0;
-    wasOpenDelayedRef.current = false;
-    setOpen(true);
-  }, [setOpen]);
-  const handleClose = React.useCallback(() => {
-    window.clearTimeout(openTimerRef.current);
-    openTimerRef.current = 0;
-    setOpen(false);
-  }, [setOpen]);
-  const handleDelayedOpen = React.useCallback(() => {
-    window.clearTimeout(openTimerRef.current);
-    openTimerRef.current = window.setTimeout(() => {
-      wasOpenDelayedRef.current = true;
-      setOpen(true);
-      openTimerRef.current = 0;
-    }, delayDuration);
-  }, [delayDuration, setOpen]);
-  React.useEffect(() => {
-    return () => {
-      if (openTimerRef.current) {
-        window.clearTimeout(openTimerRef.current);
-        openTimerRef.current = 0;
-      }
-    };
-  }, []);
-  return /* @__PURE__ */ jsx(Root2$3, { ...popperScope, children: /* @__PURE__ */ jsx(
-    TooltipContextProvider,
-    {
-      scope: __scopeTooltip,
-      contentId,
-      open,
-      stateAttribute,
-      trigger,
-      onTriggerChange: setTrigger,
-      onTriggerEnter: React.useCallback(() => {
-        if (providerContext.isOpenDelayed) handleDelayedOpen();
-        else handleOpen();
-      }, [providerContext.isOpenDelayed, handleDelayedOpen, handleOpen]),
-      onTriggerLeave: React.useCallback(() => {
-        if (disableHoverableContent) {
-          handleClose();
-        } else {
-          window.clearTimeout(openTimerRef.current);
-          openTimerRef.current = 0;
-        }
-      }, [handleClose, disableHoverableContent]),
-      onOpen: handleOpen,
-      onClose: handleClose,
-      disableHoverableContent,
-      children
-    }
-  ) });
-};
-Tooltip$1.displayName = TOOLTIP_NAME;
-var TRIGGER_NAME = "TooltipTrigger";
-var TooltipTrigger$1 = React.forwardRef(
-  (props, forwardedRef) => {
-    const { __scopeTooltip, ...triggerProps } = props;
-    const context = useTooltipContext(TRIGGER_NAME, __scopeTooltip);
-    const providerContext = useTooltipProviderContext(TRIGGER_NAME, __scopeTooltip);
-    const popperScope = usePopperScope(__scopeTooltip);
-    const ref = React.useRef(null);
-    const composedRefs = useComposedRefs(forwardedRef, ref, context.onTriggerChange);
-    const isPointerDownRef = React.useRef(false);
-    const hasPointerMoveOpenedRef = React.useRef(false);
-    const handlePointerUp = React.useCallback(() => isPointerDownRef.current = false, []);
-    React.useEffect(() => {
-      return () => document.removeEventListener("pointerup", handlePointerUp);
-    }, [handlePointerUp]);
-    return /* @__PURE__ */ jsx(Anchor, { asChild: true, ...popperScope, children: /* @__PURE__ */ jsx(
-      Primitive.button,
-      {
-        "aria-describedby": context.open ? context.contentId : void 0,
-        "data-state": context.stateAttribute,
-        ...triggerProps,
-        ref: composedRefs,
-        onPointerMove: composeEventHandlers(props.onPointerMove, (event) => {
-          if (event.pointerType === "touch") return;
-          if (!hasPointerMoveOpenedRef.current && !providerContext.isPointerInTransitRef.current) {
-            context.onTriggerEnter();
-            hasPointerMoveOpenedRef.current = true;
-          }
-        }),
-        onPointerLeave: composeEventHandlers(props.onPointerLeave, () => {
-          context.onTriggerLeave();
-          hasPointerMoveOpenedRef.current = false;
-        }),
-        onPointerDown: composeEventHandlers(props.onPointerDown, () => {
-          isPointerDownRef.current = true;
-          document.addEventListener("pointerup", handlePointerUp, { once: true });
-        }),
-        onFocus: composeEventHandlers(props.onFocus, () => {
-          if (!isPointerDownRef.current) context.onOpen();
-        }),
-        onBlur: composeEventHandlers(props.onBlur, context.onClose),
-        onClick: composeEventHandlers(props.onClick, context.onClose)
-      }
-    ) });
-  }
-);
-TooltipTrigger$1.displayName = TRIGGER_NAME;
-var PORTAL_NAME = "TooltipPortal";
-var [PortalProvider, usePortalContext] = createTooltipContext(PORTAL_NAME, {
-  forceMount: void 0
-});
-var TooltipPortal = (props) => {
-  const { __scopeTooltip, forceMount, children, container } = props;
-  const context = useTooltipContext(PORTAL_NAME, __scopeTooltip);
-  return /* @__PURE__ */ jsx(PortalProvider, { scope: __scopeTooltip, forceMount, children: /* @__PURE__ */ jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsx(Portal$3, { asChild: true, container, children }) }) });
-};
-TooltipPortal.displayName = PORTAL_NAME;
-var CONTENT_NAME = "TooltipContent";
-var TooltipContent$1 = React.forwardRef(
-  (props, forwardedRef) => {
-    const portalContext = usePortalContext(CONTENT_NAME, props.__scopeTooltip);
-    const { forceMount = portalContext.forceMount, side = "top", ...contentProps } = props;
-    const context = useTooltipContext(CONTENT_NAME, props.__scopeTooltip);
-    return /* @__PURE__ */ jsx(Presence, { present: forceMount || context.open, children: context.disableHoverableContent ? /* @__PURE__ */ jsx(TooltipContentImpl, { side, ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsx(TooltipContentHoverable, { side, ...contentProps, ref: forwardedRef }) });
-  }
-);
-var TooltipContentHoverable = React.forwardRef((props, forwardedRef) => {
-  const context = useTooltipContext(CONTENT_NAME, props.__scopeTooltip);
-  const providerContext = useTooltipProviderContext(CONTENT_NAME, props.__scopeTooltip);
-  const ref = React.useRef(null);
-  const composedRefs = useComposedRefs(forwardedRef, ref);
-  const [pointerGraceArea, setPointerGraceArea] = React.useState(null);
-  const { trigger, onClose } = context;
-  const content = ref.current;
-  const { onPointerInTransitChange } = providerContext;
-  const handleRemoveGraceArea = React.useCallback(() => {
-    setPointerGraceArea(null);
-    onPointerInTransitChange(false);
-  }, [onPointerInTransitChange]);
-  const handleCreateGraceArea = React.useCallback(
-    (event, hoverTarget) => {
-      const currentTarget = event.currentTarget;
-      const exitPoint = { x: event.clientX, y: event.clientY };
-      const exitSide = getExitSideFromRect(exitPoint, currentTarget.getBoundingClientRect());
-      const paddedExitPoints = getPaddedExitPoints(exitPoint, exitSide);
-      const hoverTargetPoints = getPointsFromRect(hoverTarget.getBoundingClientRect());
-      const graceArea = getHull([...paddedExitPoints, ...hoverTargetPoints]);
-      setPointerGraceArea(graceArea);
-      onPointerInTransitChange(true);
-    },
-    [onPointerInTransitChange]
-  );
-  React.useEffect(() => {
-    return () => handleRemoveGraceArea();
-  }, [handleRemoveGraceArea]);
-  React.useEffect(() => {
-    if (trigger && content) {
-      const handleTriggerLeave = (event) => handleCreateGraceArea(event, content);
-      const handleContentLeave = (event) => handleCreateGraceArea(event, trigger);
-      trigger.addEventListener("pointerleave", handleTriggerLeave);
-      content.addEventListener("pointerleave", handleContentLeave);
-      return () => {
-        trigger.removeEventListener("pointerleave", handleTriggerLeave);
-        content.removeEventListener("pointerleave", handleContentLeave);
-      };
-    }
-  }, [trigger, content, handleCreateGraceArea, handleRemoveGraceArea]);
-  React.useEffect(() => {
-    if (pointerGraceArea) {
-      const handleTrackPointerGrace = (event) => {
-        const target = event.target;
-        const pointerPosition = { x: event.clientX, y: event.clientY };
-        const hasEnteredTarget = trigger?.contains(target) || content?.contains(target);
-        const isPointerOutsideGraceArea = !isPointInPolygon(pointerPosition, pointerGraceArea);
-        if (hasEnteredTarget) {
-          handleRemoveGraceArea();
-        } else if (isPointerOutsideGraceArea) {
-          handleRemoveGraceArea();
-          onClose();
-        }
-      };
-      document.addEventListener("pointermove", handleTrackPointerGrace);
-      return () => document.removeEventListener("pointermove", handleTrackPointerGrace);
-    }
-  }, [trigger, content, pointerGraceArea, onClose, handleRemoveGraceArea]);
-  return /* @__PURE__ */ jsx(TooltipContentImpl, { ...props, ref: composedRefs });
-});
-var [VisuallyHiddenContentContextProvider, useVisuallyHiddenContentContext] = createTooltipContext(TOOLTIP_NAME, { isInside: false });
-var TooltipContentImpl = React.forwardRef(
-  (props, forwardedRef) => {
-    const {
-      __scopeTooltip,
-      children,
-      "aria-label": ariaLabel,
-      onEscapeKeyDown,
-      onPointerDownOutside,
-      ...contentProps
-    } = props;
-    const context = useTooltipContext(CONTENT_NAME, __scopeTooltip);
-    const popperScope = usePopperScope(__scopeTooltip);
-    const { onClose } = context;
-    React.useEffect(() => {
-      document.addEventListener(TOOLTIP_OPEN, onClose);
-      return () => document.removeEventListener(TOOLTIP_OPEN, onClose);
-    }, [onClose]);
-    React.useEffect(() => {
-      if (context.trigger) {
-        const handleScroll = (event) => {
-          const target = event.target;
-          if (target?.contains(context.trigger)) onClose();
-        };
-        window.addEventListener("scroll", handleScroll, { capture: true });
-        return () => window.removeEventListener("scroll", handleScroll, { capture: true });
-      }
-    }, [context.trigger, onClose]);
-    return /* @__PURE__ */ jsx(
-      DismissableLayer,
-      {
-        asChild: true,
-        disableOutsidePointerEvents: false,
-        onEscapeKeyDown,
-        onPointerDownOutside,
-        onFocusOutside: (event) => event.preventDefault(),
-        onDismiss: onClose,
-        children: /* @__PURE__ */ jsxs(
-          Content,
-          {
-            "data-state": context.stateAttribute,
-            ...popperScope,
-            ...contentProps,
-            ref: forwardedRef,
-            style: {
-              ...contentProps.style,
-              // re-namespace exposed content custom properties
-              ...{
-                "--radix-tooltip-content-transform-origin": "var(--radix-popper-transform-origin)",
-                "--radix-tooltip-content-available-width": "var(--radix-popper-available-width)",
-                "--radix-tooltip-content-available-height": "var(--radix-popper-available-height)",
-                "--radix-tooltip-trigger-width": "var(--radix-popper-anchor-width)",
-                "--radix-tooltip-trigger-height": "var(--radix-popper-anchor-height)"
-              }
-            },
-            children: [
-              /* @__PURE__ */ jsx(Slottable, { children }),
-              /* @__PURE__ */ jsx(VisuallyHiddenContentContextProvider, { scope: __scopeTooltip, isInside: true, children: /* @__PURE__ */ jsx(Root$1, { id: context.contentId, role: "tooltip", children: ariaLabel || children }) })
-            ]
-          }
-        )
-      }
-    );
-  }
-);
-TooltipContent$1.displayName = CONTENT_NAME;
-var ARROW_NAME = "TooltipArrow";
-var TooltipArrow = React.forwardRef(
-  (props, forwardedRef) => {
-    const { __scopeTooltip, ...arrowProps } = props;
-    const popperScope = usePopperScope(__scopeTooltip);
-    const visuallyHiddenContentContext = useVisuallyHiddenContentContext(
-      ARROW_NAME,
-      __scopeTooltip
-    );
-    return visuallyHiddenContentContext.isInside ? null : /* @__PURE__ */ jsx(Arrow, { ...popperScope, ...arrowProps, ref: forwardedRef });
-  }
-);
-TooltipArrow.displayName = ARROW_NAME;
-function getExitSideFromRect(point, rect) {
-  const top = Math.abs(rect.top - point.y);
-  const bottom = Math.abs(rect.bottom - point.y);
-  const right = Math.abs(rect.right - point.x);
-  const left = Math.abs(rect.left - point.x);
-  switch (Math.min(top, bottom, right, left)) {
-    case left:
-      return "left";
-    case right:
-      return "right";
-    case top:
-      return "top";
-    case bottom:
-      return "bottom";
-    default:
-      throw new Error("unreachable");
-  }
-}
-function getPaddedExitPoints(exitPoint, exitSide, padding = 5) {
-  const paddedExitPoints = [];
-  switch (exitSide) {
-    case "top":
-      paddedExitPoints.push(
-        { x: exitPoint.x - padding, y: exitPoint.y + padding },
-        { x: exitPoint.x + padding, y: exitPoint.y + padding }
-      );
-      break;
-    case "bottom":
-      paddedExitPoints.push(
-        { x: exitPoint.x - padding, y: exitPoint.y - padding },
-        { x: exitPoint.x + padding, y: exitPoint.y - padding }
-      );
-      break;
-    case "left":
-      paddedExitPoints.push(
-        { x: exitPoint.x + padding, y: exitPoint.y - padding },
-        { x: exitPoint.x + padding, y: exitPoint.y + padding }
-      );
-      break;
-    case "right":
-      paddedExitPoints.push(
-        { x: exitPoint.x - padding, y: exitPoint.y - padding },
-        { x: exitPoint.x - padding, y: exitPoint.y + padding }
-      );
-      break;
-  }
-  return paddedExitPoints;
-}
-function getPointsFromRect(rect) {
-  const { top, right, bottom, left } = rect;
-  return [
-    { x: left, y: top },
-    { x: right, y: top },
-    { x: right, y: bottom },
-    { x: left, y: bottom }
-  ];
-}
-function isPointInPolygon(point, polygon) {
-  const { x, y } = point;
-  let inside = false;
-  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-    const xi = polygon[i].x;
-    const yi = polygon[i].y;
-    const xj = polygon[j].x;
-    const yj = polygon[j].y;
-    const intersect = yi > y !== yj > y && x < (xj - xi) * (y - yi) / (yj - yi) + xi;
-    if (intersect) inside = !inside;
-  }
-  return inside;
-}
-function getHull(points) {
-  const newPoints = points.slice();
-  newPoints.sort((a, b) => {
-    if (a.x < b.x) return -1;
-    else if (a.x > b.x) return 1;
-    else if (a.y < b.y) return -1;
-    else if (a.y > b.y) return 1;
-    else return 0;
-  });
-  return getHullPresorted(newPoints);
-}
-function getHullPresorted(points) {
-  if (points.length <= 1) return points.slice();
-  const upperHull = [];
-  for (let i = 0; i < points.length; i++) {
-    const p = points[i];
-    while (upperHull.length >= 2) {
-      const q = upperHull[upperHull.length - 1];
-      const r = upperHull[upperHull.length - 2];
-      if ((q.x - r.x) * (p.y - r.y) >= (q.y - r.y) * (p.x - r.x)) upperHull.pop();
-      else break;
-    }
-    upperHull.push(p);
-  }
-  upperHull.pop();
-  const lowerHull = [];
-  for (let i = points.length - 1; i >= 0; i--) {
-    const p = points[i];
-    while (lowerHull.length >= 2) {
-      const q = lowerHull[lowerHull.length - 1];
-      const r = lowerHull[lowerHull.length - 2];
-      if ((q.x - r.x) * (p.y - r.y) >= (q.y - r.y) * (p.x - r.x)) lowerHull.pop();
-      else break;
-    }
-    lowerHull.push(p);
-  }
-  lowerHull.pop();
-  if (upperHull.length === 1 && lowerHull.length === 1 && upperHull[0].x === lowerHull[0].x && upperHull[0].y === lowerHull[0].y) {
-    return upperHull;
-  } else {
-    return upperHull.concat(lowerHull);
-  }
-}
-var Provider = TooltipProvider$1;
-var Root3 = Tooltip$1;
-var Trigger = TooltipTrigger$1;
-var Portal = TooltipPortal;
-var Content2 = TooltipContent$1;
-var Arrow2 = TooltipArrow;
-
-function TooltipProvider(props) {
-  return /*#__PURE__*/React__default.createElement(Provider, null, props.children);
-}
-function Tooltip(props) {
-  return /*#__PURE__*/React__default.createElement(Root3, null, props.children);
-}
-function TooltipTrigger(props) {
-  return /*#__PURE__*/React__default.createElement(Trigger, {
-    asChild: true
-  }, props.children);
-}
-function TooltipContent(props) {
-  return /*#__PURE__*/React__default.createElement(Portal, null, /*#__PURE__*/React__default.createElement(Content2, {
-    style: {
-      display: "flex",
-      padding: "6px 4px",
-      justifyContent: "center",
-      alignItems: "center",
-      borderRadius: "2px",
-      background: Colors.black800,
-      color: Colors.white
-    }
-  }, /*#__PURE__*/React__default.createElement(Arrow2, {
-    style: {
-      fill: Colors.black800
-    }
-  }), props.children));
-}
 
 const Root = styled.div.withConfig({
   displayName: "NavigationController__Root",

@@ -1,5 +1,5 @@
 import * as RadixTooltip from "@radix-ui/react-tooltip";
-import React, { ReactNode } from "react";
+import React, { CSSProperties, ReactNode } from "react";
 import { Colors } from "../colors";
 
 function TooltipProvider(props: { children: ReactNode }) {
@@ -14,18 +14,19 @@ function TooltipTrigger(props: { children: ReactNode }) {
   return <RadixTooltip.Trigger asChild>{props.children}</RadixTooltip.Trigger>;
 }
 
-function TooltipContent(props: { children: ReactNode }) {
+function TooltipContent(props: { children: ReactNode; style?: CSSProperties }) {
   return (
     <RadixTooltip.Portal>
       <RadixTooltip.Content
         style={{
           display: "flex",
-          padding: "6px 4px",
+          padding: "6px 8px",
           justifyContent: "center",
           alignItems: "center",
           borderRadius: "2px",
           background: Colors.black800,
           color: Colors.white,
+          ...props?.style,
         }}
       >
         <RadixTooltip.Arrow

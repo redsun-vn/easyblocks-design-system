@@ -5,6 +5,7 @@ import { Colors } from "./colors";
 import { Fonts } from "./fonts";
 import { Icon } from "./icons";
 import { Loader } from "./Loader";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./Tooltip/Tooltip";
 
 type CustomButtonProps = {
   component?: React.ElementType;
@@ -17,6 +18,7 @@ type CustomButtonProps = {
   variant?: "standard" | "large" | "tiny";
   height?: string;
   isLoading?: boolean;
+  showTooltip?: boolean;
 };
 
 type ButtonPropsInternal = CustomButtonProps & {
@@ -195,6 +197,8 @@ const EnhancerContainer = styled.div<Pick<CustomButtonProps, "variant">>`
 
 const Button = forwardRef<HTMLButtonElement, ButtonPropsInternal>(
   ({ component, Button, ...props }, ref) => {
+    const showTooltip = props.showTooltip ?? true;
+
     let enhancer: React.ReactElement | null = null;
     if (props.isLoading) {
       enhancer = <Loader />;
@@ -210,10 +214,20 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsInternal>(
     }
 
     return (
-      <Button as={component} {...props} ref={ref}>
-        {enhancer}
-        {!props.hideLabel && props.children}
-      </Button>
+      <Tooltip>
+        <TooltipTrigger>
+          <Button as={component} {...props} ref={ref}>
+            {enhancer}
+            {!props.hideLabel && props.children}
+          </Button>
+        </TooltipTrigger>
+
+        {showTooltip ? (
+          <TooltipContent style={{ ...Fonts.body }}>
+            {props.children}
+          </TooltipContent>
+        ) : null}
+      </Tooltip>
     );
   }
 );

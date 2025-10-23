@@ -11,6 +11,7 @@ type CustomButtonProps = {
     variant?: "standard" | "large" | "tiny";
     height?: string;
     isLoading?: boolean;
+    showTooltip?: boolean;
 };
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & CustomButtonProps;
 export declare const ButtonPrimary: React.FC<ButtonProps>;
