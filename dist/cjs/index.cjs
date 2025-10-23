@@ -585,32 +585,57 @@ const Preview$1 = createIcon(/*#__PURE__*/React__default["default"].createElemen
   d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48.24-94.78-64-40A8,8,0,0,0,100,88v80a8,8,0,0,0,12.24,6.78l64-40a8,8,0,0,0,0-13.56ZM116,153.57V102.43L156.91,128Z"
 }))));
 const Duplicate = createIcon(/*#__PURE__*/React__default["default"].createElement("svg", {
-  width: "16",
-  height: "16",
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "24",
+  height: "24",
+  viewBox: "0 0 24 24",
   fill: "none",
-  xmlns: "http://www.w3.org/2000/svg"
-}, /*#__PURE__*/React__default["default"].createElement("path", {
-  d: "M15.833 4.167h-10V2.5H17.5v11.667h-1.667v-10ZM7.5 10.833V9.167h1.667v1.666h1.666V12.5H9.167v1.667H7.5V12.5H5.833v-1.667H7.5Z",
-  fill: "currentColor"
+  stroke: "currentColor",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  className: "lucide lucide-copy-plus-icon lucide-copy-plus"
+}, /*#__PURE__*/React__default["default"].createElement("line", {
+  x1: "15",
+  x2: "15",
+  y1: "12",
+  y2: "18"
+}), /*#__PURE__*/React__default["default"].createElement("line", {
+  x1: "12",
+  x2: "18",
+  y1: "15",
+  y2: "15"
+}), /*#__PURE__*/React__default["default"].createElement("rect", {
+  width: "14",
+  height: "14",
+  x: "8",
+  y: "8",
+  rx: "2",
+  ry: "2"
 }), /*#__PURE__*/React__default["default"].createElement("path", {
-  fillRule: "evenodd",
-  clipRule: "evenodd",
-  d: "M2.5 5.833h11.667V17.5H2.5V5.833ZM4.167 7.5H12.5v8.333H4.167V7.5Z",
-  fill: "currentColor"
+  d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
 })));
 const Trash = createIcon(/*#__PURE__*/React__default["default"].createElement("svg", {
-  width: "16",
-  height: "16",
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "24",
+  height: "24",
+  viewBox: "0 0 24 24",
   fill: "none",
-  xmlns: "http://www.w3.org/2000/svg"
+  stroke: "currentColor",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  className: "lucide lucide-trash2-icon lucide-trash-2"
 }, /*#__PURE__*/React__default["default"].createElement("path", {
-  "fill-rule": "evenodd",
-  "clip-rule": "evenodd",
-  d: "M14.167 4.167v-.834A1.667 1.667 0 0 0 12.5 1.667h-5a1.667 1.667 0 0 0-1.667 1.666v.834h-2.5a.833.833 0 1 0 0 1.666h.834V15a2.5 2.5 0 0 0 2.5 2.5h6.666a2.5 2.5 0 0 0 2.5-2.5V5.833h.834a.833.833 0 0 0 0-1.666h-2.5ZM12.5 3.333h-5v.834h5v-.834Zm1.667 2.5H5.833V15a.833.833 0 0 0 .834.833h6.666a.834.834 0 0 0 .834-.833V5.833Z",
-  fill: "currentColor"
+  d: "M10 11v6"
 }), /*#__PURE__*/React__default["default"].createElement("path", {
-  d: "M7.5 7.5h1.667v6.667H7.5V7.5Zm3.333 0H12.5v6.667h-1.667V7.5Z",
-  fill: "currentColor"
+  d: "M14 11v6"
+}), /*#__PURE__*/React__default["default"].createElement("path", {
+  d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+}), /*#__PURE__*/React__default["default"].createElement("path", {
+  d: "M3 6h18"
+}), /*#__PURE__*/React__default["default"].createElement("path", {
+  d: "M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
 })));
 const Icons = {
   Dropdown,
