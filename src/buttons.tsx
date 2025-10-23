@@ -61,6 +61,12 @@ const sharedCSS = (p: ButtonPropsInternal) => css`
   gap: 6px;
   justify-content: center;
   align-items: center;
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.3;
+  }
 `;
 
 const PrimaryButton = styled.button<ButtonPropsInternal>`

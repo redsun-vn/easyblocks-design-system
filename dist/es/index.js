@@ -4539,7 +4539,7 @@ function TooltipContent(props) {
   }), props.children));
 }
 
-const sharedCSS = p => css(["", ";border:none;outline:none;height:", ";", " border-radius:6px;line-height:1;transition:all 0.1s;display:flex;flex-direction:row;gap:6px;justify-content:center;align-items:center;"], Fonts.body, p.height !== undefined ? p.height : p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px", p.hideLabel ? `
+const sharedCSS = p => css(["", ";border:none;outline:none;height:", ";", " border-radius:6px;line-height:1;transition:all 0.1s;display:flex;flex-direction:row;gap:6px;justify-content:center;align-items:center;&:disabled{cursor:default;pointer-events:none;opacity:0.3;}"], Fonts.body, p.height !== undefined ? p.height : p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px", p.hideLabel ? `
     width: ${p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px"};
   ` : `
     padding-left: ${p.isGhost ? p.noPadding ? "0px" : "6px" : "10px"};
