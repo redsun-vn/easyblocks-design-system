@@ -230,6 +230,19 @@ const ArrowDown = createIcon(
   true
 );
 
+const ArrowUp = createIcon(
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M8 4L8 13.5M8 4L5 7M8 4L11 7" stroke="black" />
+  </svg>,
+  true
+);
+
 const ArrowRight = createIcon(
   <svg
     width="16"
@@ -609,6 +622,38 @@ const Preview = createIcon(
   </svg>
 );
 
+const Duplicate = createIcon(
+  <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M15.833 4.167h-10V2.5H17.5v11.667h-1.667v-10ZM7.5 10.833V9.167h1.667v1.666h1.666V12.5H9.167v1.667H7.5V12.5H5.833v-1.667H7.5Z"
+      fill="currentColor"
+    ></path>
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M2.5 5.833h11.667V17.5H2.5V5.833ZM4.167 7.5H12.5v8.333H4.167V7.5Z"
+      fill="currentColor"
+    ></path>
+  </svg>,
+  true
+);
+
+const Trash = createIcon(
+  <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M14.167 4.167v-.834A1.667 1.667 0 0 0 12.5 1.667h-5a1.667 1.667 0 0 0-1.667 1.666v.834h-2.5a.833.833 0 1 0 0 1.666h.834V15a2.5 2.5 0 0 0 2.5 2.5h6.666a2.5 2.5 0 0 0 2.5-2.5V5.833h.834a.833.833 0 0 0 0-1.666h-2.5ZM12.5 3.333h-5v.834h5v-.834Zm1.667 2.5H5.833V15a.833.833 0 0 0 .834.833h6.666a.834.834 0 0 0 .834-.833V5.833Z"
+      fill="currentColor"
+    ></path>
+    <path
+      d="M7.5 7.5h1.667v6.667H7.5V7.5Zm3.333 0H12.5v6.667h-1.667V7.5Z"
+      fill="currentColor"
+    ></path>
+  </svg>,
+  true
+);
+
 export const Icons = {
   Dropdown,
   MaxHeight,
@@ -620,6 +665,7 @@ export const Icons = {
   Desktop,
   Mobile,
   Drag,
+  ArrowUp,
   ArrowDown,
   ArrowRight,
   Master,
@@ -643,4 +689,6 @@ export const Icons = {
   LoadingSpinner,
   Save,
   Preview,
+  Duplicate,
+  Trash,
 };

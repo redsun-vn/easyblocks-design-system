@@ -15,6 +15,7 @@ export declare const Icons: {
     Desktop: Icon;
     Mobile: Icon;
     Drag: Icon;
+    ArrowUp: Icon;
     ArrowDown: Icon;
     ArrowRight: Icon;
     Master: Icon;
@@ -38,6 +39,8 @@ export declare const Icons: {
     LoadingSpinner: Icon;
     Save: Icon;
     Preview: Icon;
+    Duplicate: Icon;
+    Trash: Icon;
 };
 export {};
 //# sourceMappingURL=icons.d.ts.map
