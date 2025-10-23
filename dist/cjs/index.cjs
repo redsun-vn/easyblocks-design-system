@@ -597,7 +597,7 @@ const Duplicate = createIcon(/*#__PURE__*/React__default["default"].createElemen
   clipRule: "evenodd",
   d: "M2.5 5.833h11.667V17.5H2.5V5.833ZM4.167 7.5H12.5v8.333H4.167V7.5Z",
   fill: "currentColor"
-})), true);
+})));
 const Trash = createIcon(/*#__PURE__*/React__default["default"].createElement("svg", {
   width: "20",
   height: "20",
@@ -611,7 +611,7 @@ const Trash = createIcon(/*#__PURE__*/React__default["default"].createElement("s
 }), /*#__PURE__*/React__default["default"].createElement("path", {
   d: "M7.5 7.5h1.667v6.667H7.5V7.5Zm3.333 0H12.5v6.667h-1.667V7.5Z",
   fill: "currentColor"
-})), true);
+})));
 const Icons = {
   Dropdown,
   MaxHeight,
