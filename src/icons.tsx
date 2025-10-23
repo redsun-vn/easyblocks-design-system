@@ -623,7 +623,7 @@ const Preview = createIcon(
 );
 
 const Duplicate = createIcon(
-  <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M15.833 4.167h-10V2.5H17.5v11.667h-1.667v-10ZM7.5 10.833V9.167h1.667v1.666h1.666V12.5H9.167v1.667H7.5V12.5H5.833v-1.667H7.5Z"
       fill="currentColor"
@@ -638,7 +638,7 @@ const Duplicate = createIcon(
 );
 
 const Trash = createIcon(
-  <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
