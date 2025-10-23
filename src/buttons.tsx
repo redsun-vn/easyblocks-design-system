@@ -222,7 +222,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsInternal>(
           </Button>
         </TooltipTrigger>
 
-        {showTooltip ? (
+        {showTooltip && props.children ? (
           <TooltipContent style={{ ...Fonts.body }}>
             {props.children}
           </TooltipContent>

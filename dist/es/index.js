@@ -4636,7 +4636,7 @@ const Button = /*#__PURE__*/forwardRef((_ref, ref) => {
     as: component
   }, props, {
     ref: ref
-  }), enhancer, !props.hideLabel && props.children)), showTooltip ? /*#__PURE__*/React__default.createElement(TooltipContent, {
+  }), enhancer, !props.hideLabel && props.children)), showTooltip && props.children ? /*#__PURE__*/React__default.createElement(TooltipContent, {
     style: {
       ...Fonts.body
     }
