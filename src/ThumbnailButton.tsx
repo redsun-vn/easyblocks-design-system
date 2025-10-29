@@ -124,7 +124,12 @@ export function ThumbnailButton({
 
   return (
     <div style={{ display: "grid", width: "100%" }}>
-      <ButtonGhost onClick={onClick} height={"32px"} noPadding={true}>
+      <ButtonGhost
+        showTooltip={false}
+        onClick={onClick}
+        height={"32px"}
+        noPadding={true}
+      >
         {content}
       </ButtonGhost>
     </div>

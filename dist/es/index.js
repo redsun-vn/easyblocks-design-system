@@ -5234,6 +5234,7 @@ function ThumbnailButton(_ref2) {
       width: "100%"
     }
   }, /*#__PURE__*/React.createElement(ButtonGhost, {
+    showTooltip: false,
     onClick: onClick,
     height: "32px",
     noPadding: true
