@@ -7,6 +7,7 @@ var React = require('react');
 var styledComponents = require('styled-components');
 var jsxRuntime = require('react/jsx-runtime');
 var ReactDOM = require('react-dom');
+var reactColorful = require('react-colorful');
 var ReactModal = require('react-modal');
 var debounce = require('lodash/debounce');
 var toast = require('react-hot-toast');
@@ -4841,21 +4842,42 @@ const StyledInput = styledComponents.styled.input.withConfig({
   displayName: "Input__StyledInput",
   componentId: "sc-1nyhv3t-0"
 })(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration{display:none;}", " ", ";"], p => !p.isRaw && getControlPadding(), Fonts.body);
+const StyledInputColorContainer = styledComponents.styled.div.withConfig({
+  displayName: "Input__StyledInputColorContainer",
+  componentId: "sc-1nyhv3t-1"
+})(["position:relative;width:100%;height:100%;"]);
+const StyledInputColorWrapper = styledComponents.styled.div.withConfig({
+  displayName: "Input__StyledInputColorWrapper",
+  componentId: "sc-1nyhv3t-2"
+})(["position:relative;width:100%;height:100%;box-shadow:0 0 0 1px ", ";&:hover{box-shadow:0 0 0 1px ", ";}border-radius:2px;cursor:pointer;outline:none;padding:4px;"], Colors.black10, Colors.black20);
+const StyledInputCurrentColor = styledComponents.styled.div.withConfig({
+  displayName: "Input__StyledInputCurrentColor",
+  componentId: "sc-1nyhv3t-3"
+})(["", ";"], _ref => {
+  let {
+    color = `${Colors.black800}`
+  } = _ref;
+  return `background: ${color}`;
+});
+const StyledInputColorDialogWrapper = styledComponents.styled.div.withConfig({
+  displayName: "Input__StyledInputColorDialogWrapper",
+  componentId: "sc-1nyhv3t-4"
+})(["position:absolute;top:20px;right:-4px;width:200px;height:100%;z-index:1;"]);
 const StyledInputFileWrapper = styledComponents.styled.div.withConfig({
   displayName: "Input__StyledInputFileWrapper",
-  componentId: "sc-1nyhv3t-1"
+  componentId: "sc-1nyhv3t-5"
 })(["position:relative;width:168px;height:168px;"]);
 const StyledInputFile = styledComponents.styled.img.withConfig({
   displayName: "Input__StyledInputFile",
-  componentId: "sc-1nyhv3t-2"
+  componentId: "sc-1nyhv3t-6"
 })(["width:100%;height:100%;object-fit:cover;box-shadow:0 0 0 1px ", ";"], Colors.black10);
 const StyledInputFileCloseIcon = styledComponents.styled.div.withConfig({
   displayName: "Input__StyledInputFileCloseIcon",
-  componentId: "sc-1nyhv3t-3"
+  componentId: "sc-1nyhv3t-7"
 })(["position:absolute;right:10px;top:10px;width:20px;height:20px;display:flex;justify-content:center;align-items:center;background:", ";border-radius:100%;cursor:pointer;"], Colors.white);
 const StyledInputLabel = styledComponents.styled.label.withConfig({
   displayName: "Input__StyledInputLabel",
-  componentId: "sc-1nyhv3t-4"
+  componentId: "sc-1nyhv3t-8"
 })(["display:flex;align-items:center;justify-content:center;gap:8px;height:100%;border:1px dashed ", ";cursor:pointer;color:", ";", ";"], Colors.blue50, Colors.blue50, Fonts.body);
 const InputBase = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React__default["default"].createElement(StyledInput, _extends__default["default"]({}, props, {
@@ -4905,6 +4927,43 @@ const InputFile = /*#__PURE__*/React.forwardRef((props, ref) => {
   }), props?.loadingLabel ?? "Uploading...") : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Icons.Add, {
     size: 16
   }), props?.label ?? "Add or drop image")));
+});
+const InputColor = /*#__PURE__*/React.forwardRef((props, ref) => {
+  const clickOutsideRef = React.useRef(null);
+  const {
+    value,
+    onChange,
+    style = {},
+    className
+  } = props;
+  const [isOpen, setIsOpen] = React.useState(false);
+  React.useEffect(() => {
+    const handleClickOutside = event => {
+      // Only handle object refs (skip callback refs) and close when clicking outside
+      if (clickOutsideRef && typeof clickOutsideRef !== "function") {
+        const node = clickOutsideRef.current;
+        if (node && !node.contains(event.target)) {
+          setIsOpen(false);
+        }
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [clickOutsideRef]);
+  return /*#__PURE__*/React__default["default"].createElement(StyledInputColorContainer, {
+    ref: ref
+  }, /*#__PURE__*/React__default["default"].createElement(StyledInputColorContainer, {
+    ref: clickOutsideRef
+  }, /*#__PURE__*/React__default["default"].createElement(StyledInputColorWrapper, {
+    onClick: () => setIsOpen(prev => !prev)
+  }, /*#__PURE__*/React__default["default"].createElement(StyledInputCurrentColor, {
+    className: className,
+    style: style,
+    color: value
+  })), isOpen ? /*#__PURE__*/React__default["default"].createElement(StyledInputColorDialogWrapper, null, /*#__PURE__*/React__default["default"].createElement(reactColorful.HexAlphaColorPicker, {
+    color: value,
+    onChange: onChange
+  })) : null));
 });
 const InputRaw = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React__default["default"].createElement(InputBase, _extends__default["default"]({}, props, {
@@ -9157,6 +9216,7 @@ exports.GlobalModalStyles = GlobalModalStyles;
 exports.IconButtonPrimary = IconButtonPrimary;
 exports.Icons = Icons;
 exports.Input = Input;
+exports.InputColor = InputColor;
 exports.InputFile = InputFile;
 exports.InputRaw = InputRaw;
 exports.Loader = Loader;

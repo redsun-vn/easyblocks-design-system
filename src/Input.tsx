@@ -1,7 +1,15 @@
-import React, { forwardRef, useId } from "react";
+import React, {
+  CSSProperties,
+  forwardRef,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from "react";
 import { styled } from "styled-components";
 import { Fonts } from "./fonts";
 
+import { HexAlphaColorPicker } from "react-colorful";
 import {
   ControlContainer,
   ControlProps,
@@ -17,6 +25,13 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> &
     debounce?: boolean;
     align?: "left" | "right";
   };
+
+export type InputColorProps = {
+  className?: string;
+  style?: CSSProperties;
+  value: string;
+  onChange: (color: string) => void;
+};
 
 const StyledInput = styled.input<InputProps & { isRaw?: boolean }>`
   all: unset;
@@ -38,6 +53,41 @@ const StyledInput = styled.input<InputProps & { isRaw?: boolean }>`
   ${(p) => !p.isRaw && getControlPadding()}
 
   ${Fonts.body};
+`;
+
+const StyledInputColorContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
+
+const StyledInputColorWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 0 1px ${Colors.black10};
+  &:hover {
+    box-shadow: 0 0 0 1px ${Colors.black20};
+  }
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+  padding: 4px;
+`;
+
+const StyledInputCurrentColor = styled.div<{
+  color: string;
+}>`
+  ${({ color = `${Colors.black800}` }) => `background: ${color}`};
+`;
+
+const StyledInputColorDialogWrapper = styled.div`
+  position: absolute;
+  top: 20px;
+  right: -4px;
+  width: 200px;
+  height: 100%;
+  z-index: 1;
 `;
 
 const StyledInputFileWrapper = styled.div`
@@ -151,6 +201,49 @@ export const InputFile = forwardRef<
     </StyledInputFileWrapper>
   );
 });
+
+export const InputColor = forwardRef<HTMLInputElement, InputColorProps>(
+  (props, ref) => {
+    const clickOutsideRef = useRef<HTMLInputElement | null>(null);
+    const { value, onChange, style = {}, className } = props;
+    const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+      const handleClickOutside = (event: MouseEvent) => {
+        // Only handle object refs (skip callback refs) and close when clicking outside
+        if (clickOutsideRef && typeof clickOutsideRef !== "function") {
+          const node = clickOutsideRef.current;
+          if (node && !node.contains(event.target as Node)) {
+            setIsOpen(false);
+          }
+        }
+      };
+      document.addEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
+    }, [clickOutsideRef]);
+
+    return (
+      <StyledInputColorContainer ref={ref}>
+        <StyledInputColorContainer ref={clickOutsideRef}>
+          <StyledInputColorWrapper onClick={() => setIsOpen((prev) => !prev)}>
+            <StyledInputCurrentColor
+              className={className}
+              style={style}
+              color={value}
+            />
+          </StyledInputColorWrapper>
+
+          {isOpen ? (
+            <StyledInputColorDialogWrapper>
+              <HexAlphaColorPicker color={value} onChange={onChange} />
+            </StyledInputColorDialogWrapper>
+          ) : null}
+        </StyledInputColorContainer>
+      </StyledInputColorContainer>
+    );
+  }
+);
 
 export const InputRaw = forwardRef<HTMLInputElement, InputProps>(
   (props, ref) => {
