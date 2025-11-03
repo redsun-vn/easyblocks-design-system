@@ -41,6 +41,8 @@ export declare const Icons: {
     Preview: Icon;
     Duplicate: Icon;
     Trash: Icon;
+    Pencil: Icon;
+    ColorAndFonts: Icon;
 };
 export {};
 //# sourceMappingURL=icons.d.ts.map
