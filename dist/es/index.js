@@ -5605,15 +5605,10 @@ var Icon = SelectIcon;
 var Portal$2 = SelectPortal;
 var Content2$3 = SelectContent;
 var Viewport = SelectViewport;
-var Group$1 = SelectGroup;
-var Label$2 = SelectLabel;
 var Item$1 = SelectItem$1;
 var ItemText = SelectItemText;
 var ItemIndicator$1 = SelectItemIndicator;
-var ScrollUpButton = SelectScrollUpButton;
-var ScrollDownButton = SelectScrollDownButton;
 var Separator$1 = SelectSeparator$1;
-var Arrow2$2 = SelectArrow;
 
 const rotationKeyframes = keyframes(["0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}"]);
 const LoaderWrapper = styled.div.withConfig({
@@ -9253,5 +9248,5 @@ const ToggleGroupItem = /*#__PURE__*/forwardRef(function ToggleGroupItem(_ref, f
   }, props), children);
 });
 
-export { Arrow2$2 as Arrow, BasicRow, ButtonDanger, ButtonGhost, ButtonGhostColor, ButtonPrimary, ButtonSecondary, Colors, Content2$3 as Content, CustomComponentSymbol, Fonts, FormElement, GlobalModalStyles, Group$1 as Group, Icon, IconButtonPrimary, Icons, Input, InputColor, InputFile, InputRaw, Item$1 as Item, ItemIndicator$1 as ItemIndicator, ItemText, Label$2 as Label, Loader, Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, Modal, ModalBody, ModalContext, MultiSelect, NavigationController, Portal$2 as Portal, RangeSlider, Root2$3 as Root, ScrollDownButton, ScrollUpButton, Select, SelectArrow, SelectContent, SelectGroup, SelectIcon, SelectInline, SelectItem, SelectItemIndicator, SelectItemText, SelectLabel, SelectPortal, SelectScrollDownButton, SelectScrollUpButton, SelectSeparator, SelectTrigger$1 as SelectTrigger, SelectValue, SelectViewport, Separator$1 as Separator, ShopstoryIcon, ShopstoryLogo, SimplePicker, Stack, Tab, TabList, TabPanel, Tabs, ThumbnailButton, Toggle$1 as Toggle, ToggleButton, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, Trigger$3 as Trigger, Typography, Value, Viewport, createSelectScope, useToaster };
+export { BasicRow, ButtonDanger, ButtonGhost, ButtonGhostColor, ButtonPrimary, ButtonSecondary, Colors, CustomComponentSymbol, Fonts, FormElement, GlobalModalStyles, IconButtonPrimary, Icons, Input, InputColor, InputFile, InputRaw, Loader, Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, Modal, ModalBody, ModalContext, MultiSelect, NavigationController, Content2$3 as RadixSelectContent, Icon as RadixSelectIcon, Item$1 as RadixSelectItem, ItemIndicator$1 as RadixSelectItemIndicator, ItemText as RadixSelectItemText, Portal$2 as RadixSelectPortal, Root2$3 as RadixSelectRoot, Separator$1 as RadixSelectSeparator, Trigger$3 as RadixSelectTrigger, Value as RadixSelectValue, Viewport as RadixSelectViewport, RangeSlider, Select, SelectInline, SelectItem, SelectSeparator, ShopstoryIcon, ShopstoryLogo, SimplePicker, Stack, Tab, TabList, TabPanel, Tabs, ThumbnailButton, Toggle$1 as Toggle, ToggleButton, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, Typography, useToaster };
 //# sourceMappingURL=index.js.map

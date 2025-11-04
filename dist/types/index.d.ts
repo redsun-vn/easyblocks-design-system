@@ -4,7 +4,7 @@ export { Fonts } from "./fonts";
 export { Icons } from "./icons";
 export type { Icon } from "./icons";
 export { Typography } from "./Typography";
-export * from "@radix-ui/react-select";
+export { Content as RadixSelectContent, Icon as RadixSelectIcon, Item as RadixSelectItem, ItemIndicator as RadixSelectItemIndicator, ItemText as RadixSelectItemText, Portal as RadixSelectPortal, Root as RadixSelectRoot, Separator as RadixSelectSeparator, Trigger as RadixSelectTrigger, Value as RadixSelectValue, Viewport as RadixSelectViewport, } from "@radix-ui/react-select";
 export * from "./buttons";
 export * from "./FormElement";
 export * from "./Input";
