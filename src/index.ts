@@ -5,6 +5,7 @@ export { Icons } from "./icons";
 export type { Icon } from "./icons";
 export { Typography } from "./Typography";
 
+export { CheckIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 export {
   Content as RadixSelectContent,
   Icon as RadixSelectIcon,
