@@ -7,6 +7,7 @@ import ReactDOM__default from 'react-dom';
 import { jsx, Fragment, jsxs } from 'react/jsx-runtime';
 import { RemoveScroll } from 'react-remove-scroll';
 import { HexAlphaColorPicker } from 'react-colorful';
+export { HexAlphaColorPicker } from 'react-colorful';
 import ReactModal from 'react-modal';
 import Select$2 from 'react-select';
 import debounce from 'lodash/debounce';

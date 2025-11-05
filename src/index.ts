@@ -19,6 +19,7 @@ export {
   Value as RadixSelectValue,
   Viewport as RadixSelectViewport,
 } from "@radix-ui/react-select";
+export { HexAlphaColorPicker } from "react-colorful";
 export * from "./buttons";
 export * from "./FormElement";
 export * from "./Input";
