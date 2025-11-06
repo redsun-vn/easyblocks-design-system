@@ -8263,7 +8263,8 @@ function Select(props) {
       background: "#fff",
       border: `1px solid ${Colors.black10}`,
       borderRadius: "2px",
-      boxShadow: "0px 2px 14px 0px rgba(0, 0, 0, 0.15)"
+      boxShadow: "0px 2px 14px 0px rgba(0, 0, 0, 0.15)",
+      zIndex: 999999
     }
   }, /*#__PURE__*/React__default.createElement(Viewport, null, props.children))));
 }
