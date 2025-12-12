@@ -8051,7 +8051,8 @@ const Modal = props => {
       beforeClose: `Shopstory__ReactModal__Overlay--before-close ${extraClass}`
     },
     ariaHideApp: false,
-    portalClassName: "Shopstory__ReactModalPortal"
+    portalClassName: "Shopstory__ReactModalPortal",
+    closeTimeoutMS: 0
   }, content);
 };
 const sharedContentStyles = `

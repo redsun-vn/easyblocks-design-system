@@ -196,6 +196,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
       }}
       ariaHideApp={false}
       portalClassName={"Shopstory__ReactModalPortal"}
+      closeTimeoutMS={0}
     >
       {content}
     </ReactModal>
