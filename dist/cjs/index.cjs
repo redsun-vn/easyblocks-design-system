@@ -71,7 +71,7 @@ const CustomComponentSymbol = styledComponents.styled.div.withConfig({
   componentId: "sc-1b4wdw-0"
 })(["width:", "px;height:", "px;background:", ";transform:rotate(45deg);"], p => p.size ?? DEFAULT_SIZE, p => p.size ?? DEFAULT_SIZE, Colors.purple);
 
-const mainFont = `"Inter,sans-serif",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`;
+const mainFont = `"Roboto,sans-serif",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`;
 const fontVariationSettings = `'opsz' 21`;
 const Fonts = {
   bodyLarge: {
