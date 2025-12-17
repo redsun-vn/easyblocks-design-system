@@ -43,6 +43,7 @@ export declare const Icons: {
     Trash: Icon;
     Pencil: Icon;
     ColorAndFonts: Icon;
+    Layers: Icon;
 };
 export {};
 //# sourceMappingURL=icons.d.ts.map
