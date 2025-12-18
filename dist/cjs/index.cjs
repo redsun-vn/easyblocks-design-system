@@ -444,6 +444,18 @@ const ChevronLeft = createIcon(/*#__PURE__*/React__default["default"].createElem
   d: "M10.5 3L6 7.5L10.5 12",
   stroke: "black"
 })));
+const ChevronUp = createIcon(/*#__PURE__*/React__default["default"].createElement("svg", {
+  width: "16",
+  height: "16",
+  viewBox: "0 0 16 16",
+  xmlns: "http://www.w3.org/2000/svg",
+  style: {
+    transform: "rotate(180deg)"
+  }
+}, /*#__PURE__*/React__default["default"].createElement("path", {
+  d: "M8.35355 10.0606L8.70711 9.70709L11.7071 6.70709L11 5.99998L8.35355 8.64643L5.70711 5.99998L5 6.70709L8 9.70709L8.35355 10.0606Z",
+  fill: "black"
+})));
 const Link = createIcon(/*#__PURE__*/React__default["default"].createElement("svg", {
   width: "16",
   height: "17",
@@ -732,6 +744,26 @@ const Layers = createIcon(/*#__PURE__*/React__default["default"].createElement("
 }, /*#__PURE__*/React__default["default"].createElement("g", null, /*#__PURE__*/React__default["default"].createElement("path", {
   d: "M230.91,172A8,8,0,0,1,228,182.91l-96,56a8,8,0,0,1-8.06,0l-96-56A8,8,0,0,1,36,169.09l92,53.65,92-53.65A8,8,0,0,1,230.91,172ZM220,121.09l-92,53.65L36,121.09A8,8,0,0,0,28,134.91l96,56a8,8,0,0,0,8.06,0l96-56A8,8,0,1,0,220,121.09ZM24,80a8,8,0,0,1,4-6.91l96-56a8,8,0,0,1,8.06,0l96,56a8,8,0,0,1,0,13.82l-96,56a8,8,0,0,1-8.06,0l-96-56A8,8,0,0,1,24,80Zm23.88,0L128,126.74,208.12,80,128,33.26Z"
 }))));
+const LayerGroup = createIcon(/*#__PURE__*/React__default["default"].createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "20",
+  height: "20",
+  viewBox: "0 0 20 20",
+  "data-hook": "symbol"
+}, /*#__PURE__*/React__default["default"].createElement("path", {
+  "fill-rule": "evenodd",
+  d: "M15 15v1H5v-1h10Zm-.25-8c.689 0 1.25.561 1.25 1.25v3.5c0 .689-.561 1.25-1.25 1.25h-9.5C4.561 13 4 12.439 4 11.75v-3.5C4 7.561 4.561 7 5.25 7Zm0 1h-9.5a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25ZM15 4v1H5V4h10Z"
+})));
+const LayerChildren = createIcon(/*#__PURE__*/React__default["default"].createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "20",
+  height: "20",
+  viewBox: "0 0 20 20",
+  "data-hook": "symbol"
+}, /*#__PURE__*/React__default["default"].createElement("path", {
+  "fill-rule": "evenodd",
+  d: "M9 6H6a2 2 0 0 0-2 2v3h5V6zM8 7v3H5V8c0-.551.449-1 1-1h2zm1 5v5H6a2 2 0 0 1-2-2v-3h5zm-1 1H5v2c0 .551.449 1 1 1h2v-3zm7-1v3a2 2 0 0 1-2 2h-3v-5h5zm-1 1h-3v3h2c.551 0 1-.449 1-1v-2zm1-9a2 2 0 0 1 2 2v5h-7V4h5zm0 1h-4v5h5V6c0-.551-.449-1-1-1z"
+})));
 const Icons = {
   Dropdown,
   MaxHeight,
@@ -747,6 +779,7 @@ const Icons = {
   ArrowDown,
   ArrowRight,
   Master,
+  ChevronUp,
   ChevronDown: Dropdown,
   ChevronRight,
   ChevronLeft,
@@ -771,7 +804,9 @@ const Icons = {
   Trash,
   Pencil,
   ColorAndFonts,
-  Layers
+  Layers,
+  LayerGroup,
+  LayerChildren
 };
 
 const Typography = _ref => {

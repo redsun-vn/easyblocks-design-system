@@ -19,6 +19,7 @@ export declare const Icons: {
     ArrowDown: Icon;
     ArrowRight: Icon;
     Master: Icon;
+    ChevronUp: Icon;
     ChevronDown: Icon;
     ChevronRight: Icon;
     ChevronLeft: Icon;
@@ -44,6 +45,8 @@ export declare const Icons: {
     Pencil: Icon;
     ColorAndFonts: Icon;
     Layers: Icon;
+    LayerGroup: Icon;
+    LayerChildren: Icon;
 };
 export {};
 //# sourceMappingURL=icons.d.ts.map
