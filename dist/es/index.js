@@ -557,13 +557,28 @@ const LoadingSpinner = createIcon(/*#__PURE__*/React__default.createElement("svg
 })))));
 const Save = createIcon(/*#__PURE__*/React__default.createElement("svg", {
   xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 256 256",
+  viewBox: "0 0 24 24",
   width: "24",
   height: "24",
-  fill: "currentColor"
-}, /*#__PURE__*/React__default.createElement("g", null, /*#__PURE__*/React__default.createElement("path", {
-  d: "M219.31,72,184,36.69A15.86,15.86,0,0,0,172.69,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V83.31A15.86,15.86,0,0,0,219.31,72ZM168,208H88V152h80Zm40,0H184V152a16,16,0,0,0-16-16H88a16,16,0,0,0-16,16v56H48V48H172.69L208,83.31ZM160,72a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h56A8,8,0,0,1,160,72Z"
-}))));
+  fill: "#000000",
+  style: {
+    opacity: 1
+  }
+}, /*#__PURE__*/React__default.createElement("path", {
+  d: "M17 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V7zm2 16H5V5h11.17L19 7.83zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3s3-1.34 3-3s-1.34-3-3-3M6 6h9v4H6z"
+})));
+const SaveAs = createIcon(/*#__PURE__*/React__default.createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24",
+  width: "24",
+  height: "24",
+  fill: "#000000",
+  style: {
+    opacity: 1
+  }
+}, /*#__PURE__*/React__default.createElement("path", {
+  d: "M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7.81c-.36-.62-.61-1.3-.73-2H5V5h11.17L19 7.83v4.25c.7.12 1.38.37 2 .73V7l-4-4zm1 3v4h9V6zm6 6c-1.66 0-3 1.34-3 3s1.34 3 3 3c0-1.89.89-3.66 2.39-4.79C13.85 12.5 13 12 12 12m5 2v3h-3v2h3v3h2v-3h3v-2h-3v-3z"
+})));
 const Preview$1 = createIcon(/*#__PURE__*/React__default.createElement("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 256 256",
@@ -734,6 +749,43 @@ const LayerChildren = createIcon(/*#__PURE__*/React__default.createElement("svg"
   "fill-rule": "evenodd",
   d: "M9 6H6a2 2 0 0 0-2 2v3h5V6zM8 7v3H5V8c0-.551.449-1 1-1h2zm1 5v5H6a2 2 0 0 1-2-2v-3h5zm-1 1H5v2c0 .551.449 1 1 1h2v-3zm7-1v3a2 2 0 0 1-2 2h-3v-5h5zm-1 1h-3v3h2c.551 0 1-.449 1-1v-2zm1-9a2 2 0 0 1 2 2v5h-7V4h5zm0 1h-4v5h5V6c0-.551-.449-1-1-1z"
 })));
+const Copy = createIcon(/*#__PURE__*/React__default.createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "24",
+  height: "24",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": "2",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+  className: "lucide lucide-copy-icon lucide-copy"
+}, /*#__PURE__*/React__default.createElement("rect", {
+  width: "14",
+  height: "14",
+  x: "8",
+  y: "8",
+  rx: "2",
+  ry: "2"
+}), /*#__PURE__*/React__default.createElement("path", {
+  d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+})));
+const Id = createIcon(/*#__PURE__*/React__default.createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "20",
+  height: "20",
+  viewBox: "0 0 20 20",
+  fill: "none"
+}, /*#__PURE__*/React__default.createElement("text", {
+  x: "50%",
+  y: "50%",
+  "text-anchor": "middle",
+  "dominant-baseline": "central",
+  "font-size": "16",
+  "font-weight": "600",
+  "font-family": "Arial, Helvetica, sans-serif",
+  fill: "currentColor"
+}, "ID")));
 const Icons = {
   Dropdown,
   MaxHeight,
@@ -769,6 +821,7 @@ const Icons = {
   OpenInNew,
   LoadingSpinner,
   Save,
+  SaveAs,
   Preview: Preview$1,
   Duplicate,
   Trash,
@@ -776,7 +829,9 @@ const Icons = {
   ColorAndFonts,
   Layers,
   LayerGroup,
-  LayerChildren
+  LayerChildren,
+  Copy,
+  Id
 };
 
 const Typography = _ref => {

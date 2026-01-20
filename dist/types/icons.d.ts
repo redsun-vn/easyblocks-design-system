@@ -39,6 +39,7 @@ export declare const Icons: {
     OpenInNew: Icon;
     LoadingSpinner: Icon;
     Save: Icon;
+    SaveAs: Icon;
     Preview: Icon;
     Duplicate: Icon;
     Trash: Icon;
@@ -47,6 +48,8 @@ export declare const Icons: {
     Layers: Icon;
     LayerGroup: Icon;
     LayerChildren: Icon;
+    Copy: Icon;
+    Id: Icon;
 };
 export {};
 //# sourceMappingURL=icons.d.ts.map
