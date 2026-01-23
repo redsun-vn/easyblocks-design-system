@@ -39,6 +39,7 @@ export declare const Icons: {
     OpenInNew: Icon;
     LoadingSpinner: Icon;
     Save: Icon;
+    Save1: Icon;
     SaveAs: Icon;
     Preview: Icon;
     Duplicate: Icon;
