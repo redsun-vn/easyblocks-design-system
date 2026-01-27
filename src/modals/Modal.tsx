@@ -112,6 +112,7 @@ export const ModalBody: React.FC<ModalBodyProps> = ({
             <ButtonGhost
               icon={Icons.Close}
               hideLabel
+              showTooltip={false}
               onClick={() => {
                 if (onRequestClose) {
                   onRequestClose();

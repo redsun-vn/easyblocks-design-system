@@ -8103,6 +8103,7 @@ const ModalBody = _ref => {
   })), headerSymbol === "close" && onRequestClose !== undefined && /*#__PURE__*/React__default.createElement(ButtonGhost, {
     icon: Icons.Close,
     hideLabel: true,
+    showTooltip: false,
     onClick: () => {
       if (onRequestClose) {
         onRequestClose();
