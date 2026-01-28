@@ -15,6 +15,7 @@ export declare const Colors: {
     readonly black500: "#808080";
     readonly black700: "#4D4D4D";
     readonly black800: "#333333";
+    readonly black900: "#202020";
     readonly red: "#ea001e";
     readonly white: "#FFFFFF";
 };

@@ -19,6 +19,7 @@ type ModalBodyProps = {
   maxHeight?: string;
   maxWidth?: string;
   noPadding?: boolean;
+  endAdornment?: ReactNode;
 };
 
 const ModalRoot = styled.div``;
@@ -52,6 +53,12 @@ const ContentBody = styled.div<Pick<ModalBodyProps, "noPadding" | "maxHeight">>`
   overflow-y: ${(p) => (p.maxHeight == "auto" ? "auto" : "scroll")};
   overflow-x: hidden;
   padding: ${(p) => (p.noPadding ? "0" : "12px 12px")};
+`;
+
+const EndAdornmentContentBody = styled.div<Pick<ModalBodyProps, "noPadding">>`
+  position: sticky;
+  bottom: 0px;
+  padding: ${(p) => (p.noPadding ? "0" : "0 12px 12px 12px")};
 `;
 
 const TitleHeader = styled.div`
@@ -90,7 +97,7 @@ export const ModalBody: React.FC<ModalBodyProps> = ({
   headerLine,
   ...props
 }) => {
-  const { children, headerSymbol = "close", searchProps } = props;
+  const { children, endAdornment, headerSymbol = "close", searchProps } = props;
 
   return (
     <Root width={width} maxWidth={maxWidth} maxHeight={maxHeight} {...props}>
@@ -130,13 +137,16 @@ export const ModalBody: React.FC<ModalBodyProps> = ({
       <ContentBody maxHeight={maxHeight} {...props}>
         {children}
       </ContentBody>
+      <EndAdornmentContentBody {...props}>
+        {endAdornment}
+      </EndAdornmentContentBody>
     </Root>
   );
 };
 
 type ModalProps = ModalBodyProps & {
   isOpen: boolean;
-  mode: "center-small" | "center-huge";
+  mode: "center-small" | "center-huge" | "fit";
 };
 
 const MODES = {
@@ -150,6 +160,11 @@ const MODES = {
     maxWidth: "1200px",
     height: "90vh",
     extraClass: "background-shade",
+  },
+  fit: {
+    width: "fit-content",
+    height: "80vh",
+    extraClass: "",
   },
 };
 

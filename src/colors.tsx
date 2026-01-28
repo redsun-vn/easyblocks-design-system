@@ -17,6 +17,7 @@ export const Colors = {
   black500: "#808080",
   black700: "#4D4D4D",
   black800: "#333333",
+  black900: "#202020",
 
   red: "#ea001e",
 

@@ -1,4 +1,5 @@
 import React, { CSSProperties } from "react";
+import { ColorPickerProps } from "react-best-gradient-color-picker";
 import { ControlProps } from "./ControlContainer";
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & ControlProps & {
     placeholder?: string;
@@ -30,6 +31,7 @@ export declare const InputFile: React.ForwardRefExoticComponent<React.InputHTMLA
     loadingLabel?: boolean;
     onClearFile?: () => void;
 } & React.RefAttributes<HTMLInputElement>>;
+export declare const ColorPicker: (props: ColorPickerProps) => React.JSX.Element;
 export declare const InputColor: React.ForwardRefExoticComponent<InputColorProps & React.RefAttributes<HTMLInputElement>>;
 export declare const InputRaw: React.ForwardRefExoticComponent<React.InputHTMLAttributes<HTMLInputElement> & ControlProps & {
     placeholder?: string;

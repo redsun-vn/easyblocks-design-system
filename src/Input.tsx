@@ -9,7 +9,9 @@ import React, {
 import { styled } from "styled-components";
 import { Fonts } from "./fonts";
 
-import { HexAlphaColorPicker } from "react-colorful";
+import _ColorPicker, {
+  ColorPickerProps,
+} from "react-best-gradient-color-picker";
 import {
   ControlContainer,
   ControlProps,
@@ -82,12 +84,19 @@ const StyledInputCurrentColor = styled.div<{
 `;
 
 const StyledInputColorDialogWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   top: 20px;
-  right: -4px;
-  width: 200px;
-  height: 100%;
+  right: 10px;
   z-index: 1;
+`;
+
+const StyledInputColorPickerWrapper = styled.div<{ isDark: boolean }>`
+  ${({ isDark }) => `background: ${isDark ? Colors.black900 : Colors.white}`};
+  border-radius: 8px;
+  box-shadow: 0 0 6px ${Colors.black40};
+  padding: 8px;
+  position: relative;
+  width: 310px;
 `;
 
 const StyledInputFileWrapper = styled.div`
@@ -202,6 +211,22 @@ export const InputFile = forwardRef<
   );
 });
 
+export const ColorPicker = (props: ColorPickerProps) => {
+  const isDark =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  return (
+    <StyledInputColorPickerWrapper isDark={isDark}>
+      <_ColorPicker
+        style={{ body: { borderRadius: 8 } }}
+        hideEyeDrop
+        {...props}
+      />
+    </StyledInputColorPickerWrapper>
+  );
+};
+
 export const InputColor = forwardRef<HTMLInputElement, InputColorProps>(
   (props, ref) => {
     const clickOutsideRef = useRef<HTMLInputElement | null>(null);
@@ -236,17 +261,17 @@ export const InputColor = forwardRef<HTMLInputElement, InputColorProps>(
 
           {isOpen ? (
             <StyledInputColorDialogWrapper>
-              <HexAlphaColorPicker color={value} onChange={onChange} />
+              <ColorPicker value={value} onChange={onChange} />
             </StyledInputColorDialogWrapper>
           ) : null}
         </StyledInputColorContainer>
       </StyledInputColorContainer>
     );
-  }
+  },
 );
 
 export const InputRaw = forwardRef<HTMLInputElement, InputProps>(
   (props, ref) => {
     return <InputBase {...props} ref={ref} isRaw={true} />;
-  }
+  },
 );

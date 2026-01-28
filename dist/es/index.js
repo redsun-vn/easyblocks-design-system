@@ -6,8 +6,7 @@ import * as ReactDOM from 'react-dom';
 import ReactDOM__default from 'react-dom';
 import { jsx, Fragment, jsxs } from 'react/jsx-runtime';
 import { RemoveScroll } from 'react-remove-scroll';
-import { HexAlphaColorPicker } from 'react-colorful';
-export { HexAlphaColorPicker } from 'react-colorful';
+import _ColorPicker from 'react-best-gradient-color-picker';
 import ReactModal from 'react-modal';
 import Select$2 from 'react-select';
 import debounce from 'lodash/debounce';
@@ -31,6 +30,7 @@ const Colors = {
   black500: "#808080",
   black700: "#4D4D4D",
   black800: "#333333",
+  black900: "#202020",
   red: "#ea001e",
   white: "#FFFFFF"
 };
@@ -6680,22 +6680,31 @@ const StyledInputCurrentColor = styled.div.withConfig({
 const StyledInputColorDialogWrapper = styled.div.withConfig({
   displayName: "Input__StyledInputColorDialogWrapper",
   componentId: "sc-1nyhv3t-4"
-})(["position:absolute;top:20px;right:-4px;width:200px;height:100%;z-index:1;"]);
+})(["position:fixed;top:20px;right:10px;z-index:1;"]);
+const StyledInputColorPickerWrapper = styled.div.withConfig({
+  displayName: "Input__StyledInputColorPickerWrapper",
+  componentId: "sc-1nyhv3t-5"
+})(["", ";border-radius:8px;box-shadow:0 0 6px ", ";padding:8px;position:relative;width:310px;"], _ref2 => {
+  let {
+    isDark
+  } = _ref2;
+  return `background: ${isDark ? Colors.black900 : Colors.white}`;
+}, Colors.black40);
 const StyledInputFileWrapper = styled.div.withConfig({
   displayName: "Input__StyledInputFileWrapper",
-  componentId: "sc-1nyhv3t-5"
+  componentId: "sc-1nyhv3t-6"
 })(["position:relative;width:168px;height:168px;"]);
 const StyledInputFile = styled.img.withConfig({
   displayName: "Input__StyledInputFile",
-  componentId: "sc-1nyhv3t-6"
+  componentId: "sc-1nyhv3t-7"
 })(["width:100%;height:100%;object-fit:cover;box-shadow:0 0 0 1px ", ";"], Colors.black10);
 const StyledInputFileCloseIcon = styled.div.withConfig({
   displayName: "Input__StyledInputFileCloseIcon",
-  componentId: "sc-1nyhv3t-7"
+  componentId: "sc-1nyhv3t-8"
 })(["position:absolute;right:10px;top:10px;width:20px;height:20px;display:flex;justify-content:center;align-items:center;background:", ";border-radius:100%;cursor:pointer;"], Colors.white);
 const StyledInputLabel = styled.label.withConfig({
   displayName: "Input__StyledInputLabel",
-  componentId: "sc-1nyhv3t-8"
+  componentId: "sc-1nyhv3t-9"
 })(["display:flex;align-items:center;justify-content:center;gap:8px;height:100%;border:1px dashed ", ";cursor:pointer;color:", ";", ";"], Colors.blue50, Colors.blue50, Fonts.body);
 const InputBase = /*#__PURE__*/forwardRef((props, ref) => {
   return /*#__PURE__*/React__default.createElement(StyledInput, _extends({}, props, {
@@ -6746,6 +6755,19 @@ const InputFile = /*#__PURE__*/forwardRef((props, ref) => {
     size: 16
   }), props?.label ?? "Add or drop image")));
 });
+const ColorPicker = props => {
+  const isDark = typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  return /*#__PURE__*/React__default.createElement(StyledInputColorPickerWrapper, {
+    isDark: isDark
+  }, /*#__PURE__*/React__default.createElement(_ColorPicker, _extends({
+    style: {
+      body: {
+        borderRadius: 8
+      }
+    },
+    hideEyeDrop: true
+  }, props)));
+};
 const InputColor = /*#__PURE__*/forwardRef((props, ref) => {
   const clickOutsideRef = useRef(null);
   const {
@@ -6778,8 +6800,8 @@ const InputColor = /*#__PURE__*/forwardRef((props, ref) => {
     className: className,
     style: style,
     color: value
-  })), isOpen ? /*#__PURE__*/React__default.createElement(StyledInputColorDialogWrapper, null, /*#__PURE__*/React__default.createElement(HexAlphaColorPicker, {
-    color: value,
+  })), isOpen ? /*#__PURE__*/React__default.createElement(StyledInputColorDialogWrapper, null, /*#__PURE__*/React__default.createElement(ColorPicker, {
+    value: value,
     onChange: onChange
   })) : null));
 });
@@ -8061,17 +8083,21 @@ const ContentBody = styled.div.withConfig({
   displayName: "Modal__ContentBody",
   componentId: "sc-wv205r-3"
 })(["position:relative;overflow-y:", ";overflow-x:hidden;padding:", ";"], p => p.maxHeight == "auto" ? "auto" : "scroll", p => p.noPadding ? "0" : "12px 12px");
+const EndAdornmentContentBody = styled.div.withConfig({
+  displayName: "Modal__EndAdornmentContentBody",
+  componentId: "sc-wv205r-4"
+})(["position:sticky;bottom:0px;padding:", ";"], p => p.noPadding ? "0" : "0 12px 12px 12px");
 const TitleHeader = styled.div.withConfig({
   displayName: "Modal__TitleHeader",
-  componentId: "sc-wv205r-4"
+  componentId: "sc-wv205r-5"
 })(["&:not(:empty){padding:12px;}display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:2rem;"]);
 const TitleHeaderLabel = styled.div.withConfig({
   displayName: "Modal__TitleHeaderLabel",
-  componentId: "sc-wv205r-5"
+  componentId: "sc-wv205r-6"
 })(["white-space:nowrap;", ";"], Fonts.label);
 const HeaderLetter = styled.div.withConfig({
   displayName: "Modal__HeaderLetter",
-  componentId: "sc-wv205r-6"
+  componentId: "sc-wv205r-7"
 })(["width:24px;height:24px;border-radius:4px;background-color:", ";", ";display:flex;justify-content:center;align-items:center;"], Colors.black10, Fonts.label3);
 const ModalBody = _ref => {
   let {
@@ -8085,6 +8111,7 @@ const ModalBody = _ref => {
   } = _ref;
   const {
     children,
+    endAdornment,
     headerSymbol = "close",
     searchProps
   } = props;
@@ -8111,7 +8138,7 @@ const ModalBody = _ref => {
     }
   }, "Close"), headerSymbol && headerSymbol !== "close" && /*#__PURE__*/React__default.createElement(HeaderLetter, null, headerSymbol))), /*#__PURE__*/React__default.createElement(ContentBody, _extends({
     maxHeight: maxHeight
-  }, props), children));
+  }, props), children), /*#__PURE__*/React__default.createElement(EndAdornmentContentBody, props, endAdornment));
 };
 const MODES = {
   "center-small": {
@@ -8124,6 +8151,11 @@ const MODES = {
     maxWidth: "1200px",
     height: "90vh",
     extraClass: "background-shade"
+  },
+  fit: {
+    width: "fit-content",
+    height: "80vh",
+    extraClass: ""
   }
 };
 const ModalContext = /*#__PURE__*/React__default.createContext(null);
@@ -9362,4 +9394,4 @@ const ToggleGroupItem = /*#__PURE__*/forwardRef(function ToggleGroupItem(_ref, f
   }, props), children);
 });
 
-export { BasicRow, ButtonDanger, ButtonGhost, ButtonGhostColor, ButtonPrimary, ButtonSecondary, CheckIcon, ChevronDownIcon, Colors, CustomComponentSymbol, Fonts, FormElement, GlobalModalStyles, IconButtonPrimary, Icons, Input, InputColor, InputFile, InputRaw, Loader, Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, Modal, ModalBody, ModalContext, MultiSelect, NavigationController, Content2$3 as RadixSelectContent, Icon as RadixSelectIcon, Item$1 as RadixSelectItem, ItemIndicator$1 as RadixSelectItemIndicator, ItemText as RadixSelectItemText, Portal$2 as RadixSelectPortal, Root2$3 as RadixSelectRoot, Separator$1 as RadixSelectSeparator, Trigger$3 as RadixSelectTrigger, Value as RadixSelectValue, Viewport as RadixSelectViewport, RangeSlider, Select, SelectInline, SelectItem, SelectSeparator, ShopstoryIcon, ShopstoryLogo, SimplePicker, Stack, Tab, TabList, TabPanel, Tabs, ThumbnailButton, Toggle$1 as Toggle, ToggleButton, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, Typography, useToaster };
+export { BasicRow, ButtonDanger, ButtonGhost, ButtonGhostColor, ButtonPrimary, ButtonSecondary, CheckIcon, ChevronDownIcon, ColorPicker, Colors, CustomComponentSymbol, Fonts, FormElement, GlobalModalStyles, IconButtonPrimary, Icons, Input, InputColor, InputFile, InputRaw, Loader, Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, Modal, ModalBody, ModalContext, MultiSelect, NavigationController, Content2$3 as RadixSelectContent, Icon as RadixSelectIcon, Item$1 as RadixSelectItem, ItemIndicator$1 as RadixSelectItemIndicator, ItemText as RadixSelectItemText, Portal$2 as RadixSelectPortal, Root2$3 as RadixSelectRoot, Separator$1 as RadixSelectSeparator, Trigger$3 as RadixSelectTrigger, Value as RadixSelectValue, Viewport as RadixSelectViewport, RangeSlider, Select, SelectInline, SelectItem, SelectSeparator, ShopstoryIcon, ShopstoryLogo, SimplePicker, Stack, Tab, TabList, TabPanel, Tabs, ThumbnailButton, Toggle$1 as Toggle, ToggleButton, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, Typography, useToaster };

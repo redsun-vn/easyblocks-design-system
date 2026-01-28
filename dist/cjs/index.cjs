@@ -8,7 +8,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var jsxRuntime = require('react/jsx-runtime');
 var reactRemoveScroll = require('react-remove-scroll');
-var reactColorful = require('react-colorful');
+var _ColorPicker = require('react-best-gradient-color-picker');
 var ReactModal = require('react-modal');
 var Select$2 = require('react-select');
 var debounce = require('lodash/debounce');
@@ -39,6 +39,7 @@ var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
 var ReactDOM__namespace = /*#__PURE__*/_interopNamespace(ReactDOM);
 var ReactDOM__default = /*#__PURE__*/_interopDefaultLegacy(ReactDOM);
+var _ColorPicker__default = /*#__PURE__*/_interopDefaultLegacy(_ColorPicker);
 var ReactModal__default = /*#__PURE__*/_interopDefaultLegacy(ReactModal);
 var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select$2);
 var debounce__default = /*#__PURE__*/_interopDefaultLegacy(debounce);
@@ -61,6 +62,7 @@ const Colors = {
   black500: "#808080",
   black700: "#4D4D4D",
   black800: "#333333",
+  black900: "#202020",
   red: "#ea001e",
   white: "#FFFFFF"
 };
@@ -6710,22 +6712,31 @@ const StyledInputCurrentColor = styledComponents.styled.div.withConfig({
 const StyledInputColorDialogWrapper = styledComponents.styled.div.withConfig({
   displayName: "Input__StyledInputColorDialogWrapper",
   componentId: "sc-1nyhv3t-4"
-})(["position:absolute;top:20px;right:-4px;width:200px;height:100%;z-index:1;"]);
+})(["position:fixed;top:20px;right:10px;z-index:1;"]);
+const StyledInputColorPickerWrapper = styledComponents.styled.div.withConfig({
+  displayName: "Input__StyledInputColorPickerWrapper",
+  componentId: "sc-1nyhv3t-5"
+})(["", ";border-radius:8px;box-shadow:0 0 6px ", ";padding:8px;position:relative;width:310px;"], _ref2 => {
+  let {
+    isDark
+  } = _ref2;
+  return `background: ${isDark ? Colors.black900 : Colors.white}`;
+}, Colors.black40);
 const StyledInputFileWrapper = styledComponents.styled.div.withConfig({
   displayName: "Input__StyledInputFileWrapper",
-  componentId: "sc-1nyhv3t-5"
+  componentId: "sc-1nyhv3t-6"
 })(["position:relative;width:168px;height:168px;"]);
 const StyledInputFile = styledComponents.styled.img.withConfig({
   displayName: "Input__StyledInputFile",
-  componentId: "sc-1nyhv3t-6"
+  componentId: "sc-1nyhv3t-7"
 })(["width:100%;height:100%;object-fit:cover;box-shadow:0 0 0 1px ", ";"], Colors.black10);
 const StyledInputFileCloseIcon = styledComponents.styled.div.withConfig({
   displayName: "Input__StyledInputFileCloseIcon",
-  componentId: "sc-1nyhv3t-7"
+  componentId: "sc-1nyhv3t-8"
 })(["position:absolute;right:10px;top:10px;width:20px;height:20px;display:flex;justify-content:center;align-items:center;background:", ";border-radius:100%;cursor:pointer;"], Colors.white);
 const StyledInputLabel = styledComponents.styled.label.withConfig({
   displayName: "Input__StyledInputLabel",
-  componentId: "sc-1nyhv3t-8"
+  componentId: "sc-1nyhv3t-9"
 })(["display:flex;align-items:center;justify-content:center;gap:8px;height:100%;border:1px dashed ", ";cursor:pointer;color:", ";", ";"], Colors.blue50, Colors.blue50, Fonts.body);
 const InputBase = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React__default["default"].createElement(StyledInput, _extends__default["default"]({}, props, {
@@ -6776,6 +6787,19 @@ const InputFile = /*#__PURE__*/React.forwardRef((props, ref) => {
     size: 16
   }), props?.label ?? "Add or drop image")));
 });
+const ColorPicker = props => {
+  const isDark = typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  return /*#__PURE__*/React__default["default"].createElement(StyledInputColorPickerWrapper, {
+    isDark: isDark
+  }, /*#__PURE__*/React__default["default"].createElement(_ColorPicker__default["default"], _extends__default["default"]({
+    style: {
+      body: {
+        borderRadius: 8
+      }
+    },
+    hideEyeDrop: true
+  }, props)));
+};
 const InputColor = /*#__PURE__*/React.forwardRef((props, ref) => {
   const clickOutsideRef = React.useRef(null);
   const {
@@ -6808,8 +6832,8 @@ const InputColor = /*#__PURE__*/React.forwardRef((props, ref) => {
     className: className,
     style: style,
     color: value
-  })), isOpen ? /*#__PURE__*/React__default["default"].createElement(StyledInputColorDialogWrapper, null, /*#__PURE__*/React__default["default"].createElement(reactColorful.HexAlphaColorPicker, {
-    color: value,
+  })), isOpen ? /*#__PURE__*/React__default["default"].createElement(StyledInputColorDialogWrapper, null, /*#__PURE__*/React__default["default"].createElement(ColorPicker, {
+    value: value,
     onChange: onChange
   })) : null));
 });
@@ -8091,17 +8115,21 @@ const ContentBody = styledComponents.styled.div.withConfig({
   displayName: "Modal__ContentBody",
   componentId: "sc-wv205r-3"
 })(["position:relative;overflow-y:", ";overflow-x:hidden;padding:", ";"], p => p.maxHeight == "auto" ? "auto" : "scroll", p => p.noPadding ? "0" : "12px 12px");
+const EndAdornmentContentBody = styledComponents.styled.div.withConfig({
+  displayName: "Modal__EndAdornmentContentBody",
+  componentId: "sc-wv205r-4"
+})(["position:sticky;bottom:0px;padding:", ";"], p => p.noPadding ? "0" : "0 12px 12px 12px");
 const TitleHeader = styledComponents.styled.div.withConfig({
   displayName: "Modal__TitleHeader",
-  componentId: "sc-wv205r-4"
+  componentId: "sc-wv205r-5"
 })(["&:not(:empty){padding:12px;}display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:2rem;"]);
 const TitleHeaderLabel = styledComponents.styled.div.withConfig({
   displayName: "Modal__TitleHeaderLabel",
-  componentId: "sc-wv205r-5"
+  componentId: "sc-wv205r-6"
 })(["white-space:nowrap;", ";"], Fonts.label);
 const HeaderLetter = styledComponents.styled.div.withConfig({
   displayName: "Modal__HeaderLetter",
-  componentId: "sc-wv205r-6"
+  componentId: "sc-wv205r-7"
 })(["width:24px;height:24px;border-radius:4px;background-color:", ";", ";display:flex;justify-content:center;align-items:center;"], Colors.black10, Fonts.label3);
 const ModalBody = _ref => {
   let {
@@ -8115,6 +8143,7 @@ const ModalBody = _ref => {
   } = _ref;
   const {
     children,
+    endAdornment,
     headerSymbol = "close",
     searchProps
   } = props;
@@ -8141,7 +8170,7 @@ const ModalBody = _ref => {
     }
   }, "Close"), headerSymbol && headerSymbol !== "close" && /*#__PURE__*/React__default["default"].createElement(HeaderLetter, null, headerSymbol))), /*#__PURE__*/React__default["default"].createElement(ContentBody, _extends__default["default"]({
     maxHeight: maxHeight
-  }, props), children));
+  }, props), children), /*#__PURE__*/React__default["default"].createElement(EndAdornmentContentBody, props, endAdornment));
 };
 const MODES = {
   "center-small": {
@@ -8154,6 +8183,11 @@ const MODES = {
     maxWidth: "1200px",
     height: "90vh",
     extraClass: "background-shade"
+  },
+  fit: {
+    width: "fit-content",
+    height: "80vh",
+    extraClass: ""
   }
 };
 const ModalContext = /*#__PURE__*/React__default["default"].createContext(null);
@@ -9392,10 +9426,6 @@ const ToggleGroupItem = /*#__PURE__*/React.forwardRef(function ToggleGroupItem(_
   }, props), children);
 });
 
-Object.defineProperty(exports, 'HexAlphaColorPicker', {
-  enumerable: true,
-  get: function () { return reactColorful.HexAlphaColorPicker; }
-});
 Object.defineProperty(exports, 'Toaster', {
   enumerable: true,
   get: function () { return toast.Toaster; }
@@ -9408,6 +9438,7 @@ exports.ButtonPrimary = ButtonPrimary;
 exports.ButtonSecondary = ButtonSecondary;
 exports.CheckIcon = CheckIcon;
 exports.ChevronDownIcon = ChevronDownIcon;
+exports.ColorPicker = ColorPicker;
 exports.Colors = Colors;
 exports.CustomComponentSymbol = CustomComponentSymbol;
 exports.Fonts = Fonts;

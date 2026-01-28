@@ -11,11 +11,12 @@ type ModalBodyProps = {
     maxHeight?: string;
     maxWidth?: string;
     noPadding?: boolean;
+    endAdornment?: ReactNode;
 };
 export declare const ModalBody: React.FC<ModalBodyProps>;
 type ModalProps = ModalBodyProps & {
     isOpen: boolean;
-    mode: "center-small" | "center-huge";
+    mode: "center-small" | "center-huge" | "fit";
 };
 export declare const ModalContext: React.Context<any>;
 export declare const Modal: React.FC<ModalProps>;
