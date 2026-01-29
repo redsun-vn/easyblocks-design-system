@@ -8502,7 +8502,7 @@ const PreviewImage = styled.img.withConfig({
 const SolidColorPreview = styled.div.withConfig({
   displayName: "ThumbnailButton__SolidColorPreview",
   componentId: "sc-1bsunzd-2"
-})(["width:100%;height:100%;background-color:", ";"], _ref => {
+})(["width:100%;height:100%;background:", ";"], _ref => {
   let {
     color
   } = _ref;

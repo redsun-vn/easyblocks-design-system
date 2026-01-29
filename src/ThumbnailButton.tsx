@@ -60,7 +60,7 @@ interface SolidColorPreviewProps {
 const SolidColorPreview = styled.div<SolidColorPreviewProps>`
   width: 100%;
   height: 100%;
-  background-color: ${({ color }) => color};
+  background: ${({ color }) => color};
 `;
 
 const ContentRoot = styled.div`
@@ -95,8 +95,8 @@ export function ThumbnailButton({
       thumbnail.icon === "link"
         ? Icons.Link
         : thumbnail.icon === "grid_3x3"
-        ? Icons.Grid3x3
-        : Icons.Link;
+          ? Icons.Grid3x3
+          : Icons.Link;
     preview = <ComponentIcon size={16} />;
   } else {
     preview = <SolidColorPreview color={"transparent"} />;
