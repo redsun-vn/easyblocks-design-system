@@ -89,8 +89,6 @@ const StyledInputColorDialogWrapper = styled.div`
   top: 20px;
   right: 10px;
   z-index: 1;
-  overflow: auto;
-  max-height: 95vh;
 `;
 
 const StyledInputColorPickerWrapper = styled.div<{ isDark: boolean }>`

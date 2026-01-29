@@ -6712,7 +6712,7 @@ const StyledInputCurrentColor = styledComponents.styled.div.withConfig({
 const StyledInputColorDialogWrapper = styledComponents.styled.div.withConfig({
   displayName: "Input__StyledInputColorDialogWrapper",
   componentId: "sc-1nyhv3t-4"
-})(["position:fixed;top:20px;right:10px;z-index:1;overflow:auto;max-height:95vh;"]);
+})(["position:fixed;top:20px;right:10px;z-index:1;"]);
 const StyledInputColorPickerWrapper = styledComponents.styled.div.withConfig({
   displayName: "Input__StyledInputColorPickerWrapper",
   componentId: "sc-1nyhv3t-5"
