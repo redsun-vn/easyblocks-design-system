@@ -8,10 +8,10 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var jsxRuntime = require('react/jsx-runtime');
 var reactRemoveScroll = require('react-remove-scroll');
+var debounce = require('lodash/debounce');
 var _ColorPicker = require('react-best-gradient-color-picker');
 var ReactModal = require('react-modal');
 var Select$2 = require('react-select');
-var debounce = require('lodash/debounce');
 var toast = require('react-hot-toast');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -39,10 +39,10 @@ var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
 var ReactDOM__namespace = /*#__PURE__*/_interopNamespace(ReactDOM);
 var ReactDOM__default = /*#__PURE__*/_interopDefaultLegacy(ReactDOM);
+var debounce__default = /*#__PURE__*/_interopDefaultLegacy(debounce);
 var _ColorPicker__default = /*#__PURE__*/_interopDefaultLegacy(_ColorPicker);
 var ReactModal__default = /*#__PURE__*/_interopDefaultLegacy(ReactModal);
 var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select$2);
-var debounce__default = /*#__PURE__*/_interopDefaultLegacy(debounce);
 var toast__default = /*#__PURE__*/_interopDefaultLegacy(toast);
 
 const Colors = {
@@ -6712,7 +6712,7 @@ const StyledInputCurrentColor = styledComponents.styled.div.withConfig({
 const StyledInputColorDialogWrapper = styledComponents.styled.div.withConfig({
   displayName: "Input__StyledInputColorDialogWrapper",
   componentId: "sc-1nyhv3t-4"
-})(["position:fixed;top:20px;right:10px;z-index:1;"]);
+})(["position:fixed;top:20px;right:10px;z-index:1;overflow:auto;max-height:95vh;"]);
 const StyledInputColorPickerWrapper = styledComponents.styled.div.withConfig({
   displayName: "Input__StyledInputColorPickerWrapper",
   componentId: "sc-1nyhv3t-5"
@@ -6787,8 +6787,25 @@ const InputFile = /*#__PURE__*/React.forwardRef((props, ref) => {
     size: 16
   }), props?.label ?? "Add or drop image")));
 });
+const debouncedSave = debounce__default["default"](fn => fn(), 400);
 const ColorPicker = props => {
+  const {
+    value,
+    onChange
+  } = props;
+  const [color, setColor] = React.useState(value);
   const isDark = typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const onChangeColor = newColor => {
+    setColor(newColor);
+    if (newColor) {
+      debouncedSave(() => onChange(newColor));
+    }
+  };
+  React.useEffect(() => {
+    if (value) {
+      setColor(value);
+    }
+  }, [value]);
   return /*#__PURE__*/React__default["default"].createElement(StyledInputColorPickerWrapper, {
     isDark: isDark
   }, /*#__PURE__*/React__default["default"].createElement(_ColorPicker__default["default"], _extends__default["default"]({
@@ -6798,7 +6815,10 @@ const ColorPicker = props => {
       }
     },
     hideEyeDrop: true
-  }, props)));
+  }, props, {
+    value: color,
+    onChange: onChangeColor
+  })));
 };
 const InputColor = /*#__PURE__*/React.forwardRef((props, ref) => {
   const clickOutsideRef = React.useRef(null);

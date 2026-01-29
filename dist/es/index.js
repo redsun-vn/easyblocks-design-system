@@ -1,15 +1,15 @@
 import { styled, css, keyframes, createGlobalStyle } from 'styled-components';
 import _extends from '@babel/runtime/helpers/extends';
 import * as React from 'react';
-import React__default, { forwardRef, createElement, useLayoutEffect, useEffect, useId as useId$1, useRef, useState, useContext } from 'react';
+import React__default, { forwardRef, createElement, useLayoutEffect, useEffect, useId as useId$1, useState, useRef, useContext } from 'react';
 import * as ReactDOM from 'react-dom';
 import ReactDOM__default from 'react-dom';
 import { jsx, Fragment, jsxs } from 'react/jsx-runtime';
 import { RemoveScroll } from 'react-remove-scroll';
+import debounce from 'lodash/debounce';
 import _ColorPicker from 'react-best-gradient-color-picker';
 import ReactModal from 'react-modal';
 import Select$2 from 'react-select';
-import debounce from 'lodash/debounce';
 import toast from 'react-hot-toast';
 export { Toaster } from 'react-hot-toast';
 
@@ -6680,7 +6680,7 @@ const StyledInputCurrentColor = styled.div.withConfig({
 const StyledInputColorDialogWrapper = styled.div.withConfig({
   displayName: "Input__StyledInputColorDialogWrapper",
   componentId: "sc-1nyhv3t-4"
-})(["position:fixed;top:20px;right:10px;z-index:1;"]);
+})(["position:fixed;top:20px;right:10px;z-index:1;overflow:auto;max-height:95vh;"]);
 const StyledInputColorPickerWrapper = styled.div.withConfig({
   displayName: "Input__StyledInputColorPickerWrapper",
   componentId: "sc-1nyhv3t-5"
@@ -6755,8 +6755,25 @@ const InputFile = /*#__PURE__*/forwardRef((props, ref) => {
     size: 16
   }), props?.label ?? "Add or drop image")));
 });
+const debouncedSave = debounce(fn => fn(), 400);
 const ColorPicker = props => {
+  const {
+    value,
+    onChange
+  } = props;
+  const [color, setColor] = useState(value);
   const isDark = typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const onChangeColor = newColor => {
+    setColor(newColor);
+    if (newColor) {
+      debouncedSave(() => onChange(newColor));
+    }
+  };
+  useEffect(() => {
+    if (value) {
+      setColor(value);
+    }
+  }, [value]);
   return /*#__PURE__*/React__default.createElement(StyledInputColorPickerWrapper, {
     isDark: isDark
   }, /*#__PURE__*/React__default.createElement(_ColorPicker, _extends({
@@ -6766,7 +6783,10 @@ const ColorPicker = props => {
       }
     },
     hideEyeDrop: true
-  }, props)));
+  }, props, {
+    value: color,
+    onChange: onChangeColor
+  })));
 };
 const InputColor = /*#__PURE__*/forwardRef((props, ref) => {
   const clickOutsideRef = useRef(null);

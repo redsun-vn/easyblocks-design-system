@@ -8,6 +8,7 @@ import React, {
 } from "react";
 import { styled } from "styled-components";
 import { Fonts } from "./fonts";
+import debounce from "lodash/debounce";
 
 import _ColorPicker, {
   ColorPickerProps,
@@ -88,6 +89,8 @@ const StyledInputColorDialogWrapper = styled.div`
   top: 20px;
   right: 10px;
   z-index: 1;
+  overflow: auto;
+  max-height: 95vh;
 `;
 
 const StyledInputColorPickerWrapper = styled.div<{ isDark: boolean }>`
@@ -211,10 +214,29 @@ export const InputFile = forwardRef<
   );
 });
 
+const debouncedSave = debounce((fn: () => void) => fn(), 400);
+
 export const ColorPicker = (props: ColorPickerProps) => {
+  const { value, onChange } = props;
+  const [color, setColor] = useState(value);
+
   const isDark =
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const onChangeColor = (newColor: string) => {
+    setColor(newColor);
+
+    if (newColor) {
+      debouncedSave(() => onChange(newColor));
+    }
+  };
+
+  useEffect(() => {
+    if (value) {
+      setColor(value);
+    }
+  }, [value]);
 
   return (
     <StyledInputColorPickerWrapper isDark={isDark}>
@@ -222,6 +244,8 @@ export const ColorPicker = (props: ColorPickerProps) => {
         style={{ body: { borderRadius: 8 } }}
         hideEyeDrop
         {...props}
+        value={color}
+        onChange={onChangeColor}
       />
     </StyledInputColorPickerWrapper>
   );
