@@ -51,6 +51,8 @@ export declare const Icons: {
     LayerChildren: Icon;
     Copy: Icon;
     Id: Icon;
+    GlobalSections: Icon;
+    Check: Icon;
 };
 export {};
 //# sourceMappingURL=icons.d.ts.map

@@ -827,6 +827,23 @@ const Id = createIcon(/*#__PURE__*/React__default["default"].createElement("svg"
   "font-family": "Arial, Helvetica, sans-serif",
   fill: "currentColor"
 }, "ID")));
+const GlobalSections = createIcon(/*#__PURE__*/React__default["default"].createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 256 256",
+  width: "24",
+  height: "24",
+  fill: "currentColor"
+}, /*#__PURE__*/React__default["default"].createElement("g", null, /*#__PURE__*/React__default["default"].createElement("path", {
+  d: "M122.34,109.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0,0-11.32l-40-40a8,8,0,0,0-11.32,0l-40,40a8,8,0,0,0,0,11.32ZM128,35.31,156.69,64,128,92.69,99.31,64Zm5.66,111a8,8,0,0,0-11.32,0l-40,40a8,8,0,0,0,0,11.32l40,40a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0,0-11.32ZM128,220.69,99.31,192,128,163.31,156.69,192Zm109.66-98.35-40-40a8,8,0,0,0-11.32,0l-40,40a8,8,0,0,0,0,11.32l40,40a8,8,0,0,0,11.32,0l40-40A8,8,0,0,0,237.66,122.34ZM192,156.69,163.31,128,192,99.31,220.69,128Zm-82.34-34.35-40-40a8,8,0,0,0-11.32,0l-40,40a8,8,0,0,0,0,11.32l40,40a8,8,0,0,0,11.32,0l40-40A8,8,0,0,0,109.66,122.34ZM64,156.69,35.31,128,64,99.31,92.69,128Z"
+}))));
+const Check = createIcon(/*#__PURE__*/React__default["default"].createElement("svg", {
+  fill: "currentColor",
+  width: "24",
+  height: "24",
+  color: "#25a55a"
+}, /*#__PURE__*/React__default["default"].createElement("path", {
+  d: "m10.079 13.921-2.83-2.829-1.412 1.414 2.828 2.83 1.414 1.413 1.415-1.414 6.67-6.67-1.415-1.414-6.67 6.67Z"
+})));
 const Icons = {
   Dropdown,
   MaxHeight,
@@ -873,7 +890,9 @@ const Icons = {
   LayerGroup,
   LayerChildren,
   Copy,
-  Id
+  Id,
+  GlobalSections,
+  Check
 };
 
 const Typography = _ref => {
