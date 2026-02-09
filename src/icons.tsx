@@ -895,8 +895,15 @@ const GlobalSections = createIcon(
 );
 
 const Check = createIcon(
-  <svg fill="currentColor" width="24" height="24" color="#25a55a">
-    <path d="m10.079 13.921-2.83-2.829-1.412 1.414 2.828 2.83 1.414 1.413 1.415-1.414 6.67-6.67-1.415-1.414-6.67 6.67Z"></path>
+  <svg
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="#25a55a"
+    stroke-width="2"
+  >
+    <path d="M6 12l4 4 8-8" stroke-linecap="round" stroke-linejoin="round" />
   </svg>,
 );
 
