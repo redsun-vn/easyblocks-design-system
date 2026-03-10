@@ -37,10 +37,10 @@ const sharedCSS = (p: ButtonPropsInternal) => css`
   height: ${p.height !== undefined
     ? p.height
     : p.variant === "large"
-    ? "36px"
-    : p.variant === "tiny"
-    ? "24px"
-    : "28px"};
+      ? "36px"
+      : p.variant === "tiny"
+        ? "24px"
+        : "28px"};
 
   ${p.hideLabel
     ? `
@@ -119,7 +119,7 @@ const DangerButton = styled.button<ButtonPropsInternal>`
     }
   
     &:active {
-      background-color: ${Colors.blue70};
+      opacity 0.9;
     }
     
   `}
@@ -235,7 +235,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsInternal>(
         ) : null}
       </Tooltip>
     );
-  }
+  },
 );
 
 export const ButtonPrimary: React.FC<ButtonProps> = (props) => (
@@ -247,7 +247,7 @@ export const ButtonDanger: React.FC<ButtonProps> = (props) => (
 );
 
 export const ButtonSecondary = forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => <Button {...props} Button={SecondaryButton} ref={ref} />
+  (props, ref) => <Button {...props} Button={SecondaryButton} ref={ref} />,
 );
 
 export type GhostButtonProps = ButtonProps & { noPadding?: boolean };
@@ -261,7 +261,7 @@ export const ButtonGhost = forwardRef<HTMLButtonElement, GhostButtonProps>(
       noPadding={props.noPadding}
       ref={ref}
     />
-  )
+  ),
 );
 export const ButtonGhostColor: React.FC<GhostButtonProps> = (props) => (
   <Button

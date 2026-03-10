@@ -6512,7 +6512,7 @@ const DangerButton = styledComponents.styled.button.withConfig({
     }
   
     &:active {
-      background-color: ${Colors.blue70};
+      opacity 0.9;
     }
     
   `);
