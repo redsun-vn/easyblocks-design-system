@@ -42,7 +42,6 @@ export * from "./Slider";
 export * from "./Stack";
 export { Tab, TabList, TabPanel, Tabs } from "./Tabs";
 export * from "./ThumbnailButton";
-export * from "./Toaster";
 export * from "./Toggle";
 export * from "./ToggleButton";
 export { ToggleGroup, ToggleGroupItem } from "./ToggleGroup/ToggleGroup";

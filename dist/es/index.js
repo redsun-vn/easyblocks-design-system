@@ -1,6 +1,6 @@
 import { styled, css, keyframes, createGlobalStyle } from 'styled-components';
-import { F as Fonts } from './Toaster-8e932c19.js';
-export { F as Fonts, u as useToaster } from './Toaster-8e932c19.js';
+import { F as Fonts } from './fonts-84085e3a.js';
+export { F as Fonts } from './fonts-84085e3a.js';
 import _extends from '@babel/runtime/helpers/extends';
 import * as React from 'react';
 import React__default, { forwardRef, createElement, useLayoutEffect, useEffect, useId as useId$1, useState, useRef, useContext } from 'react';
@@ -12,7 +12,6 @@ import debounce from 'lodash/debounce';
 import _ColorPicker from 'react-best-gradient-color-picker';
 import ReactModal from 'react-modal';
 import Select$2 from 'react-select';
-export { Toaster } from 'react-hot-toast';
 
 const Colors = {
   blue: "#3F76CD",
