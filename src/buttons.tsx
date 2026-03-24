@@ -238,6 +238,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsInternal>(
   },
 );
 
+Button.displayName = "Button";
+
 export const ButtonPrimary: React.FC<ButtonProps> = (props) => (
   <Button {...props} Button={PrimaryButton} />
 );
@@ -249,6 +251,8 @@ export const ButtonDanger: React.FC<ButtonProps> = (props) => (
 export const ButtonSecondary = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => <Button {...props} Button={SecondaryButton} ref={ref} />,
 );
+
+ButtonSecondary.displayName = "ButtonSecondary";
 
 export type GhostButtonProps = ButtonProps & { noPadding?: boolean };
 
@@ -263,6 +267,9 @@ export const ButtonGhost = forwardRef<HTMLButtonElement, GhostButtonProps>(
     />
   ),
 );
+
+ButtonGhost.displayName = "ButtonGhost";
+
 export const ButtonGhostColor: React.FC<GhostButtonProps> = (props) => (
   <Button
     {...props}

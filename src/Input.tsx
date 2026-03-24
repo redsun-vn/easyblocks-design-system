@@ -146,6 +146,8 @@ const InputBase = forwardRef<
   return <StyledInput {...props} ref={ref} />;
 });
 
+InputBase.displayName = "InputBase";
+
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { iconBlack, controlSize, iconOnly, onBlur, value, ...inputProps } =
     props;
@@ -161,6 +163,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     </ControlContainer>
   );
 });
+
+Input.displayName = "Input";
 
 export const InputFile = forwardRef<
   HTMLInputElement,
@@ -211,6 +215,8 @@ export const InputFile = forwardRef<
     </StyledInputFileWrapper>
   );
 });
+
+InputFile.displayName = "InputFile";
 
 const debouncedSave = debounce((fn: () => void) => fn(), 400);
 
@@ -292,8 +298,12 @@ export const InputColor = forwardRef<HTMLInputElement, InputColorProps>(
   },
 );
 
+InputColor.displayName = "InputColor";
+
 export const InputRaw = forwardRef<HTMLInputElement, InputProps>(
   (props, ref) => {
     return <InputBase {...props} ref={ref} isRaw={true} />;
   },
 );
+
+InputRaw.displayName = "InputRaw";

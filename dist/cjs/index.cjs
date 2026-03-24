@@ -6526,6 +6526,7 @@ const Button = /*#__PURE__*/React.forwardRef((_ref, ref) => {
     }
   }, props.children) : null);
 });
+Button.displayName = "Button";
 const ButtonPrimary = props => /*#__PURE__*/React__default["default"].createElement(Button, _extends__default["default"]({}, props, {
   Button: PrimaryButton
 }));
@@ -6536,12 +6537,14 @@ const ButtonSecondary = /*#__PURE__*/React.forwardRef((props, ref) => /*#__PURE_
   Button: SecondaryButton,
   ref: ref
 })));
+ButtonSecondary.displayName = "ButtonSecondary";
 const ButtonGhost = /*#__PURE__*/React.forwardRef((props, ref) => /*#__PURE__*/React__default["default"].createElement(Button, _extends__default["default"]({}, props, {
   Button: GhostButton,
   isGhost: true,
   noPadding: props.noPadding,
   ref: ref
 })));
+ButtonGhost.displayName = "ButtonGhost";
 const ButtonGhostColor = props => /*#__PURE__*/React__default["default"].createElement(Button, _extends__default["default"]({}, props, {
   Button: GhostColorButton,
   isGhost: true,
@@ -6717,6 +6720,7 @@ const InputBase = /*#__PURE__*/React.forwardRef((props, ref) => {
     ref: ref
   }));
 });
+InputBase.displayName = "InputBase";
 const Input = /*#__PURE__*/React.forwardRef((props, ref) => {
   const {
     iconBlack,
@@ -6736,6 +6740,7 @@ const Input = /*#__PURE__*/React.forwardRef((props, ref) => {
     ref: ref
   })));
 });
+Input.displayName = "Input";
 const InputFile = /*#__PURE__*/React.forwardRef((props, ref) => {
   const id = React.useId();
   const inputId = props.id ?? id;
@@ -6761,6 +6766,7 @@ const InputFile = /*#__PURE__*/React.forwardRef((props, ref) => {
     size: 16
   }), props?.label ?? "Add or drop image")));
 });
+InputFile.displayName = "InputFile";
 const debouncedSave = debounce__default["default"](fn => fn(), 400);
 const ColorPicker = props => {
   const {
@@ -6831,12 +6837,14 @@ const InputColor = /*#__PURE__*/React.forwardRef((props, ref) => {
     onChange: onChange
   })) : null));
 });
+InputColor.displayName = "InputColor";
 const InputRaw = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React__default["default"].createElement(InputBase, _extends__default["default"]({}, props, {
     ref: ref,
     isRaw: true
   }));
 });
+InputRaw.displayName = "InputRaw";
 
 var ENTRY_FOCUS = "rovingFocusGroup.onEntryFocus";
 var EVENT_OPTIONS = { bubbles: false, cancelable: true };
@@ -8453,6 +8461,7 @@ const SelectItem = /*#__PURE__*/React.forwardRef((props, ref) => {
     style: props.style
   }, props.children));
 });
+SelectItem.displayName = "SelectItem";
 const StyledSeparator = styledComponents.styled(Separator$1).withConfig({
   displayName: "Select__StyledSeparator",
   componentId: "sc-1ehkd60-2"
@@ -9393,6 +9402,7 @@ const ToggleGroupItem = /*#__PURE__*/React.forwardRef(function ToggleGroupItem(_
     ref: forwardedRef
   }, props), children);
 });
+ToggleGroupItem.displayName = "ToggleGroupItem";
 
 exports.Fonts = fonts.Fonts;
 exports.BasicRow = BasicRow;

@@ -6495,6 +6495,7 @@ const Button = /*#__PURE__*/forwardRef((_ref, ref) => {
     }
   }, props.children) : null);
 });
+Button.displayName = "Button";
 const ButtonPrimary = props => /*#__PURE__*/React__default.createElement(Button, _extends({}, props, {
   Button: PrimaryButton
 }));
@@ -6505,12 +6506,14 @@ const ButtonSecondary = /*#__PURE__*/forwardRef((props, ref) => /*#__PURE__*/Rea
   Button: SecondaryButton,
   ref: ref
 })));
+ButtonSecondary.displayName = "ButtonSecondary";
 const ButtonGhost = /*#__PURE__*/forwardRef((props, ref) => /*#__PURE__*/React__default.createElement(Button, _extends({}, props, {
   Button: GhostButton,
   isGhost: true,
   noPadding: props.noPadding,
   ref: ref
 })));
+ButtonGhost.displayName = "ButtonGhost";
 const ButtonGhostColor = props => /*#__PURE__*/React__default.createElement(Button, _extends({}, props, {
   Button: GhostColorButton,
   isGhost: true,
@@ -6686,6 +6689,7 @@ const InputBase = /*#__PURE__*/forwardRef((props, ref) => {
     ref: ref
   }));
 });
+InputBase.displayName = "InputBase";
 const Input = /*#__PURE__*/forwardRef((props, ref) => {
   const {
     iconBlack,
@@ -6705,6 +6709,7 @@ const Input = /*#__PURE__*/forwardRef((props, ref) => {
     ref: ref
   })));
 });
+Input.displayName = "Input";
 const InputFile = /*#__PURE__*/forwardRef((props, ref) => {
   const id = useId$1();
   const inputId = props.id ?? id;
@@ -6730,6 +6735,7 @@ const InputFile = /*#__PURE__*/forwardRef((props, ref) => {
     size: 16
   }), props?.label ?? "Add or drop image")));
 });
+InputFile.displayName = "InputFile";
 const debouncedSave = debounce(fn => fn(), 400);
 const ColorPicker = props => {
   const {
@@ -6800,12 +6806,14 @@ const InputColor = /*#__PURE__*/forwardRef((props, ref) => {
     onChange: onChange
   })) : null));
 });
+InputColor.displayName = "InputColor";
 const InputRaw = /*#__PURE__*/forwardRef((props, ref) => {
   return /*#__PURE__*/React__default.createElement(InputBase, _extends({}, props, {
     ref: ref,
     isRaw: true
   }));
 });
+InputRaw.displayName = "InputRaw";
 
 var ENTRY_FOCUS = "rovingFocusGroup.onEntryFocus";
 var EVENT_OPTIONS = { bubbles: false, cancelable: true };
@@ -8422,6 +8430,7 @@ const SelectItem = /*#__PURE__*/forwardRef((props, ref) => {
     style: props.style
   }, props.children));
 });
+SelectItem.displayName = "SelectItem";
 const StyledSeparator = styled(Separator$1).withConfig({
   displayName: "Select__StyledSeparator",
   componentId: "sc-1ehkd60-2"
@@ -9362,5 +9371,6 @@ const ToggleGroupItem = /*#__PURE__*/forwardRef(function ToggleGroupItem(_ref, f
     ref: forwardedRef
   }, props), children);
 });
+ToggleGroupItem.displayName = "ToggleGroupItem";
 
 export { BasicRow, ButtonDanger, ButtonGhost, ButtonGhostColor, ButtonPrimary, ButtonSecondary, CheckIcon, ChevronDownIcon, ColorPicker, Colors, CustomComponentSymbol, FormElement, GlobalModalStyles, IconButtonPrimary, Icons, Input, InputColor, InputFile, InputRaw, Loader, Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, Modal, ModalBody, ModalContext, MultiSelect, NavigationController, Content2$3 as RadixSelectContent, Icon as RadixSelectIcon, Item$1 as RadixSelectItem, ItemIndicator$1 as RadixSelectItemIndicator, ItemText as RadixSelectItemText, Portal$2 as RadixSelectPortal, Root2$3 as RadixSelectRoot, Separator$1 as RadixSelectSeparator, Trigger$3 as RadixSelectTrigger, Value as RadixSelectValue, Viewport as RadixSelectViewport, RangeSlider, Select, SelectInline, SelectItem, SelectSeparator, ShopstoryIcon, ShopstoryLogo, SimplePicker, Stack, Tab, TabList, TabPanel, Tabs, ThumbnailButton, Toggle$1 as Toggle, ToggleButton, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, Typography };

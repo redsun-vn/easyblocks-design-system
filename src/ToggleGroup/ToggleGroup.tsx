@@ -64,4 +64,6 @@ const ToggleGroupItem = forwardRef<
   );
 });
 
+ToggleGroupItem.displayName = "ToggleGroupItem";
+
 export { ToggleGroup, ToggleGroupItem };

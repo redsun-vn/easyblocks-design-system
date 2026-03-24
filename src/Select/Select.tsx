@@ -142,6 +142,8 @@ const SelectItem = forwardRef<
   );
 });
 
+SelectItem.displayName = "SelectItem";
+
 const StyledSeparator = styled(RadixSelect.Separator)`
   height: 1px;
   margin: 4px;
