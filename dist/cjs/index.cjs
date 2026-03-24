@@ -3,6 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var styledComponents = require('styled-components');
+var Toaster = require('./Toaster-39af02d0.js');
 var _extends = require('@babel/runtime/helpers/extends');
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -43,7 +44,6 @@ var debounce__default = /*#__PURE__*/_interopDefaultLegacy(debounce);
 var _ColorPicker__default = /*#__PURE__*/_interopDefaultLegacy(_ColorPicker);
 var ReactModal__default = /*#__PURE__*/_interopDefaultLegacy(ReactModal);
 var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select$2);
-var toast__default = /*#__PURE__*/_interopDefaultLegacy(toast);
 
 const Colors = {
   blue: "#3F76CD",
@@ -72,54 +72,6 @@ const CustomComponentSymbol = styledComponents.styled.div.withConfig({
   displayName: "CustomComponentSymbol",
   componentId: "sc-1b4wdw-0"
 })(["width:", "px;height:", "px;background:", ";transform:rotate(45deg);"], p => p.size ?? DEFAULT_SIZE, p => p.size ?? DEFAULT_SIZE, Colors.purple);
-
-const mainFont = `"Roboto,sans-serif",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`;
-const fontVariationSettings = `'opsz' 21`;
-const Fonts = {
-  bodyLarge: {
-    fontFamily: mainFont,
-    fontVariationSettings,
-    fontSize: 18,
-    fontWeight: 400,
-    lineHeight: 1.2
-  },
-  body: {
-    fontFamily: mainFont,
-    fontVariationSettings,
-    fontSize: 12,
-    fontWeight: 400,
-    lineHeight: 1.15
-  },
-  body4: {
-    fontFamily: mainFont,
-    fontVariationSettings,
-    fontSize: 11,
-    fontWeight: 400,
-    lineHeight: 1.15
-  },
-  label: {
-    fontFamily: mainFont,
-    fontVariationSettings,
-    fontSize: 12,
-    fontWeight: 600,
-    lineHeight: 1.15
-  },
-  label2: {
-    fontFamily: mainFont,
-    fontVariationSettings,
-    fontSize: 10,
-    fontWeight: 600,
-    lineHeight: 1.15
-  },
-  label3: {
-    fontFamily: mainFont,
-    fontVariationSettings,
-    fontSize: 9,
-    fontWeight: 600,
-    letterSpacing: "0.05em",
-    lineHeight: 1.15
-  }
-};
 
 const IconContainer$1 = styledComponents.styled.div.withConfig({
   shouldForwardProp(prop) {
@@ -941,7 +893,7 @@ const TypographyRoot = styledComponents.styled.div.withConfig({
   let {
     variant
   } = _ref3;
-  return Fonts[variant];
+  return Toaster.Fonts[variant];
 }, _ref4 => {
   let {
     align
@@ -6472,7 +6424,7 @@ function TooltipContent(props) {
   }), props.children));
 }
 
-const sharedCSS = p => styledComponents.css(["", ";border:none;outline:none;height:", ";", " border-radius:6px;line-height:1;transition:all 0.1s;display:flex;flex-direction:row;gap:6px;justify-content:center;align-items:center;&:disabled{cursor:default;pointer-events:none;opacity:0.3;}"], Fonts.body, p.height !== undefined ? p.height : p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px", p.hideLabel ? `
+const sharedCSS = p => styledComponents.css(["", ";border:none;outline:none;height:", ";", " border-radius:6px;line-height:1;transition:all 0.1s;display:flex;flex-direction:row;gap:6px;justify-content:center;align-items:center;&:disabled{cursor:default;pointer-events:none;opacity:0.3;}"], Toaster.Fonts.body, p.height !== undefined ? p.height : p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px", p.hideLabel ? `
     width: ${p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px"};
   ` : `
     padding-left: ${p.isGhost ? p.noPadding ? "0px" : "6px" : "10px"};
@@ -6571,7 +6523,7 @@ const Button = /*#__PURE__*/React.forwardRef((_ref, ref) => {
     ref: ref
   }), enhancer, !props.hideLabel && props.children)), showTooltip && props.children ? /*#__PURE__*/React__default["default"].createElement(TooltipContent, {
     style: {
-      ...Fonts.body
+      ...Toaster.Fonts.body
     }
   }, props.children) : null);
 });
@@ -6621,7 +6573,7 @@ const Layout = styledComponents.styled.div.withConfig({
 const Label$1 = styledComponents.styled.label.withConfig({
   displayName: "FormElement__Label",
   componentId: "sc-11sxp3-2"
-})(["", " color:black;flex:0 0 120px;min-width:0;"], Fonts.body);
+})(["", " color:black;flex:0 0 120px;min-width:0;"], Toaster.Fonts.body);
 const ControlWrapper = styledComponents.styled.div.withConfig({
   displayName: "FormElement__ControlWrapper",
   componentId: "sc-11sxp3-3"
@@ -6629,7 +6581,7 @@ const ControlWrapper = styledComponents.styled.div.withConfig({
 const ErrorWrapper = styledComponents.styled.div.withConfig({
   displayName: "FormElement__ErrorWrapper",
   componentId: "sc-11sxp3-4"
-})(["margin-top:6px;", " color:", ";"], Fonts.body, Colors.red);
+})(["margin-top:6px;", " color:", ";"], Toaster.Fonts.body, Colors.red);
 const FormElement = props => {
   return /*#__PURE__*/React__default["default"].createElement(Root$6, null, /*#__PURE__*/React__default["default"].createElement(Layout, {
     position: props?.position
@@ -6692,7 +6644,7 @@ const Root$5 = styledComponents.styled.div.withConfig({
         `;
     }
   }
-}, p => p.hasError ? Colors.red : Colors.focus, Fonts.body);
+}, p => p.hasError ? Colors.red : Colors.focus, Toaster.Fonts.body);
 const IconContainer = styledComponents.styled.div.withConfig({
   displayName: "ControlContainer__IconContainer",
   componentId: "sc-1i70r11-1"
@@ -6714,7 +6666,7 @@ function getControlPadding() {
 const StyledInput = styledComponents.styled.input.withConfig({
   displayName: "Input__StyledInput",
   componentId: "sc-1nyhv3t-0"
-})(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration{display:none;}", " ", ";"], p => !p.isRaw && getControlPadding(), Fonts.body);
+})(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration{display:none;}", " ", ";"], p => !p.isRaw && getControlPadding(), Toaster.Fonts.body);
 const StyledInputColorContainer = styledComponents.styled.div.withConfig({
   displayName: "Input__StyledInputColorContainer",
   componentId: "sc-1nyhv3t-1"
@@ -6760,7 +6712,7 @@ const StyledInputFileCloseIcon = styledComponents.styled.div.withConfig({
 const StyledInputLabel = styledComponents.styled.label.withConfig({
   displayName: "Input__StyledInputLabel",
   componentId: "sc-1nyhv3t-9"
-})(["display:flex;align-items:center;justify-content:center;gap:8px;height:100%;border:1px dashed ", ";cursor:pointer;color:", ";", ";"], Colors.blue50, Colors.blue50, Fonts.body);
+})(["display:flex;align-items:center;justify-content:center;gap:8px;height:100%;border:1px dashed ", ";cursor:pointer;color:", ";", ";"], Colors.blue50, Colors.blue50, Toaster.Fonts.body);
 const InputBase = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React__default["default"].createElement(StyledInput, _extends__default["default"]({}, props, {
     ref: ref
@@ -8169,11 +8121,11 @@ const TitleHeader = styledComponents.styled.div.withConfig({
 const TitleHeaderLabel = styledComponents.styled.div.withConfig({
   displayName: "Modal__TitleHeaderLabel",
   componentId: "sc-wv205r-6"
-})(["white-space:nowrap;", ";"], Fonts.label);
+})(["white-space:nowrap;", ";"], Toaster.Fonts.label);
 const HeaderLetter = styledComponents.styled.div.withConfig({
   displayName: "Modal__HeaderLetter",
   componentId: "sc-wv205r-7"
-})(["width:24px;height:24px;border-radius:4px;background-color:", ";", ";display:flex;justify-content:center;align-items:center;"], Colors.black10, Fonts.label3);
+})(["width:24px;height:24px;border-radius:4px;background-color:", ";", ";display:flex;justify-content:center;align-items:center;"], Colors.black10, Toaster.Fonts.label3);
 const ModalBody = _ref => {
   let {
     onRequestClose,
@@ -8323,7 +8275,7 @@ function MultiSelect() {
       // @ts-ignore
       container: (baseStyles, state) => ({
         ...baseStyles,
-        ...Fonts.body
+        ...Toaster.Fonts.body
       }),
       // @ts-ignore
       control: (baseStyles, state) => {
@@ -8423,11 +8375,11 @@ const DescriptionContainer = styledComponents.styled.div.withConfig({
 const Title = styledComponents.styled.div.withConfig({
   displayName: "BasicRow__Title",
   componentId: "sc-1ifay80-6"
-})(["", ";color:", ";"], Fonts.label, p => p.custom ? Colors.purple : "black");
+})(["", ";color:", ";"], Toaster.Fonts.label, p => p.custom ? Colors.purple : "black");
 const Description = styledComponents.styled.div.withConfig({
   displayName: "BasicRow__Description",
   componentId: "sc-1ifay80-7"
-})(["", ";color:", ";line-height:1;"], p => p.tinyDescription ? Fonts.body4 : Fonts.body, p => p.custom ? Colors.purple : Colors.black40);
+})(["", ";color:", ";line-height:1;"], p => p.tinyDescription ? Toaster.Fonts.body4 : Toaster.Fonts.body, p => p.custom ? Colors.purple : Colors.black40);
 const EditContainer = styledComponents.styled.div.withConfig({
   displayName: "BasicRow__EditContainer",
   componentId: "sc-1ifay80-8"
@@ -8459,7 +8411,7 @@ const BasicRow = props => {
 const SelectTrigger = styledComponents.styled(Trigger$3).withConfig({
   displayName: "Select__SelectTrigger",
   componentId: "sc-1ehkd60-0"
-})(["all:unset;display:flex;align-items:center;", ";display:flex;gap:4px;max-width:100%;box-sizing:border-box;height:28px;padding:0 2px 0 6px;border-radius:2px;@media (hover:hover){&:hover{box-shadow:0 0 0 1px ", ";}}"], Fonts.body, Colors.black10);
+})(["all:unset;display:flex;align-items:center;", ";display:flex;gap:4px;max-width:100%;box-sizing:border-box;height:28px;padding:0 2px 0 6px;border-radius:2px;@media (hover:hover){&:hover{box-shadow:0 0 0 1px ", ";}}"], Toaster.Fonts.body, Colors.black10);
 function Select(props) {
   return /*#__PURE__*/React__default["default"].createElement(Root2$3, {
     value: props.value,
@@ -8490,7 +8442,7 @@ function Select(props) {
 const SelectItemWrapper = styledComponents.styled(Item$1).withConfig({
   displayName: "Select__SelectItemWrapper",
   componentId: "sc-1ehkd60-1"
-})(["display:flex;align-items:center;gap:6px;box-sizing:border-box;min-height:28px;padding:0 6px;", ";color:#000;background:#fff;outline:none;&[data-state=\"unchecked\"]{padding-left:calc(6px + 15px + 6px);}&[data-highlighted]{background:#daeafd;}@media (hover:hover){cursor:pointer;}"], Fonts.body);
+})(["display:flex;align-items:center;gap:6px;box-sizing:border-box;min-height:28px;padding:0 6px;", ";color:#000;background:#fff;outline:none;&[data-state=\"unchecked\"]{padding-left:calc(6px + 15px + 6px);}&[data-highlighted]{background:#daeafd;}@media (hover:hover){cursor:pointer;}"], Toaster.Fonts.body);
 const SelectItem = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React__default["default"].createElement(SelectItemWrapper, {
     value: props.value,
@@ -8851,7 +8803,7 @@ function ItemPickerModal(_ref3) {
 const ErrorMessage = styledComponents.styled.div.withConfig({
   displayName: "SimplePicker__ErrorMessage",
   componentId: "sc-hh69hi-2"
-})(["word-break:break-all;white-space:normal;margin-left:4px;", " color:", ";"], Fonts.body, Colors.black40);
+})(["word-break:break-all;white-space:normal;margin-left:4px;", " color:", ";"], Toaster.Fonts.body, Colors.black40);
 const LoadingContainer = styledComponents.styled.div.withConfig({
   displayName: "SimplePicker__LoadingContainer",
   componentId: "sc-hh69hi-3"
@@ -8881,7 +8833,7 @@ const LoadingIndicator = styledComponents.styled.div.withConfig({
 const NoResults = styledComponents.styled.div.withConfig({
   displayName: "SimplePicker__NoResults",
   componentId: "sc-hh69hi-8"
-})(["display:grid;place-items:center;height:48px;padding:12px;", ";"], Fonts.body);
+})(["display:grid;place-items:center;height:48px;padding:12px;", ";"], Toaster.Fonts.body);
 const loadingIcon = /*#__PURE__*/React__default["default"].createElement("svg", {
   width: "1em",
   height: "1em",
@@ -9135,32 +9087,6 @@ function TabPanel(props) {
   return /*#__PURE__*/React__default["default"].createElement(TabsContent, {
     value: props.value
   }, props.children);
-}
-
-function useToaster() {
-  const style = {
-    borderRadius: "4px",
-    ...Fonts.body
-  };
-  return {
-    notify: message => {
-      toast__default["default"](message, {
-        style
-      });
-    },
-    success: function (message) {
-      let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      toast__default["default"].success(message, {
-        style,
-        duration: options.duration
-      });
-    },
-    error: message => {
-      toast__default["default"].error(message, {
-        style
-      });
-    }
-  };
 }
 
 const Toggle$1 = props => {
@@ -9469,6 +9395,8 @@ const ToggleGroupItem = /*#__PURE__*/React.forwardRef(function ToggleGroupItem(_
   }, props), children);
 });
 
+exports.Fonts = Toaster.Fonts;
+exports.useToaster = Toaster.useToaster;
 Object.defineProperty(exports, 'Toaster', {
   enumerable: true,
   get: function () { return toast.Toaster; }
@@ -9484,7 +9412,6 @@ exports.ChevronDownIcon = ChevronDownIcon;
 exports.ColorPicker = ColorPicker;
 exports.Colors = Colors;
 exports.CustomComponentSymbol = CustomComponentSymbol;
-exports.Fonts = Fonts;
 exports.FormElement = FormElement;
 exports.GlobalModalStyles = GlobalModalStyles;
 exports.IconButtonPrimary = IconButtonPrimary;
@@ -9538,4 +9465,3 @@ exports.TooltipContent = TooltipContent;
 exports.TooltipProvider = TooltipProvider;
 exports.TooltipTrigger = TooltipTrigger;
 exports.Typography = Typography;
-exports.useToaster = useToaster;

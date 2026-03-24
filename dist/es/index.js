@@ -1,4 +1,6 @@
 import { styled, css, keyframes, createGlobalStyle } from 'styled-components';
+import { F as Fonts } from './Toaster-8e932c19.js';
+export { F as Fonts, u as useToaster } from './Toaster-8e932c19.js';
 import _extends from '@babel/runtime/helpers/extends';
 import * as React from 'react';
 import React__default, { forwardRef, createElement, useLayoutEffect, useEffect, useId as useId$1, useState, useRef, useContext } from 'react';
@@ -10,7 +12,6 @@ import debounce from 'lodash/debounce';
 import _ColorPicker from 'react-best-gradient-color-picker';
 import ReactModal from 'react-modal';
 import Select$2 from 'react-select';
-import toast from 'react-hot-toast';
 export { Toaster } from 'react-hot-toast';
 
 const Colors = {
@@ -40,54 +41,6 @@ const CustomComponentSymbol = styled.div.withConfig({
   displayName: "CustomComponentSymbol",
   componentId: "sc-1b4wdw-0"
 })(["width:", "px;height:", "px;background:", ";transform:rotate(45deg);"], p => p.size ?? DEFAULT_SIZE, p => p.size ?? DEFAULT_SIZE, Colors.purple);
-
-const mainFont = `"Roboto,sans-serif",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`;
-const fontVariationSettings = `'opsz' 21`;
-const Fonts = {
-  bodyLarge: {
-    fontFamily: mainFont,
-    fontVariationSettings,
-    fontSize: 18,
-    fontWeight: 400,
-    lineHeight: 1.2
-  },
-  body: {
-    fontFamily: mainFont,
-    fontVariationSettings,
-    fontSize: 12,
-    fontWeight: 400,
-    lineHeight: 1.15
-  },
-  body4: {
-    fontFamily: mainFont,
-    fontVariationSettings,
-    fontSize: 11,
-    fontWeight: 400,
-    lineHeight: 1.15
-  },
-  label: {
-    fontFamily: mainFont,
-    fontVariationSettings,
-    fontSize: 12,
-    fontWeight: 600,
-    lineHeight: 1.15
-  },
-  label2: {
-    fontFamily: mainFont,
-    fontVariationSettings,
-    fontSize: 10,
-    fontWeight: 600,
-    lineHeight: 1.15
-  },
-  label3: {
-    fontFamily: mainFont,
-    fontVariationSettings,
-    fontSize: 9,
-    fontWeight: 600,
-    letterSpacing: "0.05em",
-    lineHeight: 1.15
-  }
-};
 
 const IconContainer$1 = styled.div.withConfig({
   shouldForwardProp(prop) {
@@ -9105,32 +9058,6 @@ function TabPanel(props) {
   }, props.children);
 }
 
-function useToaster() {
-  const style = {
-    borderRadius: "4px",
-    ...Fonts.body
-  };
-  return {
-    notify: message => {
-      toast(message, {
-        style
-      });
-    },
-    success: function (message) {
-      let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      toast.success(message, {
-        style,
-        duration: options.duration
-      });
-    },
-    error: message => {
-      toast.error(message, {
-        style
-      });
-    }
-  };
-}
-
 const Toggle$1 = props => {
   const [internalChecked, setInternalChecked] = useState(props.checked ?? false);
   const checked = props.checked === undefined ? internalChecked : props.checked;
@@ -9437,4 +9364,4 @@ const ToggleGroupItem = /*#__PURE__*/forwardRef(function ToggleGroupItem(_ref, f
   }, props), children);
 });
 
-export { BasicRow, ButtonDanger, ButtonGhost, ButtonGhostColor, ButtonPrimary, ButtonSecondary, CheckIcon, ChevronDownIcon, ColorPicker, Colors, CustomComponentSymbol, Fonts, FormElement, GlobalModalStyles, IconButtonPrimary, Icons, Input, InputColor, InputFile, InputRaw, Loader, Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, Modal, ModalBody, ModalContext, MultiSelect, NavigationController, Content2$3 as RadixSelectContent, Icon as RadixSelectIcon, Item$1 as RadixSelectItem, ItemIndicator$1 as RadixSelectItemIndicator, ItemText as RadixSelectItemText, Portal$2 as RadixSelectPortal, Root2$3 as RadixSelectRoot, Separator$1 as RadixSelectSeparator, Trigger$3 as RadixSelectTrigger, Value as RadixSelectValue, Viewport as RadixSelectViewport, RangeSlider, Select, SelectInline, SelectItem, SelectSeparator, ShopstoryIcon, ShopstoryLogo, SimplePicker, Stack, Tab, TabList, TabPanel, Tabs, ThumbnailButton, Toggle$1 as Toggle, ToggleButton, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, Typography, useToaster };
+export { BasicRow, ButtonDanger, ButtonGhost, ButtonGhostColor, ButtonPrimary, ButtonSecondary, CheckIcon, ChevronDownIcon, ColorPicker, Colors, CustomComponentSymbol, FormElement, GlobalModalStyles, IconButtonPrimary, Icons, Input, InputColor, InputFile, InputRaw, Loader, Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger, Modal, ModalBody, ModalContext, MultiSelect, NavigationController, Content2$3 as RadixSelectContent, Icon as RadixSelectIcon, Item$1 as RadixSelectItem, ItemIndicator$1 as RadixSelectItemIndicator, ItemText as RadixSelectItemText, Portal$2 as RadixSelectPortal, Root2$3 as RadixSelectRoot, Separator$1 as RadixSelectSeparator, Trigger$3 as RadixSelectTrigger, Value as RadixSelectValue, Viewport as RadixSelectViewport, RangeSlider, Select, SelectInline, SelectItem, SelectSeparator, ShopstoryIcon, ShopstoryLogo, SimplePicker, Stack, Tab, TabList, TabPanel, Tabs, ThumbnailButton, Toggle$1 as Toggle, ToggleButton, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, Typography };

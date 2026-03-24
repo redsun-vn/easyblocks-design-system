@@ -10,6 +10,11 @@
       "types": "./dist/types/index.d.ts",
       "import": "./dist/es/index.js",
       "require": "./dist/cjs/index.cjs"
+    },
+    "./Toaster": {
+      "types": "./dist/types/Toaster.d.ts",
+      "import": "./dist/es/Toaster.js",
+      "require": "./dist/cjs/Toaster.cjs"
     }
   },
   "sideEffects": false,
