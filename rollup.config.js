@@ -129,7 +129,7 @@ function createRollupConfigs({
 }
 
 export default createRollupConfigs({
-  inputFile: ["src/index.ts", "src/Toaster.tsx"],
+  inputFile: ["src/index.ts", "src/Toaster.tsx", "src/Tooltip/Tooltip.tsx"],
   baseOutputDir: "dist",
   baseStatOutputDir: "stats",
 });

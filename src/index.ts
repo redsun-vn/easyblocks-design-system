@@ -45,9 +45,3 @@ export * from "./ThumbnailButton";
 export * from "./Toggle";
 export * from "./ToggleButton";
 export { ToggleGroup, ToggleGroupItem } from "./ToggleGroup/ToggleGroup";
-export {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "./Tooltip/Tooltip";

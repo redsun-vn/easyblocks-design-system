@@ -1,23 +1,30 @@
-import * as RadixTooltip from "@radix-ui/react-tooltip";
+import {
+  Provider,
+  Root,
+  Trigger,
+  Portal,
+  Content,
+  Arrow,
+} from "@radix-ui/react-tooltip";
 import React, { CSSProperties, ReactNode } from "react";
 import { Colors } from "../colors";
 
 function TooltipProvider(props: { children: ReactNode }) {
-  return <RadixTooltip.Provider>{props.children}</RadixTooltip.Provider>;
+  return <Provider>{props.children}</Provider>;
 }
 
 function Tooltip(props: { children: ReactNode }) {
-  return <RadixTooltip.Root>{props.children}</RadixTooltip.Root>;
+  return <Root>{props.children}</Root>;
 }
 
 function TooltipTrigger(props: { children: ReactNode }) {
-  return <RadixTooltip.Trigger asChild>{props.children}</RadixTooltip.Trigger>;
+  return <Trigger asChild>{props.children}</Trigger>;
 }
 
 function TooltipContent(props: { children: ReactNode; style?: CSSProperties }) {
   return (
-    <RadixTooltip.Portal>
-      <RadixTooltip.Content
+    <Portal>
+      <Content
         style={{
           display: "flex",
           padding: "6px 8px",
@@ -29,14 +36,14 @@ function TooltipContent(props: { children: ReactNode; style?: CSSProperties }) {
           ...props?.style,
         }}
       >
-        <RadixTooltip.Arrow
+        <Arrow
           style={{
             fill: Colors.black800,
           }}
         />
         {props.children}
-      </RadixTooltip.Content>
-    </RadixTooltip.Portal>
+      </Content>
+    </Portal>
   );
 }
 

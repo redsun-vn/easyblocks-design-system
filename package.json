@@ -15,6 +15,11 @@
       "types": "./dist/types/Toaster.d.ts",
       "import": "./dist/es/Toaster.js",
       "require": "./dist/cjs/Toaster.cjs"
+    },
+    "./Tooltip": {
+      "types": "./dist/types/Tooltip.d.ts",
+      "import": "./dist/es/Tooltip.js",
+      "require": "./dist/cjs/Tooltip.cjs"
     }
   },
   "sideEffects": false,
