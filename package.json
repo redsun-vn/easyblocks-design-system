@@ -17,7 +17,7 @@
       "require": "./dist/cjs/Toaster.cjs"
     },
     "./Tooltip": {
-      "types": "./dist/types/Tooltip.d.ts",
+      "types": "./dist/types/Tooltip/Tooltip.d.ts",
       "import": "./dist/es/Tooltip.js",
       "require": "./dist/cjs/Tooltip.cjs"
     }
