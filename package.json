@@ -11,15 +11,140 @@
       "import": "./dist/es/index.js",
       "require": "./dist/cjs/index.cjs"
     },
+    "./buttons": {
+      "types": "./dist/types/buttons.d.ts",
+      "import": "./dist/es/buttons.js",
+      "require": "./dist/cjs/buttons.cjs"
+    },
+    "./icons": {
+      "types": "./dist/types/icons.d.ts",
+      "import": "./dist/es/icons.js",
+      "require": "./dist/cjs/icons.cjs"
+    },
+    "./modals": {
+      "types": "./dist/types/modals/Modal.d.ts",
+      "import": "./dist/es/Modal.js",
+      "require": "./dist/cjs/Modal.cjs"
+    },
+    "./rows": {
+      "types": "./dist/types/rows/BasicRow.d.ts",
+      "import": "./dist/es/BasicRow.js",
+      "require": "./dist/cjs/BasicRow.cjs"
+    },
+    "./radix-ui/ReactIcons": {
+      "types": "./dist/types/radix-ui/ReactIcons.d.ts",
+      "import": "./dist/es/ReactIcons.js",
+      "require": "./dist/cjs/ReactIcons.cjs"
+    },
+    "./radix-ui/ReactSelect": {
+      "types": "./dist/types/radix-ui/ReactSelect.d.ts",
+      "import": "./dist/es/ReactSelect.js",
+      "require": "./dist/cjs/ReactSelect.cjs"
+    },
+    "./CustomComponentSymbol": {
+      "types": "./dist/types/CustomComponentSymbol.d.ts",
+      "import": "./dist/es/CustomComponentSymbol.js",
+      "require": "./dist/cjs/CustomComponentSymbol.cjs"
+    },
+    "./FormElement": {
+      "types": "./dist/types/FormElement.d.ts",
+      "import": "./dist/es/FormElement.js",
+      "require": "./dist/cjs/FormElement.cjs"
+    },
+    "./Input": {
+      "types": "./dist/types/Input.d.ts",
+      "import": "./dist/es/Input.js",
+      "require": "./dist/cjs/Input.cjs"
+    },
+    "./Loader": {
+      "types": "./dist/types/Loader.d.ts",
+      "import": "./dist/es/Loader.js",
+      "require": "./dist/cjs/Loader.cjs"
+    },
+    "./Menu": {
+      "types": "./dist/types/Menu.d.ts",
+      "import": "./dist/es/Menu.js",
+      "require": "./dist/cjs/Menu.cjs"
+    },
+    "./MultiSelect": {
+      "types": "./dist/types/MultiSelect.d.ts",
+      "import": "./dist/es/MultiSelect.js",
+      "require": "./dist/cjs/MultiSelect.cjs"
+    },
+    "./NavigationController": {
+      "types": "./dist/types/NavigationController/NavigationController.d.ts",
+      "import": "./dist/es/NavigationController.js",
+      "require": "./dist/cjs/NavigationController.cjs"
+    },
+    "./Select": {
+      "types": "./dist/types/Select/Select.d.ts",
+      "import": "./dist/es/Select.js",
+      "require": "./dist/cjs/Select.cjs"
+    },
+    "./ShopstoryIcon": {
+      "types": "./dist/types/ShopstoryIcon.d.ts",
+      "import": "./dist/es/ShopstoryIcon.js",
+      "require": "./dist/cjs/ShopstoryIcon.cjs"
+    },
+    "./ShopstoryLogo": {
+      "types": "./dist/types/ShopstoryLogo.d.ts",
+      "import": "./dist/es/ShopstoryLogo.js",
+      "require": "./dist/cjs/ShopstoryLogo.cjs"
+    },
+    "./SimplePicker": {
+      "types": "./dist/types/SimplePicker.d.ts",
+      "import": "./dist/es/SimplePicker.js",
+      "require": "./dist/cjs/SimplePicker.cjs"
+    },
+    "./Slider": {
+      "types": "./dist/types/Slider.d.ts",
+      "import": "./dist/es/Slider.js",
+      "require": "./dist/cjs/Slider.cjs"
+    },
+    "./Stack": {
+      "types": "./dist/types/Stack.d.ts",
+      "import": "./dist/es/Stack.js",
+      "require": "./dist/cjs/Stack.cjs"
+    },
+    "./Tabs": {
+      "types": "./dist/types/Tabs.d.ts",
+      "import": "./dist/es/Tabs.js",
+      "require": "./dist/cjs/Tabs.cjs"
+    },
+    "./ThumbnailButton": {
+      "types": "./dist/types/ThumbnailButton.d.ts",
+      "import": "./dist/es/ThumbnailButton.js",
+      "require": "./dist/cjs/ThumbnailButton.cjs"
+    },
     "./Toaster": {
       "types": "./dist/types/Toaster.d.ts",
       "import": "./dist/es/Toaster.js",
       "require": "./dist/cjs/Toaster.cjs"
     },
+    "./Toggle": {
+      "types": "./dist/types/Toggle.d.ts",
+      "import": "./dist/es/Toggle.js",
+      "require": "./dist/cjs/Toggle.cjs"
+    },
+    "./ToggleButton": {
+      "types": "./dist/types/ToggleButton.d.ts",
+      "import": "./dist/es/ToggleButton.js",
+      "require": "./dist/cjs/ToggleButton.cjs"
+    },
+    "./ToggleGroup": {
+      "types": "./dist/types/ToggleGroup/ToggleGroup.d.ts",
+      "import": "./dist/es/ToggleGroup.js",
+      "require": "./dist/cjs/ToggleGroup.cjs"
+    },
     "./Tooltip": {
       "types": "./dist/types/Tooltip/Tooltip.d.ts",
       "import": "./dist/es/Tooltip.js",
       "require": "./dist/cjs/Tooltip.cjs"
+    },
+    "./Typography": {
+      "types": "./dist/types/Typography.d.ts",
+      "import": "./dist/es/Typography.js",
+      "require": "./dist/cjs/Typography.cjs"
     }
   },
   "sideEffects": false,
