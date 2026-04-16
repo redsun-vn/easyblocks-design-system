@@ -9,7 +9,7 @@ import { C as Colors } from './colors-b56a153c.js';
 import { Typography } from './Typography.js';
 import { styled } from 'styled-components';
 import 'react-dom';
-import '@babel/runtime/helpers/extends';
+import './_rollupPluginBabelHelpers-c245b26a.js';
 import './fonts-84085e3a.js';
 
 var TABS_NAME = "Tabs";

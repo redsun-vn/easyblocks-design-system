@@ -12,7 +12,7 @@ var colors = require('./colors-807b489d.js');
 var Typography = require('./Typography.cjs');
 var styledComponents = require('styled-components');
 require('react-dom');
-require('@babel/runtime/helpers/extends');
+require('./_rollupPluginBabelHelpers-4b342fad.js');
 require('./fonts-c2bffa19.js');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }

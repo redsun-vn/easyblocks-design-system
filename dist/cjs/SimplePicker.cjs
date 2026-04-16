@@ -10,9 +10,9 @@ var colors = require('./colors-807b489d.js');
 var icons = require('./icons.cjs');
 var fonts = require('./fonts-c2bffa19.js');
 var styledComponents = require('styled-components');
-var debounce = require('lodash/debounce');
+var Input = require('./Input-88733bba.js');
 var ThumbnailButton = require('./ThumbnailButton.cjs');
-require('@babel/runtime/helpers/extends');
+require('./_rollupPluginBabelHelpers-4b342fad.js');
 require('./Loader.cjs');
 require('./Tooltip.cjs');
 require('./index-e658c804.js');
@@ -22,16 +22,14 @@ require('./index-8160a594.js');
 require('./index-004169c7.js');
 require('./index-d3e89138.js');
 require('./CustomComponentSymbol.cjs');
-require('./Input.cjs');
-require('react-best-gradient-color-picker');
-require('./ControlContainer-c656a45d.js');
 require('react-modal');
+require('react-best-gradient-color-picker');
+require('./ControlContainer-eeaacf1a.js');
 require('./Typography.cjs');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
-var debounce__default = /*#__PURE__*/_interopDefaultLegacy(debounce);
 
 function SimplePicker(_ref) {
   let {
@@ -183,7 +181,7 @@ function ItemPickerModal(_ref3) {
   React.useEffect(() => {
     let loadingTimeoutId;
     let isCanceled = false;
-    const debouncedGetProducts = debounce__default["default"](query => {
+    const debouncedGetProducts = Input.debounce(query => {
       loadingTimeoutId = window.setTimeout(() => {
         setGetProductsRequest({
           status: "loading",

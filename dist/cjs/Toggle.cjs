@@ -2,14 +2,13 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var _extends = require('@babel/runtime/helpers/extends');
+var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
 var styledComponents = require('styled-components');
 var colors = require('./colors-807b489d.js');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var _extends__default = /*#__PURE__*/_interopDefaultLegacy(_extends);
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
 const Toggle = props => {
@@ -19,7 +18,7 @@ const Toggle = props => {
     ...inputProps
   } = props;
   const name = inputProps.name;
-  return /*#__PURE__*/React__default["default"].createElement(ToggleWrap, null, /*#__PURE__*/React__default["default"].createElement(ToggleElement, null, /*#__PURE__*/React__default["default"].createElement(ToggleInput, _extends__default["default"]({
+  return /*#__PURE__*/React__default["default"].createElement(ToggleWrap, null, /*#__PURE__*/React__default["default"].createElement(ToggleElement, null, /*#__PURE__*/React__default["default"].createElement(ToggleInput, _rollupPluginBabelHelpers._extends({
     id: name,
     type: "checkbox"
   }, inputProps, {

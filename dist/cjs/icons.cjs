@@ -2,13 +2,12 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var _extends = require('@babel/runtime/helpers/extends');
+var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
 var styledComponents = require('styled-components');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var _extends__default = /*#__PURE__*/_interopDefaultLegacy(_extends);
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
 const IconContainer = styledComponents.styled.div.withConfig({
@@ -41,7 +40,7 @@ const IconContainer = styledComponents.styled.div.withConfig({
 function createIcon(svg) {
   let isStroke = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   return props => {
-    return /*#__PURE__*/React__default["default"].createElement(IconContainer, _extends__default["default"]({}, props, {
+    return /*#__PURE__*/React__default["default"].createElement(IconContainer, _rollupPluginBabelHelpers._extends({}, props, {
       isStroke: isStroke
     }), svg);
   };

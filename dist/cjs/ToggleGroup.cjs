@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var _extends = require('@babel/runtime/helpers/extends');
+var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
 var styledComponents = require('styled-components');
 var index = require('./index-e658c804.js');
@@ -32,7 +32,6 @@ function _interopNamespace(e) {
   return Object.freeze(n);
 }
 
-var _extends__default = /*#__PURE__*/_interopDefaultLegacy(_extends);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
@@ -241,7 +240,7 @@ const ToggleGroupItem = /*#__PURE__*/React.forwardRef(function ToggleGroupItem(_
     children,
     ...props
   } = _ref;
-  return /*#__PURE__*/React__default["default"].createElement(StyledToggleGroupItem, _extends__default["default"]({
+  return /*#__PURE__*/React__default["default"].createElement(StyledToggleGroupItem, _rollupPluginBabelHelpers._extends({
     value: value,
     ref: forwardedRef
   }, props), children);

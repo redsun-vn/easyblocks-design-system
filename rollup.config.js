@@ -20,7 +20,7 @@ const getPlugins = (stat, isFullBundle = false) => {
       configFile: "./.babelrc.json",
       extensions,
       exclude: [/(node_modules|(editor|compiler)\/dist)/],
-      babelHelpers: "runtime",
+      babelHelpers: "bundled",
     }),
     nodeResolve({
       extensions,
@@ -49,8 +49,6 @@ const peerDependencyKeys = Object.keys(packageJson.peerDependencies || {});
 const allDependenciesKeys = [
   ...dependencyKeys,
   ...peerDependencyKeys.map((key) => new RegExp(`^${key}`)),
-  /@babel\/runtime/,
-  /^lodash\//,
 ];
 
 function createRollupConfigs({

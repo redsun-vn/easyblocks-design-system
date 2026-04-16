@@ -6,7 +6,7 @@ import { Colors } from "./colors";
 import { Icons } from "./icons";
 import { Fonts } from "./fonts";
 import { styled, css, keyframes } from "styled-components";
-import debounce from "lodash/debounce";
+import debounce from "./utils/debounce";
 import { ThumbnailButton } from "./ThumbnailButton";
 
 export type SimplePickerItem = {

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { ButtonGhost } from './buttons.js';
 import { Icons } from './icons.js';
 import { Typography } from './Typography.js';
-import '@babel/runtime/helpers/extends';
+import './_rollupPluginBabelHelpers-c245b26a.js';
 import './colors-b56a153c.js';
 import './fonts-84085e3a.js';
 import './Loader.js';

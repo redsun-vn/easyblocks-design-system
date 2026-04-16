@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { styled } from "styled-components";
 import { Fonts } from "./fonts";
-import debounce from "lodash/debounce";
+import debounce from "./utils/debounce";
 
 import _ColorPicker, {
   ColorPickerProps,

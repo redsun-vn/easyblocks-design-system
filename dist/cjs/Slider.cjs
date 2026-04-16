@@ -2,14 +2,13 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var _extends = require('@babel/runtime/helpers/extends');
+var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
 var styledComponents = require('styled-components');
 var colors = require('./colors-807b489d.js');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var _extends__default = /*#__PURE__*/_interopDefaultLegacy(_extends);
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
 const trackHeight = "1px";
@@ -27,7 +26,7 @@ const SliderStyled = styledComponents.styled.input.withConfig({
   componentId: "sc-1l3g6h4-1"
 })([""]);
 const RangeSlider = props => {
-  return /*#__PURE__*/React__default["default"].createElement(Root, null, /*#__PURE__*/React__default["default"].createElement(SliderStyled, _extends__default["default"]({}, props, {
+  return /*#__PURE__*/React__default["default"].createElement(Root, null, /*#__PURE__*/React__default["default"].createElement(SliderStyled, _rollupPluginBabelHelpers._extends({}, props, {
     type: "range"
   })));
 };

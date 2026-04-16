@@ -1,0 +1,13 @@
+src/
+stats/
+node_modules/
+.git/
+.babelrc.json
+babel.config.json
+base.tsconfig.json
+tsconfig.json
+rollup.config.js
+.gitignore
+.DS_Store
+*.tgz
+coverage/

@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var _extends = require('@babel/runtime/helpers/extends');
+var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
 var styledComponents = require('styled-components');
 var colors = require('./colors-807b489d.js');
@@ -18,7 +18,6 @@ require('./index-d3e89138.js');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var _extends__default = /*#__PURE__*/_interopDefaultLegacy(_extends);
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
 const sharedCSS = p => styledComponents.css(["", ";border:none;outline:none;height:", ";", " border-radius:6px;line-height:1;transition:all 0.1s;display:flex;flex-direction:row;gap:6px;justify-content:center;align-items:center;&:disabled{cursor:default;pointer-events:none;opacity:0.3;}"], fonts.Fonts.body, p.height !== undefined ? p.height : p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px", p.hideLabel ? `
@@ -114,7 +113,7 @@ const Button = /*#__PURE__*/React.forwardRef((_ref, ref) => {
     const Icon = props.icon;
     enhancer = /*#__PURE__*/React__default["default"].createElement(Icon, null);
   }
-  return /*#__PURE__*/React__default["default"].createElement(Tooltip.Tooltip, null, /*#__PURE__*/React__default["default"].createElement(Tooltip.TooltipTrigger, null, /*#__PURE__*/React__default["default"].createElement(Button, _extends__default["default"]({
+  return /*#__PURE__*/React__default["default"].createElement(Tooltip.Tooltip, null, /*#__PURE__*/React__default["default"].createElement(Tooltip.TooltipTrigger, null, /*#__PURE__*/React__default["default"].createElement(Button, _rollupPluginBabelHelpers._extends({
     as: component
   }, props, {
     ref: ref
@@ -125,25 +124,25 @@ const Button = /*#__PURE__*/React.forwardRef((_ref, ref) => {
   }, props.children) : null);
 });
 Button.displayName = "Button";
-const ButtonPrimary = props => /*#__PURE__*/React__default["default"].createElement(Button, _extends__default["default"]({}, props, {
+const ButtonPrimary = props => /*#__PURE__*/React__default["default"].createElement(Button, _rollupPluginBabelHelpers._extends({}, props, {
   Button: PrimaryButton
 }));
-const ButtonDanger = props => /*#__PURE__*/React__default["default"].createElement(Button, _extends__default["default"]({}, props, {
+const ButtonDanger = props => /*#__PURE__*/React__default["default"].createElement(Button, _rollupPluginBabelHelpers._extends({}, props, {
   Button: DangerButton
 }));
-const ButtonSecondary = /*#__PURE__*/React.forwardRef((props, ref) => /*#__PURE__*/React__default["default"].createElement(Button, _extends__default["default"]({}, props, {
+const ButtonSecondary = /*#__PURE__*/React.forwardRef((props, ref) => /*#__PURE__*/React__default["default"].createElement(Button, _rollupPluginBabelHelpers._extends({}, props, {
   Button: SecondaryButton,
   ref: ref
 })));
 ButtonSecondary.displayName = "ButtonSecondary";
-const ButtonGhost = /*#__PURE__*/React.forwardRef((props, ref) => /*#__PURE__*/React__default["default"].createElement(Button, _extends__default["default"]({}, props, {
+const ButtonGhost = /*#__PURE__*/React.forwardRef((props, ref) => /*#__PURE__*/React__default["default"].createElement(Button, _rollupPluginBabelHelpers._extends({}, props, {
   Button: GhostButton,
   isGhost: true,
   noPadding: props.noPadding,
   ref: ref
 })));
 ButtonGhost.displayName = "ButtonGhost";
-const ButtonGhostColor = props => /*#__PURE__*/React__default["default"].createElement(Button, _extends__default["default"]({}, props, {
+const ButtonGhostColor = props => /*#__PURE__*/React__default["default"].createElement(Button, _rollupPluginBabelHelpers._extends({}, props, {
   Button: GhostColorButton,
   isGhost: true,
   noPadding: props.noPadding
@@ -152,7 +151,7 @@ const IconButtonPrimaryStyled = styledComponents.styled(Button).withConfig({
   displayName: "buttons__IconButtonPrimaryStyled",
   componentId: "sc-1b20me-6"
 })(["min-width:0;border-radius:50%;"]);
-const IconButtonPrimary = props => /*#__PURE__*/React__default["default"].createElement(IconButtonPrimaryStyled, _extends__default["default"]({}, props, {
+const IconButtonPrimary = props => /*#__PURE__*/React__default["default"].createElement(IconButtonPrimaryStyled, _rollupPluginBabelHelpers._extends({}, props, {
   Button: PrimaryButton,
   hideLabel: true
 }));

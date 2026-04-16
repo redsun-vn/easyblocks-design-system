@@ -4,7 +4,7 @@ import { C as Colors } from './colors-b56a153c.js';
 import { F as Fonts } from './fonts-84085e3a.js';
 import { CustomComponentSymbol } from './CustomComponentSymbol.js';
 import { ButtonGhost } from './buttons.js';
-import '@babel/runtime/helpers/extends';
+import './_rollupPluginBabelHelpers-c245b26a.js';
 import './Loader.js';
 import './Tooltip.js';
 import './index-f673d433.js';

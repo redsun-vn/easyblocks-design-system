@@ -15,6 +15,10 @@ node_modules/
 **/dist-types/
 **/stats
 
+# stale build artifacts
+/cjs
+/es
+
 **/.rpt2_cache
 **/.rts2_cache
 **/.rts2_cache_cjs

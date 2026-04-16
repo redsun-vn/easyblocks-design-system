@@ -2,14 +2,14 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var _extends = require('@babel/runtime/helpers/extends');
+var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
 var styledComponents = require('styled-components');
 var fonts = require('./fonts-c2bffa19.js');
 var buttons = require('./buttons.cjs');
 var icons = require('./icons.cjs');
 var colors = require('./colors-807b489d.js');
-var Input = require('./Input.cjs');
+var Input = require('./Input-88733bba.js');
 var ReactModal = require('react-modal');
 require('./Loader.cjs');
 require('./Tooltip.cjs');
@@ -19,13 +19,11 @@ require('react-dom');
 require('./index-8160a594.js');
 require('./index-004169c7.js');
 require('./index-d3e89138.js');
-require('lodash/debounce');
 require('react-best-gradient-color-picker');
-require('./ControlContainer-c656a45d.js');
+require('./ControlContainer-eeaacf1a.js');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var _extends__default = /*#__PURE__*/_interopDefaultLegacy(_extends);
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var ReactModal__default = /*#__PURE__*/_interopDefaultLegacy(ReactModal);
 
@@ -77,13 +75,13 @@ const ModalBody = _ref => {
     headerSymbol = "close",
     searchProps
   } = props;
-  return /*#__PURE__*/React__default["default"].createElement(Root, _extends__default["default"]({
+  return /*#__PURE__*/React__default["default"].createElement(Root, _rollupPluginBabelHelpers._extends({
     width: width,
     maxWidth: maxWidth,
     maxHeight: maxHeight
   }, props), /*#__PURE__*/React__default["default"].createElement(HeaderBody, {
     headerLine: headerLine
-  }, /*#__PURE__*/React__default["default"].createElement(TitleHeader, null, title && /*#__PURE__*/React__default["default"].createElement(TitleHeaderLabel, null, title), searchProps && /*#__PURE__*/React__default["default"].createElement(Input.InputRaw, _extends__default["default"]({}, searchProps, {
+  }, /*#__PURE__*/React__default["default"].createElement(TitleHeader, null, title && /*#__PURE__*/React__default["default"].createElement(TitleHeaderLabel, null, title), searchProps && /*#__PURE__*/React__default["default"].createElement(Input.InputRaw, _rollupPluginBabelHelpers._extends({}, searchProps, {
     ref: node => {
       if (node) {
         node.focus();
@@ -98,7 +96,7 @@ const ModalBody = _ref => {
         onRequestClose();
       }
     }
-  }, "Close"), headerSymbol && headerSymbol !== "close" && /*#__PURE__*/React__default["default"].createElement(HeaderLetter, null, headerSymbol))), /*#__PURE__*/React__default["default"].createElement(ContentBody, _extends__default["default"]({
+  }, "Close"), headerSymbol && headerSymbol !== "close" && /*#__PURE__*/React__default["default"].createElement(HeaderLetter, null, headerSymbol))), /*#__PURE__*/React__default["default"].createElement(ContentBody, _rollupPluginBabelHelpers._extends({
     maxHeight: maxHeight
   }, props), children), /*#__PURE__*/React__default["default"].createElement(EndAdornmentContentBody, props, endAdornment));
 };
@@ -138,7 +136,7 @@ const Modal = props => {
     extraClass,
     ...modeProps
   } = MODES[mode];
-  const content = /*#__PURE__*/React__default["default"].createElement(ModalRoot, null, /*#__PURE__*/React__default["default"].createElement(ModalBody, _extends__default["default"]({}, modeProps, bodyProps, {
+  const content = /*#__PURE__*/React__default["default"].createElement(ModalRoot, null, /*#__PURE__*/React__default["default"].createElement(ModalBody, _rollupPluginBabelHelpers._extends({}, modeProps, bodyProps, {
     onRequestClose: onRequestClose
   })));
   return /*#__PURE__*/React__default["default"].createElement(ReactModal__default["default"], {

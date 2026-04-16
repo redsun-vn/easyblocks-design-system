@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var _extends = require('@babel/runtime/helpers/extends');
+var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
 var Select = require('react-select');
 var fonts = require('./fonts-c2bffa19.js');
@@ -12,7 +12,6 @@ require('styled-components');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var _extends__default = /*#__PURE__*/_interopDefaultLegacy(_extends);
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select);
 
@@ -36,7 +35,7 @@ function DropdownIndicator() {
   }));
 }
 function ClearIndicator(props) {
-  return /*#__PURE__*/React__default["default"].createElement("div", _extends__default["default"]({}, props.innerProps, {
+  return /*#__PURE__*/React__default["default"].createElement("div", _rollupPluginBabelHelpers._extends({}, props.innerProps, {
     style: {
       padding: "0px 6px"
     }

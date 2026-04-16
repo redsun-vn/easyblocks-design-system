@@ -8,7 +8,7 @@ var colors = require('./colors-807b489d.js');
 var fonts = require('./fonts-c2bffa19.js');
 var CustomComponentSymbol = require('./CustomComponentSymbol.cjs');
 var buttons = require('./buttons.cjs');
-require('@babel/runtime/helpers/extends');
+require('./_rollupPluginBabelHelpers-4b342fad.js');
 require('./Loader.cjs');
 require('./Tooltip.cjs');
 require('./index-e658c804.js');

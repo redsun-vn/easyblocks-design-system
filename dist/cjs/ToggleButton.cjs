@@ -2,16 +2,15 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var _extends = require('@babel/runtime/helpers/extends');
+var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
 var styledComponents = require('styled-components');
 var colors = require('./colors-807b489d.js');
-var ControlContainer = require('./ControlContainer-c656a45d.js');
+var ControlContainer = require('./ControlContainer-eeaacf1a.js');
 require('./fonts-c2bffa19.js');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var _extends__default = /*#__PURE__*/_interopDefaultLegacy(_extends);
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
 /**
@@ -27,10 +26,10 @@ const ToggleButton = props => {
     onChange,
     ...restProps
   } = props;
-  return /*#__PURE__*/React__default["default"].createElement(ControlContainer.ControlContainer, _extends__default["default"]({}, props, {
+  return /*#__PURE__*/React__default["default"].createElement(ControlContainer.ControlContainer, _rollupPluginBabelHelpers._extends({}, props, {
     iconBlack: true,
     iconOnly: props.hideLabel
-  }), /*#__PURE__*/React__default["default"].createElement(StyledButton, _extends__default["default"]({}, restProps, {
+  }), /*#__PURE__*/React__default["default"].createElement(StyledButton, _rollupPluginBabelHelpers._extends({}, restProps, {
     "aria-label": props.children,
     onClick: () => {
       props.onChange?.(!props.selected);

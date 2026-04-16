@@ -1,4 +1,4 @@
-import _extends from '@babel/runtime/helpers/extends';
+import { _ as _extends } from './_rollupPluginBabelHelpers-c245b26a.js';
 import React__default from 'react';
 import { styled } from 'styled-components';
 import { C as Colors } from './colors-b56a153c.js';
