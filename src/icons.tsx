@@ -795,6 +795,28 @@ const Pencil = createIcon(
   </svg>,
 );
 
+const PencilLine = createIcon(
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="none"
+    className="cursor-pointer"
+  >
+    <g clip-path="url(#a)">
+      <path
+        d="M3.459 12.286a.73.73 0 0 0 .107-.01l3.004-.526a.175.175 0 0 0 .094-.05l7.57-7.57a.178.178 0 0 0 0-.251L11.266.909a.177.177 0 0 0-.127-.052.177.177 0 0 0-.127.052l-7.57 7.57a.181.181 0 0 0-.05.094l-.526 3.004a.598.598 0 0 0 .168.532.605.605 0 0 0 .425.177ZM4.663 9.17l6.476-6.475 1.31 1.31L5.97 10.48l-1.587.28.279-1.589Zm9.909 4.615H1.428a.57.57 0 0 0-.572.571V15c0 .079.064.143.143.143h14a.143.143 0 0 0 .143-.143v-.643a.57.57 0 0 0-.572-.571Z"
+        fill="#606672"
+      ></path>
+    </g>
+    <defs>
+      <clipPath id="a">
+        <path fill="#fff" d="M0 0h16v16H0z"></path>
+      </clipPath>
+    </defs>
+  </svg>,
+);
+
 const Layers = createIcon(
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -948,6 +970,7 @@ export const Icons = {
   Duplicate,
   Trash,
   Pencil,
+  PencilLine,
   ColorAndFonts,
   Layers,
   LayerGroup,

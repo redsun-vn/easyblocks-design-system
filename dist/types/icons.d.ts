@@ -45,6 +45,7 @@ export declare const Icons: {
     Duplicate: Icon;
     Trash: Icon;
     Pencil: Icon;
+    PencilLine: Icon;
     ColorAndFonts: Icon;
     Layers: Icon;
     LayerGroup: Icon;
