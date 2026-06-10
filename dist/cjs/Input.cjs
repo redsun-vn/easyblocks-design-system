@@ -6,7 +6,7 @@ require('./_rollupPluginBabelHelpers-4b342fad.js');
 require('react');
 require('styled-components');
 require('./fonts-c2bffa19.js');
-var Input = require('./Input-a3977a05.js');
+var Input = require('./Input-6f924f46.js');
 require('react-best-gradient-color-picker');
 require('./ControlContainer-eeaacf1a.js');
 require('./colors-807b489d.js');

@@ -54,6 +54,8 @@ export declare const Icons: {
     Id: Icon;
     GlobalSections: Icon;
     Check: Icon;
+    FullScreen: Icon;
+    ExitFullScreen: Icon;
 };
 export {};
 //# sourceMappingURL=icons.d.ts.map

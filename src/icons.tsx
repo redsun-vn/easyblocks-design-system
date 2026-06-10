@@ -929,6 +929,36 @@ const Check = createIcon(
   </svg>,
 );
 
+const FullScreen = createIcon(
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
+    width="24"
+    height="24"
+    fill="currentColor"
+    data-v-d88477d6=""
+  >
+    <g>
+      <path d="M216,48V96a8,8,0,0,1-16,0V67.31l-50.34,50.35a8,8,0,0,1-11.32-11.32L188.69,56H160a8,8,0,0,1,0-16h48A8,8,0,0,1,216,48ZM106.34,138.34,56,188.69V160a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H96a8,8,0,0,0,0-16H67.31l50.35-50.34a8,8,0,0,0-11.32-11.32Z"></path>
+    </g>
+  </svg>,
+);
+
+const ExitFullScreen = createIcon(
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
+    width="24"
+    height="24"
+    fill="currentColor"
+    data-v-d88477d6=""
+  >
+    <g>
+      <path d="M213.66,53.66,163.31,104H192a8,8,0,0,1,0,16H144a8,8,0,0,1-8-8V64a8,8,0,0,1,16,0V92.69l50.34-50.35a8,8,0,0,1,11.32,11.32ZM112,136H64a8,8,0,0,0,0,16H92.69L42.34,202.34a8,8,0,0,0,11.32,11.32L104,163.31V192a8,8,0,0,0,16,0V144A8,8,0,0,0,112,136Z"></path>
+    </g>
+  </svg>,
+);
+
 export const Icons = {
   Dropdown,
   MaxHeight,
@@ -979,4 +1009,6 @@ export const Icons = {
   Id,
   GlobalSections,
   Check,
+  FullScreen,
+  ExitFullScreen,
 };
