@@ -2,10 +2,10 @@
 
 var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 var fonts = require('./fonts-c2bffa19.js');
 var _ColorPicker = require('react-best-gradient-color-picker');
-var ControlContainer = require('./ControlContainer-eeaacf1a.js');
+var ControlContainer = require('./ControlContainer-6e9e5d42.js');
 var colors = require('./colors-807b489d.js');
 var icons = require('./icons.cjs');
 
@@ -41,19 +41,19 @@ function debounce(fn, delay) {
   return debounced;
 }
 
-const StyledInput = styledComponents.styled.input.withConfig({
+const StyledInput = styled.styled.input.withConfig({
   displayName: "Input__StyledInput",
   componentId: "sc-1nyhv3t-0"
 })(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration{display:none;}", " ", ";"], p => !p.isRaw && ControlContainer.getControlPadding(), fonts.Fonts.body);
-const StyledInputColorContainer = styledComponents.styled.div.withConfig({
+const StyledInputColorContainer = styled.styled.div.withConfig({
   displayName: "Input__StyledInputColorContainer",
   componentId: "sc-1nyhv3t-1"
 })(["position:relative;width:100%;height:100%;"]);
-const StyledInputColorWrapper = styledComponents.styled.div.withConfig({
+const StyledInputColorWrapper = styled.styled.div.withConfig({
   displayName: "Input__StyledInputColorWrapper",
   componentId: "sc-1nyhv3t-2"
 })(["position:relative;width:100%;height:100%;box-shadow:0 0 0 1px ", ";&:hover{box-shadow:0 0 0 1px ", ";}border-radius:2px;cursor:pointer;outline:none;padding:4px;"], colors.Colors.black10, colors.Colors.black20);
-const StyledInputCurrentColor = styledComponents.styled.div.withConfig({
+const StyledInputCurrentColor = styled.styled.div.withConfig({
   displayName: "Input__StyledInputCurrentColor",
   componentId: "sc-1nyhv3t-3"
 })(["", ";"], _ref => {
@@ -62,11 +62,11 @@ const StyledInputCurrentColor = styledComponents.styled.div.withConfig({
   } = _ref;
   return `background: ${color}`;
 });
-const StyledInputColorDialogWrapper = styledComponents.styled.div.withConfig({
+const StyledInputColorDialogWrapper = styled.styled.div.withConfig({
   displayName: "Input__StyledInputColorDialogWrapper",
   componentId: "sc-1nyhv3t-4"
 })(["position:fixed;top:20px;right:10px;z-index:1;"]);
-const StyledInputColorPickerWrapper = styledComponents.styled.div.withConfig({
+const StyledInputColorPickerWrapper = styled.styled.div.withConfig({
   displayName: "Input__StyledInputColorPickerWrapper",
   componentId: "sc-1nyhv3t-5"
 })(["", ";border-radius:8px;box-shadow:0 0 6px ", ";padding:8px;position:relative;width:310px;"], _ref2 => {
@@ -75,19 +75,19 @@ const StyledInputColorPickerWrapper = styledComponents.styled.div.withConfig({
   } = _ref2;
   return `background: ${isDark ? colors.Colors.black900 : colors.Colors.white}`;
 }, colors.Colors.black40);
-const StyledInputFileWrapper = styledComponents.styled.div.withConfig({
+const StyledInputFileWrapper = styled.styled.div.withConfig({
   displayName: "Input__StyledInputFileWrapper",
   componentId: "sc-1nyhv3t-6"
 })(["position:relative;width:168px;height:168px;"]);
-const StyledInputFile = styledComponents.styled.img.withConfig({
+const StyledInputFile = styled.styled.img.withConfig({
   displayName: "Input__StyledInputFile",
   componentId: "sc-1nyhv3t-7"
 })(["width:100%;height:100%;object-fit:cover;box-shadow:0 0 0 1px ", ";"], colors.Colors.black10);
-const StyledInputFileCloseIcon = styledComponents.styled.div.withConfig({
+const StyledInputFileCloseIcon = styled.styled.div.withConfig({
   displayName: "Input__StyledInputFileCloseIcon",
   componentId: "sc-1nyhv3t-8"
 })(["position:absolute;right:10px;top:10px;width:20px;height:20px;display:flex;justify-content:center;align-items:center;background:", ";border-radius:100%;cursor:pointer;"], colors.Colors.white);
-const StyledInputLabel = styledComponents.styled.label.withConfig({
+const StyledInputLabel = styled.styled.label.withConfig({
   displayName: "Input__StyledInputLabel",
   componentId: "sc-1nyhv3t-9"
 })(["display:flex;align-items:center;justify-content:center;gap:8px;height:100%;border:1px dashed ", ";cursor:pointer;color:", ";", ";"], colors.Colors.blue50, colors.Colors.blue50, fonts.Fonts.body);

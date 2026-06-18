@@ -2,7 +2,7 @@
 
 var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 var colors = require('./colors-807b489d.js');
 var fonts = require('./fonts-c2bffa19.js');
 
@@ -25,7 +25,7 @@ function sizing(p) {
     paddingIcon: paddingIcon + "px"
   };
 }
-const Root = styledComponents.styled.div.withConfig({
+const Root = styled.styled.div.withConfig({
   displayName: "ControlContainer__Root",
   componentId: "sc-1i70r11-0"
 })(["position:relative;height:", ";width:", ";color:black;", " &:focus-within{box-shadow:0 0 0 2px ", ";.ss-arrow{color:black;}}transition:box-shadow 0.1s;border-radius:2px;display:inline-block;", ";"], p => sizing(p).height, p => sizing(p).width, p => {
@@ -60,7 +60,7 @@ const Root = styledComponents.styled.div.withConfig({
     }
   }
 }, p => p.hasError ? colors.Colors.red : colors.Colors.focus, fonts.Fonts.body);
-const IconContainer = styledComponents.styled.div.withConfig({
+const IconContainer = styled.styled.div.withConfig({
   displayName: "ControlContainer__IconContainer",
   componentId: "sc-1i70r11-1"
 })(["color:", ";position:absolute;left:", ";top:", ";pointer-events:none;"], p => p.iconBlack ? "black" : colors.Colors.black40, p => sizing(p).paddingHorizontal, p => sizing(p).paddingVertical);
@@ -75,7 +75,7 @@ const ControlContainer = _ref => {
   }, props), Icon && /*#__PURE__*/React__default["default"].createElement(IconContainer, props, /*#__PURE__*/React__default["default"].createElement(Icon, null)), props.children);
 };
 function getControlPadding() {
-  return styledComponents.css(["padding-left:", ";padding-right:", ";"], p => sizing(p).paddingIcon, p => sizing(p).paddingHorizontal);
+  return styled.css(["padding-left:", ";padding-right:", ";"], p => sizing(p).paddingIcon, p => sizing(p).paddingHorizontal);
 }
 
 exports.ControlContainer = ControlContainer;

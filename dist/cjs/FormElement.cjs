@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 var colors = require('./colors-807b489d.js');
 var fonts = require('./fonts-c2bffa19.js');
 
@@ -11,11 +11,11 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
-const Root = styledComponents.styled.div.withConfig({
+const Root = styled.styled.div.withConfig({
   displayName: "FormElement__Root",
   componentId: "sc-11sxp3-0"
 })(["position:relative;"]);
-const Layout = styledComponents.styled.div.withConfig({
+const Layout = styled.styled.div.withConfig({
   displayName: "FormElement__Layout",
   componentId: "sc-11sxp3-1"
 })(["position:relative;display:flex;flex-direction:row;gap:8px;", ""], _ref => {
@@ -24,15 +24,15 @@ const Layout = styledComponents.styled.div.withConfig({
   } = _ref;
   return `align-items: ${position}`;
 });
-const Label = styledComponents.styled.label.withConfig({
+const Label = styled.styled.label.withConfig({
   displayName: "FormElement__Label",
   componentId: "sc-11sxp3-2"
 })(["", " color:black;flex:0 0 120px;min-width:0;"], fonts.Fonts.body);
-const ControlWrapper = styledComponents.styled.div.withConfig({
+const ControlWrapper = styled.styled.div.withConfig({
   displayName: "FormElement__ControlWrapper",
   componentId: "sc-11sxp3-3"
 })(["flex:1 1 auto;min-width:0;display:grid;"]);
-const ErrorWrapper = styledComponents.styled.div.withConfig({
+const ErrorWrapper = styled.styled.div.withConfig({
   displayName: "FormElement__ErrorWrapper",
   componentId: "sc-11sxp3-4"
 })(["margin-top:6px;", " color:", ";"], fonts.Fonts.body, colors.Colors.red);

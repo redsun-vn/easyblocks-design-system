@@ -9,8 +9,8 @@ var Modal = require('./Modal.cjs');
 var colors = require('./colors-807b489d.js');
 var icons = require('./icons.cjs');
 var fonts = require('./fonts-c2bffa19.js');
-var styledComponents = require('styled-components');
-var Input = require('./Input-a459c103.js');
+var styled = require('styled-components');
+var Input = require('./Input-b5f22fad.js');
 var ThumbnailButton = require('./ThumbnailButton.cjs');
 require('./_rollupPluginBabelHelpers-4b342fad.js');
 require('./Loader.cjs');
@@ -24,7 +24,7 @@ require('./index-d3e89138.js');
 require('./CustomComponentSymbol.cjs');
 require('react-modal');
 require('react-best-gradient-color-picker');
-require('./ControlContainer-eeaacf1a.js');
+require('./ControlContainer-6e9e5d42.js');
 require('./Typography.cjs');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -122,11 +122,11 @@ const ProductPicker = _ref2 => {
     }
   })));
 };
-const Container = styledComponents.styled.div.withConfig({
+const Container = styled.styled.div.withConfig({
   displayName: "SimplePicker__Container",
   componentId: "sc-hh69hi-0"
 })(["width:100%;"]);
-const RowContainer = styledComponents.styled.div.withConfig({
+const RowContainer = styled.styled.div.withConfig({
   displayName: "SimplePicker__RowContainer",
   componentId: "sc-hh69hi-1"
 })(["display:flex;flex-direction:row;align-items:center;"]);
@@ -256,37 +256,37 @@ function ItemPickerModal(_ref3) {
     image: product.thumbnail
   })) : /*#__PURE__*/React__default["default"].createElement(NoResults, null, "No results")), getProductsRequest.status === "error" && /*#__PURE__*/React__default["default"].createElement(NoResults, null, "Couldn't fetch data for query \"", previousQuery.current, "\"")) : null;
 }
-const ErrorMessage = styledComponents.styled.div.withConfig({
+const ErrorMessage = styled.styled.div.withConfig({
   displayName: "SimplePicker__ErrorMessage",
   componentId: "sc-hh69hi-2"
 })(["word-break:break-all;white-space:normal;margin-left:4px;", " color:", ";"], fonts.Fonts.body, colors.Colors.black40);
-const LoadingContainer = styledComponents.styled.div.withConfig({
+const LoadingContainer = styled.styled.div.withConfig({
   displayName: "SimplePicker__LoadingContainer",
   componentId: "sc-hh69hi-3"
 })(["position:relative;display:flex;flex-direction:column;flex-grow:1;width:100%;", " max-height:331px;"], _ref4 => {
   let {
     isEmpty
   } = _ref4;
-  return isEmpty && styledComponents.css(["min-height:72px;"]);
+  return isEmpty && styled.css(["min-height:72px;"]);
 });
-const ProductsContainer = styledComponents.styled.div.withConfig({
+const ProductsContainer = styled.styled.div.withConfig({
   displayName: "SimplePicker__ProductsContainer",
   componentId: "sc-hh69hi-4"
 })(["width:100%;overflow:hidden;filter:blur(1px);"]);
-const LoadingIndicatorBackdrop = styledComponents.styled.div.withConfig({
+const LoadingIndicatorBackdrop = styled.styled.div.withConfig({
   displayName: "SimplePicker__LoadingIndicatorBackdrop",
   componentId: "sc-hh69hi-5"
 })(["position:absolute;left:0;top:0;width:100%;height:100%;background:#fefefea1;filter:blur(1px);"]);
-const LoadingIndicatorWrapper = styledComponents.styled.div.withConfig({
+const LoadingIndicatorWrapper = styled.styled.div.withConfig({
   displayName: "SimplePicker__LoadingIndicatorWrapper",
   componentId: "sc-hh69hi-6"
 })(["position:absolute;display:grid;place-items:center;left:0;top:0;width:100%;height:100%;"]);
-const rotate = styledComponents.keyframes(["from{transform:rotate(0deg);}to{transform:rotate(360deg);}"]);
-const LoadingIndicator = styledComponents.styled.div.withConfig({
+const rotate = styled.keyframes(["from{transform:rotate(0deg);}to{transform:rotate(360deg);}"]);
+const LoadingIndicator = styled.styled.div.withConfig({
   displayName: "SimplePicker__LoadingIndicator",
   componentId: "sc-hh69hi-7"
 })(["width:24px;height:24px;font-size:24px;> svg{animation:", " 500ms linear infinite;}"], rotate);
-const NoResults = styledComponents.styled.div.withConfig({
+const NoResults = styled.styled.div.withConfig({
   displayName: "SimplePicker__NoResults",
   componentId: "sc-hh69hi-8"
 })(["display:grid;place-items:center;height:48px;padding:12px;", ";"], fonts.Fonts.body);

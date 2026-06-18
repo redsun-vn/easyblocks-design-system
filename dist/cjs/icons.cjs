@@ -4,13 +4,13 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
-const IconContainer = styledComponents.styled.div.withConfig({
+const IconContainer = styled.styled.div.withConfig({
   shouldForwardProp(prop) {
     return !["size", "isStroke"].includes(prop);
   }

@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 var colors = require('./colors-807b489d.js');
 var fonts = require('./fonts-c2bffa19.js');
 var Loader = require('./Loader.cjs');
@@ -20,13 +20,13 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
-const sharedCSS = p => styledComponents.css(["", ";border:none;outline:none;height:", ";", " border-radius:6px;line-height:1;transition:all 0.1s;display:flex;flex-direction:row;gap:6px;justify-content:center;align-items:center;&:disabled{cursor:default;pointer-events:none;opacity:0.3;}"], fonts.Fonts.body, p.height !== undefined ? p.height : p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px", p.hideLabel ? `
+const sharedCSS = p => styled.css(["", ";border:none;outline:none;height:", ";", " border-radius:6px;line-height:1;transition:all 0.1s;display:flex;flex-direction:row;gap:6px;justify-content:center;align-items:center;&:disabled{cursor:default;pointer-events:none;opacity:0.3;}"], fonts.Fonts.body, p.height !== undefined ? p.height : p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px", p.hideLabel ? `
     width: ${p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px"};
   ` : `
     padding-left: ${p.isGhost ? p.noPadding ? "0px" : "6px" : "10px"};
     padding-right: ${p.isGhost ? p.noPadding ? "0px" : "6px" : "10px"};
   `);
-const PrimaryButton = styledComponents.styled.button.withConfig({
+const PrimaryButton = styled.styled.button.withConfig({
   displayName: "buttons__PrimaryButton",
   componentId: "sc-1b20me-0"
 })(["", " background-color:", ";color:white;min-width:60px;", ""], p => sharedCSS(p), colors.Colors.blue50, p => p.disabled ? `
@@ -45,7 +45,7 @@ const PrimaryButton = styledComponents.styled.button.withConfig({
     }
     
   `);
-const DangerButton = styledComponents.styled.button.withConfig({
+const DangerButton = styled.styled.button.withConfig({
   displayName: "buttons__DangerButton",
   componentId: "sc-1b20me-1"
 })(["", " background-color:", ";color:white;min-width:60px;", ""], p => sharedCSS(p), colors.Colors.red, p => p.disabled ? `
@@ -64,7 +64,7 @@ const DangerButton = styledComponents.styled.button.withConfig({
     }
     
   `);
-const SecondaryButton = styledComponents.styled.button.withConfig({
+const SecondaryButton = styled.styled.button.withConfig({
   displayName: "buttons__SecondaryButton",
   componentId: "sc-1b20me-2"
 })(["", " background-color:", ";color:black;min-width:60px;", ""], p => sharedCSS(p), colors.Colors.black5, p => p.disabled ? `
@@ -83,15 +83,15 @@ const SecondaryButton = styledComponents.styled.button.withConfig({
       }
     
   `);
-const GhostButton = styledComponents.styled.button.withConfig({
+const GhostButton = styled.styled.button.withConfig({
   displayName: "buttons__GhostButton",
   componentId: "sc-1b20me-3"
 })(["", " background-color:transparent;color:black;border:1px solid transparent;border-radius:2px;&:hover{border-color:#e5e5e5;}&:focus-visible{box-shadow:0 0 0 2px ", ";}&:active{background-color:", ";}"], p => sharedCSS(p), colors.Colors.blue50, colors.Colors.black20);
-const GhostColorButton = styledComponents.styled.button.withConfig({
+const GhostColorButton = styled.styled.button.withConfig({
   displayName: "buttons__GhostColorButton",
   componentId: "sc-1b20me-4"
 })(["", " background-color:transparent;color:", ";&:hover{background-color:", ";}&:focus-visible{box-shadow:0 0 0 2px ", ";}&:active{background-color:", ";}"], p => sharedCSS(p), colors.Colors.blue50, colors.Colors.blue10, colors.Colors.blue50, colors.Colors.black20);
-const EnhancerContainer = styledComponents.styled.div.withConfig({
+const EnhancerContainer = styled.styled.div.withConfig({
   displayName: "buttons__EnhancerContainer",
   componentId: "sc-1b20me-5"
 })(["position:relative;width:", ";height:", ";overflow:hidden;flex-shrink:0;"], p => p.variant === "large" ? "24px" : "16px", p => p.variant === "large" ? "24px" : "16px");
@@ -147,7 +147,7 @@ const ButtonGhostColor = props => /*#__PURE__*/React__default["default"].createE
   isGhost: true,
   noPadding: props.noPadding
 }));
-const IconButtonPrimaryStyled = styledComponents.styled(Button).withConfig({
+const IconButtonPrimaryStyled = styled.styled(Button).withConfig({
   displayName: "buttons__IconButtonPrimaryStyled",
   componentId: "sc-1b20me-6"
 })(["min-width:0;border-radius:50%;"]);

@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 var colors = require('./colors-807b489d.js');
 var fonts = require('./fonts-c2bffa19.js');
 
@@ -42,7 +42,7 @@ const Typography = _ref => {
 //    and maybe you would remember about that to change tag of outer `Typography` component
 //    or maybe you would get warning from React about incorrect nesting of HTML elements.
 //    By using the `div` as the default, you don't have to worry about it.
-const TypographyRoot = styledComponents.styled.div.withConfig({
+const TypographyRoot = styled.styled.div.withConfig({
   displayName: "Typography__TypographyRoot",
   componentId: "sc-yrvxxm-0"
 })(["color:", ";", " text-align:", ";", ""], _ref2 => {
@@ -64,7 +64,7 @@ const TypographyRoot = styledComponents.styled.div.withConfig({
   let {
     $isTruncated
   } = _ref5;
-  return $isTruncated && styledComponents.css(["overflow:hidden;text-overflow:ellipsis;"]);
+  return $isTruncated && styled.css(["overflow:hidden;text-overflow:ellipsis;"]);
 });
 
 exports.Typography = Typography;

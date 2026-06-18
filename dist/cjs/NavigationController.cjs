@@ -3,17 +3,17 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
-const Root = styledComponents.styled.div.withConfig({
+const Root = styled.styled.div.withConfig({
   displayName: "NavigationController__Root",
   componentId: "sc-19n3ku4-0"
 })(["position:relative;overflow:hidden;display:grid;"]);
-const PanelRoot = styledComponents.styled.div.withConfig({
+const PanelRoot = styled.styled.div.withConfig({
   displayName: "NavigationController__PanelRoot",
   componentId: "sc-19n3ku4-1"
 })(["grid-row:1 / span 1;grid-column:1 / span 1;position:relative;display:grid;overflow-y:auto;transform:translateX(", "px);"], p => p.index * 30);

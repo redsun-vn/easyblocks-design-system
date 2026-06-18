@@ -12,7 +12,7 @@ var index$3 = require('./index-5fb6a3ee.js');
 var reactRemoveScroll = require('react-remove-scroll');
 var jsxRuntime = require('react/jsx-runtime');
 var colors = require('./colors-807b489d.js');
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 require('react-dom');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -1055,15 +1055,15 @@ function MenuTrigger(props) {
     asChild: true
   }, props.children);
 }
-const StyledContent = styledComponents.styled(Content2).withConfig({
+const StyledContent = styled.styled(Content2).withConfig({
   displayName: "Menu__StyledContent",
   componentId: "sc-15igjrv-0"
 })(["min-width:200px;padding:0 4px;background-color:", ";border-radius:4px;"], colors.Colors.black800);
-const StyledItem = styledComponents.styled(Item2).withConfig({
+const StyledItem = styled.styled(Item2).withConfig({
   displayName: "Menu__StyledItem",
   componentId: "sc-15igjrv-1"
 })(["padding:10px 8px;&:focus{background-color:", ";}@media (hover:hover){&:hover:not([aria-disabled=\"true\"]){cursor:pointer;background-color:", ";}}"], colors.Colors.black700, colors.Colors.black700);
-const StyledSeparator = styledComponents.styled(Separator2).withConfig({
+const StyledSeparator = styled.styled(Separator2).withConfig({
   displayName: "Menu__StyledSeparator",
   componentId: "sc-15igjrv-2"
 })(["height:1px;background-color:", ";"], colors.Colors.black700);

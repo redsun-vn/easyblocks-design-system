@@ -10,7 +10,7 @@ var index$2 = require('./index-4f5b0ced.js');
 var jsxRuntime = require('react/jsx-runtime');
 var colors = require('./colors-807b489d.js');
 var Typography = require('./Typography.cjs');
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 require('react-dom');
 require('./_rollupPluginBabelHelpers-4b342fad.js');
 require('./fonts-c2bffa19.js');
@@ -211,19 +211,19 @@ var Root2 = Tabs$1;
 var List = TabsList;
 var Trigger = TabsTrigger;
 
-const StyledRoot = styledComponents.styled(Root2).withConfig({
+const StyledRoot = styled.styled(Root2).withConfig({
   displayName: "Tabs__StyledRoot",
   componentId: "sc-1nxdand-0"
 })(["width:100%;"]);
-const StyledTabListContainer = styledComponents.styled.div.withConfig({
+const StyledTabListContainer = styled.styled.div.withConfig({
   displayName: "Tabs__StyledTabListContainer",
   componentId: "sc-1nxdand-1"
 })(["display:flex;width:100%;justify-content:space-between;"]);
-const StyledList = styledComponents.styled(List).withConfig({
+const StyledList = styled.styled(List).withConfig({
   displayName: "Tabs__StyledList",
   componentId: "sc-1nxdand-2"
 })(["display:flex;flex-wrap:nowrap;gap:36px;min-height:36px;"]);
-const StyledTrigger = styledComponents.styled(Typography.Typography).attrs({
+const StyledTrigger = styled.styled(Typography.Typography).attrs({
   component: Trigger
 }).withConfig({
   displayName: "Tabs__StyledTrigger",

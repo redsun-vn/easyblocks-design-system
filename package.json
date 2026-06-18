@@ -145,6 +145,11 @@
       "types": "./dist/types/Typography.d.ts",
       "import": "./dist/es/Typography.js",
       "require": "./dist/cjs/Typography.cjs"
+    },
+    "./AccordionGroup": {
+      "types": "./dist/types/Accordion/AccordionGroup.d.ts",
+      "import": "./dist/es/AccordionGroup.js",
+      "require": "./dist/cjs/AccordionGroup.cjs"
     }
   },
   "sideEffects": false,

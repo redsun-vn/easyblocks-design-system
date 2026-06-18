@@ -3,15 +3,15 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 var colors = require('./colors-807b489d.js');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
-const rotationKeyframes = styledComponents.keyframes(["0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}"]);
-const LoaderWrapper = styledComponents.styled.div.withConfig({
+const rotationKeyframes = styled.keyframes(["0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}"]);
+const LoaderWrapper = styled.styled.div.withConfig({
   displayName: "Loader__LoaderWrapper",
   componentId: "sc-c4rfd8-0"
 })(["width:10px;height:10px;border:2px solid ", ";border-bottom-color:transparent;border-radius:50%;animation:", " 1s linear infinite;"], colors.Colors.black40, rotationKeyframes);

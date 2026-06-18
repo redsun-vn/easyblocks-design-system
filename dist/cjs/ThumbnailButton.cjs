@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 var React = require('react');
 var buttons = require('./buttons.cjs');
 var icons = require('./icons.cjs');
@@ -39,15 +39,15 @@ function _interopNamespace(e) {
 
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
 
-const Preview = styledComponents.styled.div.withConfig({
+const Preview = styled.styled.div.withConfig({
   displayName: "ThumbnailButton__Preview",
   componentId: "sc-1bsunzd-0"
 })(["display:flex;align-items:center;justify-content:center;margin-left:-1px;width:32px;height:32px;border:1px solid #e5e5e5;border-radius:2px;position:relative;min-width:0;"]);
-const PreviewImage = styledComponents.styled.img.withConfig({
+const PreviewImage = styled.styled.img.withConfig({
   displayName: "ThumbnailButton__PreviewImage",
   componentId: "sc-1bsunzd-1"
 })(["display:block;max-width:100%;max-height:100%;object-fit:contain;"]);
-const SolidColorPreview = styledComponents.styled.div.withConfig({
+const SolidColorPreview = styled.styled.div.withConfig({
   displayName: "ThumbnailButton__SolidColorPreview",
   componentId: "sc-1bsunzd-2"
 })(["width:100%;height:100%;background:", ";"], _ref => {
@@ -56,11 +56,11 @@ const SolidColorPreview = styledComponents.styled.div.withConfig({
   } = _ref;
   return color;
 });
-const ContentRoot = styledComponents.styled.div.withConfig({
+const ContentRoot = styled.styled.div.withConfig({
   displayName: "ThumbnailButton__ContentRoot",
   componentId: "sc-1bsunzd-3"
 })(["display:flex;align-items:center;gap:8px;width:100%;"]);
-const Labels = styledComponents.styled.div.withConfig({
+const Labels = styled.styled.div.withConfig({
   displayName: "ThumbnailButton__Labels",
   componentId: "sc-1bsunzd-4"
 })(["flex:1 0;overflow:hidden;min-width:0;display:grid;"]);

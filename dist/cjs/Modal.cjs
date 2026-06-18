@@ -4,12 +4,12 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 var fonts = require('./fonts-c2bffa19.js');
 var buttons = require('./buttons.cjs');
 var icons = require('./icons.cjs');
 var colors = require('./colors-807b489d.js');
-var Input = require('./Input-a459c103.js');
+var Input = require('./Input-b5f22fad.js');
 var ReactModal = require('react-modal');
 require('./Loader.cjs');
 require('./Tooltip.cjs');
@@ -20,42 +20,42 @@ require('./index-8160a594.js');
 require('./index-004169c7.js');
 require('./index-d3e89138.js');
 require('react-best-gradient-color-picker');
-require('./ControlContainer-eeaacf1a.js');
+require('./ControlContainer-6e9e5d42.js');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var ReactModal__default = /*#__PURE__*/_interopDefaultLegacy(ReactModal);
 
-const ModalRoot = styledComponents.styled.div.withConfig({
+const ModalRoot = styled.styled.div.withConfig({
   displayName: "Modal__ModalRoot",
   componentId: "sc-wv205r-0"
 })([""]);
-const Root = styledComponents.styled.div.withConfig({
+const Root = styled.styled.div.withConfig({
   displayName: "Modal__Root",
   componentId: "sc-wv205r-1"
 })(["width:", ";max-width:", ";height:", ";max-height:", ";position:relative;box-shadow:0px 2px 14px rgba(0,0,0,0.15);border-radius:4px;display:grid;grid-template-columns:1fr;grid-template-rows:auto 1fr;background-color:white;overflow:hidden;"], p => p.width || "100%", p => p.maxWidth || "none", p => p.height || "auto", p => p.maxHeight || "none");
-const HeaderBody = styledComponents.styled.div.withConfig({
+const HeaderBody = styled.styled.div.withConfig({
   displayName: "Modal__HeaderBody",
   componentId: "sc-wv205r-2"
 })(["position:relative;", " color:black;"], p => p.headerLine && `border-bottom: 1px solid ${colors.Colors.black10};`);
-const ContentBody = styledComponents.styled.div.withConfig({
+const ContentBody = styled.styled.div.withConfig({
   displayName: "Modal__ContentBody",
   componentId: "sc-wv205r-3"
 })(["position:relative;overflow-y:", ";overflow-x:hidden;padding:", ";"], p => p.maxHeight == "auto" ? "auto" : "scroll", p => p.noPadding ? "0" : "12px 12px");
-const EndAdornmentContentBody = styledComponents.styled.div.withConfig({
+const EndAdornmentContentBody = styled.styled.div.withConfig({
   displayName: "Modal__EndAdornmentContentBody",
   componentId: "sc-wv205r-4"
 })(["position:sticky;bottom:0px;padding:", ";"], p => p.noPadding ? "0" : "0 12px 12px 12px");
-const TitleHeader = styledComponents.styled.div.withConfig({
+const TitleHeader = styled.styled.div.withConfig({
   displayName: "Modal__TitleHeader",
   componentId: "sc-wv205r-5"
 })(["&:not(:empty){padding:12px;}display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:2rem;"]);
-const TitleHeaderLabel = styledComponents.styled.div.withConfig({
+const TitleHeaderLabel = styled.styled.div.withConfig({
   displayName: "Modal__TitleHeaderLabel",
   componentId: "sc-wv205r-6"
 })(["white-space:nowrap;", ";"], fonts.Fonts.label);
-const HeaderLetter = styledComponents.styled.div.withConfig({
+const HeaderLetter = styled.styled.div.withConfig({
   displayName: "Modal__HeaderLetter",
   componentId: "sc-wv205r-7"
 })(["width:24px;height:24px;border-radius:4px;background-color:", ";", ";display:flex;justify-content:center;align-items:center;"], colors.Colors.black10, fonts.Fonts.label3);
@@ -164,7 +164,7 @@ const sharedContentStyles = `
       outline: none;
     }
 `;
-const GlobalModalStyles = styledComponents.createGlobalStyle([".Shopstory__ReactModalPortal{position:absolute;top:0;left:0;width:100%;height:100%;}.Shopstory__ReactModal__Overlay{width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;&:before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.2;z-index:-1;}}.Shopstory__ReactModal__Overlay.background-shade{&:before{background-color:black;}}.Shopstory__ReactModal__Content{", "}.Shopstory__ReactModal__Content__Left{", " height:100vh;width:70vw;transition:all 350ms cubic-bezier(0.16,1,0.3,1);transform:translateX(-100%);}.Shopstory__ReactModal__Content__Left.Shopstory__ReactModal__Content__Left--after-open{transform:none;}.Shopstory__ReactModal__Content__Left.Shopstory__ReactModal__Content__Left--before-close{transform:translateX(-100%);}"], sharedContentStyles, sharedContentStyles);
+const GlobalModalStyles = styled.createGlobalStyle([".Shopstory__ReactModalPortal{position:absolute;top:0;left:0;width:100%;height:100%;}.Shopstory__ReactModal__Overlay{width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;&:before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.2;z-index:-1;}}.Shopstory__ReactModal__Overlay.background-shade{&:before{background-color:black;}}.Shopstory__ReactModal__Content{", "}.Shopstory__ReactModal__Content__Left{", " height:100vh;width:70vw;transition:all 350ms cubic-bezier(0.16,1,0.3,1);transform:translateX(-100%);}.Shopstory__ReactModal__Content__Left.Shopstory__ReactModal__Content__Left--after-open{transform:none;}.Shopstory__ReactModal__Content__Left.Shopstory__ReactModal__Content__Left--before-close{transform:translateX(-100%);}"], sharedContentStyles, sharedContentStyles);
 
 exports.GlobalModalStyles = GlobalModalStyles;
 exports.Modal = Modal;

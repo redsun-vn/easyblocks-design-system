@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var _rollupPluginBabelHelpers = require('./_rollupPluginBabelHelpers-4b342fad.js');
 var React = require('react');
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 var index = require('./index-e658c804.js');
 var index$1 = require('./index-5fb6a3ee.js');
 var jsxRuntime = require('react/jsx-runtime');
@@ -230,7 +230,7 @@ function ToggleGroup(props) {
     }
   }, props.children);
 }
-const StyledToggleGroupItem = styledComponents.styled(Item2).withConfig({
+const StyledToggleGroupItem = styled.styled(Item2).withConfig({
   displayName: "ToggleGroup__StyledToggleGroupItem",
   componentId: "sc-1ceudxu-0"
 })(["all:unset;box-sizing:border-box;height:28px;width:28px;display:flex;align-items:center;justify-content:center;background-color:transparent;&[aria-checked=\"true\"]{background-color:", ";}border-radius:2px;@media (hover:hover){cursor:pointer;&:hover{box-shadow:0 0 0 1px ", ";}}& svg{flex-shrink:0;}"], colors.Colors.black10, colors.Colors.black10);

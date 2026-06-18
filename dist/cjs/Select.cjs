@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var reactIcons_esm = require('./react-icons.esm-402e7dcb.js');
 var index = require('./index-a327bb14.js');
 var React = require('react');
-var styledComponents = require('styled-components');
+var styled = require('styled-components');
 var colors = require('./colors-807b489d.js');
 var fonts = require('./fonts-c2bffa19.js');
 require('react-dom');
@@ -21,7 +21,7 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
-const SelectTrigger = styledComponents.styled(index.Trigger).withConfig({
+const SelectTrigger = styled.styled(index.Trigger).withConfig({
   displayName: "Select__SelectTrigger",
   componentId: "sc-1ehkd60-0"
 })(["all:unset;display:flex;align-items:center;", ";display:flex;gap:4px;max-width:100%;box-sizing:border-box;height:28px;padding:0 2px 0 6px;border-radius:2px;@media (hover:hover){&:hover{box-shadow:0 0 0 1px ", ";}}"], fonts.Fonts.body, colors.Colors.black10);
@@ -52,7 +52,7 @@ function Select(props) {
     }
   }, /*#__PURE__*/React__default["default"].createElement(index.Viewport, null, props.children))));
 }
-const SelectItemWrapper = styledComponents.styled(index.Item).withConfig({
+const SelectItemWrapper = styled.styled(index.Item).withConfig({
   displayName: "Select__SelectItemWrapper",
   componentId: "sc-1ehkd60-1"
 })(["display:flex;align-items:center;gap:6px;box-sizing:border-box;min-height:28px;padding:0 6px;", ";color:#000;background:#fff;outline:none;&[data-state=\"unchecked\"]{padding-left:calc(6px + 15px + 6px);}&[data-highlighted]{background:#daeafd;}@media (hover:hover){cursor:pointer;}"], fonts.Fonts.body);
@@ -68,7 +68,7 @@ const SelectItem = /*#__PURE__*/React.forwardRef((props, ref) => {
   }, props.children));
 });
 SelectItem.displayName = "SelectItem";
-const StyledSeparator = styledComponents.styled(index.Separator).withConfig({
+const StyledSeparator = styled.styled(index.Separator).withConfig({
   displayName: "Select__StyledSeparator",
   componentId: "sc-1ehkd60-2"
 })(["height:1px;margin:4px;background:", ";"], colors.Colors.black100);
