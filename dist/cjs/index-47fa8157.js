@@ -2,13 +2,16 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-var index$1 = require('./index-e658c804.js');
-var index = require('./index-4f5b0ced.js');
-var index$2 = require('./index-8160a594.js');
-var index$3 = require('./index-bee2af92.js');
+var index = require('./index-e658c804.js');
+var index$1 = require('./index-4f5b0ced.js');
+var index$3 = require('./index-242953d1.js');
+var index$2 = require('./index-bee2af92.js');
+var floatingUi_reactDom = require('./floating-ui.react-dom-93d904eb.js');
+var jsxRuntime = require('react/jsx-runtime');
 var index$4 = require('./index-d3e89138.js');
 var reactRemoveScroll = require('react-remove-scroll');
-var jsxRuntime = require('react/jsx-runtime');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 function _interopNamespace(e) {
   if (e && e.__esModule) return e;
@@ -29,12 +32,344 @@ function _interopNamespace(e) {
 }
 
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
+var ReactDOM__default = /*#__PURE__*/_interopDefaultLegacy(ReactDOM);
 var ReactDOM__namespace = /*#__PURE__*/_interopNamespace(ReactDOM);
 
 // packages/core/number/src/number.ts
 function clamp(value, [min, max]) {
   return Math.min(max, Math.max(min, value));
 }
+
+// packages/react/arrow/src/arrow.tsx
+var NAME = "Arrow";
+var Arrow$1 = React__namespace.forwardRef((props, forwardedRef) => {
+  const { children, width = 10, height = 5, ...arrowProps } = props;
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    index.Primitive.svg,
+    {
+      ...arrowProps,
+      ref: forwardedRef,
+      width,
+      height,
+      viewBox: "0 0 30 10",
+      preserveAspectRatio: "none",
+      children: props.asChild ? children : /* @__PURE__ */ jsxRuntime.jsx("polygon", { points: "0,0 30,0 15,10" })
+    }
+  );
+});
+Arrow$1.displayName = NAME;
+var Root = Arrow$1;
+
+// packages/react/use-size/src/useSize.tsx
+function useSize(element) {
+  const [size, setSize] = React__namespace.useState(void 0);
+  index.useLayoutEffect2(() => {
+    if (element) {
+      setSize({ width: element.offsetWidth, height: element.offsetHeight });
+      const resizeObserver = new ResizeObserver((entries) => {
+        if (!Array.isArray(entries)) {
+          return;
+        }
+        if (!entries.length) {
+          return;
+        }
+        const entry = entries[0];
+        let width;
+        let height;
+        if ("borderBoxSize" in entry) {
+          const borderSizeEntry = entry["borderBoxSize"];
+          const borderSize = Array.isArray(borderSizeEntry) ? borderSizeEntry[0] : borderSizeEntry;
+          width = borderSize["inlineSize"];
+          height = borderSize["blockSize"];
+        } else {
+          width = element.offsetWidth;
+          height = element.offsetHeight;
+        }
+        setSize({ width, height });
+      });
+      resizeObserver.observe(element, { box: "border-box" });
+      return () => resizeObserver.unobserve(element);
+    } else {
+      setSize(void 0);
+    }
+  }, [element]);
+  return size;
+}
+
+var POPPER_NAME = "Popper";
+var [createPopperContext, createPopperScope] = index.createContextScope(POPPER_NAME);
+var [PopperProvider, usePopperContext] = createPopperContext(POPPER_NAME);
+var Popper = (props) => {
+  const { __scopePopper, children } = props;
+  const [anchor, setAnchor] = React__namespace.useState(null);
+  return /* @__PURE__ */ jsxRuntime.jsx(PopperProvider, { scope: __scopePopper, anchor, onAnchorChange: setAnchor, children });
+};
+Popper.displayName = POPPER_NAME;
+var ANCHOR_NAME = "PopperAnchor";
+var PopperAnchor = React__namespace.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopePopper, virtualRef, ...anchorProps } = props;
+    const context = usePopperContext(ANCHOR_NAME, __scopePopper);
+    const ref = React__namespace.useRef(null);
+    const composedRefs = index.useComposedRefs(forwardedRef, ref);
+    React__namespace.useEffect(() => {
+      context.onAnchorChange(virtualRef?.current || ref.current);
+    });
+    return virtualRef ? null : /* @__PURE__ */ jsxRuntime.jsx(index.Primitive.div, { ...anchorProps, ref: composedRefs });
+  }
+);
+PopperAnchor.displayName = ANCHOR_NAME;
+var CONTENT_NAME$1 = "PopperContent";
+var [PopperContentProvider, useContentContext] = createPopperContext(CONTENT_NAME$1);
+var PopperContent = React__namespace.forwardRef(
+  (props, forwardedRef) => {
+    const {
+      __scopePopper,
+      side = "bottom",
+      sideOffset = 0,
+      align = "center",
+      alignOffset = 0,
+      arrowPadding = 0,
+      avoidCollisions = true,
+      collisionBoundary = [],
+      collisionPadding: collisionPaddingProp = 0,
+      sticky = "partial",
+      hideWhenDetached = false,
+      updatePositionStrategy = "optimized",
+      onPlaced,
+      ...contentProps
+    } = props;
+    const context = usePopperContext(CONTENT_NAME$1, __scopePopper);
+    const [content, setContent] = React__namespace.useState(null);
+    const composedRefs = index.useComposedRefs(forwardedRef, (node) => setContent(node));
+    const [arrow, setArrow] = React__namespace.useState(null);
+    const arrowSize = useSize(arrow);
+    const arrowWidth = arrowSize?.width ?? 0;
+    const arrowHeight = arrowSize?.height ?? 0;
+    const desiredPlacement = side + (align !== "center" ? "-" + align : "");
+    const collisionPadding = typeof collisionPaddingProp === "number" ? collisionPaddingProp : { top: 0, right: 0, bottom: 0, left: 0, ...collisionPaddingProp };
+    const boundary = Array.isArray(collisionBoundary) ? collisionBoundary : [collisionBoundary];
+    const hasExplicitBoundaries = boundary.length > 0;
+    const detectOverflowOptions = {
+      padding: collisionPadding,
+      boundary: boundary.filter(isNotNull),
+      // with `strategy: 'fixed'`, this is the only way to get it to respect boundaries
+      altBoundary: hasExplicitBoundaries
+    };
+    const { refs, floatingStyles, placement, isPositioned, middlewareData } = floatingUi_reactDom.useFloating({
+      // default to `fixed` strategy so users don't have to pick and we also avoid focus scroll issues
+      strategy: "fixed",
+      placement: desiredPlacement,
+      whileElementsMounted: (...args) => {
+        const cleanup = floatingUi_reactDom.autoUpdate(...args, {
+          animationFrame: updatePositionStrategy === "always"
+        });
+        return cleanup;
+      },
+      elements: {
+        reference: context.anchor
+      },
+      middleware: [
+        floatingUi_reactDom.offset({ mainAxis: sideOffset + arrowHeight, alignmentAxis: alignOffset }),
+        avoidCollisions && floatingUi_reactDom.shift({
+          mainAxis: true,
+          crossAxis: false,
+          limiter: sticky === "partial" ? floatingUi_reactDom.limitShift() : void 0,
+          ...detectOverflowOptions
+        }),
+        avoidCollisions && floatingUi_reactDom.flip({ ...detectOverflowOptions }),
+        floatingUi_reactDom.size({
+          ...detectOverflowOptions,
+          apply: ({ elements, rects, availableWidth, availableHeight }) => {
+            const { width: anchorWidth, height: anchorHeight } = rects.reference;
+            const contentStyle = elements.floating.style;
+            contentStyle.setProperty("--radix-popper-available-width", `${availableWidth}px`);
+            contentStyle.setProperty("--radix-popper-available-height", `${availableHeight}px`);
+            contentStyle.setProperty("--radix-popper-anchor-width", `${anchorWidth}px`);
+            contentStyle.setProperty("--radix-popper-anchor-height", `${anchorHeight}px`);
+          }
+        }),
+        arrow && floatingUi_reactDom.arrow({ element: arrow, padding: arrowPadding }),
+        transformOrigin({ arrowWidth, arrowHeight }),
+        hideWhenDetached && floatingUi_reactDom.hide({ strategy: "referenceHidden", ...detectOverflowOptions })
+      ]
+    });
+    const [placedSide, placedAlign] = getSideAndAlignFromPlacement(placement);
+    const handlePlaced = index.useCallbackRef(onPlaced);
+    index.useLayoutEffect2(() => {
+      if (isPositioned) {
+        handlePlaced?.();
+      }
+    }, [isPositioned, handlePlaced]);
+    const arrowX = middlewareData.arrow?.x;
+    const arrowY = middlewareData.arrow?.y;
+    const cannotCenterArrow = middlewareData.arrow?.centerOffset !== 0;
+    const [contentZIndex, setContentZIndex] = React__namespace.useState();
+    index.useLayoutEffect2(() => {
+      if (content) setContentZIndex(window.getComputedStyle(content).zIndex);
+    }, [content]);
+    return /* @__PURE__ */ jsxRuntime.jsx(
+      "div",
+      {
+        ref: refs.setFloating,
+        "data-radix-popper-content-wrapper": "",
+        style: {
+          ...floatingStyles,
+          transform: isPositioned ? floatingStyles.transform : "translate(0, -200%)",
+          // keep off the page when measuring
+          minWidth: "max-content",
+          zIndex: contentZIndex,
+          ["--radix-popper-transform-origin"]: [
+            middlewareData.transformOrigin?.x,
+            middlewareData.transformOrigin?.y
+          ].join(" "),
+          // hide the content if using the hide middleware and should be hidden
+          // set visibility to hidden and disable pointer events so the UI behaves
+          // as if the PopperContent isn't there at all
+          ...middlewareData.hide?.referenceHidden && {
+            visibility: "hidden",
+            pointerEvents: "none"
+          }
+        },
+        dir: props.dir,
+        children: /* @__PURE__ */ jsxRuntime.jsx(
+          PopperContentProvider,
+          {
+            scope: __scopePopper,
+            placedSide,
+            onArrowChange: setArrow,
+            arrowX,
+            arrowY,
+            shouldHideArrow: cannotCenterArrow,
+            children: /* @__PURE__ */ jsxRuntime.jsx(
+              index.Primitive.div,
+              {
+                "data-side": placedSide,
+                "data-align": placedAlign,
+                ...contentProps,
+                ref: composedRefs,
+                style: {
+                  ...contentProps.style,
+                  // if the PopperContent hasn't been placed yet (not all measurements done)
+                  // we prevent animations so that users's animation don't kick in too early referring wrong sides
+                  animation: !isPositioned ? "none" : void 0
+                }
+              }
+            )
+          }
+        )
+      }
+    );
+  }
+);
+PopperContent.displayName = CONTENT_NAME$1;
+var ARROW_NAME$1 = "PopperArrow";
+var OPPOSITE_SIDE = {
+  top: "bottom",
+  right: "left",
+  bottom: "top",
+  left: "right"
+};
+var PopperArrow = React__namespace.forwardRef(function PopperArrow2(props, forwardedRef) {
+  const { __scopePopper, ...arrowProps } = props;
+  const contentContext = useContentContext(ARROW_NAME$1, __scopePopper);
+  const baseSide = OPPOSITE_SIDE[contentContext.placedSide];
+  return (
+    // we have to use an extra wrapper because `ResizeObserver` (used by `useSize`)
+    // doesn't report size as we'd expect on SVG elements.
+    // it reports their bounding box which is effectively the largest path inside the SVG.
+    /* @__PURE__ */ jsxRuntime.jsx(
+      "span",
+      {
+        ref: contentContext.onArrowChange,
+        style: {
+          position: "absolute",
+          left: contentContext.arrowX,
+          top: contentContext.arrowY,
+          [baseSide]: 0,
+          transformOrigin: {
+            top: "",
+            right: "0 0",
+            bottom: "center 0",
+            left: "100% 0"
+          }[contentContext.placedSide],
+          transform: {
+            top: "translateY(100%)",
+            right: "translateY(50%) rotate(90deg) translateX(-50%)",
+            bottom: `rotate(180deg)`,
+            left: "translateY(50%) rotate(-90deg) translateX(50%)"
+          }[contentContext.placedSide],
+          visibility: contentContext.shouldHideArrow ? "hidden" : void 0
+        },
+        children: /* @__PURE__ */ jsxRuntime.jsx(
+          Root,
+          {
+            ...arrowProps,
+            ref: forwardedRef,
+            style: {
+              ...arrowProps.style,
+              // ensures the element can be measured correctly (mostly for if SVG)
+              display: "block"
+            }
+          }
+        )
+      }
+    )
+  );
+});
+PopperArrow.displayName = ARROW_NAME$1;
+function isNotNull(value) {
+  return value !== null;
+}
+var transformOrigin = (options) => ({
+  name: "transformOrigin",
+  options,
+  fn(data) {
+    const { placement, rects, middlewareData } = data;
+    const cannotCenterArrow = middlewareData.arrow?.centerOffset !== 0;
+    const isArrowHidden = cannotCenterArrow;
+    const arrowWidth = isArrowHidden ? 0 : options.arrowWidth;
+    const arrowHeight = isArrowHidden ? 0 : options.arrowHeight;
+    const [placedSide, placedAlign] = getSideAndAlignFromPlacement(placement);
+    const noArrowAlign = { start: "0%", center: "50%", end: "100%" }[placedAlign];
+    const arrowXCenter = (middlewareData.arrow?.x ?? 0) + arrowWidth / 2;
+    const arrowYCenter = (middlewareData.arrow?.y ?? 0) + arrowHeight / 2;
+    let x = "";
+    let y = "";
+    if (placedSide === "bottom") {
+      x = isArrowHidden ? noArrowAlign : `${arrowXCenter}px`;
+      y = `${-arrowHeight}px`;
+    } else if (placedSide === "top") {
+      x = isArrowHidden ? noArrowAlign : `${arrowXCenter}px`;
+      y = `${rects.floating.height + arrowHeight}px`;
+    } else if (placedSide === "right") {
+      x = `${-arrowHeight}px`;
+      y = isArrowHidden ? noArrowAlign : `${arrowYCenter}px`;
+    } else if (placedSide === "left") {
+      x = `${rects.floating.width + arrowHeight}px`;
+      y = isArrowHidden ? noArrowAlign : `${arrowYCenter}px`;
+    }
+    return { data: { x, y } };
+  }
+});
+function getSideAndAlignFromPlacement(placement) {
+  const [side, align = "center"] = placement.split("-");
+  return [side, align];
+}
+var Root2$1 = Popper;
+var Anchor = PopperAnchor;
+var Content = PopperContent;
+var Arrow = PopperArrow;
+
+var PORTAL_NAME$1 = "Portal";
+var Portal$1 = React__namespace.forwardRef((props, forwardedRef) => {
+  const { container: containerProp, ...portalProps } = props;
+  const [mounted, setMounted] = React__namespace.useState(false);
+  index.useLayoutEffect2(() => setMounted(true), []);
+  const container = containerProp || mounted && globalThis?.document?.body;
+  return container ? ReactDOM__default["default"].createPortal(/* @__PURE__ */ jsxRuntime.jsx(index.Primitive.div, { ...portalProps, ref: forwardedRef }), container) : null;
+});
+Portal$1.displayName = PORTAL_NAME$1;
 
 // packages/react/use-previous/src/usePrevious.tsx
 function usePrevious(value) {
@@ -51,12 +386,12 @@ function usePrevious(value) {
 var OPEN_KEYS = [" ", "Enter", "ArrowUp", "ArrowDown"];
 var SELECTION_KEYS = [" ", "Enter"];
 var SELECT_NAME = "Select";
-var [Collection, useCollection, createCollectionScope] = index.createCollection(SELECT_NAME);
-var [createSelectContext, createSelectScope] = index$1.createContextScope(SELECT_NAME, [
+var [Collection, useCollection, createCollectionScope] = index$1.createCollection(SELECT_NAME);
+var [createSelectContext, createSelectScope] = index.createContextScope(SELECT_NAME, [
   createCollectionScope,
-  index$2.createPopperScope
+  createPopperScope
 ]);
-var usePopperScope = index$2.createPopperScope();
+var usePopperScope = createPopperScope();
 var [SelectProvider, useSelectContext] = createSelectContext(SELECT_NAME);
 var [SelectNativeOptionsProvider, useSelectNativeOptionsContext] = createSelectContext(SELECT_NAME);
 var Select = (props) => {
@@ -80,13 +415,13 @@ var Select = (props) => {
   const [trigger, setTrigger] = React__namespace.useState(null);
   const [valueNode, setValueNode] = React__namespace.useState(null);
   const [valueNodeHasChildren, setValueNodeHasChildren] = React__namespace.useState(false);
-  const direction = index.useDirection(dir);
-  const [open = false, setOpen] = index$1.useControllableState({
+  const direction = index$1.useDirection(dir);
+  const [open = false, setOpen] = index.useControllableState({
     prop: openProp,
     defaultProp: defaultOpen,
     onChange: onOpenChange
   });
-  const [value, setValue] = index$1.useControllableState({
+  const [value, setValue] = index.useControllableState({
     prop: valueProp,
     defaultProp: defaultValue,
     onChange: onValueChange
@@ -95,7 +430,7 @@ var Select = (props) => {
   const isFormControl = trigger ? form || !!trigger.closest("form") : true;
   const [nativeOptionsSet, setNativeOptionsSet] = React__namespace.useState(/* @__PURE__ */ new Set());
   const nativeSelectKey = Array.from(nativeOptionsSet).map((option) => option.props.value).join(";");
-  return /* @__PURE__ */ jsxRuntime.jsx(index$2.Root2, { ...popperScope, children: /* @__PURE__ */ jsxRuntime.jsxs(
+  return /* @__PURE__ */ jsxRuntime.jsx(Root2$1, { ...popperScope, children: /* @__PURE__ */ jsxRuntime.jsxs(
     SelectProvider,
     {
       required,
@@ -106,7 +441,7 @@ var Select = (props) => {
       onValueNodeChange: setValueNode,
       valueNodeHasChildren,
       onValueNodeHasChildrenChange: setValueNodeHasChildren,
-      contentId: index$1.useId(),
+      contentId: index.useId(),
       value,
       onValueChange: setValue,
       open,
@@ -163,7 +498,7 @@ var SelectTrigger = React__namespace.forwardRef(
     const popperScope = usePopperScope(__scopeSelect);
     const context = useSelectContext(TRIGGER_NAME, __scopeSelect);
     const isDisabled = context.disabled || disabled;
-    const composedRefs = index$1.useComposedRefs(forwardedRef, context.onTriggerChange);
+    const composedRefs = index.useComposedRefs(forwardedRef, context.onTriggerChange);
     const getItems = useCollection(__scopeSelect);
     const pointerTypeRef = React__namespace.useRef("touch");
     const [searchRef, handleTypeaheadSearch, resetTypeahead] = useTypeaheadSearch((search) => {
@@ -186,8 +521,8 @@ var SelectTrigger = React__namespace.forwardRef(
         };
       }
     };
-    return /* @__PURE__ */ jsxRuntime.jsx(index$2.Anchor, { asChild: true, ...popperScope, children: /* @__PURE__ */ jsxRuntime.jsx(
-      index$1.Primitive.button,
+    return /* @__PURE__ */ jsxRuntime.jsx(Anchor, { asChild: true, ...popperScope, children: /* @__PURE__ */ jsxRuntime.jsx(
+      index.Primitive.button,
       {
         type: "button",
         role: "combobox",
@@ -202,13 +537,13 @@ var SelectTrigger = React__namespace.forwardRef(
         "data-placeholder": shouldShowPlaceholder(context.value) ? "" : void 0,
         ...triggerProps,
         ref: composedRefs,
-        onClick: index$1.composeEventHandlers(triggerProps.onClick, (event) => {
+        onClick: index.composeEventHandlers(triggerProps.onClick, (event) => {
           event.currentTarget.focus();
           if (pointerTypeRef.current !== "mouse") {
             handleOpen(event);
           }
         }),
-        onPointerDown: index$1.composeEventHandlers(triggerProps.onPointerDown, (event) => {
+        onPointerDown: index.composeEventHandlers(triggerProps.onPointerDown, (event) => {
           pointerTypeRef.current = event.pointerType;
           const target = event.target;
           if (target.hasPointerCapture(event.pointerId)) {
@@ -219,7 +554,7 @@ var SelectTrigger = React__namespace.forwardRef(
             event.preventDefault();
           }
         }),
-        onKeyDown: index$1.composeEventHandlers(triggerProps.onKeyDown, (event) => {
+        onKeyDown: index.composeEventHandlers(triggerProps.onKeyDown, (event) => {
           const isTypingAhead = searchRef.current !== "";
           const isModifierKey = event.ctrlKey || event.altKey || event.metaKey;
           if (!isModifierKey && event.key.length === 1) handleTypeaheadSearch(event.key);
@@ -241,12 +576,12 @@ var SelectValue = React__namespace.forwardRef(
     const context = useSelectContext(VALUE_NAME, __scopeSelect);
     const { onValueNodeHasChildrenChange } = context;
     const hasChildren = children !== void 0;
-    const composedRefs = index$1.useComposedRefs(forwardedRef, context.onValueNodeChange);
-    index$1.useLayoutEffect2(() => {
+    const composedRefs = index.useComposedRefs(forwardedRef, context.onValueNodeChange);
+    index.useLayoutEffect2(() => {
       onValueNodeHasChildrenChange(hasChildren);
     }, [onValueNodeHasChildrenChange, hasChildren]);
     return /* @__PURE__ */ jsxRuntime.jsx(
-      index$1.Primitive.span,
+      index.Primitive.span,
       {
         ...valueProps,
         ref: composedRefs,
@@ -261,13 +596,13 @@ var ICON_NAME = "SelectIcon";
 var SelectIcon = React__namespace.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, children, ...iconProps } = props;
-    return /* @__PURE__ */ jsxRuntime.jsx(index$1.Primitive.span, { "aria-hidden": true, ...iconProps, ref: forwardedRef, children: children || "\u25BC" });
+    return /* @__PURE__ */ jsxRuntime.jsx(index.Primitive.span, { "aria-hidden": true, ...iconProps, ref: forwardedRef, children: children || "\u25BC" });
   }
 );
 SelectIcon.displayName = ICON_NAME;
 var PORTAL_NAME = "SelectPortal";
 var SelectPortal = (props) => {
-  return /* @__PURE__ */ jsxRuntime.jsx(index$2.Portal, { asChild: true, ...props });
+  return /* @__PURE__ */ jsxRuntime.jsx(Portal$1, { asChild: true, ...props });
 };
 SelectPortal.displayName = PORTAL_NAME;
 var CONTENT_NAME = "SelectContent";
@@ -275,7 +610,7 @@ var SelectContent = React__namespace.forwardRef(
   (props, forwardedRef) => {
     const context = useSelectContext(CONTENT_NAME, props.__scopeSelect);
     const [fragment, setFragment] = React__namespace.useState();
-    index$1.useLayoutEffect2(() => {
+    index.useLayoutEffect2(() => {
       setFragment(new DocumentFragment());
     }, []);
     if (!context.open) {
@@ -318,7 +653,7 @@ var SelectContentImpl = React__namespace.forwardRef(
     const context = useSelectContext(CONTENT_NAME, __scopeSelect);
     const [content, setContent] = React__namespace.useState(null);
     const [viewport, setViewport] = React__namespace.useState(null);
-    const composedRefs = index$1.useComposedRefs(forwardedRef, (node) => setContent(node));
+    const composedRefs = index.useComposedRefs(forwardedRef, (node) => setContent(node));
     const [selectedItem, setSelectedItem] = React__namespace.useState(null);
     const [selectedItemText, setSelectedItemText] = React__namespace.useState(
       null
@@ -327,9 +662,9 @@ var SelectContentImpl = React__namespace.forwardRef(
     const [isPositioned, setIsPositioned] = React__namespace.useState(false);
     const firstValidItemFoundRef = React__namespace.useRef(false);
     React__namespace.useEffect(() => {
-      if (content) return index$3.hideOthers(content);
+      if (content) return index$2.hideOthers(content);
     }, [content]);
-    index$3.useFocusGuards();
+    index$2.useFocusGuards();
     const focusFirst = React__namespace.useCallback(
       (candidates) => {
         const [firstItem, ...restItems] = getItems().map((item) => item.ref.current);
@@ -454,20 +789,20 @@ var SelectContentImpl = React__namespace.forwardRef(
         position,
         isPositioned,
         searchRef,
-        children: /* @__PURE__ */ jsxRuntime.jsx(reactRemoveScroll.RemoveScroll, { as: index$1.Slot, allowPinchZoom: true, children: /* @__PURE__ */ jsxRuntime.jsx(
-          index$3.FocusScope,
+        children: /* @__PURE__ */ jsxRuntime.jsx(reactRemoveScroll.RemoveScroll, { as: index.Slot, allowPinchZoom: true, children: /* @__PURE__ */ jsxRuntime.jsx(
+          index$2.FocusScope,
           {
             asChild: true,
             trapped: context.open,
             onMountAutoFocus: (event) => {
               event.preventDefault();
             },
-            onUnmountAutoFocus: index$1.composeEventHandlers(onCloseAutoFocus, (event) => {
+            onUnmountAutoFocus: index.composeEventHandlers(onCloseAutoFocus, (event) => {
               context.trigger?.focus({ preventScroll: true });
               event.preventDefault();
             }),
             children: /* @__PURE__ */ jsxRuntime.jsx(
-              index$2.DismissableLayer,
+              index$3.DismissableLayer,
               {
                 asChild: true,
                 disableOutsidePointerEvents: true,
@@ -495,7 +830,7 @@ var SelectContentImpl = React__namespace.forwardRef(
                       outline: "none",
                       ...contentProps.style
                     },
-                    onKeyDown: index$1.composeEventHandlers(contentProps.onKeyDown, (event) => {
+                    onKeyDown: index.composeEventHandlers(contentProps.onKeyDown, (event) => {
                       const isModifierKey = event.ctrlKey || event.altKey || event.metaKey;
                       if (event.key === "Tab") event.preventDefault();
                       if (!isModifierKey && event.key.length === 1) handleTypeaheadSearch(event.key);
@@ -532,7 +867,7 @@ var SelectItemAlignedPosition = React__namespace.forwardRef((props, forwardedRef
   const contentContext = useSelectContentContext(CONTENT_NAME, __scopeSelect);
   const [contentWrapper, setContentWrapper] = React__namespace.useState(null);
   const [content, setContent] = React__namespace.useState(null);
-  const composedRefs = index$1.useComposedRefs(forwardedRef, (node) => setContent(node));
+  const composedRefs = index.useComposedRefs(forwardedRef, (node) => setContent(node));
   const getItems = useCollection(__scopeSelect);
   const shouldExpandOnScrollRef = React__namespace.useRef(false);
   const shouldRepositionRef = React__namespace.useRef(true);
@@ -636,9 +971,9 @@ var SelectItemAlignedPosition = React__namespace.forwardRef((props, forwardedRef
     context.dir,
     onPlaced
   ]);
-  index$1.useLayoutEffect2(() => position(), [position]);
+  index.useLayoutEffect2(() => position(), [position]);
   const [contentZIndex, setContentZIndex] = React__namespace.useState();
-  index$1.useLayoutEffect2(() => {
+  index.useLayoutEffect2(() => {
     if (content) setContentZIndex(window.getComputedStyle(content).zIndex);
   }, [content]);
   const handleScrollButtonChange = React__namespace.useCallback(
@@ -669,7 +1004,7 @@ var SelectItemAlignedPosition = React__namespace.forwardRef((props, forwardedRef
             zIndex: contentZIndex
           },
           children: /* @__PURE__ */ jsxRuntime.jsx(
-            index$1.Primitive.div,
+            index.Primitive.div,
             {
               ...popperProps,
               ref: composedRefs,
@@ -699,7 +1034,7 @@ var SelectPopperPosition = React__namespace.forwardRef((props, forwardedRef) => 
   } = props;
   const popperScope = usePopperScope(__scopeSelect);
   return /* @__PURE__ */ jsxRuntime.jsx(
-    index$2.Content,
+    Content,
     {
       ...popperScope,
       ...popperProps,
@@ -730,7 +1065,7 @@ var SelectViewport = React__namespace.forwardRef(
     const { __scopeSelect, nonce, ...viewportProps } = props;
     const contentContext = useSelectContentContext(VIEWPORT_NAME, __scopeSelect);
     const viewportContext = useSelectViewportContext(VIEWPORT_NAME, __scopeSelect);
-    const composedRefs = index$1.useComposedRefs(forwardedRef, contentContext.onViewportChange);
+    const composedRefs = index.useComposedRefs(forwardedRef, contentContext.onViewportChange);
     const prevScrollTopRef = React__namespace.useRef(0);
     return /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
       /* @__PURE__ */ jsxRuntime.jsx(
@@ -743,7 +1078,7 @@ var SelectViewport = React__namespace.forwardRef(
         }
       ),
       /* @__PURE__ */ jsxRuntime.jsx(Collection.Slot, { scope: __scopeSelect, children: /* @__PURE__ */ jsxRuntime.jsx(
-        index$1.Primitive.div,
+        index.Primitive.div,
         {
           "data-radix-select-viewport": "",
           role: "presentation",
@@ -762,7 +1097,7 @@ var SelectViewport = React__namespace.forwardRef(
             overflow: "hidden auto",
             ...viewportProps.style
           },
-          onScroll: index$1.composeEventHandlers(viewportProps.onScroll, (event) => {
+          onScroll: index.composeEventHandlers(viewportProps.onScroll, (event) => {
             const viewport = event.currentTarget;
             const { contentWrapper, shouldExpandOnScrollRef } = viewportContext;
             if (shouldExpandOnScrollRef?.current && contentWrapper) {
@@ -797,8 +1132,8 @@ var [SelectGroupContextProvider, useSelectGroupContext] = createSelectContext(GR
 var SelectGroup = React__namespace.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, ...groupProps } = props;
-    const groupId = index$1.useId();
-    return /* @__PURE__ */ jsxRuntime.jsx(SelectGroupContextProvider, { scope: __scopeSelect, id: groupId, children: /* @__PURE__ */ jsxRuntime.jsx(index$1.Primitive.div, { role: "group", "aria-labelledby": groupId, ...groupProps, ref: forwardedRef }) });
+    const groupId = index.useId();
+    return /* @__PURE__ */ jsxRuntime.jsx(SelectGroupContextProvider, { scope: __scopeSelect, id: groupId, children: /* @__PURE__ */ jsxRuntime.jsx(index.Primitive.div, { role: "group", "aria-labelledby": groupId, ...groupProps, ref: forwardedRef }) });
   }
 );
 SelectGroup.displayName = GROUP_NAME;
@@ -807,7 +1142,7 @@ var SelectLabel = React__namespace.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, ...labelProps } = props;
     const groupContext = useSelectGroupContext(LABEL_NAME, __scopeSelect);
-    return /* @__PURE__ */ jsxRuntime.jsx(index$1.Primitive.div, { id: groupContext.id, ...labelProps, ref: forwardedRef });
+    return /* @__PURE__ */ jsxRuntime.jsx(index.Primitive.div, { id: groupContext.id, ...labelProps, ref: forwardedRef });
   }
 );
 SelectLabel.displayName = LABEL_NAME;
@@ -827,11 +1162,11 @@ var SelectItem = React__namespace.forwardRef(
     const isSelected = context.value === value;
     const [textValue, setTextValue] = React__namespace.useState(textValueProp ?? "");
     const [isFocused, setIsFocused] = React__namespace.useState(false);
-    const composedRefs = index$1.useComposedRefs(
+    const composedRefs = index.useComposedRefs(
       forwardedRef,
       (node) => contentContext.itemRefCallback?.(node, value, disabled)
     );
-    const textId = index$1.useId();
+    const textId = index.useId();
     const pointerTypeRef = React__namespace.useRef("touch");
     const handleSelect = () => {
       if (!disabled) {
@@ -863,7 +1198,7 @@ var SelectItem = React__namespace.forwardRef(
             disabled,
             textValue,
             children: /* @__PURE__ */ jsxRuntime.jsx(
-              index$1.Primitive.div,
+              index.Primitive.div,
               {
                 role: "option",
                 "aria-labelledby": textId,
@@ -875,18 +1210,18 @@ var SelectItem = React__namespace.forwardRef(
                 tabIndex: disabled ? void 0 : -1,
                 ...itemProps,
                 ref: composedRefs,
-                onFocus: index$1.composeEventHandlers(itemProps.onFocus, () => setIsFocused(true)),
-                onBlur: index$1.composeEventHandlers(itemProps.onBlur, () => setIsFocused(false)),
-                onClick: index$1.composeEventHandlers(itemProps.onClick, () => {
+                onFocus: index.composeEventHandlers(itemProps.onFocus, () => setIsFocused(true)),
+                onBlur: index.composeEventHandlers(itemProps.onBlur, () => setIsFocused(false)),
+                onClick: index.composeEventHandlers(itemProps.onClick, () => {
                   if (pointerTypeRef.current !== "mouse") handleSelect();
                 }),
-                onPointerUp: index$1.composeEventHandlers(itemProps.onPointerUp, () => {
+                onPointerUp: index.composeEventHandlers(itemProps.onPointerUp, () => {
                   if (pointerTypeRef.current === "mouse") handleSelect();
                 }),
-                onPointerDown: index$1.composeEventHandlers(itemProps.onPointerDown, (event) => {
+                onPointerDown: index.composeEventHandlers(itemProps.onPointerDown, (event) => {
                   pointerTypeRef.current = event.pointerType;
                 }),
-                onPointerMove: index$1.composeEventHandlers(itemProps.onPointerMove, (event) => {
+                onPointerMove: index.composeEventHandlers(itemProps.onPointerMove, (event) => {
                   pointerTypeRef.current = event.pointerType;
                   if (disabled) {
                     contentContext.onItemLeave?.();
@@ -894,12 +1229,12 @@ var SelectItem = React__namespace.forwardRef(
                     event.currentTarget.focus({ preventScroll: true });
                   }
                 }),
-                onPointerLeave: index$1.composeEventHandlers(itemProps.onPointerLeave, (event) => {
+                onPointerLeave: index.composeEventHandlers(itemProps.onPointerLeave, (event) => {
                   if (event.currentTarget === document.activeElement) {
                     contentContext.onItemLeave?.();
                   }
                 }),
-                onKeyDown: index$1.composeEventHandlers(itemProps.onKeyDown, (event) => {
+                onKeyDown: index.composeEventHandlers(itemProps.onKeyDown, (event) => {
                   const isTypingAhead = contentContext.searchRef?.current !== "";
                   if (isTypingAhead && event.key === " ") return;
                   if (SELECTION_KEYS.includes(event.key)) handleSelect();
@@ -923,7 +1258,7 @@ var SelectItemText = React__namespace.forwardRef(
     const itemContext = useSelectItemContext(ITEM_TEXT_NAME, __scopeSelect);
     const nativeOptionsContext = useSelectNativeOptionsContext(ITEM_TEXT_NAME, __scopeSelect);
     const [itemTextNode, setItemTextNode] = React__namespace.useState(null);
-    const composedRefs = index$1.useComposedRefs(
+    const composedRefs = index.useComposedRefs(
       forwardedRef,
       (node) => setItemTextNode(node),
       itemContext.onItemTextChange,
@@ -935,12 +1270,12 @@ var SelectItemText = React__namespace.forwardRef(
       [itemContext.disabled, itemContext.value, textContent]
     );
     const { onNativeOptionAdd, onNativeOptionRemove } = nativeOptionsContext;
-    index$1.useLayoutEffect2(() => {
+    index.useLayoutEffect2(() => {
       onNativeOptionAdd(nativeOption);
       return () => onNativeOptionRemove(nativeOption);
     }, [onNativeOptionAdd, onNativeOptionRemove, nativeOption]);
     return /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
-      /* @__PURE__ */ jsxRuntime.jsx(index$1.Primitive.span, { id: itemContext.textId, ...itemTextProps, ref: composedRefs }),
+      /* @__PURE__ */ jsxRuntime.jsx(index.Primitive.span, { id: itemContext.textId, ...itemTextProps, ref: composedRefs }),
       itemContext.isSelected && context.valueNode && !context.valueNodeHasChildren ? ReactDOM__namespace.createPortal(itemTextProps.children, context.valueNode) : null
     ] });
   }
@@ -951,7 +1286,7 @@ var SelectItemIndicator = React__namespace.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, ...itemIndicatorProps } = props;
     const itemContext = useSelectItemContext(ITEM_INDICATOR_NAME, __scopeSelect);
-    return itemContext.isSelected ? /* @__PURE__ */ jsxRuntime.jsx(index$1.Primitive.span, { "aria-hidden": true, ...itemIndicatorProps, ref: forwardedRef }) : null;
+    return itemContext.isSelected ? /* @__PURE__ */ jsxRuntime.jsx(index.Primitive.span, { "aria-hidden": true, ...itemIndicatorProps, ref: forwardedRef }) : null;
   }
 );
 SelectItemIndicator.displayName = ITEM_INDICATOR_NAME;
@@ -960,8 +1295,8 @@ var SelectScrollUpButton = React__namespace.forwardRef((props, forwardedRef) => 
   const contentContext = useSelectContentContext(SCROLL_UP_BUTTON_NAME, props.__scopeSelect);
   const viewportContext = useSelectViewportContext(SCROLL_UP_BUTTON_NAME, props.__scopeSelect);
   const [canScrollUp, setCanScrollUp] = React__namespace.useState(false);
-  const composedRefs = index$1.useComposedRefs(forwardedRef, viewportContext.onScrollButtonChange);
-  index$1.useLayoutEffect2(() => {
+  const composedRefs = index.useComposedRefs(forwardedRef, viewportContext.onScrollButtonChange);
+  index.useLayoutEffect2(() => {
     if (contentContext.viewport && contentContext.isPositioned) {
       let handleScroll2 = function() {
         const canScrollUp2 = viewport.scrollTop > 0;
@@ -993,8 +1328,8 @@ var SelectScrollDownButton = React__namespace.forwardRef((props, forwardedRef) =
   const contentContext = useSelectContentContext(SCROLL_DOWN_BUTTON_NAME, props.__scopeSelect);
   const viewportContext = useSelectViewportContext(SCROLL_DOWN_BUTTON_NAME, props.__scopeSelect);
   const [canScrollDown, setCanScrollDown] = React__namespace.useState(false);
-  const composedRefs = index$1.useComposedRefs(forwardedRef, viewportContext.onScrollButtonChange);
-  index$1.useLayoutEffect2(() => {
+  const composedRefs = index.useComposedRefs(forwardedRef, viewportContext.onScrollButtonChange);
+  index.useLayoutEffect2(() => {
     if (contentContext.viewport && contentContext.isPositioned) {
       let handleScroll2 = function() {
         const maxScroll = viewport.scrollHeight - viewport.clientHeight;
@@ -1036,29 +1371,29 @@ var SelectScrollButtonImpl = React__namespace.forwardRef((props, forwardedRef) =
   React__namespace.useEffect(() => {
     return () => clearAutoScrollTimer();
   }, [clearAutoScrollTimer]);
-  index$1.useLayoutEffect2(() => {
+  index.useLayoutEffect2(() => {
     const activeItem = getItems().find((item) => item.ref.current === document.activeElement);
     activeItem?.ref.current?.scrollIntoView({ block: "nearest" });
   }, [getItems]);
   return /* @__PURE__ */ jsxRuntime.jsx(
-    index$1.Primitive.div,
+    index.Primitive.div,
     {
       "aria-hidden": true,
       ...scrollIndicatorProps,
       ref: forwardedRef,
       style: { flexShrink: 0, ...scrollIndicatorProps.style },
-      onPointerDown: index$1.composeEventHandlers(scrollIndicatorProps.onPointerDown, () => {
+      onPointerDown: index.composeEventHandlers(scrollIndicatorProps.onPointerDown, () => {
         if (autoScrollTimerRef.current === null) {
           autoScrollTimerRef.current = window.setInterval(onAutoScroll, 50);
         }
       }),
-      onPointerMove: index$1.composeEventHandlers(scrollIndicatorProps.onPointerMove, () => {
+      onPointerMove: index.composeEventHandlers(scrollIndicatorProps.onPointerMove, () => {
         contentContext.onItemLeave?.();
         if (autoScrollTimerRef.current === null) {
           autoScrollTimerRef.current = window.setInterval(onAutoScroll, 50);
         }
       }),
-      onPointerLeave: index$1.composeEventHandlers(scrollIndicatorProps.onPointerLeave, () => {
+      onPointerLeave: index.composeEventHandlers(scrollIndicatorProps.onPointerLeave, () => {
         clearAutoScrollTimer();
       })
     }
@@ -1068,7 +1403,7 @@ var SEPARATOR_NAME = "SelectSeparator";
 var SelectSeparator = React__namespace.forwardRef(
   (props, forwardedRef) => {
     const { __scopeSelect, ...separatorProps } = props;
-    return /* @__PURE__ */ jsxRuntime.jsx(index$1.Primitive.div, { "aria-hidden": true, ...separatorProps, ref: forwardedRef });
+    return /* @__PURE__ */ jsxRuntime.jsx(index.Primitive.div, { "aria-hidden": true, ...separatorProps, ref: forwardedRef });
   }
 );
 SelectSeparator.displayName = SEPARATOR_NAME;
@@ -1079,7 +1414,7 @@ var SelectArrow = React__namespace.forwardRef(
     const popperScope = usePopperScope(__scopeSelect);
     const context = useSelectContext(ARROW_NAME, __scopeSelect);
     const contentContext = useSelectContentContext(ARROW_NAME, __scopeSelect);
-    return context.open && contentContext.position === "popper" ? /* @__PURE__ */ jsxRuntime.jsx(index$2.Arrow, { ...popperScope, ...arrowProps, ref: forwardedRef }) : null;
+    return context.open && contentContext.position === "popper" ? /* @__PURE__ */ jsxRuntime.jsx(Arrow, { ...popperScope, ...arrowProps, ref: forwardedRef }) : null;
   }
 );
 SelectArrow.displayName = ARROW_NAME;
@@ -1090,7 +1425,7 @@ var BubbleSelect = React__namespace.forwardRef(
   (props, forwardedRef) => {
     const { value, ...selectProps } = props;
     const ref = React__namespace.useRef(null);
-    const composedRefs = index$1.useComposedRefs(forwardedRef, ref);
+    const composedRefs = index.useComposedRefs(forwardedRef, ref);
     const prevValue = usePrevious(value);
     React__namespace.useEffect(() => {
       const select = ref.current;
@@ -1111,7 +1446,7 @@ var BubbleSelect = React__namespace.forwardRef(
 );
 BubbleSelect.displayName = "BubbleSelect";
 function useTypeaheadSearch(onSearchChange) {
-  const handleSearchChange = index$1.useCallbackRef(onSearchChange);
+  const handleSearchChange = index.useCallbackRef(onSearchChange);
   const searchRef = React__namespace.useRef("");
   const timerRef = React__namespace.useRef(0);
   const handleTypeaheadSearch = React__namespace.useCallback(

@@ -44,3 +44,9 @@ packages/cli/forestry/.env
 
 # Nx
 .nx/
+
+# claude
+.claude
+CLAUDE.md
+plans
+docs

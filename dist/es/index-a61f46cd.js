@@ -284,4 +284,4 @@ function useUncontrolledState({
   return uncontrolledState;
 }
 
-export { Primitive as P, Slottable as S, composeEventHandlers as a, useId as b, createContextScope as c, useControllableState as d, useCallbackRef as e, dispatchDiscreteCustomEvent as f, useLayoutEffect2 as g, Slot as h, composeRefs as i, useComposedRefs as u };
+export { Primitive as P, Slottable as S, useComposedRefs as a, useCallbackRef as b, createContextScope as c, composeEventHandlers as d, useId as e, useControllableState as f, dispatchDiscreteCustomEvent as g, Slot as h, composeRefs as i, useLayoutEffect2 as u };

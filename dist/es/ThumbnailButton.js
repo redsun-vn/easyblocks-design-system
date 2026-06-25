@@ -8,12 +8,13 @@ import './colors-b56a153c.js';
 import './fonts-84085e3a.js';
 import './Loader.js';
 import './Tooltip.js';
-import './index-f673d433.js';
+import './index-a61f46cd.js';
 import 'react/jsx-runtime';
 import 'react-dom';
-import './index-6ce467f8.js';
-import './index-b883c295.js';
-import './index-617be02a.js';
+import './index-6369e2ef.js';
+import './floating-ui.react-dom-4105610d.js';
+import './index-ac70c049.js';
+import './index-a8a1ed37.js';
 
 const Preview = styled.div.withConfig({
   displayName: "ThumbnailButton__Preview",

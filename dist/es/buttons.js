@@ -5,12 +5,13 @@ import { C as Colors } from './colors-b56a153c.js';
 import { F as Fonts } from './fonts-84085e3a.js';
 import { Loader } from './Loader.js';
 import { Tooltip, TooltipTrigger, TooltipContent } from './Tooltip.js';
-import './index-f673d433.js';
+import './index-a61f46cd.js';
 import 'react/jsx-runtime';
 import 'react-dom';
-import './index-6ce467f8.js';
-import './index-b883c295.js';
-import './index-617be02a.js';
+import './index-6369e2ef.js';
+import './floating-ui.react-dom-4105610d.js';
+import './index-ac70c049.js';
+import './index-a8a1ed37.js';
 
 const sharedCSS = p => css(["", ";border:none;outline:none;height:", ";", " border-radius:6px;line-height:1;transition:all 0.1s;display:flex;flex-direction:row;gap:6px;justify-content:center;align-items:center;&:disabled{cursor:default;pointer-events:none;opacity:0.3;}"], Fonts.body, p.height !== undefined ? p.height : p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px", p.hideLabel ? `
     width: ${p.variant === "large" ? "36px" : p.variant === "tiny" ? "24px" : "28px"};

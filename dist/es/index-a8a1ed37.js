@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { P as Primitive } from './index-f673d433.js';
+import { P as Primitive } from './index-a61f46cd.js';
 import { jsx } from 'react/jsx-runtime';
 
 // packages/react/visually-hidden/src/visually-hidden.tsx

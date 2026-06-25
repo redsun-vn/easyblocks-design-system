@@ -157,6 +157,7 @@ export default createRollupConfigs({
     "src/Tooltip/Tooltip.tsx",
     "src/Typography.tsx",
     "src/Accordion/AccordionGroup.tsx",
+    "src/Autocomplete/Autocomplete.tsx",
   ],
   baseOutputDir: "dist",
   baseStatOutputDir: "stats",

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import React__default from 'react';
-import { c as createContextScope, u as useComposedRefs, h as Slot } from './index-f673d433.js';
+import { c as createContextScope, a as useComposedRefs, h as Slot } from './index-a61f46cd.js';
 import { jsx } from 'react/jsx-runtime';
 
 function createCollection(name) {
