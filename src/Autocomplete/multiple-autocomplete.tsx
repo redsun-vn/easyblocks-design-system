@@ -82,7 +82,10 @@ export function MultipleAutocomplete<T>(props: MultipleAutocompleteProps<T>) {
     selectedItems,
   } = multipleSelection;
 
-  const optionEquals = makeOptionEquals<T>(getOptionLabel, isOptionEqualToValue);
+  const optionEquals = makeOptionEquals<T>(
+    getOptionLabel,
+    isOptionEqualToValue,
+  );
   const isSelected = (option: T | string) =>
     selectedItems.some((sel) => optionEquals(option, sel));
 
@@ -119,7 +122,11 @@ export function MultipleAutocomplete<T>(props: MultipleAutocompleteProps<T>) {
           return changes;
       }
     },
-    onStateChange: ({ inputValue: newInput, type, selectedItem: newSelected }) => {
+    onStateChange: ({
+      inputValue: newInput,
+      type,
+      selectedItem: newSelected,
+    }) => {
       switch (type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
@@ -215,7 +222,6 @@ export function MultipleAutocomplete<T>(props: MultipleAutocompleteProps<T>) {
             )}
           </ValueArea>
           <EndAdornments>
-            {loading && <Icons.LoadingSpinner size={16} />}
             <IconButton
               type="button"
               aria-label="Toggle options"

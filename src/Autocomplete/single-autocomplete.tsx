@@ -170,7 +170,6 @@ export function SingleAutocomplete<T>(props: SingleAutocompleteProps<T>) {
             )}
           </ValueArea>
           <EndAdornments>
-            {loading && <Icons.LoadingSpinner size={16} />}
             {showClear && (
               <IconButton
                 type="button"

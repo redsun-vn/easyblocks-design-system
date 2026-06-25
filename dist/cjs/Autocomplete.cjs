@@ -1410,9 +1410,7 @@ function SingleAutocomplete(props) {
     inputProps,
     disabled,
     placeholder
-  }) : /*#__PURE__*/React__default["default"].createElement(InputEl, inputProps)), /*#__PURE__*/React__default["default"].createElement(EndAdornments, null, loading && /*#__PURE__*/React__default["default"].createElement(icons.Icons.LoadingSpinner, {
-    size: 16
-  }), showClear && /*#__PURE__*/React__default["default"].createElement(IconButton, {
+  }) : /*#__PURE__*/React__default["default"].createElement(InputEl, inputProps)), /*#__PURE__*/React__default["default"].createElement(EndAdornments, null, showClear && /*#__PURE__*/React__default["default"].createElement(IconButton, {
     type: "button",
     "aria-label": "Clear",
     disabled: disabled,
@@ -1645,9 +1643,7 @@ function MultipleAutocomplete(props) {
     inputProps,
     disabled,
     placeholder
-  }) : /*#__PURE__*/React__default["default"].createElement(InputEl, inputProps)), /*#__PURE__*/React__default["default"].createElement(EndAdornments, null, loading && /*#__PURE__*/React__default["default"].createElement(icons.Icons.LoadingSpinner, {
-    size: 16
-  }), /*#__PURE__*/React__default["default"].createElement(IconButton, _rollupPluginBabelHelpers._extends({
+  }) : /*#__PURE__*/React__default["default"].createElement(InputEl, inputProps)), /*#__PURE__*/React__default["default"].createElement(EndAdornments, null, /*#__PURE__*/React__default["default"].createElement(IconButton, _rollupPluginBabelHelpers._extends({
     type: "button",
     "aria-label": "Toggle options"
   }, getToggleButtonProps({
