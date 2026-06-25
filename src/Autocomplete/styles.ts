@@ -51,6 +51,7 @@ export const InputEl = styled.input`
   all: unset;
   flex: 1 1 auto;
   min-width: 30px;
+  max-width: 120px;
   box-sizing: border-box;
   color: inherit;
   ${Fonts.body};

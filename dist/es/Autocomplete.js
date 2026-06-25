@@ -868,7 +868,7 @@ const ValueArea = styled.div.withConfig({
 const InputEl = styled.input.withConfig({
   displayName: "styles__InputEl",
   componentId: "sc-ylfdk5-2"
-})(["all:unset;flex:1 1 auto;min-width:30px;box-sizing:border-box;color:inherit;", ";&::placeholder{color:", ";}&:disabled{cursor:not-allowed;}"], Fonts.body, Colors.black40);
+})(["all:unset;flex:1 1 auto;min-width:30px;max-width:120px;box-sizing:border-box;color:inherit;", ";&::placeholder{color:", ";}&:disabled{cursor:not-allowed;}"], Fonts.body, Colors.black40);
 
 /** Right-aligned cluster: spinner, clear button, dropdown toggle. */
 const EndAdornments = styled.div.withConfig({
