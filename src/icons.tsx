@@ -5,7 +5,7 @@ const IconContainer = styled.div.withConfig({
   shouldForwardProp(prop) {
     return !["size", "isStroke"].includes(prop);
   },
-})<IconProps>`
+}) <IconProps>`
   svg {
     width: ${(p) => (p.size || 16) + "px"};
     height: ${(p) => (p.size || 16) + "px"};
@@ -974,6 +974,20 @@ const Section = createIcon(
   </svg>,
 );
 
+const Device = createIcon(
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 512 512"
+    fill="currentColor"
+  >
+    <g>
+      <path d="M472 232h-48V120a24.03 24.03 0 0 0-24-24H40a24.03 24.03 0 0 0-24 24v246a24.03 24.03 0 0 0 24 24h172v50h-60v32h152v-32h-60v-50h92v58a24.027 24.027 0 0 0 24 24h112a24.027 24.027 0 0 0 24-24V256a24.027 24.027 0 0 0-24-24m-136 24v102H48V128h344v104h-32a24.027 24.027 0 0 0-24 24m128 184h-96V264h96Z"></path>
+    </g>
+  </svg>,
+);
+
 export const Icons = {
   Dropdown,
   MaxHeight,
@@ -1027,4 +1041,5 @@ export const Icons = {
   FullScreen,
   ExitFullScreen,
   Section,
+  Device,
 };

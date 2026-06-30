@@ -10,7 +10,7 @@ var colors = require('./colors-807b489d.js');
 var icons = require('./icons.cjs');
 var fonts = require('./fonts-c2bffa19.js');
 var styled = require('styled-components');
-var Input = require('./Input-b5f22fad.js');
+var Input = require('./Input-3cc81d4a.js');
 var ThumbnailButton = require('./ThumbnailButton.cjs');
 require('./_rollupPluginBabelHelpers-4b342fad.js');
 require('./Loader.cjs');
