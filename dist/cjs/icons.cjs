@@ -784,6 +784,15 @@ const Section = createIcon(/*#__PURE__*/React__default["default"].createElement(
 }, /*#__PURE__*/React__default["default"].createElement("g", null, /*#__PURE__*/React__default["default"].createElement("path", {
   d: "M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V96H40V56ZM40,112H96v88H40Zm176,88H112V112H216v88Z"
 }))));
+const Device = createIcon(/*#__PURE__*/React__default["default"].createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "24",
+  height: "24",
+  viewBox: "0 0 512 512",
+  fill: "currentColor"
+}, /*#__PURE__*/React__default["default"].createElement("g", null, /*#__PURE__*/React__default["default"].createElement("path", {
+  d: "M472 232h-48V120a24.03 24.03 0 0 0-24-24H40a24.03 24.03 0 0 0-24 24v246a24.03 24.03 0 0 0 24 24h172v50h-60v32h152v-32h-60v-50h92v58a24.027 24.027 0 0 0 24 24h112a24.027 24.027 0 0 0 24-24V256a24.027 24.027 0 0 0-24-24m-136 24v102H48V128h344v104h-32a24.027 24.027 0 0 0-24 24m128 184h-96V264h96Z"
+}))));
 const Icons = {
   Dropdown,
   MaxHeight,
@@ -836,7 +845,8 @@ const Icons = {
   Check,
   FullScreen,
   ExitFullScreen,
-  Section
+  Section,
+  Device
 };
 
 exports.Icons = Icons;
