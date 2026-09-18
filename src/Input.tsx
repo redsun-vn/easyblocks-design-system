@@ -40,6 +40,11 @@ const StyledInput = styled.input<InputProps & { isRaw?: boolean }>`
   all: unset;
   box-sizing: border-box;
 
+  /* "all: unset" turns the text colour into whatever an ancestor happens to
+     set, so a panel that mutes its own text mutes the value being edited with
+     it. The field states its own colour instead. */
+  color: ${Colors.black900};
+
   width: 100%;
   height: 100%;
 

@@ -5,7 +5,7 @@ var React = require('react');
 var styled = require('styled-components');
 var fonts = require('./fonts-c2bffa19.js');
 var _ColorPicker = require('react-best-gradient-color-picker');
-var ControlContainer = require('./ControlContainer-6e9e5d42.js');
+var ControlContainer = require('./ControlContainer-b32ddeb2.js');
 var colors = require('./colors-807b489d.js');
 var icons = require('./icons.cjs');
 
@@ -44,7 +44,7 @@ function debounce(fn, delay) {
 const StyledInput = styled.styled.input.withConfig({
   displayName: "Input__StyledInput",
   componentId: "sc-1nyhv3t-0"
-})(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration{display:none;}", " ", ";"], p => !p.isRaw && ControlContainer.getControlPadding(), fonts.Fonts.body);
+})(["all:unset;box-sizing:border-box;color:", ";width:100%;height:100%;outline:none;border:none;::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration{display:none;}", " ", ";"], colors.Colors.black900, p => !p.isRaw && ControlContainer.getControlPadding(), fonts.Fonts.body);
 const StyledInputColorContainer = styled.styled.div.withConfig({
   displayName: "Input__StyledInputColorContainer",
   componentId: "sc-1nyhv3t-1"

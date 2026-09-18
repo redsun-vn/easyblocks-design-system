@@ -3,7 +3,7 @@ import React__default, { forwardRef, useId, useState, useEffect, useRef } from '
 import { styled } from 'styled-components';
 import { F as Fonts } from './fonts-84085e3a.js';
 import _ColorPicker from 'react-best-gradient-color-picker';
-import { g as getControlPadding, C as ControlContainer } from './ControlContainer-40ed87f0.js';
+import { g as getControlPadding, C as ControlContainer } from './ControlContainer-f0280a23.js';
 import { C as Colors } from './colors-b56a153c.js';
 import { Icons } from './icons.js';
 
@@ -37,7 +37,7 @@ function debounce(fn, delay) {
 const StyledInput = styled.input.withConfig({
   displayName: "Input__StyledInput",
   componentId: "sc-1nyhv3t-0"
-})(["all:unset;box-sizing:border-box;width:100%;height:100%;outline:none;border:none;::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration{display:none;}", " ", ";"], p => !p.isRaw && getControlPadding(), Fonts.body);
+})(["all:unset;box-sizing:border-box;color:", ";width:100%;height:100%;outline:none;border:none;::-webkit-search-decoration,::-webkit-search-cancel-button,::-webkit-search-results-button,::-webkit-search-results-decoration{display:none;}", " ", ";"], Colors.black900, p => !p.isRaw && getControlPadding(), Fonts.body);
 const StyledInputColorContainer = styled.div.withConfig({
   displayName: "Input__StyledInputColorContainer",
   componentId: "sc-1nyhv3t-1"

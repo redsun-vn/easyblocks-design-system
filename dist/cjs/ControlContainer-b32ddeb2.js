@@ -52,9 +52,17 @@ const Root = styled.styled.div.withConfig({
           color: ${colors.Colors.black40};
         `;
     } else {
+      // A resting outline, not just one on hover. Without it a compact field
+      // is white on white until the pointer happens to cross it, so the
+      // property panel reads as a list of labels with nothing to type into.
+      // Hover still darkens it, which is what keeps the two states apart.
       return `
+          box-shadow: 0 0 0 1px ${colors.Colors.black10};
           &:hover {
-             ${outlineStyles}
+            box-shadow: 0 0 0 1px ${p.hasError ? "red" : colors.Colors.black20};
+            .ss-arrow {
+              color: black;
+            }
           }
         `;
     }
