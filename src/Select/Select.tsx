@@ -21,10 +21,31 @@ const SelectTrigger = styled(RadixSelect.Trigger)`
   padding: 0 2px 0 6px;
   border-radius: 2px;
 
+  /*
+   * A resting outline, the same one every other control in the panel wears.
+   *
+   * The reset above leaves the trigger with no edge of its own, and the only
+   * rule here used to be a hover one — so a panel of a dozen dropdowns was a
+   * column of bare words with nothing to say they could be opened, and the
+   * pointer had to find them one at a time. Worse, the shade it showed on
+   * hover is the shade everything else shows at rest, so the select was a step
+   * behind its neighbours in every state.
+   *
+   * The two shades and the focus ring are ControlContainer's, because a select
+   * and a text field sitting in the same row should not be lit differently.
+   */
+  box-shadow: 0 0 0 1px ${Colors.black10};
+  transition: box-shadow 0.1s;
+
   @media (hover: hover) {
     &:hover {
-      box-shadow: 0 0 0 1px ${Colors.black10};
+      box-shadow: 0 0 0 1px ${Colors.black20};
     }
+  }
+
+  &:focus-visible,
+  &[data-state="open"] {
+    box-shadow: 0 0 0 2px ${Colors.focus};
   }
 `;
 

@@ -17,7 +17,7 @@ import 'react-remove-scroll';
 const SelectTrigger = styled(Trigger).withConfig({
   displayName: "Select__SelectTrigger",
   componentId: "sc-1ehkd60-0"
-})(["all:unset;display:flex;align-items:center;", ";display:flex;gap:4px;max-width:100%;box-sizing:border-box;height:28px;padding:0 2px 0 6px;border-radius:2px;@media (hover:hover){&:hover{box-shadow:0 0 0 1px ", ";}}"], Fonts.body, Colors.black10);
+})(["all:unset;display:flex;align-items:center;", ";display:flex;gap:4px;max-width:100%;box-sizing:border-box;height:28px;padding:0 2px 0 6px;border-radius:2px;box-shadow:0 0 0 1px ", ";transition:box-shadow 0.1s;@media (hover:hover){&:hover{box-shadow:0 0 0 1px ", ";}}&:focus-visible,&[data-state=\"open\"]{box-shadow:0 0 0 2px ", ";}"], Fonts.body, Colors.black10, Colors.black20, Colors.focus);
 function Select(props) {
   return /*#__PURE__*/React__default.createElement(Root2, {
     value: props.value,
