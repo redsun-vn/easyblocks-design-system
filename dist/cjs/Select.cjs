@@ -22,10 +22,60 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
+/**
+ * How a select trigger looks, kept apart so there is one of it.
+ *
+ * The colour field in the editor draws its own trigger — it shows a swatch
+ * rather than text — and did so by copying these rules. Both copies were then
+ * missing the same resting outline, which is how a fix in one place left the
+ * other still invisible.
+ */
+const selectTriggerStyles = styled.css`
+  all: unset;
+
+  display: flex;
+  align-items: center;
+
+  ${fonts.Fonts.body};
+  gap: 4px;
+  max-width: 100%;
+
+  box-sizing: border-box;
+  height: 28px;
+  padding: 0 2px 0 6px;
+  border-radius: 2px;
+
+  /*
+   * A resting outline, the same one every other control in the panel wears.
+   *
+   * The reset above leaves the trigger with no edge of its own, and the only
+   * rule here used to be a hover one — so a panel of a dozen dropdowns was a
+   * column of bare words with nothing to say they could be opened, and the
+   * pointer had to find them one at a time. Worse, the shade it showed on
+   * hover is the shade everything else shows at rest, so the select was a step
+   * behind its neighbours in every state.
+   *
+   * The two shades and the focus ring are ControlContainer's, because a select
+   * and a text field sitting in the same row should not be lit differently.
+   */
+  box-shadow: 0 0 0 1px ${colors.Colors.black10};
+  transition: box-shadow 0.1s;
+
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 0 0 0 1px ${colors.Colors.black20};
+    }
+  }
+
+  &:focus-visible,
+  &[data-state="open"] {
+    box-shadow: 0 0 0 2px ${colors.Colors.focus};
+  }
+`;
 const SelectTrigger = styled.styled(index.Trigger).withConfig({
   displayName: "Select__SelectTrigger",
   componentId: "sc-1ehkd60-0"
-})(["all:unset;display:flex;align-items:center;", ";display:flex;gap:4px;max-width:100%;box-sizing:border-box;height:28px;padding:0 2px 0 6px;border-radius:2px;box-shadow:0 0 0 1px ", ";transition:box-shadow 0.1s;@media (hover:hover){&:hover{box-shadow:0 0 0 1px ", ";}}&:focus-visible,&[data-state=\"open\"]{box-shadow:0 0 0 2px ", ";}"], fonts.Fonts.body, colors.Colors.black10, colors.Colors.black20, colors.Colors.focus);
+})(["", ""], selectTriggerStyles);
 function Select(props) {
   return /*#__PURE__*/React__default["default"].createElement(index.Root2, {
     value: props.value,
@@ -80,3 +130,4 @@ function SelectSeparator() {
 exports.Select = Select;
 exports.SelectItem = SelectItem;
 exports.SelectSeparator = SelectSeparator;
+exports.selectTriggerStyles = selectTriggerStyles;

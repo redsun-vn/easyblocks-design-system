@@ -1,18 +1,25 @@
 import { CheckIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 import * as RadixSelect from "@radix-ui/react-select";
 import React, { CSSProperties, forwardRef, ReactNode } from "react";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import { Colors } from "../colors";
 import { Fonts } from "../fonts";
 
-const SelectTrigger = styled(RadixSelect.Trigger)`
+/**
+ * How a select trigger looks, kept apart so there is one of it.
+ *
+ * The colour field in the editor draws its own trigger — it shows a swatch
+ * rather than text — and did so by copying these rules. Both copies were then
+ * missing the same resting outline, which is how a fix in one place left the
+ * other still invisible.
+ */
+export const selectTriggerStyles = css`
   all: unset;
 
   display: flex;
   align-items: center;
 
   ${Fonts.body};
-  display: flex;
   gap: 4px;
   max-width: 100%;
 
@@ -47,6 +54,10 @@ const SelectTrigger = styled(RadixSelect.Trigger)`
   &[data-state="open"] {
     box-shadow: 0 0 0 2px ${Colors.focus};
   }
+`;
+
+const SelectTrigger = styled(RadixSelect.Trigger)`
+  ${selectTriggerStyles}
 `;
 
 function Select(props: {
